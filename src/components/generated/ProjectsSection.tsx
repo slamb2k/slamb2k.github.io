@@ -9,7 +9,7 @@ const ProjectsSection: React.FC = () => {
     github: 'https://github.com',
     external: 'https://spotify-profile.herokuapp.com/',
     image: '/api/placeholder/600/400',
-    mpid: "afa3c8a2-9b94-45ef-bd89-3f66c8b8b4e5"
+    mpid: "b6d40dbe-cc83-4645-a546-042800cc6d03"
   }, {
     title: 'Halcyon Theme',
     description: 'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.',
@@ -17,7 +17,7 @@ const ProjectsSection: React.FC = () => {
     github: 'https://github.com',
     external: 'https://halcyon-theme.netlify.com/',
     image: '/api/placeholder/600/400',
-    mpid: "ba4e007f-1015-4e32-8558-01b58dbb47b5"
+    mpid: "6a79a784-bfe2-4200-8397-450e497b532c"
   }, {
     title: 'Algolia DocSearch',
     description: 'Algolia DocSearch crawls your documentation, pushes the content to an Algolia index, and provides a production-ready search experience for your documentation site.',
@@ -25,7 +25,7 @@ const ProjectsSection: React.FC = () => {
     github: 'https://github.com',
     external: 'https://docsearch.algolia.com/',
     image: '/api/placeholder/600/400',
-    mpid: "a1698a41-2e23-478b-87a3-6cb0083fe06f"
+    mpid: "ef7406e1-e885-4366-a1c6-aa5aa10709c0"
   }] as any[];
   const otherProjects = [{
     title: 'Integrating Algolia Search',
@@ -33,20 +33,20 @@ const ProjectsSection: React.FC = () => {
     technologies: ['Algolia', 'React', 'styled-components'],
     github: 'https://github.com',
     external: 'https://example.com',
-    mpid: "f8dc6e96-5461-4051-beb2-c4774e55f9ce"
+    mpid: "cc3b30da-370c-41fb-8720-0cbe53d2f63e"
   }, {
     title: 'React Profile',
     description: 'Online resume built with React and hosted on Netlify',
     technologies: ['React', 'CSS3', 'Netlify'],
     github: 'https://github.com',
     external: 'https://example.com',
-    mpid: "8680d734-d888-439a-b1f7-780140853c57"
+    mpid: "44d8d405-b1f0-45f5-9199-af7ccd000f5d"
   }, {
     title: 'Lonely Planet DBMS',
     description: 'Final project for my Database Management Systems course',
     technologies: ['PHP', 'MySQL', 'HTML', 'CSS'],
     github: 'https://github.com',
-    mpid: "b6f34b4f-01bf-4a75-859c-6ca527dc8257"
+    mpid: "edfe4bdf-c350-4879-8308-caf7565dc68f"
   }] as any[];
   return <motion.section id="projects" initial={{
     opacity: 0,
@@ -96,13 +96,13 @@ const ProjectsSection: React.FC = () => {
                   <p className="text-teal-300 font-mono text-sm mb-2" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-id="12" data-magicpath-path="ProjectsSection.tsx">
                     Featured Project
                   </p>
-                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-teal-300 transition-colors" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="title:string" data-magicpath-id="13" data-magicpath-path="ProjectsSection.tsx">
+                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-teal-300 transition-colors" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="title:unknown" data-magicpath-id="13" data-magicpath-path="ProjectsSection.tsx">
                     {project.title}
                   </h3>
                 </div>
 
                 <div className="bg-slate-800 p-6 rounded-lg shadow-lg" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-id="14" data-magicpath-path="ProjectsSection.tsx">
-                  <p className="text-slate-300 text-sm leading-relaxed" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="description:string" data-magicpath-id="15" data-magicpath-path="ProjectsSection.tsx">
+                  <p className="text-slate-300 text-sm leading-relaxed" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="description:unknown" data-magicpath-id="15" data-magicpath-path="ProjectsSection.tsx">
                     {project.description}
                   </p>
                 </div>
@@ -181,11 +181,11 @@ const ProjectsSection: React.FC = () => {
                 </div>
               </div>
               
-              <h4 className="text-slate-100 font-semibold mb-2" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="title:string" data-magicpath-id="35" data-magicpath-path="ProjectsSection.tsx">
+              <h4 className="text-slate-100 font-semibold mb-2" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="title:unknown" data-magicpath-id="35" data-magicpath-path="ProjectsSection.tsx">
                 {project.title}
               </h4>
               
-              <p className="text-slate-400 text-sm mb-4 leading-relaxed" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="description:string" data-magicpath-id="36" data-magicpath-path="ProjectsSection.tsx">
+              <p className="text-slate-400 text-sm mb-4 leading-relaxed" data-magicpath-uuid={(project as any)["mpid"] ?? "unsafe"} data-magicpath-field="description:unknown" data-magicpath-id="36" data-magicpath-path="ProjectsSection.tsx">
                 {project.description}
               </p>
               

@@ -118,14 +118,14 @@ const PortfolioLandingPage: React.FC = () => {
                 company: 'Upstatement',
                 description: 'Build and maintain critical components used to construct Klaviyo\'s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.',
                 technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
-                mpid: "1f22e7ad-e9e8-413b-8485-52668dd2157a"
+                mpid: "e2ac522e-7aa3-42d0-b370-9b1a2061885f"
               }, {
                 period: '2018 — 2021',
                 title: 'Frontend Developer',
                 company: 'Apple',
                 description: 'Developed and maintained web applications for Apple\'s internal tools. Collaborated with design teams to implement pixel-perfect interfaces.',
                 technologies: ['React', 'Redux', 'Node.js', 'GraphQL'],
-                mpid: "171ae57e-e095-4e86-99f3-6795f8ddd0f7"
+                mpid: "07236b63-b70f-4e13-8edb-19a87c667806"
               }].map((job, index) => <motion.div key={index} whileHover={{
                 scale: 1.02
               }} className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="19" data-magicpath-path="PortfolioLandingPage.tsx">
