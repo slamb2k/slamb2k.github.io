@@ -44,27 +44,27 @@ const PortfolioLandingPage: React.FC = () => {
       });
     }
   };
-  return <div className="min-h-screen bg-slate-900 text-slate-300" data-magicpath-id="0" data-magicpath-path="PortfolioLandingPage.tsx">
+  return <div className="min-h-screen bg-slate-900 text-slate-300">
       {/* Mobile Header */}
       {isMobile && <motion.header initial={{
       y: -100
     }} animate={{
       y: 0
-    }} className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800" data-magicpath-id="1" data-magicpath-path="PortfolioLandingPage.tsx">
-          <div className="px-6 py-4" data-magicpath-id="2" data-magicpath-path="PortfolioLandingPage.tsx">
-            <h1 className="text-xl font-bold text-slate-100" data-magicpath-id="3" data-magicpath-path="PortfolioLandingPage.tsx">John Doe</h1>
+    }} className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+          <div className="px-6 py-4">
+            <h1 className="text-xl font-bold text-slate-100">John Doe</h1>
           </div>
         </motion.header>}
 
-      <div className="lg:flex" data-magicpath-id="4" data-magicpath-path="PortfolioLandingPage.tsx">
+      <div className="lg:flex">
         {/* Sidebar Navigation - Desktop */}
-        {!isMobile && <SidebarNavigation activeSection={activeSection} onSectionClick={scrollToSection} data-magicpath-id="5" data-magicpath-path="PortfolioLandingPage.tsx" />}
+        {!isMobile && <SidebarNavigation activeSection={activeSection} onSectionClick={scrollToSection} />}
 
         {/* Main Content */}
-        <main className={`flex-1 ${isMobile ? 'pt-20' : 'lg:ml-96'}`} data-magicpath-id="6" data-magicpath-path="PortfolioLandingPage.tsx">
-          <div className="max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-24" data-magicpath-id="7" data-magicpath-path="PortfolioLandingPage.tsx">
+        <main className={`flex-1 ${isMobile ? 'pt-20' : 'lg:ml-96'}`}>
+          <div className="max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-24">
             {/* Hero Section */}
-            <HeroSection data-magicpath-id="8" data-magicpath-path="PortfolioLandingPage.tsx" />
+            <HeroSection />
 
             {/* About Section */}
             <motion.section id="about" initial={{
@@ -77,21 +77,21 @@ const PortfolioLandingPage: React.FC = () => {
             duration: 0.6
           }} viewport={{
             once: true
-          }} className="mb-24" data-magicpath-id="9" data-magicpath-path="PortfolioLandingPage.tsx">
-              <h2 className="text-2xl font-bold text-slate-100 mb-6" data-magicpath-id="10" data-magicpath-path="PortfolioLandingPage.tsx">About</h2>
-              <div className="space-y-4 text-slate-400 leading-relaxed" data-magicpath-id="11" data-magicpath-path="PortfolioLandingPage.tsx">
-                <p data-magicpath-id="12" data-magicpath-path="PortfolioLandingPage.tsx">
+          }} className="mb-24">
+              <h2 className="text-2xl font-bold text-slate-100 mb-6">About</h2>
+              <div className="space-y-4 text-slate-400 leading-relaxed">
+                <p>
                   I'm a passionate full-stack developer with over 5 years of experience building 
                   digital experiences. I specialize in creating accessible, pixel-perfect web 
                   applications with modern technologies.
                 </p>
-                <p data-magicpath-id="13" data-magicpath-path="PortfolioLandingPage.tsx">
+                <p>
                   My main focus these days is building products and leading projects at{' '}
-                  <span className="text-teal-300 font-medium" data-magicpath-id="14" data-magicpath-path="PortfolioLandingPage.tsx">Upstatement</span>. I most enjoy 
+                  <span className="text-teal-300 font-medium">Upstatement</span>. I most enjoy 
                   building software in the sweet spot where design and engineering meet — things 
                   that look good but are also built well under the hood.
                 </p>
-                <p data-magicpath-id="15" data-magicpath-path="PortfolioLandingPage.tsx">
+                <p>
                   When I'm not at the computer, I'm usually rock climbing, hanging out with my 
                   wife and two cats, or running around Hyrule searching for Korok seeds.
                 </p>
@@ -109,39 +109,37 @@ const PortfolioLandingPage: React.FC = () => {
             duration: 0.6
           }} viewport={{
             once: true
-          }} className="mb-24" data-magicpath-id="16" data-magicpath-path="PortfolioLandingPage.tsx">
-              <h2 className="text-2xl font-bold text-slate-100 mb-6" data-magicpath-id="17" data-magicpath-path="PortfolioLandingPage.tsx">Experience</h2>
-              <div className="space-y-8" data-magicpath-id="18" data-magicpath-path="PortfolioLandingPage.tsx">
+          }} className="mb-24">
+              <h2 className="text-2xl font-bold text-slate-100 mb-6">Experience</h2>
+              <div className="space-y-8">
                 {[{
                 period: '2021 — Present',
                 title: 'Senior Frontend Engineer',
                 company: 'Upstatement',
                 description: 'Build and maintain critical components used to construct Klaviyo\'s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.',
-                technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
-                mpid: "e2ac522e-7aa3-42d0-b370-9b1a2061885f"
+                technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook']
               }, {
                 period: '2018 — 2021',
                 title: 'Frontend Developer',
                 company: 'Apple',
                 description: 'Developed and maintained web applications for Apple\'s internal tools. Collaborated with design teams to implement pixel-perfect interfaces.',
-                technologies: ['React', 'Redux', 'Node.js', 'GraphQL'],
-                mpid: "07236b63-b70f-4e13-8edb-19a87c667806"
+                technologies: ['React', 'Redux', 'Node.js', 'GraphQL']
               }].map((job, index) => <motion.div key={index} whileHover={{
                 scale: 1.02
-              }} className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="19" data-magicpath-path="PortfolioLandingPage.tsx">
-                    <div className="flex flex-col lg:flex-row lg:items-start gap-4" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="20" data-magicpath-path="PortfolioLandingPage.tsx">
-                      <div className="text-sm text-slate-500 font-mono lg:w-32 flex-shrink-0" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-field="period:unknown" data-magicpath-id="21" data-magicpath-path="PortfolioLandingPage.tsx">
+              }} className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300">
+                    <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+                      <div className="text-sm text-slate-500 font-mono lg:w-32 flex-shrink-0">
                         {job.period}
                       </div>
-                      <div className="flex-1" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="22" data-magicpath-path="PortfolioLandingPage.tsx">
-                        <h3 className="text-slate-100 font-semibold group-hover:text-teal-300 transition-colors" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-field="company:unknown,title:unknown" data-magicpath-id="23" data-magicpath-path="PortfolioLandingPage.tsx">
+                      <div className="flex-1">
+                        <h3 className="text-slate-100 font-semibold group-hover:text-teal-300 transition-colors">
                           {job.title} · {job.company}
                         </h3>
-                        <p className="text-slate-400 mt-2 text-sm leading-relaxed" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-field="description:unknown" data-magicpath-id="24" data-magicpath-path="PortfolioLandingPage.tsx">
+                        <p className="text-slate-400 mt-2 text-sm leading-relaxed">
                           {job.description}
                         </p>
-                        <div className="flex flex-wrap gap-2 mt-4" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="25" data-magicpath-path="PortfolioLandingPage.tsx">
-                          {job.technologies.map(tech => <span key={tech} className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full" data-magicpath-uuid={(job as any)["mpid"] ?? "unsafe"} data-magicpath-id="26" data-magicpath-path="PortfolioLandingPage.tsx">
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {job.technologies.map(tech => <span key={tech} className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full">
                               {tech}
                             </span>)}
                         </div>
@@ -152,10 +150,10 @@ const PortfolioLandingPage: React.FC = () => {
             </motion.section>
 
             {/* Projects Section */}
-            <ProjectsSection data-magicpath-id="27" data-magicpath-path="PortfolioLandingPage.tsx" />
+            <ProjectsSection />
 
             {/* Contact Section */}
-            <ContactSection data-magicpath-id="28" data-magicpath-path="PortfolioLandingPage.tsx" />
+            <ContactSection />
           </div>
         </main>
       </div>
