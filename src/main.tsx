@@ -1,4 +1,6 @@
 import { StrictMode } from 'react';
+import './i18n/config'; // Initialize i18n
+
 // Force light mode by removing dark class and preventing it from being added
 document.documentElement.classList.remove('dark');
 

@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 const NavigationHeader: React.FC = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   
@@ -12,7 +15,12 @@ const NavigationHeader: React.FC = () => {
   const currentPath = location.pathname === '/' ? '/about' : location.pathname;
   const activeSection = currentPath.replace('/', '') || 'about';
   
-  const navigationItems = portfolioData.navigation;
+  const navigationItems = [
+    { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'contact', label: t('nav.contact') },
+  ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -34,7 +42,7 @@ const NavigationHeader: React.FC = () => {
           <button
             onClick={toggleMenu}
             className="p-2 text-slate-400 hover:text-slate-100 transition-colors"
-            aria-label="Toggle navigation menu"
+            aria-label={t('common.toggleMenu')}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -62,35 +70,46 @@ const NavigationHeader: React.FC = () => {
               transition={{ type: 'tween', duration: 0.3 }}
               className="fixed top-0 right-0 h-full w-80 bg-slate-900 border-l border-slate-800 z-50 p-6 pt-24"
             >
-              <nav className="space-y-6">
-                {navigationItems.map((item, index) => {
-                  const isActive = activeSection === item.id;
-                  const routePath = item.id === 'about' ? '/' : `/${item.id}`;
-                  
-                  return (
-                    <motion.div
-                      key={item.id}
-                      initial={{ x: 50, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: index * 0.1 }}
-                    >
-                      <Link
-                        to={routePath}
-                        onClick={closeMenu}
-                        className={`block py-3 px-4 rounded-lg transition-all duration-300 ${
-                          isActive
-                            ? 'bg-teal-600/20 text-teal-300 border-l-4 border-teal-300'
-                            : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
-                        }`}
+              <div className="space-y-8">
+                <nav className="space-y-6">
+                  {navigationItems.map((item, index) => {
+                    const isActive = activeSection === item.id;
+                    const routePath = item.id === 'about' ? '/' : `/${item.id}`;
+                    
+                    return (
+                      <motion.div
+                        key={item.id}
+                        initial={{ x: 50, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: index * 0.1 }}
                       >
-                        <span className="text-lg font-medium tracking-wide uppercase">
-                          {item.label}
-                        </span>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </nav>
+                        <Link
+                          to={routePath}
+                          onClick={closeMenu}
+                          className={`block py-3 px-4 rounded-lg transition-all duration-300 ${
+                            isActive
+                              ? 'bg-teal-600/20 text-teal-300 border-l-4 border-teal-300'
+                              : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
+                          }`}
+                        >
+                          <span className="text-lg font-medium tracking-wide uppercase">
+                            {item.label}
+                          </span>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </nav>
+
+                {/* Language Switcher */}
+                <motion.div
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <LanguageSwitcher variant="mobile" />
+                </motion.div>
+              </div>
             </motion.div>
           </>
         )}

@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
 
 const ProjectsPage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -17,14 +20,14 @@ const ProjectsPage: React.FC = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <h1 className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
-          Projects
+          {t('projects.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl">
-          A collection of projects I've built, showcasing different technologies and problem-solving approaches.
+          {t('projects.description')}
         </p>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {portfolioData.projects.map((project, index) => (
+          {(t('projects.items', { returnObjects: true }) as any[]).map((project: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
@@ -44,7 +47,7 @@ const ProjectsPage: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-400 hover:text-slate-100 transition-colors"
-                      aria-label={`${project.title} GitHub repository`}
+                      aria-label={t('common.viewOnGithub', { title: project.title })}
                     >
                       <Github size={18} />
                     </a>
@@ -55,7 +58,7 @@ const ProjectsPage: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-slate-400 hover:text-slate-100 transition-colors"
-                      aria-label={`Visit ${project.title}`}
+                      aria-label={t('common.visitProject', { title: project.title })}
                     >
                       <ExternalLink size={18} />
                     </a>
@@ -68,7 +71,7 @@ const ProjectsPage: React.FC = () => {
               </p>
               
               <div className="flex flex-wrap gap-2">
-                {project.technologies.map(tech => (
+                {project.technologies.map((tech: string) => (
                   <span
                     key={tech}
                     className="px-2 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full"

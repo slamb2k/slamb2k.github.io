@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience", 
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Hi, I'm {{name}}.",
+    "subtitle": "Senior Frontend Engineer",
+    "tagline": "I build pixel-perfect, engaging, and accessible digital experiences.",
+    "heading": "About",
+    "paragraph1": "I'm a passionate full-stack developer with over 5 years of experience building digital experiences. I specialize in creating accessible, pixel-perfect web applications with modern technologies.",
+    "paragraph2": "My main focus these days is building products and leading projects at Upstatement. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood.",
+    "paragraph3": "When I'm not at the computer, I'm usually rock climbing, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds."
+  },
+  "experience": {
+    "title": "Experience",
+    "description": "A chronological overview of my professional journey and the technologies I've worked with.",
+    "jobs": [
+      {
+        "period": "2021 — Present",
+        "title": "Senior Frontend Engineer",
+        "company": "Upstatement",
+        "description": "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
+        "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
+      },
+      {
+        "period": "2018 — 2021", 
+        "title": "Frontend Developer",
+        "company": "Apple",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": ["React", "Redux", "Node.js", "GraphQL"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
+    "items": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "A modern e-commerce platform built with Next.js and Stripe integration.",
+        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
+        "link": "https://example.com",
+        "github": "https://github.com/example/project"
+      },
+      {
+        "title": "Task Management App",
+        "description": "A collaborative task management application with real-time updates.",
+        "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
+        "github": "https://github.com/example/task-app"
+      },
+      {
+        "title": "Design System",
+        "description": "A comprehensive design system and component library for enterprise applications.",
+        "technologies": ["React", "TypeScript", "Storybook", "Jest"],
+        "link": "https://design.example.com"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "message": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
+    "button": "Say Hello",
+    "email": "hello@example.com"
+  },
+  "common": {
+    "visitProject": "Visit {{title}}",
+    "viewOnGithub": "{{title}} GitHub repository",
+    "toggleMenu": "Toggle navigation menu",
+    "close": "Close"
+  },
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "current": "Current language: {{language}}"
+  }
+}
