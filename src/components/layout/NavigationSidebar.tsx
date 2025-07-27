@@ -5,6 +5,7 @@ import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import { KEYS, createKeyboardNavigationHandler, getFocusableElements } from '@/utils/keyboard';
 
 const NavigationSidebar: React.FC = () => {
   const { t } = useTranslation();
@@ -12,6 +13,8 @@ const NavigationSidebar: React.FC = () => {
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
   const [previousActiveSection, setPreviousActiveSection] = React.useState<string>('');
   const [isInitialLoad, setIsInitialLoad] = React.useState(true);
+  const [focusedNavIndex, setFocusedNavIndex] = React.useState(-1);
+  const navigationRef = React.useRef<HTMLElement>(null);
   
   // Get current active section from URL path
   const currentPath = location.pathname === '/' ? '/about' : location.pathname;
@@ -49,6 +52,36 @@ const NavigationSidebar: React.FC = () => {
     icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail
   }));
 
+  // Keyboard navigation handler for main navigation
+  const handleNavigationKeyDown = React.useCallback((event: React.KeyboardEvent) => {
+    if (!navigationRef.current) return;
+
+    const navLinks = getFocusableElements(navigationRef.current);
+    
+    if (event.key === KEYS.ARROW_DOWN) {
+      event.preventDefault();
+      const currentIndex = navLinks.findIndex(link => link === document.activeElement);
+      const nextIndex = currentIndex < navLinks.length - 1 ? currentIndex + 1 : 0;
+      navLinks[nextIndex]?.focus();
+      setFocusedNavIndex(nextIndex);
+    } else if (event.key === KEYS.ARROW_UP) {
+      event.preventDefault();
+      const currentIndex = navLinks.findIndex(link => link === document.activeElement);
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : navLinks.length - 1;
+      navLinks[prevIndex]?.focus();
+      setFocusedNavIndex(prevIndex);
+    } else if (event.key === KEYS.HOME) {
+      event.preventDefault();
+      navLinks[0]?.focus();
+      setFocusedNavIndex(0);
+    } else if (event.key === KEYS.END) {
+      event.preventDefault();
+      const lastIndex = navLinks.length - 1;
+      navLinks[lastIndex]?.focus();
+      setFocusedNavIndex(lastIndex);
+    }
+  }, []);
+
   return (
     <motion.aside
       initial={{ x: -100, opacity: 0 }}
@@ -77,7 +110,13 @@ const NavigationSidebar: React.FC = () => {
         </motion.div>
 
         {/* Navigation */}
-        <nav className="space-y-4">
+        <nav 
+          ref={navigationRef}
+          className="space-y-4"
+          role="navigation"
+          aria-label="Main navigation"
+          onKeyDown={handleNavigationKeyDown}
+        >
           {navigationItems.map((item, index) => {
             const isActive = activeSection === item.id;
             const routePath = item.id === 'about' ? '/' : `/${item.id}`;
@@ -93,7 +132,9 @@ const NavigationSidebar: React.FC = () => {
                   to={routePath}
                   onMouseEnter={() => setHoveredSection(item.id)}
                   onMouseLeave={() => setHoveredSection(null)}
-                  className={`group flex items-center space-x-4 w-full text-left py-2 transition-all duration-300 ${
+                  aria-current={isActive ? 'page' : undefined}
+                  aria-describedby={`nav-description-${item.id}`}
+                  className={`group flex items-center space-x-4 w-full text-left py-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg ${
                     isActive ? 'text-slate-100' : 'text-slate-400 hover:text-slate-100'
                   }`}
                 >
@@ -143,6 +184,13 @@ const NavigationSidebar: React.FC = () => {
                       })}
                     </div>
                   </div>
+                  {/* Hidden description for screen readers */}
+                  <span 
+                    id={`nav-description-${item.id}`}
+                    className="sr-only"
+                  >
+                    {t(`nav.description.${item.id}`, `Navigate to ${item.label} section`)}
+                  </span>
                 </Link>
               </motion.div>
             );
@@ -166,6 +214,8 @@ const NavigationSidebar: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8 }}
           className="flex space-x-4"
+          role="list"
+          aria-label="Social media links"
         >
           {socialLinks.map(social => (
             <motion.a
@@ -175,10 +225,11 @@ const NavigationSidebar: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300"
-              aria-label={social.label}
+              className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+              aria-label={`${social.label} (opens in new tab)`}
+              role="listitem"
             >
-              {React.createElement(social.icon, { size: 20 })}
+              {React.createElement(social.icon, { size: 20, 'aria-hidden': true })}
             </motion.a>
           ))}
         </motion.div>
