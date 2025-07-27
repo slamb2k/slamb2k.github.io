@@ -4,22 +4,44 @@ import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useContactConfig } from '@/hooks/useConfig';
 import { portfolioData } from '@/data/portfolio';
+import LazySection from '@/components/ui/LazySection';
+
+// Memoized social link component
+const SocialLink: React.FC<{ social: any; index: number }> = React.memo(({ social, index }) => (
+  <motion.a
+    href={social.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+    whileHover={{ scale: 1.1, y: -2 }}
+    whileTap={{ scale: 0.95 }}
+    className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50"
+    aria-label={social.label}
+  >
+    {React.createElement(social.icon, { size: 24 })}
+  </motion.a>
+));
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
   const contactConfig = useContactConfig();
   
-  const socialIcons = {
-    Github,
-    Linkedin,
-    Twitter,
-    Mail
-  };
-  
-  const socialLinks = portfolioData.social.map(social => ({
-    ...social,
-    icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail
-  }));
+  // Memoize social links to prevent re-renders
+  const socialLinks = React.useMemo(() => {
+    const socialIcons = {
+      Github,
+      Linkedin,
+      Twitter,
+      Mail
+    };
+    
+    return portfolioData.social.map(social => ({
+      ...social,
+      icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail
+    }));
+  }, []);
 
   return (
     <motion.div
@@ -56,33 +78,30 @@ const ContactPage: React.FC = () => {
           </a>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex justify-center space-x-6"
+        <LazySection
+          fallback={
+            <div className="flex justify-center space-x-6">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="w-16 h-16 bg-slate-800/50 rounded-lg animate-pulse" />
+              ))}
+            </div>
+          }
+          rootMargin="100px"
         >
-          {socialLinks.map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50"
-              aria-label={social.label}
-            >
-              {React.createElement(social.icon, { size: 24 })}
-            </motion.a>
-          ))}
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex justify-center space-x-6"
+          >
+            {socialLinks.map((social, index) => (
+              <SocialLink key={social.label} social={social} index={index} />
+            ))}
+          </motion.div>
+        </LazySection>
       </motion.section>
     </motion.div>
   );
 };
 
-export default ContactPage;
+export default React.memo(ContactPage);
