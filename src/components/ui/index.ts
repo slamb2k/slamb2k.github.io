@@ -5,3 +5,8 @@ export { default as Section, SectionTitle } from './Section';
 export { default as AnimatedText } from './AnimatedText';
 export { default as IconButton } from './IconButton';
 export { default as LanguageSwitcher } from './LanguageSwitcher';
+
+// Performance Optimized Components
+export { default as OptimizedImage } from './OptimizedImage';
+export { default as LazySection } from './LazySection';
+export { default as VirtualList } from './VirtualList';
