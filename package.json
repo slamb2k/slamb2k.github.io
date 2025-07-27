@@ -9,6 +9,7 @@
     "build:dev": "node scripts/build.js development",
     "build:staging": "node scripts/build.js staging",
     "build:prod": "node scripts/build.js production",
+    "build:analyze": "vite build --mode analyze",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
@@ -16,11 +17,33 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "test:accessibility": "vitest run --testNamePattern=\"accessibility|a11y\"",
+    "lighthouse": "lhci autorun",
+    "lighthouse:desktop": "lhci autorun --config=.lighthouserc.desktop.js",
+    "bundle:analyze": "npx vite-bundle-analyzer dist/stats.json",
+    "performance:check": "npm run build && npm run lighthouse",
     "prepare": "husky",
     "generate:component": "node scripts/generate-component.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "bundlesize": [
+    {
+      "path": "./dist/assets/*.js",
+      "maxSize": "500kb",
+      "compression": "gzip"
+    },
+    {
+      "path": "./dist/assets/*.css",
+      "maxSize": "100kb",
+      "compression": "gzip"
+    },
+    {
+      "path": "./dist/index.html",
+      "maxSize": "10kb",
+      "compression": "gzip"
+    }
+  ],
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/modifiers": "^9.0.0",
