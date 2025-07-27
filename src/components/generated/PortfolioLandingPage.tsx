@@ -37,6 +37,7 @@ const PortfolioLandingPage: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const scrollToSection = (sectionId: string) => {
+    setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
@@ -52,7 +53,7 @@ const PortfolioLandingPage: React.FC = () => {
       y: 0
     }} className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
           <div className="px-6 py-4">
-            <h1 className="text-xl font-bold text-slate-100">John Doe</h1>
+            <h1 className="text-xl font-bold text-slate-100">Simon Lamb</h1>
           </div>
         </motion.header>}
 

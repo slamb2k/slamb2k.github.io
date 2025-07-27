@@ -78,11 +78,11 @@ const ContactSection: React.FC = () => {
           <motion.a href="https://github.com/bchiang7/v4" target="_blank" rel="noopener noreferrer" whileHover={{
           y: -2
         }} className="text-slate-400 hover:text-teal-300 transition-colors text-sm font-mono">
-            Designed & Built by John Doe
+            Designed & Built by Simon Lamb
           </motion.a>
           
           <div className="flex items-center space-x-6 text-xs text-slate-500">
-            <span>© 2024 John Doe</span>
+            <span>© 2024 Simon Lamb</span>
             <span>•</span>
             <span>All rights reserved</span>
           </div>

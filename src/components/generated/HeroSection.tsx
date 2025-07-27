@@ -41,7 +41,7 @@ const HeroSection: React.FC = () => {
       }} transition={{
         delay: 0.3
       }} className="text-5xl lg:text-7xl font-bold text-slate-100 leading-tight">
-          John Doe.
+          Simon Lamb.
         </motion.h1>
         
         <motion.h2 initial={{
@@ -53,7 +53,7 @@ const HeroSection: React.FC = () => {
       }} transition={{
         delay: 0.4
       }} className="text-4xl lg:text-6xl font-bold text-slate-400 leading-tight">
-          I build things for the web.
+          I build things using AI.
         </motion.h2>
         
         <motion.p initial={{
