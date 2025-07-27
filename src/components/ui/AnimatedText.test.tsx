@@ -134,7 +134,7 @@ describe('AnimatedText', () => {
   });
 
   it('handles empty content gracefully', () => {
-    render(<AnimatedText></AnimatedText>);
+    render(<AnimatedText>{''}</AnimatedText>);
     // Should render without crashing
     const element = screen.getByText('', { selector: 'p' });
     expect(element).toBeInTheDocument();

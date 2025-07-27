@@ -1,7 +1,7 @@
 import { useMemo, useEffect } from 'react';
 import { Container, Theme } from './settings/types';
 import settings from './settings/theme';
-import PortfolioLandingPage from './components/generated/PortfolioLandingPage';
+import AppRouter from './router/AppRouter';
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -19,7 +19,7 @@ function App() {
 
   const generatedComponent = useMemo(() => {
     // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
-    return <PortfolioLandingPage />; // %EXPORT_STATEMENT%
+    return <AppRouter />; // %EXPORT_STATEMENT%
   }, []);
 
   if (container === 'centered') {
