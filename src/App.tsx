@@ -2,7 +2,7 @@ import { useMemo, useEffect } from 'react';
 import { Container, Theme } from './settings/types';
 import settings from './settings/theme';
 import AppRouter from './router/AppRouter';
-import { EnvironmentInfo } from './components/debug';
+import { EnvironmentInfo, PerformanceMonitor } from './components/debug';
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -28,6 +28,7 @@ function App() {
       <div className="h-full w-full flex flex-col items-center justify-center">
         {generatedComponent}
         <EnvironmentInfo />
+        <PerformanceMonitor />
       </div>
     );
   } else {
@@ -35,6 +36,7 @@ function App() {
       <>
         {generatedComponent}
         <EnvironmentInfo />
+        <PerformanceMonitor />
       </>
     );
   }
