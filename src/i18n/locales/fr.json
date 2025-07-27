@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "about": "À propos",
+    "experience": "Expérience", 
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Salut, je suis {{name}}.",
+    "subtitle": "Ingénieur Frontend Senior",
+    "tagline": "Je construis des expériences numériques parfaites, engageantes et accessibles.",
+    "heading": "À propos",
+    "paragraph1": "Je suis un développeur full-stack passionné avec plus de 5 ans d'expérience dans la création d'expériences numériques. Je me spécialise dans la création d'applications web accessibles et parfaites avec des technologies modernes.",
+    "paragraph2": "Mon objectif principal ces jours-ci est de construire des produits et de diriger des projets chez Upstatement. Ce que j'aime le plus, c'est construire des logiciels dans le sweet spot où le design et l'ingénierie se rencontrent — des choses qui ont l'air bien mais qui sont aussi bien construites sous le capot.",
+    "paragraph3": "Quand je ne suis pas à l'ordinateur, je fais généralement de l'escalade, je traîne avec ma femme et mes deux chats, ou je cours dans Hyrule à la recherche de graines Korok."
+  },
+  "experience": {
+    "title": "Expérience",
+    "description": "Un aperçu chronologique de mon parcours professionnel et des technologies avec lesquelles j'ai travaillé.",
+    "jobs": [
+      {
+        "period": "2021 — Présent",
+        "title": "Ingénieur Frontend Senior",
+        "company": "Upstatement",
+        "description": "Construire et maintenir des composants critiques utilisés pour construire le frontend de Klaviyo, à travers tout le produit. Travailler en étroite collaboration avec des équipes inter-fonctionnelles, y compris les développeurs, designers et chefs de produit.",
+        "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
+      },
+      {
+        "period": "2018 — 2021", 
+        "title": "Développeur Frontend",
+        "company": "Apple",
+        "description": "J'ai développé et maintenu des applications web pour les outils internes d'Apple. J'ai collaboré avec les équipes de design pour implémenter des interfaces parfaites.",
+        "technologies": ["React", "Redux", "Node.js", "GraphQL"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projets",
+    "description": "Une collection de projets que j'ai construits, montrant différentes technologies et approches de résolution de problèmes.",
+    "items": [
+      {
+        "title": "Plateforme E-Commerce",
+        "description": "Une plateforme de commerce électronique moderne construite avec Next.js et l'intégration Stripe.",
+        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
+        "link": "https://example.com",
+        "github": "https://github.com/example/project"
+      },
+      {
+        "title": "App de Gestion de Tâches",
+        "description": "Une application collaborative de gestion de tâches avec des mises à jour en temps réel.",
+        "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
+        "github": "https://github.com/example/task-app"
+      },
+      {
+        "title": "Système de Design",
+        "description": "Un système de design complet et une bibliothèque de composants pour les applications d'entreprise.",
+        "technologies": ["React", "TypeScript", "Storybook", "Jest"],
+        "link": "https://design.example.com"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Entrer en Contact",
+    "message": "Je suis toujours intéressé à entendre parler de nouveaux projets et opportunités. N'hésitez pas à me contacter!",
+    "button": "Dire Bonjour",
+    "email": "hello@example.com"
+  },
+  "common": {
+    "visitProject": "Visiter {{title}}",
+    "viewOnGithub": "Dépôt GitHub de {{title}}",
+    "toggleMenu": "Basculer le menu de navigation",
+    "close": "Fermer"
+  },
+  "language": {
+    "switchTo": "Passer à {{language}}",
+    "current": "Langue actuelle: {{language}}"
+  }
+}

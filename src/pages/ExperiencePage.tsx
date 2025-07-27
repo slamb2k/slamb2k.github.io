@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
 
 const ExperiencePage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -16,14 +19,14 @@ const ExperiencePage: React.FC = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
       >
         <h1 className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
-          Experience
+          {t('experience.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl">
-          A chronological overview of my professional journey and the technologies I've worked with.
+          {t('experience.description')}
         </p>
 
         <div className="space-y-8">
-          {portfolioData.experience.map((job, index) => (
+          {(t('experience.jobs', { returnObjects: true }) as any[]).map((job: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -50 }}
@@ -44,7 +47,7 @@ const ExperiencePage: React.FC = () => {
                     {job.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {job.technologies.map(tech => (
+                    {job.technologies.map((tech: string) => (
                       <span
                         key={tech}
                         className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full"

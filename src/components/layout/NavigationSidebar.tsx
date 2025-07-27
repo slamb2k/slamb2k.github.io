@@ -2,9 +2,12 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 const NavigationSidebar: React.FC = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const [hoveredSection, setHoveredSection] = React.useState<string | null>(null);
   const [previousActiveSection, setPreviousActiveSection] = React.useState<string>('');
@@ -27,7 +30,12 @@ const NavigationSidebar: React.FC = () => {
     }
   }, [activeSection, previousActiveSection, isInitialLoad]);
   
-  const navigationItems = portfolioData.navigation;
+  const navigationItems = [
+    { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'contact', label: t('nav.contact') },
+  ];
   
   const socialIcons = {
     Github,
@@ -142,28 +150,39 @@ const NavigationSidebar: React.FC = () => {
         </nav>
       </div>
 
-      {/* Social Links */}
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="flex space-x-4"
-      >
-        {socialLinks.map(social => (
-          <motion.a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300"
-            aria-label={social.label}
-          >
-            {React.createElement(social.icon, { size: 20 })}
-          </motion.a>
-        ))}
-      </motion.div>
+      <div className="space-y-6">
+        {/* Language Switcher */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.7 }}
+        >
+          <LanguageSwitcher variant="desktop" />
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="flex space-x-4"
+        >
+          {socialLinks.map(social => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300"
+              aria-label={social.label}
+            >
+              {React.createElement(social.icon, { size: 20 })}
+            </motion.a>
+          ))}
+        </motion.div>
+      </div>
     </motion.aside>
   );
 };

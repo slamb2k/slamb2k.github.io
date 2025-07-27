@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
 
 const ContactPage: React.FC = () => {
+  const { t } = useTranslation();
+  
   const socialIcons = {
     Github,
     Linkedin,
@@ -30,10 +33,10 @@ const ContactPage: React.FC = () => {
         className="text-center"
       >
         <h1 className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
-          Get In Touch
+          {t('contact.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">
-          {portfolioData.contact.message}
+          {t('contact.message')}
         </p>
 
         <motion.div
@@ -43,11 +46,11 @@ const ContactPage: React.FC = () => {
           className="mb-12"
         >
           <a
-            href={`mailto:${portfolioData.contact.email}`}
+            href={`mailto:${t('contact.email')}`}
             className="inline-flex items-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-300 text-lg"
           >
             <Mail className="mr-3" size={20} />
-            Say Hello
+            {t('contact.button')}
           </a>
         </motion.div>
 
