@@ -1,47 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { portfolioData } from '@/data/portfolio';
+
+interface ProjectWithImage {
+  title: string;
+  description: string;
+  technologies: string[];
+  github?: string;
+  external?: string;
+  image?: string;
+}
+
 const ProjectsSection: React.FC = () => {
-  const projects = [{
-    title: 'Spotify Profile',
-    description: 'A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.',
-    technologies: ['React', 'Styled Components', 'Express', 'Spotify API', 'Heroku'],
-    github: 'https://github.com',
-    external: 'https://spotify-profile.herokuapp.com/',
+  // Use the first 3 projects as featured projects with placeholder images
+  const featuredProjects: ProjectWithImage[] = portfolioData.projects.slice(0, 3).map(project => ({
+    ...project,
+    external: project.link,
     image: '/api/placeholder/600/400'
-  }, {
-    title: 'Halcyon Theme',
-    description: 'A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.',
-    technologies: ['VS Code', 'Sublime Text', 'Atom', 'iTerm2', 'Hyper'],
-    github: 'https://github.com',
-    external: 'https://halcyon-theme.netlify.com/',
-    image: '/api/placeholder/600/400'
-  }, {
-    title: 'Algolia DocSearch',
-    description: 'Algolia DocSearch crawls your documentation, pushes the content to an Algolia index, and provides a production-ready search experience for your documentation site.',
-    technologies: ['Algolia', 'DocSearch', 'React', 'Node.js'],
-    github: 'https://github.com',
-    external: 'https://docsearch.algolia.com/',
-    image: '/api/placeholder/600/400'
-  }] as any[];
-  const otherProjects = [{
-    title: 'Integrating Algolia Search',
-    description: 'Building a custom search experience with Algolia in a React app',
-    technologies: ['Algolia', 'React', 'styled-components'],
-    github: 'https://github.com',
-    external: 'https://example.com'
-  }, {
-    title: 'React Profile',
-    description: 'Online resume built with React and hosted on Netlify',
-    technologies: ['React', 'CSS3', 'Netlify'],
-    github: 'https://github.com',
-    external: 'https://example.com'
-  }, {
-    title: 'Lonely Planet DBMS',
-    description: 'Final project for my Database Management Systems course',
-    technologies: ['PHP', 'MySQL', 'HTML', 'CSS'],
-    github: 'https://github.com'
-  }] as any[];
+  }));
+  
+  // Sample additional projects for the grid
+  const otherProjects: ProjectWithImage[] = [
+    {
+      title: 'Integrating Algolia Search',
+      description: 'Building a custom search experience with Algolia in a React app',
+      technologies: ['Algolia', 'React', 'styled-components'],
+      github: 'https://github.com',
+      external: 'https://example.com'
+    },
+    {
+      title: 'React Profile',
+      description: 'Online resume built with React and hosted on Netlify',
+      technologies: ['React', 'CSS3', 'Netlify'],
+      github: 'https://github.com',
+      external: 'https://example.com'
+    },
+    {
+      title: 'Lonely Planet DBMS',
+      description: 'Final project for my Database Management Systems course',
+      technologies: ['PHP', 'MySQL', 'HTML', 'CSS'],
+      github: 'https://github.com'
+    }
+  ];
   return <motion.section id="projects" initial={{
     opacity: 0,
     y: 50
@@ -59,7 +60,7 @@ const ProjectsSection: React.FC = () => {
       
       {/* Featured Projects */}
       <div className="space-y-24">
-        {projects.map((project, index) => <motion.div key={project.title} initial={{
+        {featuredProjects.map((project, index) => <motion.div key={project.title} initial={{
         opacity: 0,
         y: 50
       }} whileInView={{

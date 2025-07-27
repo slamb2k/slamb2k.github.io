@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { portfolioData } from '@/data/portfolio';
 interface SidebarNavigationProps {
   activeSection: string;
   onSectionClick: (sectionId: string) => void;
@@ -25,36 +26,19 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       setPreviousActiveSection(activeSection);
     }
   }, [activeSection, previousActiveSection, isInitialLoad]);
-  const navigationItems = [{
-    id: 'about',
-    label: 'About'
-  }, {
-    id: 'experience',
-    label: 'Experience'
-  }, {
-    id: 'projects',
-    label: 'Projects'
-  }, {
-    id: 'contact',
-    label: 'Contact'
-  }] as any[];
-  const socialLinks = [{
-    icon: Github,
-    href: 'https://github.com',
-    label: 'GitHub'
-  }, {
-    icon: Linkedin,
-    href: 'https://linkedin.com',
-    label: 'LinkedIn'
-  }, {
-    icon: Twitter,
-    href: 'https://twitter.com',
-    label: 'Twitter'
-  }, {
-    icon: Mail,
-    href: 'mailto:hello@example.com',
-    label: 'Email'
-  }] as any[];
+  const navigationItems = portfolioData.navigation;
+  
+  const socialIcons = {
+    Github,
+    Linkedin,
+    Twitter,
+    Mail
+  };
+  
+  const socialLinks = portfolioData.social.map(social => ({
+    ...social,
+    icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail
+  }));
   return <motion.aside initial={{
     x: -100,
     opacity: 0
@@ -76,13 +60,13 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
         delay: 0.2
       }}>
           <h1 className="text-4xl font-bold text-slate-100 mb-2">
-            Simon Lamb
+            {portfolioData.personal.name}
           </h1>
           <h2 className="text-xl text-slate-300 mb-4">
-            Senior Frontend Engineer
+            {portfolioData.personal.title}
           </h2>
           <p className="text-slate-400 text-sm leading-relaxed mb-8">
-            I build pixel-perfect, engaging, and accessible digital experiences.
+            {portfolioData.personal.tagline}
           </p>
         </motion.div>
 
@@ -149,7 +133,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
       }} whileTap={{
         scale: 0.95
       }} className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300" aria-label={social.label}>
-            <social.icon size={20} />
+            {React.createElement(social.icon, { size: 20 })}
           </motion.a>)}
       </motion.div>
     </motion.aside>;

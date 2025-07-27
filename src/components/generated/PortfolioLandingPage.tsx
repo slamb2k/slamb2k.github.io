@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useHasSidebar } from '@/hooks/use-mobile';
+import { portfolioData } from '@/data/portfolio';
 import SidebarNavigation from './SidebarNavigation';
 import HeroSection from './HeroSection';
 import ProjectsSection from './ProjectsSection';
 import ContactSection from './ContactSection';
 const PortfolioLandingPage: React.FC = () => {
   const [activeSection, setActiveSection] = useState('about');
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const hasSidebar = useHasSidebar();
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'projects', 'contact'];
+      const sections = portfolioData.navigation.map(nav => nav.id);
       const scrollPosition = window.scrollY + 100;
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -47,22 +41,22 @@ const PortfolioLandingPage: React.FC = () => {
   };
   return <div className="min-h-screen bg-slate-900 text-slate-300">
       {/* Mobile Header */}
-      {isMobile && <motion.header initial={{
+      {!hasSidebar && <motion.header initial={{
       y: -100
     }} animate={{
       y: 0
     }} className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
           <div className="px-6 py-4">
-            <h1 className="text-xl font-bold text-slate-100">Simon Lamb</h1>
+            <h1 className="text-xl font-bold text-slate-100">{portfolioData.personal.name}</h1>
           </div>
         </motion.header>}
 
       <div className="lg:flex">
         {/* Sidebar Navigation - Desktop */}
-        {!isMobile && <SidebarNavigation activeSection={activeSection} onSectionClick={scrollToSection} />}
+        {hasSidebar && <SidebarNavigation activeSection={activeSection} onSectionClick={scrollToSection} />}
 
         {/* Main Content */}
-        <main className={`flex-1 ${isMobile ? 'pt-20' : 'lg:ml-96'}`}>
+        <main className={`flex-1 ${!hasSidebar ? 'pt-20' : 'lg:ml-96'}`}>
           <div className="max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-24">
             {/* Hero Section */}
             <HeroSection />
@@ -81,21 +75,18 @@ const PortfolioLandingPage: React.FC = () => {
           }} className="mb-24">
               <h2 className="text-2xl font-bold text-slate-100 mb-6">About</h2>
               <div className="space-y-4 text-slate-400 leading-relaxed">
-                <p>
-                  I'm a passionate full-stack developer with over 5 years of experience building 
-                  digital experiences. I specialize in creating accessible, pixel-perfect web 
-                  applications with modern technologies.
-                </p>
-                <p>
-                  My main focus these days is building products and leading projects at{' '}
-                  <span className="text-teal-300 font-medium">Upstatement</span>. I most enjoy 
-                  building software in the sweet spot where design and engineering meet — things 
-                  that look good but are also built well under the hood.
-                </p>
-                <p>
-                  When I'm not at the computer, I'm usually rock climbing, hanging out with my 
-                  wife and two cats, or running around Hyrule searching for Korok seeds.
-                </p>
+                {portfolioData.personal.about.map((paragraph, index) => (
+                  <p key={index}>
+                    {paragraph.split('Upstatement').map((part, i, arr) => (
+                      <React.Fragment key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <span className="text-teal-300 font-medium">Upstatement</span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </p>
+                ))}
               </div>
             </motion.section>
 
@@ -113,19 +104,7 @@ const PortfolioLandingPage: React.FC = () => {
           }} className="mb-24">
               <h2 className="text-2xl font-bold text-slate-100 mb-6">Experience</h2>
               <div className="space-y-8">
-                {[{
-                period: '2021 — Present',
-                title: 'Senior Frontend Engineer',
-                company: 'Upstatement',
-                description: 'Build and maintain critical components used to construct Klaviyo\'s frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.',
-                technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook']
-              }, {
-                period: '2018 — 2021',
-                title: 'Frontend Developer',
-                company: 'Apple',
-                description: 'Developed and maintained web applications for Apple\'s internal tools. Collaborated with design teams to implement pixel-perfect interfaces.',
-                technologies: ['React', 'Redux', 'Node.js', 'GraphQL']
-              }].map((job, index) => <motion.div key={index} whileHover={{
+                {portfolioData.experience.map((job, index) => <motion.div key={index} whileHover={{
                 scale: 1.02
               }} className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300">
                     <div className="flex flex-col lg:flex-row lg:items-start gap-4">

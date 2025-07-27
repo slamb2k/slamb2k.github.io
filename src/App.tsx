@@ -1,20 +1,21 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import { Container, Theme } from './settings/types';
+import settings from './settings/theme';
 import PortfolioLandingPage from './components/generated/PortfolioLandingPage';
 
-let theme: Theme = 'dark';
-let container: Container = 'none';
-
 function App() {
-  function setTheme(theme: Theme) {
+  // Use the injected theme settings instead of hardcoded values
+  const theme: Theme = settings.theme;
+  const container: Container = settings.container;
+
+  useEffect(() => {
+    // Apply theme on mount and when it changes
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }
-
-  setTheme(theme);
+  }, [theme]);
 
   const generatedComponent = useMemo(() => {
     // THIS IS WHERE THE TOP LEVEL GENRATED COMPONENT WILL BE RETURNED!
