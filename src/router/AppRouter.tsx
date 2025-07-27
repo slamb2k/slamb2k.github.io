@@ -5,38 +5,40 @@ import AboutPage from '@/pages/AboutPage';
 import ExperiencePage from '@/pages/ExperiencePage';
 import ProjectsPage from '@/pages/ProjectsPage';
 import ContactPage from '@/pages/ContactPage';
+import RouteErrorBoundary from '@/components/RouteErrorBoundary';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <PortfolioLayout />,
+    errorElement: <RouteErrorBoundary />,
     children: [
       {
         index: true,
-        element: <AboutPage />
+        element: <AboutPage />,
       },
       {
         path: 'about',
-        element: <Navigate to="/" replace />
+        element: <Navigate to="/" replace />,
       },
       {
         path: 'experience',
-        element: <ExperiencePage />
+        element: <ExperiencePage />,
       },
       {
         path: 'projects',
-        element: <ProjectsPage />
+        element: <ProjectsPage />,
       },
       {
         path: 'contact',
-        element: <ContactPage />
+        element: <ContactPage />,
       },
       {
         path: '*',
-        element: <Navigate to="/" replace />
-      }
-    ]
-  }
+        element: <Navigate to="/" replace />,
+      },
+    ],
+  },
 ]);
 
 const AppRouter: React.FC = () => {
