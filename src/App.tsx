@@ -4,6 +4,7 @@ import settings from './settings/theme';
 import AppRouter from './router/AppRouter';
 import { EnvironmentInfo, PerformanceMonitor } from './components/debug';
 import { initializePerformanceOptimizations } from './utils/preloader';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -29,19 +30,21 @@ function App() {
 
   if (container === 'centered') {
     return (
-      <div className="h-full w-full flex flex-col items-center justify-center">
-        {generatedComponent}
-        <EnvironmentInfo />
-        <PerformanceMonitor />
-      </div>
+      <ErrorBoundary>
+        <div className="h-full w-full flex flex-col items-center justify-center">
+          {generatedComponent}
+          <EnvironmentInfo />
+          <PerformanceMonitor />
+        </div>
+      </ErrorBoundary>
     );
   } else {
     return (
-      <>
+      <ErrorBoundary>
         {generatedComponent}
         <EnvironmentInfo />
         <PerformanceMonitor />
-      </>
+      </ErrorBoundary>
     );
   }
 }
