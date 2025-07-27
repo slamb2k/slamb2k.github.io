@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PerformanceMonitor, PerformanceMetrics } from '@/utils/performance';
 import { useConfig, useIsDevelopment } from '@/hooks/useConfig';
+import { logBundleAnalysis, checkPerformanceBudget } from '@/utils/bundleAnalyzer';
 
 const PerformanceDisplay: React.FC = () => {
   const [metrics, setMetrics] = useState<PerformanceMetrics>({
@@ -20,6 +21,15 @@ const PerformanceDisplay: React.FC = () => {
     if (isDev && config.development.showPerformanceMetrics) {
       const perfMonitor = new PerformanceMonitor((newMetrics) => {
         setMetrics(newMetrics);
+        
+        // Log bundle analysis when metrics are updated
+        logBundleAnalysis();
+        
+        // Check performance budget
+        const budgetCheck = checkPerformanceBudget(newMetrics);
+        if (!budgetCheck.passed) {
+          console.warn('Performance Budget Violations:', budgetCheck.violations);
+        }
       });
       
       setMonitor(perfMonitor);

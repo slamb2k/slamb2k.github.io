@@ -3,6 +3,7 @@ import { Container, Theme } from './settings/types';
 import settings from './settings/theme';
 import AppRouter from './router/AppRouter';
 import { EnvironmentInfo, PerformanceMonitor } from './components/debug';
+import { initializePerformanceOptimizations } from './utils/preloader';
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -16,6 +17,9 @@ function App() {
     } else {
       document.documentElement.classList.remove('dark');
     }
+
+    // Initialize performance optimizations
+    initializePerformanceOptimizations();
   }, [theme]);
 
   const generatedComponent = useMemo(() => {

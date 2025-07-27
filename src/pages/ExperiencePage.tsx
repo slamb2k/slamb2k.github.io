@@ -2,9 +2,51 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
+import LazySection from '@/components/ui/LazySection';
+import VirtualList from '@/components/ui/VirtualList';
+
+// Memoized experience card component
+const ExperienceCard: React.FC<{ job: any; index: number }> = React.memo(({ job, index }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+    whileHover={{ scale: 1.02 }}
+    className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300"
+  >
+    <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+      <div className="text-sm text-slate-500 font-mono lg:w-32 flex-shrink-0">
+        {job.period}
+      </div>
+      <div className="flex-1">
+        <h3 className="text-slate-100 font-semibold group-hover:text-teal-300 transition-colors">
+          {job.title} · {job.company}
+        </h3>
+        <p className="text-slate-400 mt-2 text-sm leading-relaxed">
+          {job.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mt-4">
+          {job.technologies.map((tech: string) => (
+            <span
+              key={tech}
+              className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </motion.div>
+));
 
 const ExperiencePage: React.FC = () => {
   const { t } = useTranslation();
+
+  // Memoized jobs data
+  const jobs = React.useMemo(() => {
+    return t('experience.jobs', { returnObjects: true }) as any[];
+  }, [t]);
 
   return (
     <motion.div
@@ -25,45 +67,39 @@ const ExperiencePage: React.FC = () => {
           {t('experience.description')}
         </p>
 
-        <div className="space-y-8">
-          {(t('experience.jobs', { returnObjects: true }) as any[]).map((job: any, index: number) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-              className="group relative p-6 rounded-lg border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 transition-all duration-300"
-            >
-              <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-                <div className="text-sm text-slate-500 font-mono lg:w-32 flex-shrink-0">
-                  {job.period}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-slate-100 font-semibold group-hover:text-teal-300 transition-colors">
-                    {job.title} · {job.company}
-                  </h3>
-                  <p className="text-slate-400 mt-2 text-sm leading-relaxed">
-                    {job.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {job.technologies.map((tech: string) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <LazySection
+          fallback={
+            <div className="space-y-8">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-32 bg-slate-800/50 rounded-lg animate-pulse" />
+              ))}
+            </div>
+          }
+          rootMargin="150px"
+        >
+          {jobs.length > 10 ? (
+            // Use virtual list for many experience entries
+            <VirtualList
+              items={jobs}
+              itemHeight={180}
+              containerHeight={600}
+              className="space-y-8"
+              renderItem={(job, index) => (
+                <ExperienceCard job={job} index={index} />
+              )}
+            />
+          ) : (
+            // Use regular layout for smaller lists
+            <div className="space-y-8">
+              {jobs.map((job: any, index: number) => (
+                <ExperienceCard key={index} job={job} index={index} />
+              ))}
+            </div>
+          )}
+        </LazySection>
       </motion.section>
     </motion.div>
   );
 };
 
-export default ExperiencePage;
+export default React.memo(ExperiencePage);
