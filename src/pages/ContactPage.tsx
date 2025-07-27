@@ -6,7 +6,7 @@ import { useContactConfig } from '@/hooks/useConfig';
 import { portfolioData } from '@/data/portfolio';
 import LazySection from '@/components/ui/LazySection';
 
-// Memoized social link component
+// Memoized social link component with accessibility
 const SocialLink: React.FC<{ social: any; index: number }> = React.memo(({ social, index }) => (
   <motion.a
     href={social.href}
@@ -17,10 +17,11 @@ const SocialLink: React.FC<{ social: any; index: number }> = React.memo(({ socia
     transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
     whileHover={{ scale: 1.1, y: -2 }}
     whileTap={{ scale: 0.95 }}
-    className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50"
-    aria-label={social.label}
+    className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+    aria-label={`Visit ${social.label} profile (opens in new tab)`}
+    role="listitem"
   >
-    {React.createElement(social.icon, { size: 24 })}
+    {React.createElement(social.icon, { size: 24, 'aria-hidden': true })}
   </motion.a>
 ));
 
@@ -55,8 +56,10 @@ const ContactPage: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
         className="text-center"
+        aria-labelledby="contact-heading"
+        role="main"
       >
-        <h1 className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
+        <h1 id="contact-heading" className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
           {t('contact.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">
@@ -71,9 +74,11 @@ const ContactPage: React.FC = () => {
         >
           <a
             href={`mailto:${contactConfig.email}`}
-            className="inline-flex items-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-300 text-lg"
+            className="inline-flex items-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+            aria-label={t('contact.buttonLabel', `Send email to ${contactConfig.email}`)}
+            role="button"
           >
-            <Mail className="mr-3" size={20} />
+            <Mail className="mr-3" size={20} aria-hidden="true" />
             {t('contact.button')}
           </a>
         </motion.div>
@@ -93,6 +98,8 @@ const ContactPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center space-x-6"
+            role="list"
+            aria-label={t('contact.socialLinksLabel', 'Social media and contact links')}
           >
             {socialLinks.map((social, index) => (
               <SocialLink key={social.label} social={social} index={index} />

@@ -5,6 +5,7 @@ export { default as Section, SectionTitle } from './Section';
 export { default as AnimatedText } from './AnimatedText';
 export { default as IconButton } from './IconButton';
 export { default as LanguageSwitcher } from './LanguageSwitcher';
+export { default as SkipNavigation } from './SkipNavigation';
 
 // Performance Optimized Components
 export { default as OptimizedImage } from './OptimizedImage';
