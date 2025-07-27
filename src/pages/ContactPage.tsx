@@ -2,10 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useContactConfig } from '@/hooks/useConfig';
 import { portfolioData } from '@/data/portfolio';
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
+  const contactConfig = useContactConfig();
   
   const socialIcons = {
     Github,
@@ -46,7 +48,7 @@ const ContactPage: React.FC = () => {
           className="mb-12"
         >
           <a
-            href={`mailto:${t('contact.email')}`}
+            href={`mailto:${contactConfig.email}`}
             className="inline-flex items-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-300 text-lg"
           >
             <Mail className="mr-3" size={20} />

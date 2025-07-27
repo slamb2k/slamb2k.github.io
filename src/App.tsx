@@ -2,6 +2,7 @@ import { useMemo, useEffect } from 'react';
 import { Container, Theme } from './settings/types';
 import settings from './settings/theme';
 import AppRouter from './router/AppRouter';
+import { EnvironmentInfo } from './components/debug';
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -26,10 +27,16 @@ function App() {
     return (
       <div className="h-full w-full flex flex-col items-center justify-center">
         {generatedComponent}
+        <EnvironmentInfo />
       </div>
     );
   } else {
-    return generatedComponent;
+    return (
+      <>
+        {generatedComponent}
+        <EnvironmentInfo />
+      </>
+    );
   }
 }
 
