@@ -47,7 +47,7 @@ describe('PortfolioLandingPage', () => {
     expect(screen.getByTestId('hero-section')).toBeInTheDocument();
     expect(screen.getByTestId('projects-section')).toBeInTheDocument();
     expect(screen.getByTestId('contact-section')).toBeInTheDocument();
-    expect(screen.getByText('About')).toBeInTheDocument();
+    expect(screen.getAllByText('About')).toHaveLength(2); // Navigation button and section heading
     expect(screen.getByText('Experience')).toBeInTheDocument();
   });
 
