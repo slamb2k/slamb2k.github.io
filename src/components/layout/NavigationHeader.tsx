@@ -12,11 +12,11 @@ const NavigationHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
-  
+
   // Get current active section from URL path
   const currentPath = location.pathname === '/' ? '/about' : location.pathname;
   const activeSection = currentPath.replace('/', '') || 'about';
-  
+
   const navigationItems = [
     { id: 'about', label: t('nav.about') },
     { id: 'experience', label: t('nav.experience') },
@@ -28,22 +28,26 @@ const NavigationHeader: React.FC = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   // Handle keyboard events for mobile menu
-  const handleMobileMenuKeyDown = React.useCallback((event: React.KeyboardEvent) => {
-    if (!isMenuOpen || !mobileMenuRef.current) return;
+  const handleMobileMenuKeyDown = React.useCallback(
+    (event: React.KeyboardEvent) => {
+      if (!isMenuOpen || !mobileMenuRef.current) return;
 
-    switch (event.key) {
-      case KEYS.ESCAPE:
-        event.preventDefault();
-        closeMenu();
-        // Return focus to menu button
-        const menuButton = document.querySelector('[aria-label*="menu"]') as HTMLElement;
-        menuButton?.focus();
-        break;
-      case KEYS.TAB:
-        trapFocus(mobileMenuRef.current, event as unknown as KeyboardEvent);
-        break;
-    }
-  }, [isMenuOpen]);
+      switch (event.key) {
+        case KEYS.ESCAPE: {
+          event.preventDefault();
+          closeMenu();
+          // Return focus to menu button
+          const menuButton = document.querySelector('[aria-label*="menu"]') as HTMLElement;
+          menuButton?.focus();
+          break;
+        }
+        case KEYS.TAB:
+          trapFocus(mobileMenuRef.current, event as unknown as KeyboardEvent);
+          break;
+      }
+    },
+    [isMenuOpen]
+  );
 
   // Close menu on escape key from anywhere
   React.useEffect(() => {
@@ -80,16 +84,22 @@ const NavigationHeader: React.FC = () => {
               {portfolioData.personal.name}
             </h1>
           </Link>
-          
+
           <button
             onClick={toggleMenu}
             className="p-2 text-slate-400 hover:text-slate-100 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
-            aria-label={isMenuOpen ? t('common.closeMenu', 'Close menu') : t('common.openMenu', 'Open menu')}
+            aria-label={
+              isMenuOpen ? t('common.closeMenu', 'Close menu') : t('common.openMenu', 'Open menu')
+            }
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
             aria-haspopup="true"
           >
-            {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+            {isMenuOpen ? (
+              <X size={24} aria-hidden="true" />
+            ) : (
+              <Menu size={24} aria-hidden="true" />
+            )}
           </button>
         </div>
       </motion.header>
@@ -106,7 +116,7 @@ const NavigationHeader: React.FC = () => {
               className="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-40"
               onClick={closeMenu}
             />
-            
+
             {/* Menu Content */}
             <motion.div
               ref={mobileMenuRef}
@@ -126,12 +136,12 @@ const NavigationHeader: React.FC = () => {
                 <h2 id="mobile-navigation-title" className="sr-only">
                   {t('nav.mobileMenuTitle', 'Mobile Navigation Menu')}
                 </h2>
-                
+
                 <nav className="space-y-6" role="navigation" aria-label="Mobile navigation">
                   {navigationItems.map((item, index) => {
                     const isActive = activeSection === item.id;
                     const routePath = item.id === 'about' ? '/' : `/${item.id}`;
-                    
+
                     return (
                       <motion.div
                         key={item.id}

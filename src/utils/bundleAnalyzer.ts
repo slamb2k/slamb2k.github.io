@@ -2,7 +2,7 @@
  * Bundle size analysis and optimization utilities
  */
 
-import { getMemoryUsage } from './performance';
+import { getMemoryUsage, type PerformanceMetrics } from './performance';
 
 interface BundleInfo {
   totalSize: number;
@@ -21,13 +21,13 @@ export function analyzeBundlePerformance(): BundleInfo {
   if (typeof window !== 'undefined') {
     const scripts = document.querySelectorAll('script[src]');
     const styles = document.querySelectorAll('link[rel="stylesheet"]');
-    
+
     // Analyze script loading
     scripts.forEach(script => {
       const src = (script as HTMLScriptElement).src;
       if (src) {
         criticalPath.push(src);
-        
+
         // Check for unoptimized scripts
         if (src.includes('node_modules') && !src.includes('.min.')) {
           recommendations.push(`Consider using minified version of: ${src}`);
@@ -47,22 +47,23 @@ export function analyzeBundlePerformance(): BundleInfo {
     const memory = getMemoryUsage();
     if (memory) {
       const usageRatio = memory.usedJSHeapSize / memory.jsHeapSizeLimit;
-      
+
       if (usageRatio > 0.8) {
-        recommendations.push('High memory usage detected. Consider code splitting or lazy loading.');
+        recommendations.push(
+          'High memory usage detected. Consider code splitting or lazy loading.'
+        );
       }
-      
-      if (memory.usedJSHeapSize > 50 * 1024 * 1024) { // 50MB
+
+      if (memory.usedJSHeapSize > 50 * 1024 * 1024) {
+        // 50MB
         recommendations.push('Large heap size. Consider optimizing data structures and caching.');
       }
     }
 
     // Check for duplicate libraries
     const scriptSources = Array.from(scripts).map(s => (s as HTMLScriptElement).src);
-    const duplicates = scriptSources.filter((src, index) => 
-      scriptSources.indexOf(src) !== index
-    );
-    
+    const duplicates = scriptSources.filter((src, index) => scriptSources.indexOf(src) !== index);
+
     if (duplicates.length > 0) {
       recommendations.push(`Duplicate scripts detected: ${duplicates.join(', ')}`);
     }
@@ -73,7 +74,7 @@ export function analyzeBundlePerformance(): BundleInfo {
     gzippedSize: 0, // Would be populated by build tools
     moduleCount: criticalPath.length,
     criticalPath,
-    recommendations
+    recommendations,
   };
 }
 
@@ -84,25 +85,27 @@ export function getCodeSplittingRecommendations(): string[] {
   // Check for large components that could be lazy loaded
   if (typeof window !== 'undefined') {
     const bodyText = document.body.innerText;
-    
+
     // Simple heuristics for code splitting
     if (bodyText.length > 50000) {
       recommendations.push('Consider lazy loading sections for large pages');
     }
-    
+
     // Check for animation libraries
-    const hasAnimations = document.querySelector('[class*="animate"]') || 
-                         document.querySelector('[style*="transform"]');
-    
+    const hasAnimations =
+      document.querySelector('[class*="animate"]') ||
+      document.querySelector('[style*="transform"]');
+
     if (hasAnimations) {
       recommendations.push('Consider lazy loading animation libraries');
     }
-    
+
     // Check for third-party widgets
-    const hasThirdParty = document.querySelector('iframe') ||
-                         document.querySelector('[src*="googleapis"]') ||
-                         document.querySelector('[src*="facebook"]');
-    
+    const hasThirdParty =
+      document.querySelector('iframe') ||
+      document.querySelector('[src*="googleapis"]') ||
+      document.querySelector('[src*="facebook"]');
+
     if (hasThirdParty) {
       recommendations.push('Consider lazy loading third-party widgets');
     }
@@ -125,11 +128,11 @@ export const defaultBudget: PerformanceBudget = {
   maxInitialLoad: 3000, // 3 seconds
   maxLCP: 2500,
   maxFID: 100,
-  maxCLS: 0.1
+  maxCLS: 0.1,
 };
 
 export function checkPerformanceBudget(
-  currentMetrics: any,
+  currentMetrics: PerformanceMetrics,
   budget: PerformanceBudget = defaultBudget
 ): { passed: boolean; violations: string[] } {
   const violations: string[] = [];
@@ -148,7 +151,7 @@ export function checkPerformanceBudget(
 
   return {
     passed: violations.length === 0,
-    violations
+    violations,
   };
 }
 
@@ -156,26 +159,26 @@ export function checkPerformanceBudget(
 export function logBundleAnalysis() {
   if (process.env.NODE_ENV === 'development') {
     console.group('📦 Bundle Analysis');
-    
+
     const bundleInfo = analyzeBundlePerformance();
     console.log('Critical Path:', bundleInfo.criticalPath);
     console.log('Module Count:', bundleInfo.moduleCount);
     console.log('Recommendations:', bundleInfo.recommendations);
-    
+
     const codeSplittingRecs = getCodeSplittingRecommendations();
     if (codeSplittingRecs.length > 0) {
       console.log('Code Splitting Recommendations:', codeSplittingRecs);
     }
-    
+
     const memory = getMemoryUsage();
     if (memory) {
       console.log('Memory Usage:', {
         used: `${Math.round(memory.usedJSHeapSize / 1024 / 1024)}MB`,
         total: `${Math.round(memory.totalJSHeapSize / 1024 / 1024)}MB`,
-        limit: `${Math.round(memory.jsHeapSizeLimit / 1024 / 1024)}MB`
+        limit: `${Math.round(memory.jsHeapSizeLimit / 1024 / 1024)}MB`,
       });
     }
-    
+
     console.groupEnd();
   }
 }
