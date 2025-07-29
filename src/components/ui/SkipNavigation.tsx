@@ -10,10 +10,10 @@ interface SkipNavigationProps {
 /**
  * SkipNavigation component provides keyboard users with the ability to skip
  * repetitive navigation content and go directly to the main content.
- * 
+ *
  * The component is visually hidden by default but becomes visible when focused,
  * ensuring it doesn't interfere with the visual design while maintaining accessibility.
- * 
+ *
  * @param mainContentId - The ID of the main content element (defaults to 'main-content')
  * @param className - Additional CSS classes to apply
  */
@@ -23,7 +23,7 @@ const SkipNavigation: React.FC<SkipNavigationProps> = ({
 }) => {
   const handleSkipToMain = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    
+
     const mainElement = document.getElementById(mainContentId);
     if (mainElement) {
       // Set focus to the main content element

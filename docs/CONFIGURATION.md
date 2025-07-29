@@ -20,7 +20,7 @@ The application uses a comprehensive environment configuration system that suppo
 ```
 .env.example          # Template with all available variables
 .env.development      # Development environment settings
-.env.staging          # Staging environment settings  
+.env.staging          # Staging environment settings
 .env.production       # Production environment settings
 .env.local            # Local overrides (gitignored)
 .env.build            # Build-time variables (auto-generated)
@@ -110,7 +110,7 @@ import { useConfig } from '@/hooks/useConfig';
 
 function MyComponent() {
   const config = useConfig();
-  
+
   return (
     <div>
       <p>Environment: {config.environment}</p>
@@ -127,11 +127,11 @@ import { useFeatureFlag } from '@/hooks/useConfig';
 
 function MyComponent() {
   const analyticsEnabled = useFeatureFlag('analytics');
-  
+
   if (analyticsEnabled) {
     // Initialize analytics
   }
-  
+
   return <div>Analytics: {analyticsEnabled ? 'On' : 'Off'}</div>;
 }
 ```
@@ -144,7 +144,7 @@ import { useIsDevelopment, useIsProduction } from '@/hooks/useConfig';
 function MyComponent() {
   const isDev = useIsDevelopment();
   const isProd = useIsProduction();
-  
+
   return (
     <div>
       {isDev && <DebugInfo />}
@@ -179,7 +179,7 @@ const apiUrl = config.api.baseUrl;
 # Development build
 npm run build:dev
 
-# Staging build  
+# Staging build
 npm run build:staging
 
 # Production build
@@ -233,11 +233,13 @@ The build script automatically adds build-time information:
 ### Adding New Feature Flags
 
 1. Add to environment files:
+
    ```bash
    VITE_FEATURE_NEW_FEATURE=false
    ```
 
 2. Update TypeScript types in `src/config/environment.ts`:
+
    ```tsx
    export interface FeatureFlags {
      // ... existing flags
@@ -246,6 +248,7 @@ The build script automatically adds build-time information:
    ```
 
 3. Add to configuration creation:
+
    ```tsx
    features: {
      // ... existing features
@@ -318,6 +321,7 @@ if (!validation.isValid) {
 ### Configuration Validation Errors
 
 1. Run validation to see specific errors:
+
    ```tsx
    import { validateConfig } from '@/config/environment';
    console.log(validateConfig());
@@ -345,7 +349,7 @@ import { EnvironmentInfo } from '@/components/debug';
 
 // Automatically shown in development
 // Manually added to components for debugging
-<EnvironmentInfo />
+<EnvironmentInfo />;
 ```
 
 ### Debug Logging
@@ -373,12 +377,14 @@ debugError('API error', { status: 500, message: 'Server error' });
 ### Example Migration
 
 Before:
+
 ```tsx
 const apiUrl = 'https://api.example.com';
 const showAnalytics = true;
 ```
 
 After:
+
 ```tsx
 import { useConfig } from '@/hooks/useConfig';
 

@@ -15,41 +15,41 @@ const NavigationSidebar: React.FC = () => {
   const [isInitialLoad, setIsInitialLoad] = React.useState(true);
   const [focusedNavIndex, setFocusedNavIndex] = React.useState(-1);
   const navigationRef = React.useRef<HTMLElement>(null);
-  
+
   // Get current active section from URL path
   const currentPath = location.pathname === '/' ? '/about' : location.pathname;
   const activeSection = currentPath.replace('/', '') || 'about';
-  
+
   React.useEffect(() => {
     if (isInitialLoad && activeSection) {
       setIsInitialLoad(false);
       setPreviousActiveSection(activeSection);
     }
   }, [activeSection, isInitialLoad]);
-  
+
   React.useEffect(() => {
     if (!isInitialLoad && activeSection !== previousActiveSection) {
       setPreviousActiveSection(activeSection);
     }
   }, [activeSection, previousActiveSection, isInitialLoad]);
-  
+
   const navigationItems = [
     { id: 'about', label: t('nav.about') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
     { id: 'contact', label: t('nav.contact') },
   ];
-  
+
   const socialIcons = {
     Github,
     Linkedin,
     Twitter,
-    Mail
+    Mail,
   };
-  
+
   const socialLinks = portfolioData.social.map(social => ({
     ...social,
-    icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail
+    icon: socialIcons[social.icon as keyof typeof socialIcons] || Mail,
   }));
 
   // Keyboard navigation handler for main navigation
@@ -57,7 +57,7 @@ const NavigationSidebar: React.FC = () => {
     if (!navigationRef.current) return;
 
     const navLinks = getFocusableElements(navigationRef.current);
-    
+
     if (event.key === KEYS.ARROW_DOWN) {
       event.preventDefault();
       const currentIndex = navLinks.findIndex(link => link === document.activeElement);
@@ -101,16 +101,14 @@ const NavigationSidebar: React.FC = () => {
               {portfolioData.personal.name}
             </h1>
           </Link>
-          <h2 className="text-xl text-slate-300 mb-4">
-            {portfolioData.personal.title}
-          </h2>
+          <h2 className="text-xl text-slate-300 mb-4">{portfolioData.personal.title}</h2>
           <p className="text-slate-400 text-sm leading-relaxed mb-8">
             {portfolioData.personal.tagline}
           </p>
         </motion.div>
 
         {/* Navigation */}
-        <nav 
+        <nav
           ref={navigationRef}
           className="space-y-4"
           role="navigation"
@@ -120,7 +118,7 @@ const NavigationSidebar: React.FC = () => {
           {navigationItems.map((item, index) => {
             const isActive = activeSection === item.id;
             const routePath = item.id === 'about' ? '/' : `/${item.id}`;
-            
+
             return (
               <motion.div
                 key={item.id}
@@ -150,32 +148,40 @@ const NavigationSidebar: React.FC = () => {
                       {item.label.split('').map((letter, letterIndex) => {
                         const isCurrentlyActive = isActive;
                         const isHovered = hoveredSection === item.id;
-                        const isNewlyActive = isCurrentlyActive && (activeSection !== previousActiveSection) && !isInitialLoad;
+                        const isNewlyActive =
+                          isCurrentlyActive &&
+                          activeSection !== previousActiveSection &&
+                          !isInitialLoad;
                         const isInitialActive = isInitialLoad && isCurrentlyActive;
-                        
+
                         // Should animate when:
                         // 1. Initial load and section is active
                         // 2. Section becomes newly active via navigation (but not on initial load)
                         // 3. Section is hovered but NOT currently active (prevents active items from animating on hover)
-                        const shouldAnimate = isInitialActive || isNewlyActive || (isHovered && !isCurrentlyActive);
-                        
+                        const shouldAnimate =
+                          isInitialActive || isNewlyActive || (isHovered && !isCurrentlyActive);
+
                         const randomSpins = 2 + Math.floor(Math.random() * 4); // 2-5 spins
                         return (
                           <motion.span
                             key={`${item.id}-${letter}-${letterIndex}`}
                             className="inline-block"
-                            animate={shouldAnimate ? {
-                              rotateX: [0, randomSpins * 360],
-                              scale: [0.9, 1]
-                            } : {}}
+                            animate={
+                              shouldAnimate
+                                ? {
+                                    rotateX: [0, randomSpins * 360],
+                                    scale: [0.9, 1],
+                                  }
+                                : {}
+                            }
                             transition={{
                               duration: 1.8,
                               delay: letterIndex * 0.02,
-                              ease: [0.25, 0.1, 0.25, 1]
+                              ease: [0.25, 0.1, 0.25, 1],
                             }}
                             style={{
-                              transformOrigin: "center center",
-                              transformStyle: "preserve-3d"
+                              transformOrigin: 'center center',
+                              transformStyle: 'preserve-3d',
                             }}
                           >
                             {letter}
@@ -185,10 +191,7 @@ const NavigationSidebar: React.FC = () => {
                     </div>
                   </div>
                   {/* Hidden description for screen readers */}
-                  <span 
-                    id={`nav-description-${item.id}`}
-                    className="sr-only"
-                  >
+                  <span id={`nav-description-${item.id}`} className="sr-only">
                     {t(`nav.description.${item.id}`, `Navigate to ${item.label} section`)}
                   </span>
                 </Link>

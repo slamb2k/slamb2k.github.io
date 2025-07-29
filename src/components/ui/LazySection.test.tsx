@@ -2,12 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import LazySection from './LazySection';
+import * as performanceUtils from '@/utils/performance';
 
 // Mock the performance utils
-const mockUseIntersectionObserver = vi.fn();
 vi.mock('@/utils/performance', () => ({
-  useIntersectionObserver: mockUseIntersectionObserver,
+  useIntersectionObserver: vi.fn(),
 }));
+
+const mockUseIntersectionObserver = vi.mocked(performanceUtils.useIntersectionObserver);
 
 describe('LazySection', () => {
   beforeEach(() => {
@@ -137,10 +139,7 @@ describe('LazySection', () => {
     mockUseIntersectionObserver.mockReturnValue(true);
 
     render(
-      <LazySection
-        rootMargin="200px"
-        threshold={0.5}
-      >
+      <LazySection rootMargin="200px" threshold={0.5}>
         <div>Test content</div>
       </LazySection>
     );

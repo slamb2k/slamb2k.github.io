@@ -10,11 +10,11 @@ export function throttle<T extends (...args: never[]) => void>(
   limit: number
 ): (...args: Parameters<T>) => void {
   let inThrottle: boolean;
-  return function(this: unknown, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
   };
 }
@@ -25,7 +25,7 @@ export function debounce<T extends (...args: never[]) => void>(
   delay: number
 ): (...args: Parameters<T>) => void {
   let timeoutId: NodeJS.Timeout;
-  return function(this: unknown, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => func.apply(this, args), delay);
   };
@@ -72,7 +72,7 @@ export class PerformanceMonitor {
     lcp: null,
     fid: null,
     cls: null,
-    ttfb: null
+    ttfb: null,
   };
 
   private observers: PerformanceObserver[] = [];
@@ -86,7 +86,7 @@ export class PerformanceMonitor {
     if ('PerformanceObserver' in window) {
       try {
         // LCP Observer
-        const lcpObserver = new PerformanceObserver((entryList) => {
+        const lcpObserver = new PerformanceObserver(entryList => {
           const entries = entryList.getEntries();
           const lastEntry = entries[entries.length - 1] as PerformanceEntry & { startTime: number };
           this.metrics.lcp = lastEntry.startTime;
@@ -96,27 +96,37 @@ export class PerformanceMonitor {
         this.observers.push(lcpObserver);
 
         // FID Observer
-        const fidObserver = new PerformanceObserver((entryList) => {
+        const fidObserver = new PerformanceObserver(entryList => {
           const entries = entryList.getEntries();
-          entries.forEach((entry: PerformanceEntry & { name?: string; processingStart?: number; startTime: number }) => {
-            if (entry.name === 'first-input' && entry.processingStart) {
-              this.metrics.fid = entry.processingStart - entry.startTime;
-              this.notifyUpdate();
+          entries.forEach(
+            (
+              entry: PerformanceEntry & {
+                name?: string;
+                processingStart?: number;
+                startTime: number;
+              }
+            ) => {
+              if (entry.name === 'first-input' && entry.processingStart) {
+                this.metrics.fid = entry.processingStart - entry.startTime;
+                this.notifyUpdate();
+              }
             }
-          });
+          );
         });
         fidObserver.observe({ entryTypes: ['first-input'] });
         this.observers.push(fidObserver);
 
         // CLS Observer
-        const clsObserver = new PerformanceObserver((entryList) => {
+        const clsObserver = new PerformanceObserver(entryList => {
           let clsValue = 0;
           const entries = entryList.getEntries();
-          entries.forEach((entry: PerformanceEntry & { hadRecentInput?: boolean; value?: number }) => {
-            if (!entry.hadRecentInput && entry.value) {
-              clsValue += entry.value;
+          entries.forEach(
+            (entry: PerformanceEntry & { hadRecentInput?: boolean; value?: number }) => {
+              if (!entry.hadRecentInput && entry.value) {
+                clsValue += entry.value;
+              }
             }
-          });
+          );
           this.metrics.cls = clsValue;
           this.notifyUpdate();
         });
@@ -124,9 +134,9 @@ export class PerformanceMonitor {
         this.observers.push(clsObserver);
 
         // Paint Observer for FCP
-        const paintObserver = new PerformanceObserver((entryList) => {
+        const paintObserver = new PerformanceObserver(entryList => {
           const entries = entryList.getEntries();
-          entries.forEach((entry) => {
+          entries.forEach(entry => {
             if (entry.name === 'first-contentful-paint') {
               this.metrics.fcp = entry.startTime;
               this.notifyUpdate();
@@ -146,7 +156,9 @@ export class PerformanceMonitor {
 
   private measureTTFB() {
     if ('performance' in window && 'getEntriesByType' in performance) {
-      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+      const navigation = performance.getEntriesByType(
+        'navigation'
+      )[0] as PerformanceNavigationTiming;
       if (navigation) {
         this.metrics.ttfb = navigation.responseStart - navigation.requestStart;
         this.notifyUpdate();
@@ -183,9 +195,7 @@ export interface OptimizedImageProps {
 }
 
 export function generateSrcSet(baseSrc: string, widths: number[]): string {
-  return widths
-    .map(width => `${baseSrc}?w=${width} ${width}w`)
-    .join(', ');
+  return widths.map(width => `${baseSrc}?w=${width} ${width}w`).join(', ');
 }
 
 // Preload critical resources

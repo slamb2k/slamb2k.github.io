@@ -7,6 +7,7 @@ This project now includes a comprehensive testing setup using Vitest, React Test
 ## Test Structure
 
 ### Test Files
+
 - `src/hooks/use-mobile.test.ts` - Tests for responsive hooks
 - `src/components/generated/PortfolioLandingPage.test.tsx` - Main component tests
 - `src/components/generated/SidebarNavigation.test.tsx` - Sidebar component tests
@@ -14,6 +15,7 @@ This project now includes a comprehensive testing setup using Vitest, React Test
 - `src/test/setup.ts` - Test environment configuration
 
 ### Configuration
+
 - `vitest.config.ts` - Vitest configuration with coverage
 - `src/test/setup.ts` - Test setup with mocks for DOM APIs
 
@@ -36,6 +38,7 @@ npm run test:coverage
 ## Test Coverage
 
 Current test coverage focuses on:
+
 - Custom hooks (`useIsMobile`, `useHasSidebar`)
 - Component rendering and behavior
 - Responsive breakpoint handling
@@ -45,9 +48,10 @@ Current test coverage focuses on:
 ## Coverage Goals
 
 The project is configured with 80% coverage thresholds for:
+
 - Lines
 - Functions
-- Branches  
+- Branches
 - Statements
 
 ## Test Environment
@@ -60,6 +64,7 @@ The project is configured with 80% coverage thresholds for:
 ## Known Test Issues
 
 Some tests are currently failing due to:
+
 1. Complex window mocking in SSR scenarios
 2. Responsive behavior testing edge cases
 3. Component integration with mocked hooks

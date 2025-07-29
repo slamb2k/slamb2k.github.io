@@ -9,14 +9,14 @@ import fr from './locales/fr.json';
 
 const resources = {
   en: {
-    translation: en
+    translation: en,
   },
   es: {
-    translation: es
+    translation: es,
   },
   fr: {
-    translation: fr
-  }
+    translation: fr,
+  },
 };
 
 i18n
@@ -26,16 +26,16 @@ i18n
     resources,
     fallbackLng: 'en',
     debug: false,
-    
+
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
-    
+
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
-    
+
     // Common translation namespace structure
     ns: ['translation'],
     defaultNS: 'translation',

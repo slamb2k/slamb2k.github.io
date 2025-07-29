@@ -14,14 +14,7 @@ describe('OptimizedImage', () => {
   });
 
   it('renders image with basic props', () => {
-    render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        width={400}
-        height={300}
-      />
-    );
+    render(<OptimizedImage src="/test-image.jpg" alt="Test image" width={400} height={300} />);
 
     const img = screen.getByRole('img');
     expect(img).toHaveAttribute('alt', 'Test image');
@@ -45,11 +38,7 @@ describe('OptimizedImage', () => {
 
   it('shows placeholder when loading', () => {
     render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        placeholder="/placeholder.jpg"
-      />
+      <OptimizedImage src="/test-image.jpg" alt="Test image" placeholder="/placeholder.jpg" />
     );
 
     // Should show loading text initially
@@ -58,12 +47,7 @@ describe('OptimizedImage', () => {
 
   it('applies priority loading for critical images', () => {
     render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        priority={true}
-        loading="eager"
-      />
+      <OptimizedImage src="/test-image.jpg" alt="Test image" priority={true} loading="eager" />
     );
 
     const img = screen.getByRole('img');
@@ -72,15 +56,10 @@ describe('OptimizedImage', () => {
   });
 
   it('handles image load error', async () => {
-    render(
-      <OptimizedImage
-        src="/invalid-image.jpg"
-        alt="Test image"
-      />
-    );
+    render(<OptimizedImage src="/invalid-image.jpg" alt="Test image" />);
 
     const img = screen.getByRole('img');
-    
+
     // Simulate image error
     const errorEvent = new Event('error');
     img.dispatchEvent(errorEvent);
@@ -91,27 +70,14 @@ describe('OptimizedImage', () => {
   });
 
   it('applies custom className', () => {
-    render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        className="custom-class"
-      />
-    );
+    render(<OptimizedImage src="/test-image.jpg" alt="Test image" className="custom-class" />);
 
     const img = screen.getByRole('img');
     expect(img).toHaveClass('custom-class');
   });
 
   it('sets aspect ratio from width and height', () => {
-    render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        width={800}
-        height={600}
-      />
-    );
+    render(<OptimizedImage src="/test-image.jpg" alt="Test image" width={800} height={600} />);
 
     const img = screen.getByRole('img');
     expect(img).toHaveStyle({ aspectRatio: '800/600' });
@@ -119,18 +85,13 @@ describe('OptimizedImage', () => {
 
   it('calls onLoad callback when image loads', async () => {
     const onLoad = vi.fn();
-    
+
     render(
-      <OptimizedImage
-        src="/test-image.jpg"
-        alt="Test image"
-        onLoad={onLoad}
-        priority={true}
-      />
+      <OptimizedImage src="/test-image.jpg" alt="Test image" onLoad={onLoad} priority={true} />
     );
 
     const img = screen.getByRole('img');
-    
+
     // Simulate image load
     const loadEvent = new Event('load');
     img.dispatchEvent(loadEvent);
@@ -142,18 +103,13 @@ describe('OptimizedImage', () => {
 
   it('calls onError callback when image fails to load', async () => {
     const onError = vi.fn();
-    
+
     render(
-      <OptimizedImage
-        src="/invalid-image.jpg"
-        alt="Test image"
-        onError={onError}
-        priority={true}
-      />
+      <OptimizedImage src="/invalid-image.jpg" alt="Test image" onError={onError} priority={true} />
     );
 
     const img = screen.getByRole('img');
-    
+
     // Simulate image error
     const errorEvent = new Event('error');
     img.dispatchEvent(errorEvent);
@@ -164,12 +120,7 @@ describe('OptimizedImage', () => {
   });
 
   it('handles placeholder images correctly', () => {
-    render(
-      <OptimizedImage
-        src="/api/placeholder/600/400"
-        alt="Placeholder image"
-      />
-    );
+    render(<OptimizedImage src="/api/placeholder/600/400" alt="Placeholder image" />);
 
     const img = screen.getByRole('img');
     // Should not generate srcset for placeholder URLs

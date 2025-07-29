@@ -5,11 +5,21 @@ import AnimatedText from './AnimatedText';
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    p: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => <p {...props}>{children}</p>,
-    h1: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => <h1 {...props}>{children}</h1>,
-    h2: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => <h2 {...props}>{children}</h2>,
-    h3: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => <h3 {...props}>{children}</h3>,
-    span: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => <span {...props}>{children}</span>,
+    p: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => (
+      <p {...props}>{children}</p>
+    ),
+    h1: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => (
+      <h1 {...props}>{children}</h1>
+    ),
+    h2: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => (
+      <h2 {...props}>{children}</h2>
+    ),
+    h3: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => (
+      <h3 {...props}>{children}</h3>
+    ),
+    span: ({ children, initial, whileInView, transition, viewport, variants, ...props }: any) => (
+      <span {...props}>{children}</span>
+    ),
   },
 }));
 
@@ -79,7 +89,7 @@ describe('AnimatedText', () => {
         This is staggered text
       </AnimatedText>
     );
-    
+
     // With staggerChildren, each word should be wrapped in a span
     const words = ['This', 'is', 'staggered', 'text'];
     words.forEach(word => {
@@ -93,7 +103,7 @@ describe('AnimatedText', () => {
         <span>Non-string content</span>
       </AnimatedText>
     );
-    
+
     expect(screen.getByText('Non-string content')).toBeInTheDocument();
   });
 
@@ -113,7 +123,7 @@ describe('AnimatedText', () => {
         <strong>Bold</strong> and <em>italic</em> text
       </AnimatedText>
     );
-    
+
     expect(screen.getByText('Bold')).toBeInTheDocument();
     expect(screen.getByText('italic')).toBeInTheDocument();
     const heading = screen.getByRole('heading', { level: 2 });
@@ -121,12 +131,8 @@ describe('AnimatedText', () => {
   });
 
   it('preserves spacing in staggered text', () => {
-    render(
-      <AnimatedText staggerChildren={true}>
-        Word spacing test
-      </AnimatedText>
-    );
-    
+    render(<AnimatedText staggerChildren={true}>Word spacing test</AnimatedText>);
+
     // Check that individual words are present
     expect(screen.getByText('Word')).toBeInTheDocument();
     expect(screen.getByText('spacing')).toBeInTheDocument();
@@ -153,7 +159,7 @@ describe('AnimatedText', () => {
         Complex animated text
       </AnimatedText>
     );
-    
+
     const element = screen.getByRole('heading', { level: 1 });
     expect(element).toHaveTextContent('Complex animated text');
     expect(element.className).toContain('complex-animation');

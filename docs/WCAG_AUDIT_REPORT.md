@@ -58,110 +58,137 @@
 The following criteria require manual testing:
 
 - **1.2.1** - Audio-only and Video-only (Prerecorded) (A)
+
   - Prerecorded audio-only and video-only content has alternatives
   - **Testing Method**: Review any audio/video content for alternatives
 
 - **1.2.2** - Captions (Prerecorded) (A)
+
   - Captions are provided for all prerecorded audio content
   - **Testing Method**: Check if captions are provided for audio content
 
 - **1.2.3** - Audio Description or Media Alternative (Prerecorded) (A)
+
   - Audio description or full text alternative for prerecorded video
   - **Testing Method**: Verify audio descriptions for video content
 
 - **1.2.4** - Captions (Live) (AA)
+
   - Captions are provided for all live audio content
   - **Testing Method**: Test live audio content for captions
 
 - **1.2.5** - Audio Description (Prerecorded) (AA)
+
   - Audio description is provided for all prerecorded video content
   - **Testing Method**: Check prerecorded video for audio descriptions
 
 - **1.3.3** - Sensory Characteristics (A)
+
   - Instructions do not rely solely on sensory characteristics
   - **Testing Method**: Review instructions for sensory independence
 
 - **1.3.4** - Orientation (AA)
+
   - Content does not restrict its view and operation to a single display orientation
   - **Testing Method**: Test content in both portrait and landscape orientations
 
 - **1.4.1** - Use of Color (A)
+
   - Color is not used as the only visual means of conveying information
   - **Testing Method**: Verify no color-only information conveyance
 
 - **1.4.2** - Audio Control (A)
+
   - Audio that plays automatically can be paused, stopped, or muted
   - **Testing Method**: Test auto-playing audio controls
 
 - **1.4.4** - Resize Text (AA)
+
   - Text can be resized up to 200% without assistive technology
   - **Testing Method**: Test text resize up to 200% without horizontal scrolling
 
 - **1.4.5** - Images of Text (AA)
+
   - Images of text are only used for decoration or when essential
   - **Testing Method**: Review use of text images
 
 - **1.4.10** - Reflow (AA)
+
   - Content can be presented without horizontal scrolling at 320px width
   - **Testing Method**: Test content reflow at 320px width
 
 - **1.4.12** - Text Spacing (AA)
+
   - Content can adapt to text spacing changes
   - **Testing Method**: Test with modified text spacing
 
 - **1.4.13** - Content on Hover or Focus (AA)
+
   - Content that appears on hover or focus is dismissible, hoverable, and persistent
   - **Testing Method**: Test hover and focus content behavior
 
 - **2.1.4** - Character Key Shortcuts (A)
+
   - Character key shortcuts can be turned off or remapped
   - **Testing Method**: Check character key shortcuts functionality
 
 - **2.2.1** - Timing Adjustable (A)
+
   - Time limits can be turned off, adjusted, or extended
   - **Testing Method**: Review any time limits for adjustability
 
 - **2.2.2** - Pause, Stop, Hide (A)
+
   - Moving, blinking, or auto-updating information can be paused
   - **Testing Method**: Test auto-updating content controls
 
 - **2.3.1** - Three Flashes or Below Threshold (A)
+
   - Content does not contain flashing that occurs more than three times per second
   - **Testing Method**: Check for flashing content
 
 - **2.4.5** - Multiple Ways (AA)
+
   - More than one way is available to locate a page within a set of pages
   - **Testing Method**: Verify multiple navigation methods
 
 - **2.5.1** - Pointer Gestures (A)
+
   - Functionality that uses multipoint or path-based gestures has single-pointer alternatives
   - **Testing Method**: Test gesture-based functionality
 
 - **2.5.2** - Pointer Cancellation (A)
+
   - Functions triggered by single-pointer activation can be cancelled
   - **Testing Method**: Test pointer activation cancellation
 
 - **2.5.4** - Motion Actuation (A)
+
   - Functionality triggered by device motion can be disabled and has alternative input
   - **Testing Method**: Test device motion functionality
 
 - **3.2.1** - On Focus (A)
+
   - Receiving focus does not initiate a change of context
   - **Testing Method**: Test focus changes for context stability
 
 - **3.2.2** - On Input (A)
+
   - Changing form controls does not automatically cause a change of context
   - **Testing Method**: Test input changes for context stability
 
 - **3.2.3** - Consistent Navigation (AA)
+
   - Navigational mechanisms are used in the same relative order across pages
   - **Testing Method**: Review navigation consistency across pages
 
 - **3.2.4** - Consistent Identification (AA)
+
   - Components with the same functionality are identified consistently
   - **Testing Method**: Check component identification consistency
 
 - **3.3.3** - Error Suggestion (AA)
+
   - Error suggestions are provided when input errors are detected
   - **Testing Method**: Test error suggestion functionality
 
@@ -172,12 +199,14 @@ The following criteria require manual testing:
 ## Portfolio-Specific Considerations
 
 ### Not Applicable
+
 - **1.2.x** (Audio/Video): No audio or video content present
 - **2.2.x** (Timing): No time-sensitive content or auto-refresh
 - **2.3.x** (Seizures): No flashing or strobing content
 - **3.3.3-4** (Error Prevention): No forms requiring complex validation
 
 ### Inherently Compliant
+
 - **1.4.1** (Use of Color): No color-only information conveyance
 - **2.5.x** (Pointer Gestures): Simple click/tap interactions only
 - **3.2.x** (Predictable): Consistent navigation and simple interactions
@@ -185,6 +214,7 @@ The following criteria require manual testing:
 ## Testing Recommendations
 
 ### Immediate Actions
+
 1. **Run Automated Tests**: `npm run test:accessibility`
 2. **Screen Reader Testing**: Test with NVDA, JAWS, or VoiceOver
 3. **Keyboard Testing**: Navigate entire site using only keyboard
@@ -192,6 +222,7 @@ The following criteria require manual testing:
 5. **Responsive Testing**: Test at 320px width and 200% zoom
 
 ### Regular Maintenance
+
 - Run accessibility tests in CI/CD pipeline
 - Include accessibility review in code review process
 - Conduct quarterly manual accessibility audits
@@ -209,4 +240,4 @@ The following criteria require manual testing:
 
 ---
 
-*This audit was generated automatically. Manual testing by accessibility experts is recommended for complete WCAG 2.1 AA compliance verification.*
+_This audit was generated automatically. Manual testing by accessibility experts is recommended for complete WCAG 2.1 AA compliance verification._

@@ -14,7 +14,7 @@ const PortfolioLayout: React.FC = () => {
     <div className="min-h-screen bg-slate-900 text-slate-300">
       {/* Skip Navigation - Always first for keyboard users */}
       <SkipNavigation mainContentId="main-content" />
-      
+
       {/* Mobile Header */}
       {!hasSidebar && <NavigationHeader />}
 
@@ -23,7 +23,7 @@ const PortfolioLayout: React.FC = () => {
         {hasSidebar && <NavigationSidebar />}
 
         {/* Main Content */}
-        <main 
+        <main
           id="main-content"
           className={`flex-1 ${!hasSidebar ? 'pt-20' : 'lg:ml-96'}`}
           tabIndex={-1}

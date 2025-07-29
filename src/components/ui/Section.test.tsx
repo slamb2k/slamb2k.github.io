@@ -5,8 +5,12 @@ import Section, { SectionTitle } from './Section';
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    section: ({ children, initial, whileInView, transition, viewport, ...props }: any) => <section {...props}>{children}</section>,
-    h2: ({ children, initial, whileInView, transition, viewport, ...props }: any) => <h2 {...props}>{children}</h2>,
+    section: ({ children, initial, whileInView, transition, viewport, ...props }: any) => (
+      <section {...props}>{children}</section>
+    ),
+    h2: ({ children, initial, whileInView, transition, viewport, ...props }: any) => (
+      <h2 {...props}>{children}</h2>
+    ),
   },
 }));
 
