@@ -9,11 +9,29 @@ afterEach(() => {
 });
 
 // Mock react-i18next
+let currentLanguage = 'en';
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (key: string, options?: Record<string, unknown>) => {
       // Handle translations with fallbacks
       const translations: Record<string, string> = {
+        // About page translations
+        'about.title': "Hi, I'm {{name}}.",
+        'about.subtitle': 'Senior Frontend Engineer',
+        'about.tagline': 'I build pixel-perfect, engaging, and accessible digital experiences.',
+        'about.heading': 'About',
+        'about.paragraph1': 'Test paragraph 1',
+        'about.paragraph2': 'Test paragraph 2',
+        'about.paragraph3': 'Test paragraph 3',
+        // Navigation
+        'nav.about': 'About',
+        'nav.experience': 'Experience',
+        'nav.projects': 'Projects',
+        'nav.contact': 'Contact',
+        // Language
+        'language.switchTo': 'Switch to {{language}}',
+        'language.current': 'Current language: {{language}}',
+        // Projects
         'projects.title': 'Projects',
         'projects.description':
           "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
@@ -23,6 +41,7 @@ vi.mock('react-i18next', () => ({
         'projects.technologyLabel': 'Technology: {{tech}}',
         'common.viewOnGithub': 'View {{title}} on GitHub (opens in new tab)',
         'common.visitProject': 'Visit {{title}} live demo (opens in new tab)',
+        // Experience
         'experience.jobs.azure-core.description':
           'Build and maintain critical components for Azure infrastructure. Collaborate closely with the Semantic Kernel and Copilot teams to develop cutting-edge AI solutions and cloud engineering tools.',
         'experience.jobs.microsoft-cloud.description':
@@ -43,17 +62,40 @@ vi.mock('react-i18next', () => ({
             }
           });
         }
+        // Handle default interpolation for name
+        if (key === 'about.title' && !options?.name) {
+          result = result.replace('{{name}}', 'Simon Lamb');
+        }
+        return result;
+      }
+
+      // Handle Spanish translations for testing
+      const spanishTranslations: Record<string, string> = {
+        'about.title': 'Hola, soy {{name}}.',
+        'about.subtitle': 'Ingeniero Frontend Senior',
+        'about.heading': 'Acerca de',
+      };
+
+      // Check if we're in Spanish context and have Spanish translation
+      if (currentLanguage === 'es' && spanishTranslations[key]) {
+        let result = spanishTranslations[key];
+        if (key === 'about.title') {
+          result = result.replace('{{name}}', 'Simon Lamb');
+        }
         return result;
       }
 
       return options?.defaultValue || key;
     },
     i18n: {
-      changeLanguage: vi.fn(),
-      language: 'en',
+      changeLanguage: vi.fn((lng: string) => {
+        currentLanguage = lng;
+      }),
+      language: currentLanguage,
     },
   }),
   Trans: ({ children }: { children: React.ReactNode }) => children,
+  I18nextProvider: ({ children }: { children: React.ReactNode }) => children,
   initReactI18next: {
     type: '3rdParty',
     init: vi.fn(),

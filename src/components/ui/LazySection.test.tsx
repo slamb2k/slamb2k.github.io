@@ -2,12 +2,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import LazySection from './LazySection';
+import * as performanceUtils from '@/utils/performance';
 
 // Mock the performance utils
-const mockUseIntersectionObserver = vi.fn();
 vi.mock('@/utils/performance', () => ({
-  useIntersectionObserver: mockUseIntersectionObserver,
+  useIntersectionObserver: vi.fn(),
 }));
+
+const mockUseIntersectionObserver = vi.mocked(performanceUtils.useIntersectionObserver);
 
 describe('LazySection', () => {
   beforeEach(() => {

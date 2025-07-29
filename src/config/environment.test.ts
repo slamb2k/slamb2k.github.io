@@ -1,5 +1,4 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { createConfig, validateConfig, isFeatureEnabled, debugLog } from './environment';
 
 // Mock import.meta.env
 const mockEnv = {
@@ -23,10 +22,23 @@ vi.stubGlobal('import', {
 });
 
 describe('Environment Configuration', () => {
-  beforeEach(() => {
+  let createConfig: any;
+  let validateConfig: any;
+  let isFeatureEnabled: any;
+  let debugLog: any;
+
+  beforeEach(async () => {
     vi.clearAllMocks();
+    vi.resetModules();
     // Reset console.log mock
     vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    // Re-import the module fresh each time
+    const module = await import('./environment');
+    createConfig = module.createConfig;
+    validateConfig = module.validateConfig;
+    isFeatureEnabled = module.isFeatureEnabled;
+    debugLog = module.debugLog;
   });
 
   afterEach(() => {
