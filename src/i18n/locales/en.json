@@ -29,8 +29,17 @@
       "global-partner-solutions": {
         "description": "Led enterprise cloud transformation initiatives and AI solution architecture. Specialized in prompt engineering, Azure cloud architecture, and DevOps practices for enterprise clients."
       },
+      "pacific-commerce": {
+        "description": "Managed enterprise EDI solutions and e-commerce integrations using Sterling Commerce GENTRAN. Led technical initiatives for B2B data exchange and automated business processes across multiple client environments."
+      },
+      "microsoft-dx": {
+        "description": "Evangelized Microsoft development technologies and platforms to developer communities. Created technical content, delivered presentations, and provided architectural guidance for .NET, Azure, and emerging Microsoft technologies."
+      },
       "fred-it-group": {
         "description": "Led a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. Managed platform design, Agile/DevOps/IaC delivery, and team leadership."
+      },
+      "leadtec-systems": {
+        "description": "Developed enterprise web applications and XML-based data integration systems. Built scalable solutions using C#, ASP.NET, and XSLT transformations for business process automation and reporting systems."
       }
     }
   },
@@ -38,14 +47,29 @@
     "title": "Projects",
     "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
     "items": {
-      "ecommerce-platform": {
-        "description": "A modern e-commerce platform built with Next.js and Stripe integration."
+      "about-me": {
+        "description": "A modern React portfolio website built with TypeScript and Vite, featuring responsive design and internationalization support."
       },
-      "task-management-app": {
-        "description": "A collaborative task management application with real-time updates."
+      "glam-mcp": {
+        "description": "A Model Context Protocol server that provides intelligent development experiences through rich, contextual responses for AI assistants, transforming AI coding into pair programming with a senior developer."
       },
-      "design-system": {
-        "description": "A comprehensive design system and component library for enterprise applications."
+      "gavin-copilot": {
+        "description": "A sample application demonstrating how Semantic Kernel and AI can work in web applications, featuring a React frontend, .NET backend, and Azure OpenAI integration."
+      },
+      "spec-chain": {
+        "description": "A comprehensive system of AI prompts that work together to generate complete product documentation from a single app idea, designed specifically for Claude Code."
+      },
+      "azure-spa-environment-variables": {
+        "description": "A comprehensive guide and implementation for managing environment-specific configurations in client-side React applications deployed to Azure, enabling 'build once, deploy everywhere' workflows."
+      },
+      "virtual-devbox": {
+        "description": "An AutoHotkey script for managing Microsoft Dev Box connections across Windows 11 virtual desktops, providing hotkeys to facilitate seamless switching between local and remote development environments."
+      },
+      "dial-tray": {
+        "description": "A system tray application that provides enhanced Surface Dial control for better integration with development tools like Warp and Claude Code."
+      },
+      "vs-mobile-center-build": {
+        "description": "A custom build task for triggering and managing builds in Visual Studio Mobile Center, with the ability to download build artifacts and integrate with Team Foundation Server pipelines."
       }
     }
   },
