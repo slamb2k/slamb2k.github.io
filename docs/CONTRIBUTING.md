@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Welcome to the component-forge portfolio template! We're excited to have you contribute to this project. This guide will help you understand our development process, coding standards, and how to make meaningful contributions.
+Welcome to the about-me-simon-lamb portfolio template! We're excited to have you contribute to this project. This guide will help you understand our development process, coding standards, and how to make meaningful contributions.
 
 ## Table of Contents
 
@@ -30,8 +30,8 @@ Welcome to the component-forge portfolio template! We're excited to have you con
 1. **Fork and Clone**
 
    ```bash
-   git clone https://github.com/yourusername/component-forge.git
-   cd component-forge
+   git clone https://github.com/yourusername/about-me-simon-lamb.git
+   cd about-me-simon-lamb
    ```
 
 2. **Install Dependencies**
@@ -588,4 +588,4 @@ Don't hesitate to ask questions in GitHub Discussions!
 
 ---
 
-Thank you for contributing to component-forge! Your efforts help make this template better for everyone. 🚀
+Thank you for contributing to about-me-simon-lamb! Your efforts help make this template better for everyone. 🚀

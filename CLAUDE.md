@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React portfolio template system built with Vite, TypeScript, and Tailwind CSS. Named "component-forge", it serves as a code generation target with placeholder injection points for dynamic component creation. The current implementation displays a personal portfolio website with responsive design featuring sections for about, experience, projects, and contact information.
+This is a React portfolio template system built with Vite, TypeScript, and Tailwind CSS. Named "about-me-simon-lamb", it serves as a code generation target with placeholder injection points for dynamic component creation. The current implementation displays a personal portfolio website with responsive design featuring sections for about, experience, projects, and contact information.
 
 ## Development Commands
 

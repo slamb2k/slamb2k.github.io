@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide covers deploying the component-forge portfolio template to various hosting platforms, including build optimization, environment configuration, and CI/CD setup.
+This guide covers deploying the about-me-simon-lamb portfolio template to various hosting platforms, including build optimization, environment configuration, and CI/CD setup.
 
 ## Table of Contents
 

@@ -158,8 +158,9 @@ const NavigationSidebar: React.FC = () => {
                         // 1. Initial load and section is active
                         // 2. Section becomes newly active via navigation (but not on initial load)
                         // 3. Section is hovered but NOT currently active (prevents active items from animating on hover)
-                        const shouldAnimate =
-                          isInitialActive || isNewlyActive || (isHovered && !isCurrentlyActive);
+                        // const shouldAnimate =
+                        //   isInitialActive || isNewlyActive || (isHovered && !isCurrentlyActive);
+                        const shouldAnimate = false;
 
                         const randomSpins = 2 + Math.floor(Math.random() * 4); // 2-5 spins
                         return (

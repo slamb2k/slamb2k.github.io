@@ -1,4 +1,4 @@
-# TASKS - Next Steps for component-forge
+# TASKS - Next Steps for about-me-simon-lamb
 
 ## High Priority
 

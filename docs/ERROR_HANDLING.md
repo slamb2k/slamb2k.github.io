@@ -1,6 +1,6 @@
 # Error Handling Guide
 
-This guide explains the error handling infrastructure in component-forge.
+This guide explains the error handling infrastructure in about-me-simon-lamb.
 
 ## Error Boundaries
 

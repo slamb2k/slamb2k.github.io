@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-This document contains Architecture Decision Records for the component-forge portfolio template system. Each ADR captures important architectural decisions made during development.
+This document contains Architecture Decision Records for the about-me-simon-lamb portfolio template system. Each ADR captures important architectural decisions made during development.
 
 ## Table of Contents
 

@@ -334,7 +334,7 @@ function generateAuditReport() {
 
   let report = `# WCAG 2.1 AA Compliance Audit Report\n\n`;
   report += `**Date**: ${reportDate}\n`;
-  report += `**Project**: Portfolio Template System (component-forge)\n`;
+  report += `**Project**: Portfolio Template System (about-me-simon-lamb)\n`;
   report += `**Standard**: WCAG 2.1 AA\n`;
   report += `**Total Criteria**: ${Object.keys(WCAG_AA_CRITERIA).length}\n\n`;
 

@@ -1,6 +1,6 @@
 # Scripts
 
-This directory contains utility scripts for the component-forge project.
+This directory contains utility scripts for the about-me-simon-lamb project.
 
 ## Component Generator
 

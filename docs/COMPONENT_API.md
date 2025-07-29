@@ -1,6 +1,6 @@
 # Component API Documentation
 
-This document provides comprehensive API documentation for all reusable UI components in the component-forge portfolio template system.
+This document provides comprehensive API documentation for all reusable UI components in the about-me-simon-lamb portfolio template system.
 
 ## Table of Contents
 

@@ -48,7 +48,7 @@
     "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
     "items": {
       "about-me": {
-        "description": "A modern React portfolio website built with TypeScript and Vite, featuring responsive design and internationalization support."
+        "description": "This site - A modern React portfolio website built with TypeScript and Vite, featuring responsive design and internationalization support."
       },
       "glam-mcp": {
         "description": "A Model Context Protocol server that provides intelligent development experiences through rich, contextual responses for AI assistants, transforming AI coding into pair programming with a senior developer."

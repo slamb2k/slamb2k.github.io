@@ -1,4 +1,4 @@
-# Testing Setup for component-forge
+# Testing Setup for about-me-simon-lamb
 
 ## Overview
 

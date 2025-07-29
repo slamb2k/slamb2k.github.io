@@ -95,7 +95,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50"
+              className="absolute top-full right-0 right-0 transform -translate-y-full mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-50"
             >
               <div className="p-2">
                 {languages.map((language, index) => (

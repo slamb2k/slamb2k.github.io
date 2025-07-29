@@ -1,7 +1,7 @@
 # WCAG 2.1 AA Compliance Audit Report
 
 **Date**: 2025-07-27
-**Project**: Portfolio Template System (component-forge)
+**Project**: Portfolio Template System (about-me-simon-lamb)
 **Standard**: WCAG 2.1 AA
 **Total Criteria**: 50
 
