@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   ci: {
     collect: {
       // Collect lighthouse data for built static site
