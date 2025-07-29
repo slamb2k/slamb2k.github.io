@@ -19,130 +19,41 @@
   "experience": {
     "title": "Experience",
     "description": "A chronological overview of my professional journey and the technologies I've worked with.",
-    "jobs": [
-      {
-        "period": "Jul 2024 — Jul 2025",
-        "title": "Senior Software Engineer",
-        "company": "Microsoft (Engineering - Azure Core)",
-        "description": "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
-        "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
+    "jobs": {
+      "azure-core": {
+        "description": "Build and maintain critical components for Azure infrastructure. Collaborate closely with the Semantic Kernel and Copilot teams to develop cutting-edge AI solutions and cloud engineering tools."
       },
-      {
-        "period": "Apr 2024 — Jul 2024",
-        "title": "Senior Software Engineer",
-        "company": "Microsoft (Engineering - Microsoft Cloud)",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": [
-          "C#",
-          "ASP.NET",
-          "Semantic Kernel",
-          "Javascript/React",
-          "SQL/Fabric",
-          "Ev2",
-          "ARM/Bicep"
-        ]
+      "microsoft-cloud": {
+        "description": "Developed cloud infrastructure solutions and AI-driven development tools. Focused on scalable cloud services and integration with Microsoft AI platforms."
       },
-      {
-        "period": "Jul 2019 - Apr 2024",
-        "title": "Cloud Solution Architect",
-        "company": "Microsoft (Global Partner Solutions)",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": [
-          "Prompt Engineering",
-          "Azure Cloud",
-          "C#",
-          "ASP.NET",
-          "Semantic Kernel",
-          "Javascript/React",
-          "SQL",
-          "Power BI",
-          "ARM/Bicep",
-          "Azure DevOps",
-          "Node.js",
-          "PowerShell"
-        ]
+      "global-partner-solutions": {
+        "description": "Led enterprise cloud transformation initiatives and AI solution architecture. Specialized in prompt engineering, Azure cloud architecture, and DevOps practices for enterprise clients."
       },
-      {
-        "period": "Jun 2004 - Feb 2017",
-        "title": "Technical Evangelist",
-        "company": "Microsoft (DX - Developer Experience)",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": [
-          "C#",
-          "ASP.NET",
-          "Javascript",
-          "SQL",
-          "Power BI",
-          "ARM",
-          "Azure DevOps",
-          "Node.js",
-          "PowerShell"
-        ]
-      },
-      {
-        "period": "2001 - 2004",
-        "title": "Technical Architecture Lead",
-        "company": "Fred IT Group",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": [
-          "C#",
-          "ASP.NET",
-          "Dynamics AX (X++)",
-          "Javascript",
-          "SQL",
-          "Power BI",
-          "ARM",
-          "Azure DevOps",
-          "Node.js",
-          "PowerShell"
-        ]
-      },
-      {
-        "period": "1998 - 2001",
-        "title": "Senior Developer",
-        "company": "Leadtec Systems Australia",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": ["C#", "ASP.NET", "XML", "XSLT", "SQL"]
-      },
-      {
-        "period": "Feb 2017 - Jul 2019",
-        "title": "Solutions Manager",
-        "company": "Pacific Commerce",
-        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": ["Visual Basic", "EDI", "Sterling Commerce: GENTRAN", "SQL"]
+      "fred-it-group": {
+        "description": "Led a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. Managed platform design, Agile/DevOps/IaC delivery, and team leadership."
       }
-    ]
+    }
   },
   "projects": {
     "title": "Projects",
     "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
-    "items": [
-      {
-        "title": "E-Commerce Platform",
-        "description": "A modern e-commerce platform built with Next.js and Stripe integration.",
-        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-        "link": "https://example.com",
-        "github": "https://github.com/example/project"
+    "items": {
+      "ecommerce-platform": {
+        "description": "A modern e-commerce platform built with Next.js and Stripe integration."
       },
-      {
-        "title": "Task Management App",
-        "description": "A collaborative task management application with real-time updates.",
-        "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
-        "github": "https://github.com/example/task-app"
+      "task-management-app": {
+        "description": "A collaborative task management application with real-time updates."
       },
-      {
-        "title": "Design System",
-        "description": "A comprehensive design system and component library for enterprise applications.",
-        "technologies": ["React", "TypeScript", "Storybook", "Jest"],
-        "link": "https://design.example.com"
+      "design-system": {
+        "description": "A comprehensive design system and component library for enterprise applications."
       }
-    ]
+    }
   },
   "contact": {
     "title": "Get In Touch",
     "message": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
     "button": "Say Hello",
-    "email": "hello@example.com"
+    "email": "me@simonlamb.codes"
   },
   "common": {
     "visitProject": "Visit {{title}}",

@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "À propos",
-    "experience": "Expérience", 
+    "experience": "Expérience",
     "projects": "Projets",
     "contact": "Contact"
   },
@@ -17,47 +17,35 @@
   "experience": {
     "title": "Expérience",
     "description": "Un aperçu chronologique de mon parcours professionnel et des technologies avec lesquelles j'ai travaillé.",
-    "jobs": [
-      {
-        "period": "2021 — Présent",
-        "title": "Ingénieur Frontend Senior",
-        "company": "Upstatement",
-        "description": "Construire et maintenir des composants critiques utilisés pour construire le frontend de Klaviyo, à travers tout le produit. Travailler en étroite collaboration avec des équipes inter-fonctionnelles, y compris les développeurs, designers et chefs de produit.",
-        "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
+    "jobs": {
+      "azure-core": {
+        "description": "Construire et maintenir des composants critiques pour l'infrastructure Azure. Collaborer étroitement avec les équipes Semantic Kernel et Copilot pour développer des solutions IA de pointe et des outils d'ingénierie cloud."
       },
-      {
-        "period": "2018 — 2021", 
-        "title": "Développeur Frontend",
-        "company": "Apple",
-        "description": "J'ai développé et maintenu des applications web pour les outils internes d'Apple. J'ai collaboré avec les équipes de design pour implémenter des interfaces parfaites.",
-        "technologies": ["React", "Redux", "Node.js", "GraphQL"]
+      "microsoft-cloud": {
+        "description": "J'ai développé des solutions d'infrastructure cloud et des outils de développement alimentés par l'IA. Je me suis concentré sur les services cloud évolutifs et l'intégration avec les plateformes IA de Microsoft."
+      },
+      "global-partner-solutions": {
+        "description": "J'ai dirigé des initiatives de transformation cloud d'entreprise et l'architecture de solutions IA. Je me suis spécialisé dans l'ingénierie de prompts, l'architecture cloud Azure et les pratiques DevOps pour les clients d'entreprise."
+      },
+      "fred-it-group": {
+        "description": "J'ai dirigé une équipe de six ingénieurs pour concevoir des plateformes évolutives pour l'industrie pharmaceutique et de la santé. J'ai géré la conception de plateformes, la livraison Agile/DevOps/IaC et le leadership d'équipe."
       }
-    ]
+    }
   },
   "projects": {
     "title": "Projets",
     "description": "Une collection de projets que j'ai construits, montrant différentes technologies et approches de résolution de problèmes.",
-    "items": [
-      {
-        "title": "Plateforme E-Commerce",
-        "description": "Une plateforme de commerce électronique moderne construite avec Next.js et l'intégration Stripe.",
-        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-        "link": "https://example.com",
-        "github": "https://github.com/example/project"
+    "items": {
+      "ecommerce-platform": {
+        "description": "Une plateforme de commerce électronique moderne construite avec Next.js et l'intégration Stripe."
       },
-      {
-        "title": "App de Gestion de Tâches",
-        "description": "Une application collaborative de gestion de tâches avec des mises à jour en temps réel.",
-        "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
-        "github": "https://github.com/example/task-app"
+      "task-management-app": {
+        "description": "Une application collaborative de gestion de tâches avec des mises à jour en temps réel."
       },
-      {
-        "title": "Système de Design",
-        "description": "Un système de design complet et une bibliothèque de composants pour les applications d'entreprise.",
-        "technologies": ["React", "TypeScript", "Storybook", "Jest"],
-        "link": "https://design.example.com"
+      "design-system": {
+        "description": "Un système de design complet et une bibliothèque de composants pour les applications d'entreprise."
       }
-    ]
+    }
   },
   "contact": {
     "title": "Entrer en Contact",
