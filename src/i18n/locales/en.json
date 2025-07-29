@@ -1,36 +1,115 @@
 {
   "nav": {
     "about": "About",
-    "experience": "Experience", 
+    "experience": "Experience",
     "projects": "Projects",
     "contact": "Contact"
   },
   "about": {
     "title": "Hi, I'm {{name}}.",
-    "subtitle": "Senior Frontend Engineer",
-    "tagline": "I build pixel-perfect, engaging, and accessible digital experiences.",
+    "subtitle": "Principal-Level Software Engineer ",
+    "tagline": "With a proven track record in AI systems, Azure, and DevOps at enterprise scale.",
     "heading": "About",
-    "paragraph1": "I'm a passionate full-stack developer with over 5 years of experience building digital experiences. I specialize in creating accessible, pixel-perfect web applications with modern technologies.",
-    "paragraph2": "My main focus these days is building products and leading projects at Upstatement. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood.",
-    "paragraph3": "When I'm not at the computer, I'm usually rock climbing, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds."
+    "paragraph1": "I'm a seasoned software engineer with over two decades of experience, including nearly nine years at Microsoft. My career has spanned roles from Technical Evangelist in Developer Experience to Cloud Solution Architect with Global Partner Solutions, culminating as a Senior Software Engineer in Azure Core (One Fleet Partner).",
+    "paragraph2": "Throughout my tenure at Microsoft, I've developed deep expertise in Azure cloud engineering, DevOps practices, and AI-driven software development. Notably, I've collaborated closely with the Semantic Kernel and Copilot teams at Microsoft to build cutting-edge AI solutions.",
+    "paragraph3": "Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, managing a team of six engineers to design scalable platforms for the pharmacy and healthcare industry.",
+    "paragraph4": "I'm not worried about AI eliminating software developers - I'm more concerned about developers who aren't using AI being outpaced by those who do. For that reason, I'm intensely focused on mastering and integrating agentic coding tools, empowering cloud engineers to leverage AI proactively and stay ahead.",
+    "paragraph5": "Outside of work, I co-parent two teenagers with my partner, endeavour to automate my household, enjoy time with my dog Pip (named after the Python package manager), and perform as a vocalist in a cover band."
   },
   "experience": {
     "title": "Experience",
     "description": "A chronological overview of my professional journey and the technologies I've worked with.",
     "jobs": [
       {
-        "period": "2021 — Present",
-        "title": "Senior Frontend Engineer",
-        "company": "Upstatement",
+        "period": "Jul 2024 — Jul 2025",
+        "title": "Senior Software Engineer",
+        "company": "Microsoft (Engineering - Azure Core)",
         "description": "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
         "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
       },
       {
-        "period": "2018 — 2021", 
-        "title": "Frontend Developer",
-        "company": "Apple",
+        "period": "Apr 2024 — Jul 2024",
+        "title": "Senior Software Engineer",
+        "company": "Microsoft (Engineering - Microsoft Cloud)",
         "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-        "technologies": ["React", "Redux", "Node.js", "GraphQL"]
+        "technologies": [
+          "C#",
+          "ASP.NET",
+          "Semantic Kernel",
+          "Javascript/React",
+          "SQL/Fabric",
+          "Ev2",
+          "ARM/Bicep"
+        ]
+      },
+      {
+        "period": "Jul 2019 - Apr 2024",
+        "title": "Cloud Solution Architect",
+        "company": "Microsoft (Global Partner Solutions)",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": [
+          "Prompt Engineering",
+          "Azure Cloud",
+          "C#",
+          "ASP.NET",
+          "Semantic Kernel",
+          "Javascript/React",
+          "SQL",
+          "Power BI",
+          "ARM/Bicep",
+          "Azure DevOps",
+          "Node.js",
+          "PowerShell"
+        ]
+      },
+      {
+        "period": "Jun 2004 - Feb 2017",
+        "title": "Technical Evangelist",
+        "company": "Microsoft (DX - Developer Experience)",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": [
+          "C#",
+          "ASP.NET",
+          "Javascript",
+          "SQL",
+          "Power BI",
+          "ARM",
+          "Azure DevOps",
+          "Node.js",
+          "PowerShell"
+        ]
+      },
+      {
+        "period": "2001 - 2004",
+        "title": "Technical Architecture Lead",
+        "company": "Fred IT Group",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": [
+          "C#",
+          "ASP.NET",
+          "Dynamics AX (X++)",
+          "Javascript",
+          "SQL",
+          "Power BI",
+          "ARM",
+          "Azure DevOps",
+          "Node.js",
+          "PowerShell"
+        ]
+      },
+      {
+        "period": "1998 - 2001",
+        "title": "Senior Developer",
+        "company": "Leadtec Systems Australia",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": ["C#", "ASP.NET", "XML", "XSLT", "SQL"]
+      },
+      {
+        "period": "Feb 2017 - Jul 2019",
+        "title": "Solutions Manager",
+        "company": "Pacific Commerce",
+        "description": "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+        "technologies": ["Visual Basic", "EDI", "Sterling Commerce: GENTRAN", "SQL"]
       }
     ]
   },
