@@ -6,7 +6,9 @@ import Button from './Button';
 // Mock framer-motion
 vi.mock('framer-motion', () => ({
   motion: {
-    button: ({ children, whileHover, whileTap, ...props }: any) => <button {...props}>{children}</button>,
+    button: ({ children, whileHover, whileTap, ...props }: any) => (
+      <button {...props}>{children}</button>
+    ),
     a: ({ children, whileHover, whileTap, ...props }: any) => <a {...props}>{children}</a>,
   },
 }));
@@ -68,7 +70,11 @@ describe('Button', () => {
   });
 
   it('renders icon on the left when specified', () => {
-    render(<Button icon={Mail} iconPosition="left">Button with Icon</Button>);
+    render(
+      <Button icon={Mail} iconPosition="left">
+        Button with Icon
+      </Button>
+    );
     const button = screen.getByRole('button');
     const icon = button.querySelector('svg');
     expect(icon).toBeInTheDocument();
@@ -79,19 +85,23 @@ describe('Button', () => {
   it('handles onClick events', () => {
     const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Clickable Button</Button>);
-    
+
     fireEvent.click(screen.getByRole('button'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it('applies disabled state correctly', () => {
     const handleClick = vi.fn();
-    render(<Button disabled onClick={handleClick}>Disabled Button</Button>);
-    
+    render(
+      <Button disabled onClick={handleClick}>
+        Disabled Button
+      </Button>
+    );
+
     const button = screen.getByRole('button');
     expect(button).toBeDisabled();
     expect(button.className).toContain('disabled:opacity-50');
-    
+
     fireEvent.click(button);
     expect(handleClick).not.toHaveBeenCalled();
   });
@@ -112,19 +122,27 @@ describe('Button', () => {
         External Link
       </Button>
     );
-    
+
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('renders different icon sizes based on button size', () => {
-    const { rerender } = render(<Button icon={ArrowDown} size="sm">Small</Button>);
+    const { rerender } = render(
+      <Button icon={ArrowDown} size="sm">
+        Small
+      </Button>
+    );
     let icon = screen.getByRole('button').querySelector('svg');
     expect(icon).toHaveAttribute('width', '14');
     expect(icon).toHaveAttribute('height', '14');
 
-    rerender(<Button icon={ArrowDown} size="lg">Large</Button>);
+    rerender(
+      <Button icon={ArrowDown} size="lg">
+        Large
+      </Button>
+    );
     icon = screen.getByRole('button').querySelector('svg');
     expect(icon).toHaveAttribute('width', '18');
     expect(icon).toHaveAttribute('height', '18');

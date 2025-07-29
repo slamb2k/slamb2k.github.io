@@ -10,35 +10,35 @@ describe('SkipNavigation', () => {
 
   it('renders skip navigation link', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     expect(skipLink).toBeInTheDocument();
   });
 
   it('uses default main content ID when not specified', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     expect(skipLink).toHaveAttribute('href', '#main-content');
   });
 
   it('uses custom main content ID when specified', () => {
     render(<SkipNavigation mainContentId="custom-main" />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     expect(skipLink).toHaveAttribute('href', '#custom-main');
   });
 
   it('applies additional CSS classes', () => {
     const { container } = render(<SkipNavigation className="custom-class" />);
-    
+
     const skipContainer = container.querySelector('.skip-navigation');
     expect(skipContainer).toHaveClass('custom-class');
   });
 
   it('has proper accessibility attributes', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     expect(skipLink).toHaveAttribute('tabIndex', '0');
     expect(skipLink).toHaveClass('sr-only');
@@ -46,12 +46,12 @@ describe('SkipNavigation', () => {
 
   it('becomes visible when focused', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
-    
+
     // Initially screen-reader only
     expect(skipLink).toHaveClass('sr-only');
-    
+
     // Should have focus styles that make it visible
     expect(skipLink).toHaveClass('focus:not-sr-only');
     expect(skipLink).toHaveClass('focus:absolute');
@@ -63,18 +63,18 @@ describe('SkipNavigation', () => {
     mainElement.id = 'main-content';
     mainElement.setAttribute('tabIndex', '-1');
     document.body.appendChild(mainElement);
-    
+
     // Mock the focus and scrollIntoView methods
     const focusMock = vi.fn();
     const scrollIntoViewMock = vi.fn();
     mainElement.focus = focusMock;
     mainElement.scrollIntoView = scrollIntoViewMock;
-    
+
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     fireEvent.click(skipLink);
-    
+
     expect(focusMock).toHaveBeenCalled();
     expect(scrollIntoViewMock).toHaveBeenCalledWith({
       behavior: 'smooth',
@@ -88,18 +88,18 @@ describe('SkipNavigation', () => {
     mainElement.id = 'custom-main';
     mainElement.setAttribute('tabIndex', '-1');
     document.body.appendChild(mainElement);
-    
+
     // Mock the focus and scrollIntoView methods
     const focusMock = vi.fn();
     const scrollIntoViewMock = vi.fn();
     mainElement.focus = focusMock;
     mainElement.scrollIntoView = scrollIntoViewMock;
-    
+
     render(<SkipNavigation mainContentId="custom-main" />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     fireEvent.click(skipLink);
-    
+
     expect(focusMock).toHaveBeenCalled();
     expect(scrollIntoViewMock).toHaveBeenCalled();
   });
@@ -107,9 +107,9 @@ describe('SkipNavigation', () => {
   it('handles click when main content element does not exist', () => {
     // Don't create any main content element
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
-    
+
     // Should not throw an error when main content doesn't exist
     expect(() => {
       fireEvent.click(skipLink);
@@ -118,23 +118,23 @@ describe('SkipNavigation', () => {
 
   it('prevents default link behavior on click', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
     const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
-    
+
     // Mock preventDefault
     const preventDefaultSpy = vi.spyOn(clickEvent, 'preventDefault');
-    
+
     fireEvent(skipLink, clickEvent);
-    
+
     expect(preventDefaultSpy).toHaveBeenCalled();
   });
 
   it('has proper styling for visibility and focus states', () => {
     render(<SkipNavigation />);
-    
+
     const skipLink = screen.getByText('Skip to main content');
-    
+
     // Check for proper styling classes
     expect(skipLink).toHaveClass('sr-only'); // Hidden by default
     expect(skipLink).toHaveClass('focus:not-sr-only'); // Visible on focus

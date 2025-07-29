@@ -1,5 +1,9 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { ScreenReaderTester, quickA11yCheck, announceScreenReaderInstructions } from './screen-reader-testing';
+import {
+  ScreenReaderTester,
+  quickA11yCheck,
+  announceScreenReaderInstructions,
+} from './screen-reader-testing';
 
 describe('Screen Reader Testing Utilities', () => {
   let tester: ScreenReaderTester;
@@ -100,7 +104,9 @@ describe('Screen Reader Testing Utilities', () => {
       `;
 
       report = await tester.runAllTests();
-      const interactiveTestPassed = report.passed.find(test => test.name === 'Interactive Elements');
+      const interactiveTestPassed = report.passed.find(
+        test => test.name === 'Interactive Elements'
+      );
       expect(interactiveTestPassed).toBeDefined();
     });
 
@@ -175,15 +181,15 @@ describe('Screen Reader Testing Utilities', () => {
 
       expect(reportText).toContain('Screen Reader Accessibility Report');
       expect(reportText).toContain(`Score: ${report.score}%`);
-      
+
       if (report.failed.length > 0) {
         expect(reportText).toContain('Failed Tests');
       }
-      
+
       if (report.passed.length > 0) {
         expect(reportText).toContain('Passed Tests');
       }
-      
+
       expect(reportText).toContain('Recommendations');
     });
   });
@@ -237,9 +243,10 @@ describe('Screen Reader Testing Utilities', () => {
       `;
 
       const report = await tester.runAllTests();
-      const focusTest = report.passed.find(test => test.name === 'Focus Management') ||
-                       report.failed.find(test => test.name === 'Focus Management');
-      
+      const focusTest =
+        report.passed.find(test => test.name === 'Focus Management') ||
+        report.failed.find(test => test.name === 'Focus Management');
+
       expect(focusTest).toBeDefined();
     });
   });
@@ -253,9 +260,10 @@ describe('Screen Reader Testing Utilities', () => {
       `;
 
       const report = await tester.runAllTests();
-      const liveRegionTest = report.passed.find(test => test.name === 'Live Regions') ||
-                            report.failed.find(test => test.name === 'Live Regions');
-      
+      const liveRegionTest =
+        report.passed.find(test => test.name === 'Live Regions') ||
+        report.failed.find(test => test.name === 'Live Regions');
+
       expect(liveRegionTest).toBeDefined();
     });
 

@@ -151,9 +151,9 @@ describe('Keyboard Utilities', () => {
         configurable: true,
       });
 
-      const shiftTabEvent = new KeyboardEvent('keydown', { 
-        key: 'Tab', 
-        shiftKey: true 
+      const shiftTabEvent = new KeyboardEvent('keydown', {
+        key: 'Tab',
+        shiftKey: true,
       });
       const preventDefaultSpy = vi.spyOn(shiftTabEvent, 'preventDefault');
 
@@ -173,7 +173,7 @@ describe('Keyboard Utilities', () => {
         document.createElement('button'),
         document.createElement('button'),
       ];
-      
+
       elements.forEach((el, index) => {
         el.focus = vi.fn();
         el.id = `button-${index}`;
@@ -216,18 +216,17 @@ describe('Keyboard Utilities', () => {
 
   describe('createKeyboardNavigationHandler', () => {
     it('should create a handler that manages keyboard navigation', () => {
-      const elements = [
-        document.createElement('button'),
-        document.createElement('button'),
-      ];
-      
+      const elements = [document.createElement('button'), document.createElement('button')];
+
       elements.forEach(el => {
         el.click = vi.fn();
         el.focus = vi.fn();
       });
 
       let currentIndex = 0;
-      const setCurrentIndex = vi.fn((index) => { currentIndex = index; });
+      const setCurrentIndex = vi.fn(index => {
+        currentIndex = index;
+      });
 
       const handler = createKeyboardNavigationHandler(
         () => elements,
@@ -238,9 +237,9 @@ describe('Keyboard Utilities', () => {
       // Test Enter key activation
       const enterEvent = new KeyboardEvent('keydown', { key: KEYS.ENTER });
       const preventDefaultSpy = vi.spyOn(enterEvent, 'preventDefault');
-      
+
       handler(enterEvent);
-      
+
       expect(preventDefaultSpy).toHaveBeenCalled();
       expect(elements[0].click).toHaveBeenCalled();
     });

@@ -32,10 +32,7 @@ export function addResourceHints() {
   if (typeof window === 'undefined') return;
 
   // DNS prefetch for external resources
-  const dnsPrefetchHosts = [
-    'fonts.googleapis.com',
-    'fonts.gstatic.com',
-  ];
+  const dnsPrefetchHosts = ['fonts.googleapis.com', 'fonts.gstatic.com'];
 
   dnsPrefetchHosts.forEach(host => {
     const link = document.createElement('link');
@@ -45,10 +42,7 @@ export function addResourceHints() {
   });
 
   // Preconnect to critical third-party origins
-  const preconnectHosts = [
-    'https://fonts.googleapis.com',
-    'https://fonts.gstatic.com',
-  ];
+  const preconnectHosts = ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'];
 
   preconnectHosts.forEach(origin => {
     const link = document.createElement('link');
@@ -68,7 +62,7 @@ export function lazyLoadNonCriticalResources() {
     // Example: Load Google Analytics
     // gtag('js', new Date());
     // gtag('config', 'GA_MEASUREMENT_ID');
-    
+
     // Load other non-critical scripts
     console.log('Non-critical resources loaded');
   });
@@ -79,7 +73,8 @@ export function registerServiceWorker() {
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) return;
 
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker
+      .register('/sw.js')
       .then(registration => {
         console.log('SW registered: ', registration);
       })
@@ -94,7 +89,7 @@ export function initializePerformanceOptimizations() {
   preloadCriticalResources();
   addResourceHints();
   lazyLoadNonCriticalResources();
-  
+
   if (process.env.NODE_ENV === 'production') {
     registerServiceWorker();
   }

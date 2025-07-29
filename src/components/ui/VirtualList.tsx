@@ -16,7 +16,7 @@ function VirtualList<T>({
   containerHeight,
   renderItem,
   className = '',
-  overscan = 5
+  overscan = 5,
 }: VirtualListProps<T>) {
   const [scrollTop, setScrollTop] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,15 +26,16 @@ function VirtualList<T>({
     const start = Math.max(0, Math.floor(scrollTop / itemHeight) - overscan);
     const visibleCount = Math.ceil(containerHeight / itemHeight);
     const end = Math.min(items.length, start + visibleCount + overscan * 2);
-    
+
     return { start, end };
   }, [scrollTop, itemHeight, containerHeight, items.length, overscan]);
 
   // Throttled scroll handler
   const handleScroll = useMemo(
-    () => throttle((event: React.UIEvent<HTMLDivElement>) => {
-      setScrollTop(event.currentTarget.scrollTop);
-    }, 16), // ~60fps
+    () =>
+      throttle((event: React.UIEvent<HTMLDivElement>) => {
+        setScrollTop(event.currentTarget.scrollTop);
+      }, 16), // ~60fps
     []
   );
 
@@ -68,10 +69,7 @@ function VirtualList<T>({
           }}
         >
           {visibleItems.map((item, index) => (
-            <div
-              key={visibleRange.start + index}
-              style={{ height: itemHeight }}
-            >
+            <div key={visibleRange.start + index} style={{ height: itemHeight }}>
               {renderItem(item, visibleRange.start + index)}
             </div>
           ))}
@@ -81,6 +79,4 @@ function VirtualList<T>({
   );
 }
 
-export default React.memo(VirtualList) as <T>(
-  props: VirtualListProps<T>
-) => React.ReactElement;
+export default React.memo(VirtualList) as <T>(props: VirtualListProps<T>) => React.ReactElement;

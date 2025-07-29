@@ -21,19 +21,19 @@ interface LanguageSwitcherProps {
   className?: string;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ 
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   variant = 'desktop',
-  className = '' 
+  className = '',
 }) => {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
-  
+
   const handleLanguageChange = (languageCode: string) => {
     i18n.changeLanguage(languageCode);
     setIsOpen(false);
-    
+
     // Update document direction for RTL languages (if needed in future)
     document.documentElement.dir = 'ltr'; // All current languages are LTR
   };
@@ -43,10 +43,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   if (variant === 'mobile') {
     return (
       <div className={`space-y-2 ${className}`}>
-        <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">
-          Language
-        </div>
-        {languages.map((language) => (
+        <div className="text-xs text-slate-500 uppercase tracking-wider font-medium">Language</div>
+        {languages.map(language => (
           <button
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
@@ -79,8 +77,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       >
         <Globe size={18} />
         <span className="text-sm font-medium">{currentLanguage.flag}</span>
-        <ChevronDown 
-          size={14} 
+        <ChevronDown
+          size={14}
           className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
@@ -89,11 +87,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         {isOpen && (
           <>
             {/* Backdrop */}
-            <div 
-              className="fixed inset-0 z-40" 
-              onClick={() => setIsOpen(false)}
-            />
-            
+            <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+
             {/* Dropdown */}
             <motion.div
               initial={{ opacity: 0, y: -10, scale: 0.95 }}

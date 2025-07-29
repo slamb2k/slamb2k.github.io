@@ -16,14 +16,14 @@ const LazySection: React.FC<LazySectionProps> = ({
   fallback,
   rootMargin = '100px',
   threshold = 0.1,
-  once = true
+  once = true,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
-  
+
   const isVisible = useIntersectionObserver(sectionRef, {
     rootMargin,
-    threshold
+    threshold,
   });
 
   // Track if the section has been visible (for once behavior)
@@ -37,7 +37,7 @@ const LazySection: React.FC<LazySectionProps> = ({
 
   return (
     <div ref={sectionRef} className={className}>
-      {shouldRender ? children : (fallback || <div className="min-h-96" />)}
+      {shouldRender ? children : fallback || <div className="min-h-96" />}
     </div>
   );
 };

@@ -137,10 +137,7 @@ describe('LazySection', () => {
     mockUseIntersectionObserver.mockReturnValue(true);
 
     render(
-      <LazySection
-        rootMargin="200px"
-        threshold={0.5}
-      >
+      <LazySection rootMargin="200px" threshold={0.5}>
         <div>Test content</div>
       </LazySection>
     );

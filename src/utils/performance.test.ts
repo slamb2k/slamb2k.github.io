@@ -1,5 +1,11 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { throttle, debounce, PerformanceMonitor, generateSrcSet, getMemoryUsage } from './performance';
+import {
+  throttle,
+  debounce,
+  PerformanceMonitor,
+  generateSrcSet,
+  getMemoryUsage,
+} from './performance';
 
 describe('Performance Utilities', () => {
   beforeEach(() => {
@@ -71,20 +77,22 @@ describe('Performance Utilities', () => {
   describe('PerformanceMonitor', () => {
     beforeEach(() => {
       // Mock PerformanceObserver
-      const MockPerformanceObserver = vi.fn().mockImplementation((callback) => ({
+      const MockPerformanceObserver = vi.fn().mockImplementation(callback => ({
         observe: vi.fn(),
         disconnect: vi.fn(),
       }));
       Object.defineProperty(MockPerformanceObserver, 'supportedEntryTypes', {
-        value: ['navigation', 'paint', 'largest-contentful-paint']
+        value: ['navigation', 'paint', 'largest-contentful-paint'],
       });
       global.PerformanceObserver = MockPerformanceObserver as any;
 
       // Mock performance.getEntriesByType
-      global.performance.getEntriesByType = vi.fn().mockReturnValue([{
-        responseStart: 100,
-        requestStart: 50,
-      }]);
+      global.performance.getEntriesByType = vi.fn().mockReturnValue([
+        {
+          responseStart: 100,
+          requestStart: 50,
+        },
+      ]);
     });
 
     it('should create monitor instance', () => {
@@ -95,7 +103,7 @@ describe('Performance Utilities', () => {
     it('should call callback when metrics update', () => {
       const callback = vi.fn();
       const monitor = new PerformanceMonitor(callback);
-      
+
       // Simulate metric update
       const metrics = monitor.getMetrics();
       expect(metrics).toHaveProperty('fcp');
@@ -108,7 +116,7 @@ describe('Performance Utilities', () => {
     it('should destroy observers on destroy', () => {
       const monitor = new PerformanceMonitor();
       monitor.destroy();
-      
+
       // Should not throw error
       expect(() => monitor.destroy()).not.toThrow();
     });
@@ -118,7 +126,7 @@ describe('Performance Utilities', () => {
     it('should generate correct srcset', () => {
       const baseSrc = 'image.jpg';
       const widths = [320, 640, 1280];
-      
+
       const result = generateSrcSet(baseSrc, widths);
       expect(result).toBe('image.jpg?w=320 320w, image.jpg?w=640 640w, image.jpg?w=1280 1280w');
     });

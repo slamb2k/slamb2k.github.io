@@ -18,7 +18,7 @@ const Section: React.FC<SectionProps> = ({
 }) => {
   const baseClasses = 'mb-24';
   const combinedClasses = `${baseClasses} ${className}`;
-  
+
   if (!animate) {
     return (
       <section id={id} className={combinedClasses}>
@@ -26,7 +26,7 @@ const Section: React.FC<SectionProps> = ({
       </section>
     );
   }
-  
+
   return (
     <motion.section
       id={id}
@@ -57,11 +57,11 @@ export const SectionTitle: React.FC<SectionTitleProps> = ({
 }) => {
   const baseClasses = 'text-2xl font-bold text-slate-100 mb-6';
   const combinedClasses = `${baseClasses} ${className}`;
-  
+
   if (!animate) {
     return <h2 className={combinedClasses}>{children}</h2>;
   }
-  
+
   return (
     <motion.h2
       initial={{ opacity: 0, x: -20 }}

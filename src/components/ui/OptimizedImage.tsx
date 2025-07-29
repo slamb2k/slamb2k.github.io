@@ -26,17 +26,17 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   priority = false,
   placeholder,
   onLoad,
-  onError
+  onError,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [imageSrc, setImageSrc] = useState(priority ? src : placeholder || '');
   const imgRef = useRef<HTMLImageElement>(null);
-  
+
   // Use intersection observer for lazy loading (unless priority is set)
   const isVisible = useIntersectionObserver(imgRef, {
     rootMargin: '50px',
-    threshold: 0.1
+    threshold: 0.1,
   });
 
   // Load image when visible (for lazy loading)
@@ -51,11 +51,9 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     if (!baseSrc || baseSrc.includes('placeholder')) {
       return baseSrc;
     }
-    
+
     const widths = [320, 640, 768, 1024, 1280, 1536];
-    return widths
-      .map(w => `${baseSrc}?w=${w}&q=75 ${w}w`)
-      .join(', ');
+    return widths.map(w => `${baseSrc}?w=${w}&q=75 ${w}w`).join(', ');
   };
 
   const handleLoad = () => {
@@ -70,23 +68,17 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   // Default placeholder for failed images
   const renderPlaceholder = () => (
-    <div 
+    <div
       className={`bg-slate-800 flex items-center justify-center ${className}`}
       style={{ width, height, aspectRatio: width && height ? `${width}/${height}` : undefined }}
     >
-      <span className="text-slate-400 text-sm">
-        {hasError ? 'Failed to load' : 'Loading...'}
-      </span>
+      <span className="text-slate-400 text-sm">{hasError ? 'Failed to load' : 'Loading...'}</span>
     </div>
   );
 
   // Don't render img tag until we have a source
   if (!imageSrc && !priority) {
-    return (
-      <div ref={imgRef}>
-        {renderPlaceholder()}
-      </div>
-    );
+    return <div ref={imgRef}>{renderPlaceholder()}</div>;
   }
 
   return (
@@ -104,7 +96,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         onLoad={handleLoad}
         onError={handleError}
         style={{
-          aspectRatio: width && height ? `${width}/${height}` : undefined
+          aspectRatio: width && height ? `${width}/${height}` : undefined,
         }}
       />
     </div>

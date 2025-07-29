@@ -19,16 +19,16 @@ export function useIsMobile(breakpoint: number = BREAKPOINTS.mobile): boolean {
     const onChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
     };
-    
+
     // Set initial value
     setIsMobile(mql.matches);
-    
+
     // Modern browsers
     if (mql.addEventListener) {
       mql.addEventListener('change', onChange);
       return () => mql.removeEventListener('change', onChange);
     }
-    
+
     // Legacy browsers
     mql.addListener(onChange);
     return () => mql.removeListener(onChange);
@@ -54,14 +54,14 @@ export function useHasSidebar(): boolean {
     const onChange = (event: MediaQueryListEvent) => {
       setHasSidebar(event.matches);
     };
-    
+
     setHasSidebar(mql.matches);
-    
+
     if (mql.addEventListener) {
       mql.addEventListener('change', onChange);
       return () => mql.removeEventListener('change', onChange);
     }
-    
+
     mql.addListener(onChange);
     return () => mql.removeListener(onChange);
   }, []);
