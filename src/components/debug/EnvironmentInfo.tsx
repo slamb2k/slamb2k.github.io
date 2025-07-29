@@ -21,7 +21,7 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`fixed bottom-4 right-4 z-50 ${className}`}
+      className={className}
     >
       <div className="bg-slate-800/90 backdrop-blur-sm text-slate-300 p-4 rounded-lg shadow-xl border border-slate-700 max-w-sm">
         <div className="space-y-2 text-xs">
@@ -33,8 +33,8 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
                 config.environment === 'production'
                   ? 'bg-green-600/20 text-green-300'
                   : config.environment === 'staging'
-                  ? 'bg-yellow-600/20 text-yellow-300'
-                  : 'bg-blue-600/20 text-blue-300'
+                    ? 'bg-yellow-600/20 text-yellow-300'
+                    : 'bg-blue-600/20 text-blue-300'
               }`}
             >
               {config.environment}
@@ -54,9 +54,7 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
               {Object.entries(config.features).map(([key, enabled]) => (
                 <div key={key} className="flex items-center space-x-1">
                   <div
-                    className={`w-2 h-2 rounded-full ${
-                      enabled ? 'bg-green-400' : 'bg-slate-500'
-                    }`}
+                    className={`w-2 h-2 rounded-full ${enabled ? 'bg-green-400' : 'bg-slate-500'}`}
                   />
                   <span className="text-xs capitalize">{key}</span>
                 </div>
@@ -67,9 +65,7 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
           {/* API Configuration */}
           <div className="border-t border-slate-600 pt-2">
             <div className="font-medium mb-1">API:</div>
-            <div className="text-xs text-slate-400">
-              {new URL(config.api.baseUrl).hostname}
-            </div>
+            <div className="text-xs text-slate-400">{new URL(config.api.baseUrl).hostname}</div>
           </div>
 
           {/* Validation Status */}
