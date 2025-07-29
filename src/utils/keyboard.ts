@@ -45,9 +45,7 @@ export function isFocusable(element: HTMLElement): boolean {
     '[contenteditable="true"]',
   ];
 
-  const isFocusableElement = focusableSelectors.some(selector => 
-    element.matches(selector)
-  );
+  const isFocusableElement = focusableSelectors.some(selector => element.matches(selector));
 
   return isFocusableElement && !element.hasAttribute('aria-hidden');
 }
@@ -66,13 +64,10 @@ export function getFocusableElements(container: HTMLElement): HTMLElement[] {
     '[contenteditable="true"]',
   ].join(', ');
 
-  const elements = Array.from(
-    container.querySelectorAll<HTMLElement>(focusableSelectors)
-  );
+  const elements = Array.from(container.querySelectorAll<HTMLElement>(focusableSelectors));
 
-  return elements.filter(element => 
-    !element.hasAttribute('aria-hidden') && 
-    element.offsetParent !== null // Element is visible
+  return elements.filter(
+    element => !element.hasAttribute('aria-hidden') && element.offsetParent !== null // Element is visible
   );
 }
 
@@ -122,7 +117,8 @@ export function handleArrowNavigation(
       break;
     case KEYS.ARROW_DOWN:
     case KEYS.ARROW_RIGHT:
-      newIndex = currentIndex < elements.length - 1 ? currentIndex + 1 : wrap ? 0 : elements.length - 1;
+      newIndex =
+        currentIndex < elements.length - 1 ? currentIndex + 1 : wrap ? 0 : elements.length - 1;
       break;
     case KEYS.HOME:
       if (enableHomeEnd) newIndex = 0;
@@ -181,9 +177,9 @@ export function createKeyboardNavigationHandler(
 /**
  * Add focus-visible polyfill behavior for better keyboard focus indicators
  */
-export function enhanceFocusVisibility(element: HTMLElement): void {
+export function enhanceFocusVisibility(element: HTMLElement): () => void {
   let hadKeyboardEvent = false;
-  
+
   const keydownHandler = (event: KeyboardEvent) => {
     if (event.key === KEYS.TAB || event.key.startsWith('Arrow')) {
       hadKeyboardEvent = true;
@@ -228,12 +224,12 @@ export function setupRovingTabindex(
 
   const setActiveIndex = (index: number) => {
     if (index < 0 || index >= elements.length) return;
-    
+
     // Remove tabindex from all elements
     elements.forEach(element => {
       element.setAttribute('tabindex', '-1');
     });
-    
+
     // Set tabindex=0 for the active element
     elements[index].setAttribute('tabindex', '0');
     activeIndex = index;
@@ -254,7 +250,10 @@ export function setupRovingTabindex(
 /**
  * Announce text to screen readers
  */
-export function announceToScreenReader(message: string, priority: 'polite' | 'assertive' = 'polite'): void {
+export function announceToScreenReader(
+  message: string,
+  priority: 'polite' | 'assertive' = 'polite'
+): void {
   const announcement = document.createElement('div');
   announcement.setAttribute('aria-live', priority);
   announcement.setAttribute('aria-atomic', 'true');

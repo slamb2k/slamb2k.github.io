@@ -50,41 +50,45 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   personal: {
     name: 'Simon Lamb',
-    title: 'Senior Frontend Engineer',
-    tagline: 'I build pixel-perfect, engaging, and accessible digital experiences.',
+    title: 'Principal-Level Software Engineer',
+    tagline: 'With a proven track record in AI systems, Azure, and DevOps at enterprise scale.',
     about: [
-      "I'm a passionate full-stack developer with over 5 years of experience building digital experiences. I specialize in creating accessible, pixel-perfect web applications with modern technologies.",
-      "My main focus these days is building products and leading projects at Upstatement. I most enjoy building software in the sweet spot where design and engineering meet — things that look good but are also built well under the hood.",
-      "When I'm not at the computer, I'm usually rock climbing, hanging out with my wife and two cats, or running around Hyrule searching for Korok seeds."
-    ]
+      "I'm a seasoned software engineer with over two decades of experience, including nearly nine years at Microsoft. My career has spanned roles from Technical Evangelist in Developer Experience to Cloud Solution Architect with Global Partner Solutions, culminating as a Senior Software Engineer in Azure Core (One Fleet Partner).",
+      "Throughout my tenure, I've developed deep expertise in Azure cloud engineering, DevOps practices, and AI-driven software development. Notably, I've collaborated closely with the Semantic Kernel and Copilot teams at Microsoft to build cutting-edge AI solutions.Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, leading a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. My responsibilities encompassed platform design, Agile/DevOps/IaC delivery, and team leadership.",
+      'Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, leading a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. My responsibilities encompassed platform design, Agile/DevOps/IaC delivery, and team leadership.',
+      "Currently, I'm focused on leveraging agentic coding tools like Claude Code to accelerate product development and enhance productivity.",
+      'Outside of work, I co-parent two teenagers with my partner, automate my household, enjoy time with my dog, and perform as a vocalist in a cover band.',
+    ],
   },
   navigation: [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'contact', label: 'Contact' },
   ],
   social: [
-    { icon: 'Github', href: 'https://github.com', label: 'GitHub' },
-    { icon: 'Linkedin', href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: 'Twitter', href: 'https://twitter.com', label: 'Twitter' },
-    { icon: 'Mail', href: 'mailto:hello@example.com', label: 'Email' }
+    { icon: 'Github', href: 'https://github.com/slamb2k', label: 'GitHub' },
+    { icon: 'Linkedin', href: 'https://www.linkedin.com/in/slamb2k/', label: 'LinkedIn' },
+    { icon: 'Twitter', href: 'https://twitter.com/slamb2k', label: 'Twitter' },
+    { icon: 'Mail', href: 'mailto:me@simonlamb.codes', label: 'Email' },
   ],
   experience: [
     {
       period: '2021 — Present',
       title: 'Senior Frontend Engineer',
       company: 'Upstatement',
-      description: "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
-      technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook']
+      description:
+        "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
+      technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
     },
     {
       period: '2018 — 2021',
       title: 'Frontend Developer',
       company: 'Apple',
-      description: "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-      technologies: ['React', 'Redux', 'Node.js', 'GraphQL']
-    }
+      description:
+        "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
+      technologies: ['React', 'Redux', 'Node.js', 'GraphQL'],
+    },
   ],
   projects: [
     {
@@ -92,23 +96,25 @@ export const portfolioData: PortfolioData = {
       description: 'A modern e-commerce platform built with Next.js and Stripe integration.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
       link: 'https://example.com',
-      github: 'https://github.com/example/project'
+      github: 'https://github.com/example/project',
     },
     {
       title: 'Task Management App',
       description: 'A collaborative task management application with real-time updates.',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      github: 'https://github.com/example/task-app'
+      github: 'https://github.com/example/task-app',
     },
     {
       title: 'Design System',
-      description: 'A comprehensive design system and component library for enterprise applications.',
+      description:
+        'A comprehensive design system and component library for enterprise applications.',
       technologies: ['React', 'TypeScript', 'Storybook', 'Jest'],
-      link: 'https://design.example.com'
-    }
+      link: 'https://design.example.com',
+    },
   ],
   contact: {
     email: 'hello@example.com',
-    message: "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!"
-  }
+    message:
+      "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
+  },
 };

@@ -33,8 +33,10 @@ function App() {
       <ErrorBoundary>
         <div className="h-full w-full flex flex-col items-center justify-center">
           {generatedComponent}
-          <EnvironmentInfo />
-          <PerformanceMonitor />
+          <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
+            <PerformanceMonitor />
+            <EnvironmentInfo />
+          </div>
         </div>
       </ErrorBoundary>
     );
@@ -42,8 +44,10 @@ function App() {
     return (
       <ErrorBoundary>
         {generatedComponent}
-        <EnvironmentInfo />
-        <PerformanceMonitor />
+        <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
+          <PerformanceMonitor />
+          <EnvironmentInfo />
+        </div>
       </ErrorBoundary>
     );
   }
