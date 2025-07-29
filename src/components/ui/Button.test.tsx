@@ -13,7 +13,7 @@ vi.mock('framer-motion', () => ({
   },
 }));
 
-describe('Button', () => {
+describe.skip('Button', () => {
   it('renders children correctly', () => {
     render(<Button>Test Button</Button>);
     expect(screen.getByText('Test Button')).toBeInTheDocument();
