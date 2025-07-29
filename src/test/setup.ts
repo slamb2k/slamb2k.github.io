@@ -60,67 +60,43 @@ vi.mock('react-i18next', () => ({
   },
 }));
 
-// Mock lucide-react icons
-vi.mock('lucide-react', () => ({
-  Github: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'github-icon', ...props })
-  ),
-  ExternalLink: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'external-link-icon', ...props })
-  ),
-  Mail: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'mail-icon', ...props })
-  ),
-  Linkedin: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'linkedin-icon', ...props })
-  ),
-  Twitter: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'twitter-icon', ...props })
-  ),
-  Globe: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'globe-icon', ...props })
-  ),
-  Users: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'users-icon', ...props })
-  ),
-  ArrowUpRight: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'arrow-up-right-icon', ...props })
-  ),
-  ChevronDown: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'chevron-down-icon', ...props })
-  ),
-  Menu: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'menu-icon', ...props })
-  ),
-  X: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'x-icon', ...props })
-  ),
-  ArrowRight: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'arrow-right-icon', ...props })
-  ),
-  AlertCircle: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'alert-circle-icon', ...props })
-  ),
-  RefreshCw: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'refresh-cw-icon', ...props })
-  ),
-  Home: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'home-icon', ...props })
-  ),
-  ArrowLeft: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'arrow-left-icon', ...props })
-  ),
-  Badge: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'badge-icon', ...props })
-  ),
-  Download: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'download-icon', ...props })
-  ),
-  ArrowDown: vi.fn(({ size, ...props }) =>
-    React.createElement('div', { 'data-testid': 'arrow-down-icon', ...props })
-  ),
-  LucideIcon: vi.fn(),
-}));
+// Mock lucide-react icons - simplified comprehensive approach
+vi.mock('lucide-react', async importOriginal => {
+  const createIcon = (name: string) =>
+    vi.fn(({ size, ...props }) =>
+      React.createElement('div', {
+        'data-testid': `${name
+          .toLowerCase()
+          .replace(/([A-Z])/g, '-$1')
+          .substring(1)}-icon`,
+        ...props,
+      })
+    );
+
+  // Create explicit exports for all known icons used in the project
+  return {
+    Github: createIcon('Github'),
+    ExternalLink: createIcon('ExternalLink'),
+    Mail: createIcon('Mail'),
+    Linkedin: createIcon('Linkedin'),
+    Twitter: createIcon('Twitter'),
+    Globe: createIcon('Globe'),
+    Users: createIcon('Users'),
+    ArrowUpRight: createIcon('ArrowUpRight'),
+    ChevronDown: createIcon('ChevronDown'),
+    Menu: createIcon('Menu'),
+    X: createIcon('X'),
+    ArrowRight: createIcon('ArrowRight'),
+    AlertCircle: createIcon('AlertCircle'),
+    RefreshCw: createIcon('RefreshCw'),
+    Home: createIcon('Home'),
+    ArrowLeft: createIcon('ArrowLeft'),
+    Badge: createIcon('Badge'),
+    Download: createIcon('Download'),
+    ArrowDown: createIcon('ArrowDown'),
+    LucideIcon: vi.fn(),
+  };
+});
 
 // Mock framer-motion
 vi.mock('framer-motion', () => {
