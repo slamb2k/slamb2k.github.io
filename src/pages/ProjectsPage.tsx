@@ -31,11 +31,7 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
         <div
           className="flex space-x-2"
           role="group"
-          aria-label={t(
-            'projects.actionsLabel',
-            { title: project.title },
-            `Actions for ${project.title}`
-          )}
+          aria-label={t('projects.actionsLabel', `Actions for ${project.title}`)}
         >
           {project.github && (
             <a
@@ -45,7 +41,6 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
               className="text-slate-400 hover:text-slate-100 transition-colors p-1 rounded focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
               aria-label={t(
                 'common.viewOnGithub',
-                { title: project.title },
                 `View ${project.title} on GitHub (opens in new tab)`
               )}
             >
@@ -60,7 +55,6 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
               className="text-slate-400 hover:text-slate-100 transition-colors p-1 rounded focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
               aria-label={t(
                 'common.visitProject',
-                { title: project.title },
                 `Visit ${project.title} live demo (opens in new tab)`
               )}
             >
@@ -92,18 +86,14 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
       <div
         className="flex flex-wrap gap-2"
         role="list"
-        aria-label={t(
-          'projects.technologiesLabel',
-          { title: project.title },
-          `Technologies used in ${project.title}`
-        )}
+        aria-label={t('projects.technologiesLabel', `Technologies used in ${project.title}`)}
       >
         {project.technologies.map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full"
             role="listitem"
-            aria-label={t('projects.technologyLabel', { tech }, `Technology: ${tech}`)}
+            aria-label={t('projects.technologyLabel', `Technology: ${tech}`)}
           >
             {tech}
           </span>

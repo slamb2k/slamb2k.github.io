@@ -37,7 +37,10 @@ vi.mock('react-i18next', () => ({
         let result = translations[key];
         if (options && typeof options === 'object') {
           Object.keys(options).forEach(optionKey => {
-            result = result.replace(`{{${optionKey}}}`, options[optionKey]);
+            const value = options[optionKey];
+            if (typeof value === 'string') {
+              result = result.replace(`{{${optionKey}}}`, value);
+            }
           });
         }
         return result;
@@ -95,6 +98,28 @@ vi.mock('lucide-react', () => ({
   ArrowRight: vi.fn(({ size, ...props }) =>
     React.createElement('div', { 'data-testid': 'arrow-right-icon', ...props })
   ),
+  AlertCircle: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'alert-circle-icon', ...props })
+  ),
+  RefreshCw: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'refresh-cw-icon', ...props })
+  ),
+  Home: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'home-icon', ...props })
+  ),
+  ArrowLeft: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'arrow-left-icon', ...props })
+  ),
+  Badge: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'badge-icon', ...props })
+  ),
+  Download: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'download-icon', ...props })
+  ),
+  ArrowDown: vi.fn(({ size, ...props }) =>
+    React.createElement('div', { 'data-testid': 'arrow-down-icon', ...props })
+  ),
+  LucideIcon: vi.fn(),
 }));
 
 // Mock framer-motion
