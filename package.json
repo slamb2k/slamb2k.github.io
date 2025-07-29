@@ -54,7 +54,7 @@
     "@types/react-router-dom": "^5.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "cmdk": "^1.0.0",
+    "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.10",
@@ -65,7 +65,7 @@
     "lucide-react": "^0.477.0",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "^9.8.1",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "react-i18next": "^15.6.1",
@@ -111,6 +111,68 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
     "vitest": "^3.2.4"
+  },
+  "overrides": {
+    "@radix-ui/react-compose-refs": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-context": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-dialog": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-dismissable-layer": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-focus-guards": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-focus-scope": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-id": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-portal": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-presence": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-primitive": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-slot": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-use-callback-ref": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-use-controllable-state": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-use-escape-keydown": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "@radix-ui/react-use-layout-effect": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
