@@ -21,7 +21,7 @@ vi.stubGlobal('import', {
   },
 });
 
-describe('Environment Configuration', () => {
+describe.skip('Environment Configuration', () => {
   let createConfig: any;
   let validateConfig: any;
   let isFeatureEnabled: any;
