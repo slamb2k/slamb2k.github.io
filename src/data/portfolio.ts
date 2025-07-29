@@ -15,19 +15,21 @@ export interface SocialLink {
 }
 
 export interface Job {
+  id: string;
   period: string;
   title: string;
   company: string;
-  description: string;
   technologies: string[];
+  // description moved to i18n translations
 }
 
 export interface Project {
+  id: string;
   title: string;
-  description: string;
   technologies: string[];
   link?: string;
   github?: string;
+  // description moved to i18n translations
 }
 
 export interface PortfolioData {
@@ -74,46 +76,72 @@ export const portfolioData: PortfolioData = {
   ],
   experience: [
     {
-      period: '2021 — Present',
-      title: 'Senior Frontend Engineer',
-      company: 'Upstatement',
-      description:
-        "Build and maintain critical components used to construct Klaviyo's frontend, across the whole product. Work closely with cross-functional teams, including developers, designers, and product managers.",
-      technologies: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
+      id: 'azure-core',
+      period: 'Jul 2024 — Present',
+      title: 'Senior Software Engineer',
+      company: 'Microsoft (Engineering - Azure Core)',
+      technologies: ['C#', 'Azure', 'AI/ML', 'TypeScript', 'React'],
     },
     {
-      period: '2018 — 2021',
-      title: 'Frontend Developer',
-      company: 'Apple',
-      description:
-        "Developed and maintained web applications for Apple's internal tools. Collaborated with design teams to implement pixel-perfect interfaces.",
-      technologies: ['React', 'Redux', 'Node.js', 'GraphQL'],
+      id: 'microsoft-cloud',
+      period: 'Apr 2024 — Jul 2024',
+      title: 'Senior Software Engineer',
+      company: 'Microsoft (Engineering - Microsoft Cloud)',
+      technologies: [
+        'C#',
+        'ASP.NET',
+        'Semantic Kernel',
+        'JavaScript/React',
+        'SQL/Fabric',
+        'ARM/Bicep',
+      ],
+    },
+    {
+      id: 'global-partner-solutions',
+      period: 'Jul 2019 — Apr 2024',
+      title: 'Cloud Solution Architect',
+      company: 'Microsoft (Global Partner Solutions)',
+      technologies: [
+        'Prompt Engineering',
+        'Azure Cloud',
+        'C#',
+        'ASP.NET',
+        'Power BI',
+        'Azure DevOps',
+        'PowerShell',
+      ],
+    },
+    {
+      id: 'fred-it-group',
+      period: '2001 — 2004',
+      title: 'Technical Architecture Lead',
+      company: 'Fred IT Group',
+      technologies: ['C#', 'ASP.NET', 'Dynamics AX (X++)', 'SQL', 'Team Leadership'],
     },
   ],
   projects: [
     {
+      id: 'ecommerce-platform',
       title: 'E-Commerce Platform',
-      description: 'A modern e-commerce platform built with Next.js and Stripe integration.',
       technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
       link: 'https://example.com',
       github: 'https://github.com/example/project',
     },
     {
+      id: 'task-management-app',
       title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates.',
       technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
       github: 'https://github.com/example/task-app',
     },
     {
+      id: 'design-system',
       title: 'Design System',
-      description:
-        'A comprehensive design system and component library for enterprise applications.',
       technologies: ['React', 'TypeScript', 'Storybook', 'Jest'],
       link: 'https://design.example.com',
     },
   ],
   contact: {
-    email: 'hello@example.com',
+    email: 'me@simonlamb.codes',
     message:
       "I'm always interested in hearing about new projects and opportunities. Feel free to reach out!",
   },

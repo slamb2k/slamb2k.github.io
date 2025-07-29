@@ -1,10 +1,149 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import { afterEach, vi } from 'vitest';
+import React from 'react';
 
 // Cleanup after each test
 afterEach(() => {
   cleanup();
+});
+
+// Mock react-i18next
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (key: string, options?: Record<string, unknown>) => {
+      // Handle translations with fallbacks
+      const translations: Record<string, string> = {
+        'projects.title': 'Projects',
+        'projects.description':
+          "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
+        'projects.actionsLabel': 'Actions for {{title}}',
+        'projects.gridLabel': 'Project portfolio grid',
+        'projects.technologiesLabel': 'Technologies used in {{title}}',
+        'projects.technologyLabel': 'Technology: {{tech}}',
+        'common.viewOnGithub': 'View {{title}} on GitHub (opens in new tab)',
+        'common.visitProject': 'Visit {{title}} live demo (opens in new tab)',
+        'experience.jobs.azure-core.description':
+          'Build and maintain critical components for Azure infrastructure. Collaborate closely with the Semantic Kernel and Copilot teams to develop cutting-edge AI solutions and cloud engineering tools.',
+        'experience.jobs.microsoft-cloud.description':
+          'Developed cloud infrastructure solutions and AI-driven development tools. Focused on scalable cloud services and integration with Microsoft AI platforms.',
+        'experience.jobs.global-partner-solutions.description':
+          'Led enterprise cloud transformation initiatives and AI solution architecture. Specialized in prompt engineering, Azure cloud architecture, and DevOps practices for enterprise clients.',
+        'experience.jobs.fred-it-group.description':
+          'Led a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. Managed platform design, Agile/DevOps/IaC delivery, and team leadership.',
+      };
+
+      if (translations[key]) {
+        let result = translations[key];
+        if (options && typeof options === 'object') {
+          Object.keys(options).forEach(optionKey => {
+            const value = options[optionKey];
+            if (typeof value === 'string') {
+              result = result.replace(`{{${optionKey}}}`, value);
+            }
+          });
+        }
+        return result;
+      }
+
+      return options?.defaultValue || key;
+    },
+    i18n: {
+      changeLanguage: vi.fn(),
+      language: 'en',
+    },
+  }),
+  Trans: ({ children }: { children: React.ReactNode }) => children,
+  initReactI18next: {
+    type: '3rdParty',
+    init: vi.fn(),
+  },
+}));
+
+// Mock lucide-react icons - simplified comprehensive approach
+vi.mock('lucide-react', async importOriginal => {
+  const createIcon = (name: string) =>
+    vi.fn(({ size, ...props }) =>
+      React.createElement('div', {
+        'data-testid': `${name
+          .toLowerCase()
+          .replace(/([A-Z])/g, '-$1')
+          .substring(1)}-icon`,
+        ...props,
+      })
+    );
+
+  // Create explicit exports for all known icons used in the project
+  return {
+    Github: createIcon('Github'),
+    ExternalLink: createIcon('ExternalLink'),
+    Mail: createIcon('Mail'),
+    Linkedin: createIcon('Linkedin'),
+    Twitter: createIcon('Twitter'),
+    Globe: createIcon('Globe'),
+    Users: createIcon('Users'),
+    ArrowUpRight: createIcon('ArrowUpRight'),
+    ChevronDown: createIcon('ChevronDown'),
+    Menu: createIcon('Menu'),
+    X: createIcon('X'),
+    ArrowRight: createIcon('ArrowRight'),
+    AlertCircle: createIcon('AlertCircle'),
+    RefreshCw: createIcon('RefreshCw'),
+    Home: createIcon('Home'),
+    ArrowLeft: createIcon('ArrowLeft'),
+    Badge: createIcon('Badge'),
+    Download: createIcon('Download'),
+    ArrowDown: createIcon('ArrowDown'),
+    LucideIcon: vi.fn(),
+  };
+});
+
+// Mock framer-motion
+vi.mock('framer-motion', () => {
+  const createMotionComponent = (elementType: string) =>
+    vi.fn(
+      ({
+        children,
+        initial,
+        animate,
+        transition,
+        whileInView,
+        whileHover,
+        viewport,
+        exit,
+        ...props
+      }) => {
+        // Filter out all framer-motion specific props
+        const filteredProps = { ...props };
+        delete filteredProps.initial;
+        delete filteredProps.animate;
+        delete filteredProps.transition;
+        delete filteredProps.whileInView;
+        delete filteredProps.whileHover;
+        delete filteredProps.viewport;
+        delete filteredProps.exit;
+
+        return React.createElement(elementType, filteredProps, children);
+      }
+    );
+
+  return {
+    motion: {
+      div: createMotionComponent('div'),
+      section: createMotionComponent('section'),
+      header: createMotionComponent('header'),
+      article: createMotionComponent('article'),
+      a: createMotionComponent('a'),
+      button: createMotionComponent('button'),
+      h1: createMotionComponent('h1'),
+      h2: createMotionComponent('h2'),
+      h3: createMotionComponent('h3'),
+      p: createMotionComponent('p'),
+      span: createMotionComponent('span'),
+    },
+    AnimatePresence: vi.fn(({ children }) => children),
+    useInView: vi.fn(() => [vi.fn(), true]),
+  };
 });
 
 // Mock window.matchMedia

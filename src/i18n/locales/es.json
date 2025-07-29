@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "Acerca de",
-    "experience": "Experiencia", 
+    "experience": "Experiencia",
     "projects": "Proyectos",
     "contact": "Contacto"
   },
@@ -17,47 +17,35 @@
   "experience": {
     "title": "Experiencia",
     "description": "Una visión cronológica de mi trayectoria profesional y las tecnologías con las que he trabajado.",
-    "jobs": [
-      {
-        "period": "2021 — Presente",
-        "title": "Ingeniero Frontend Senior",
-        "company": "Upstatement",
-        "description": "Construir y mantener componentes críticos utilizados para construir el frontend de Klaviyo, en todo el producto. Trabajar estrechamente con equipos multifuncionales, incluyendo desarrolladores, diseñadores y gerentes de producto.",
-        "technologies": ["JavaScript", "TypeScript", "React", "Storybook"]
+    "jobs": {
+      "azure-core": {
+        "description": "Construir y mantener componentes críticos para la infraestructura de Azure. Colaborar estrechamente con los equipos de Semantic Kernel y Copilot para desarrollar soluciones de IA de vanguardia y herramientas de ingeniería en la nube."
       },
-      {
-        "period": "2018 — 2021", 
-        "title": "Desarrollador Frontend",
-        "company": "Apple",
-        "description": "Desarrollé y mantuve aplicaciones web para las herramientas internas de Apple. Colaboré con equipos de diseño para implementar interfaces perfectas.",
-        "technologies": ["React", "Redux", "Node.js", "GraphQL"]
+      "microsoft-cloud": {
+        "description": "Desarrollé soluciones de infraestructura en la nube y herramientas de desarrollo impulsadas por IA. Me enfoqué en servicios en la nube escalables e integración con plataformas de IA de Microsoft."
+      },
+      "global-partner-solutions": {
+        "description": "Lideré iniciativas de transformación empresarial en la nube y arquitectura de soluciones de IA. Me especialicé en ingeniería de prompts, arquitectura de nube de Azure y prácticas de DevOps para clientes empresariales."
+      },
+      "fred-it-group": {
+        "description": "Lideré un equipo de seis ingenieros para diseñar plataformas escalables para la industria farmacéutica y de atención médica. Gestioné el diseño de plataformas, la entrega de Agile/DevOps/IaC y el liderazgo del equipo."
       }
-    ]
+    }
   },
   "projects": {
     "title": "Proyectos",
     "description": "Una colección de proyectos que he construido, mostrando diferentes tecnologías y enfoques de resolución de problemas.",
-    "items": [
-      {
-        "title": "Plataforma de E-Commerce",
-        "description": "Una plataforma de comercio electrónico moderna construida con Next.js e integración con Stripe.",
-        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Stripe"],
-        "link": "https://example.com",
-        "github": "https://github.com/example/project"
+    "items": {
+      "ecommerce-platform": {
+        "description": "Una plataforma de comercio electrónico moderna construida con Next.js e integración con Stripe."
       },
-      {
-        "title": "App de Gestión de Tareas",
-        "description": "Una aplicación colaborativa de gestión de tareas con actualizaciones en tiempo real.",
-        "technologies": ["React", "Node.js", "Socket.io", "MongoDB"],
-        "github": "https://github.com/example/task-app"
+      "task-management-app": {
+        "description": "Una aplicación colaborativa de gestión de tareas con actualizaciones en tiempo real."
       },
-      {
-        "title": "Sistema de Diseño",
-        "description": "Un sistema de diseño integral y biblioteca de componentes para aplicaciones empresariales.",
-        "technologies": ["React", "TypeScript", "Storybook", "Jest"],
-        "link": "https://design.example.com"
+      "design-system": {
+        "description": "Un sistema de diseño integral y biblioteca de componentes para aplicaciones empresariales."
       }
-    ]
+    }
   },
   "contact": {
     "title": "Ponte en Contacto",
