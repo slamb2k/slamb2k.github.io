@@ -1,0 +1,42 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+    - /url: '#main-content'
+- complementary:
+    - link "Simon Lamb":
+        - /url: /about
+        - heading "Simon Lamb" [level=1]
+    - heading "Principal-Level Software Engineer" [level=2]
+    - paragraph: With a proven track record in AI systems, Azure, and DevOps at enterprise scale.
+    - navigation "Main navigation":
+        - link "A b o u t Navigate to About section":
+            - /url: /
+        - link "E x p e r i e n c e Navigate to Experience section":
+            - /url: /experience
+        - link "P r o j e c t s Navigate to Projects section":
+            - /url: /projects
+        - link "C o n t a c t Navigate to Contact section":
+            - /url: /contact
+    - 'button "Current language: English"':
+        - img
+        - text: 🇺🇸
+        - img
+    - list "Social media links":
+        - listitem "GitHub (opens in new tab)"
+        - listitem "LinkedIn (opens in new tab)"
+        - listitem "Twitter (opens in new tab)"
+        - listitem "Email (opens in new tab)"
+- main "Main content":
+    - heading "Hi, I'm Simon Lamb." [level=1]
+    - heading "Principal-Level Software Engineer" [level=2]
+    - paragraph: With a proven track record in AI systems, Azure, and DevOps at enterprise scale.
+    - heading "About" [level=2]
+    - paragraph: I'm a seasoned software engineer with over two decades of experience, including nearly nine years at Microsoft. My career has spanned roles from Technical Evangelist in Developer Experience to Cloud Solution Architect with Global Partner Solutions, culminating as a Senior Software Engineer in Azure Core (One Fleet Partner).
+    - paragraph: Throughout my tenure at Microsoft, I've developed deep expertise in Azure cloud engineering, DevOps practices, and AI-driven software development. Notably, I've collaborated closely with the Semantic Kernel and Copilot teams at Microsoft to build cutting-edge AI solutions.
+    - paragraph: Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, managing a team of six engineers to design scalable platforms for the pharmacy and healthcare industry.
+    - paragraph: With AI now being an integral part of development, I have chosen to look to find solutions that incorporate and are complemented by AI, rather than worrying about what AI will eliminate. With that in mind, I'm intensely focused on mastering and integrating agentic coding tools, empowering cloud engineers to leverage AI proactively and stay ahead.
+    - paragraph: Outside of work, I co-parent two teenagers with my partner, endeavour to automate my household, enjoy time with my dog Pip (named after the Python package manager), and perform as a vocalist in a cover band.
+- button "📊 Perf"
+- text: 'Environment: development Version: dev Features: analytics contactForm blog portfolioCms darkModeToggle API: localhost Config Issues: • Contact form is enabled but no form endpoint is configured Performance tracking enabled'
+```
