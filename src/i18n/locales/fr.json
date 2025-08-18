@@ -7,12 +7,14 @@
   },
   "about": {
     "title": "Salut, je suis {{name}}.",
-    "subtitle": "Ingénieur Frontend Senior",
-    "tagline": "Je construis des expériences numériques parfaites, engageantes et accessibles.",
+    "subtitle": "Ingénieur Logiciel Principal",
+    "tagline": "Avec une expérience prouvée dans les systèmes IA, Azure et DevOps à l'échelle d'entreprise.",
     "heading": "À propos",
-    "paragraph1": "Je suis un développeur full-stack passionné avec plus de 5 ans d'expérience dans la création d'expériences numériques. Je me spécialise dans la création d'applications web accessibles et parfaites avec des technologies modernes.",
-    "paragraph2": "Mon objectif principal ces jours-ci est de construire des produits et de diriger des projets chez Upstatement. Ce que j'aime le plus, c'est construire des logiciels dans le sweet spot où le design et l'ingénierie se rencontrent — des choses qui ont l'air bien mais qui sont aussi bien construites sous le capot.",
-    "paragraph3": "Quand je ne suis pas à l'ordinateur, je fais généralement de l'escalade, je traîne avec ma femme et mes deux chats, ou je cours dans Hyrule à la recherche de graines Korok."
+    "paragraph1": "Je suis un ingénieur logiciel expérimenté avec plus de deux décennies d'expérience, dont près de neuf ans chez Microsoft. Ma carrière a englobé des rôles d'Évangéliste Technique en Expérience Développeur à Architecte Solutions Cloud avec Global Partner Solutions, culminant en tant qu'Ingénieur Logiciel Senior dans Azure Core (One Fleet Partner).",
+    "paragraph2": "Tout au long de mon mandat chez Microsoft, j'ai développé une expertise approfondie en ingénierie cloud Azure, pratiques DevOps et développement logiciel piloté par l'IA. Notamment, j'ai collaboré étroitement avec les équipes Semantic Kernel et Copilot chez Microsoft pour construire des solutions IA de pointe.",
+    "paragraph3": "Avant Microsoft, j'ai passé 13 ans chez Fred IT Group en tant qu'Architecte Technique Principal, gérant une équipe de six ingénieurs pour concevoir des plateformes évolutives pour l'industrie pharmaceutique et de la santé.",
+    "paragraph4": "Avec l'IA maintenant partie intégrante du développement, j'ai choisi de chercher des solutions qui incorporent et sont complétées par l'IA, plutôt que de m'inquiéter de ce que l'IA éliminera. Dans cet esprit, je me concentre intensément sur la maîtrise et l'intégration d'outils de codage agentiques, permettant aux ingénieurs cloud de tirer parti de l'IA de manière proactive et de rester en avance.",
+    "paragraph5": "En dehors du travail, je co-élève deux adolescents avec ma partenaire, m'efforce d'automatiser ma maison, profite du temps avec mon chien Pip (nommé d'après le gestionnaire de paquets Python), et me produis comme chanteur dans un groupe de reprises."
   },
   "experience": {
     "title": "Expérience",
@@ -22,13 +24,22 @@
         "description": "Construire et maintenir des composants critiques pour l'infrastructure Azure. Collaborer étroitement avec les équipes Semantic Kernel et Copilot pour développer des solutions IA de pointe et des outils d'ingénierie cloud."
       },
       "microsoft-cloud": {
-        "description": "J'ai développé des solutions d'infrastructure cloud et des outils de développement alimentés par l'IA. Je me suis concentré sur les services cloud évolutifs et l'intégration avec les plateformes IA de Microsoft."
+        "description": "Développé des solutions d'infrastructure cloud et des outils de développement alimentés par l'IA. Concentré sur les services cloud évolutifs et l'intégration avec les plateformes IA de Microsoft."
       },
       "global-partner-solutions": {
-        "description": "J'ai dirigé des initiatives de transformation cloud d'entreprise et l'architecture de solutions IA. Je me suis spécialisé dans l'ingénierie de prompts, l'architecture cloud Azure et les pratiques DevOps pour les clients d'entreprise."
+        "description": "Dirigé des initiatives de transformation cloud d'entreprise et l'architecture de solutions IA. Spécialisé dans l'ingénierie de prompts, l'architecture cloud Azure et les pratiques DevOps pour les clients d'entreprise."
+      },
+      "pacific-commerce": {
+        "description": "Géré des solutions EDI d'entreprise et des intégrations e-commerce utilisant Sterling Commerce GENTRAN. Dirigé des initiatives techniques pour l'échange de données B2B et les processus métier automatisés dans plusieurs environnements clients."
+      },
+      "microsoft-dx": {
+        "description": "Évangélisé les technologies et plateformes de développement Microsoft auprès des communautés de développeurs. Créé du contenu technique, livré des présentations et fourni des conseils architecturaux pour .NET, Azure et les technologies Microsoft émergentes."
       },
       "fred-it-group": {
-        "description": "J'ai dirigé une équipe de six ingénieurs pour concevoir des plateformes évolutives pour l'industrie pharmaceutique et de la santé. J'ai géré la conception de plateformes, la livraison Agile/DevOps/IaC et le leadership d'équipe."
+        "description": "Dirigé une équipe de six ingénieurs pour concevoir des plateformes évolutives pour l'industrie pharmaceutique et de la santé. Géré la conception de plateformes, la livraison Agile/DevOps/IaC et le leadership d'équipe."
+      },
+      "leadtec-systems": {
+        "description": "Développé des applications web d'entreprise et des systèmes d'intégration de données basés sur XML. Construit des solutions évolutives utilisant C#, ASP.NET et les transformations XSLT pour l'automatisation des processus métier et les systèmes de rapport."
       }
     }
   },
@@ -36,14 +47,29 @@
     "title": "Projets",
     "description": "Une collection de projets que j'ai construits, montrant différentes technologies et approches de résolution de problèmes.",
     "items": {
-      "ecommerce-platform": {
-        "description": "Une plateforme de commerce électronique moderne construite avec Next.js et l'intégration Stripe."
+      "about-me": {
+        "description": "Ce site - Un site portfolio React moderne construit avec TypeScript et Vite, présentant un design réactif et un support d'internationalisation."
       },
-      "task-management-app": {
-        "description": "Une application collaborative de gestion de tâches avec des mises à jour en temps réel."
+      "glam-mcp": {
+        "description": "Un serveur Model Context Protocol qui fournit des expériences de développement intelligentes grâce à des réponses riches et contextuelles pour les assistants IA, transformant le codage IA en programmation en binôme avec un développeur senior."
       },
-      "design-system": {
-        "description": "Un système de design complet et une bibliothèque de composants pour les applications d'entreprise."
+      "gavin-copilot": {
+        "description": "Une application exemple démontrant comment Semantic Kernel et l'IA peuvent fonctionner dans les applications web, présentant un frontend React, un backend .NET et une intégration Azure OpenAI."
+      },
+      "spec-chain": {
+        "description": "Un système complet de prompts IA qui travaillent ensemble pour générer une documentation produit complète à partir d'une seule idée d'application, conçu spécifiquement pour Claude Code."
+      },
+      "azure-spa-environment-variables": {
+        "description": "Un guide complet et une implémentation pour gérer les configurations spécifiques à l'environnement dans les applications React côté client déployées sur Azure, permettant des workflows 'construire une fois, déployer partout'."
+      },
+      "virtual-devbox": {
+        "description": "Un script AutoHotkey pour gérer les connexions Microsoft Dev Box à travers les bureaux virtuels Windows 11, fournissant des raccourcis clavier pour faciliter le basculement transparent entre les environnements de développement locaux et distants."
+      },
+      "dial-tray": {
+        "description": "Une application de barre système qui fournit un contrôle Surface Dial amélioré pour une meilleure intégration avec les outils de développement comme Warp et Claude Code."
+      },
+      "vs-mobile-center-build": {
+        "description": "Une tâche de build personnalisée pour déclencher et gérer les builds dans Visual Studio Mobile Center, avec la capacité de télécharger les artefacts de build et s'intégrer avec les pipelines Team Foundation Server."
       }
     }
   },
@@ -51,7 +77,7 @@
     "title": "Entrer en Contact",
     "message": "Je suis toujours intéressé à entendre parler de nouveaux projets et opportunités. N'hésitez pas à me contacter!",
     "button": "Dire Bonjour",
-    "email": "hello@example.com"
+    "email": "me@simonlamb.codes"
   },
   "common": {
     "visitProject": "Visiter {{title}}",
