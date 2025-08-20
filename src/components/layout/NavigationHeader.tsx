@@ -80,9 +80,9 @@ const NavigationHeader: React.FC = () => {
       >
         <div className="px-6 py-4 flex items-center justify-between">
           <Link to="/about" onClick={closeMenu}>
-            <h1 className="text-xl font-bold text-slate-100 hover:text-teal-300 transition-colors">
+            <div className="text-xl font-bold text-slate-100 hover:text-teal-300 transition-colors">
               {portfolioData.personal.name}
-            </h1>
+            </div>
           </Link>
 
           <button

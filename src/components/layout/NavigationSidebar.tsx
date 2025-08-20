@@ -98,11 +98,11 @@ const NavigationSidebar: React.FC = () => {
           transition={{ delay: 0.2 }}
         >
           <Link to="/about" className="block">
-            <h1 className="text-fluid-3xl font-bold text-primary mb-2 hover:text-cyan transition-colors duration-300">
+            <div className="text-fluid-3xl font-bold text-primary mb-2 hover:text-cyan transition-colors duration-300">
               {portfolioData.personal.name}
-            </h1>
+            </div>
           </Link>
-          <h2 className="text-fluid-xl text-secondary mb-4">{portfolioData.personal.title}</h2>
+          <div className="text-fluid-xl text-secondary mb-4">{portfolioData.personal.title}</div>
           <p className="text-tertiary text-fluid-sm leading-relaxed mb-8">
             {portfolioData.personal.tagline}
           </p>

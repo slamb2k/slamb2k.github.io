@@ -6,27 +6,36 @@
 - complementary:
     - link "Simon Lamb":
         - /url: /about
-        - heading "Simon Lamb" [level=1]
-    - heading "Principal-Level Software Engineer" [level=2]
-    - paragraph: With a proven track record in AI systems, Azure, and DevOps at enterprise scale.
+    - text: Principal Engineer | DevOps Advocate
+    - paragraph: With a proven track record delivering AI systems, Cloud platforms, and enterprise-scale DevOps practices, I specialize in helping teams build solutions that are reliable, scalable, and transformative.
     - navigation "Main navigation":
         - link "A b o u t Navigate to About section":
             - /url: /
+            - text: A b o u t
+            - img
+            - text: Navigate to About section
         - link "E x p e r i e n c e Navigate to Experience section":
             - /url: /experience
         - link "P r o j e c t s Navigate to Projects section":
             - /url: /projects
         - link "C o n t a c t Navigate to Contact section":
             - /url: /contact
+    - link "Download CV":
+        - /url: /resume.pdf
+        - img
+        - text: Download CV
     - 'button "Current language: English"':
         - img
         - text: 🇺🇸
         - img
-    - list "Social media links":
-        - listitem "GitHub (opens in new tab)"
-        - listitem "LinkedIn (opens in new tab)"
-        - listitem "Twitter (opens in new tab)"
-        - listitem "Email (opens in new tab)"
+    - link "GitHub (opens in new tab)":
+        - /url: https://github.com/slamb2k
+    - link "LinkedIn (opens in new tab)":
+        - /url: https://www.linkedin.com/in/slamb2k/
+    - link "Twitter (opens in new tab)":
+        - /url: https://twitter.com/slamb2k
+    - link "Email (opens in new tab)":
+        - /url: mailto:me@simonlamb.codes
 - main "Main content":
     - heading "Hi, I'm Simon Lamb." [level=1]
     - heading "Principal-Level Software Engineer" [level=2]

@@ -24,37 +24,36 @@ describe('Card', () => {
     const card = screen.getByText('Default Card').closest('div');
     expect(card?.className).toContain('p-6');
     expect(card?.className).toContain('rounded-lg');
-    expect(card?.className).toContain('border-slate-800');
-    expect(card?.className).toContain('bg-slate-900');
+    expect(card?.className).toContain('border-white/5');
+    expect(card?.className).toContain('bg-midnight-elevated/80');
   });
 
   it('applies experience variant styles', () => {
     render(<Card variant="experience">Experience Card</Card>);
     const card = screen.getByText('Experience Card').closest('div');
-    expect(card?.className).toContain('border-slate-800');
-    expect(card?.className).toContain('hover:border-slate-700');
-    expect(card?.className).toContain('hover:bg-slate-800/50');
+    expect(card?.className).toContain('border-white/5');
+    expect(card?.className).toContain('bg-midnight-elevated/90');
+    expect(card?.className).toContain('hover:border-cyan/20');
   });
 
   it('applies project variant styles', () => {
     render(<Card variant="project">Project Card</Card>);
     const card = screen.getByText('Project Card').closest('div');
-    expect(card?.className).toContain('bg-slate-800');
-    expect(card?.className).toContain('border-slate-700');
-    expect(card?.className).toContain('hover:border-slate-600');
+    expect(card?.className).toContain('border-white/5');
+    expect(card?.className).toContain('from-midnight-elevated/90');
+    expect(card?.className).toContain('hover:border-violet/30');
   });
 
   it('applies feature variant styles', () => {
     render(<Card variant="feature">Feature Card</Card>);
     const card = screen.getByText('Feature Card').closest('div');
-    expect(card?.className).toContain('bg-slate-800/50');
-    expect(card?.className).toContain('border-slate-700');
+    expect(card?.className).toContain('glass');
+    expect(card?.className).toContain('border-white/10');
   });
 
   it('applies hover effects by default', () => {
     render(<Card>Hoverable Card</Card>);
     const card = screen.getByText('Hoverable Card').closest('div');
-    expect(card?.className).toContain('hover:scale-[1.02]');
     expect(card?.className).toContain('cursor-pointer');
   });
 
