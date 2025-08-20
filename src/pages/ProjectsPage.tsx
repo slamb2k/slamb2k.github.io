@@ -85,14 +85,12 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
 
         <div
           className="flex flex-wrap gap-2"
-          role="list"
           aria-label={t('projects.technologiesLabel', `Technologies used in ${project.title}`)}
         >
           {project.technologies.map((tech: string) => (
             <span
               key={tech}
               className="px-3 py-1 text-fluid-xs bg-violet/10 text-violet rounded-full backdrop-blur-sm border border-violet/20"
-              role="listitem"
               aria-label={t('projects.technologyLabel', `Technology: ${tech}`)}
             >
               {tech}
@@ -136,15 +134,10 @@ const ProjectsPage: React.FC = () => {
         {/* Use regular grid - VirtualList doesn't work well with CSS Grid */}
         <div
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto"
-          role="list"
           aria-label={t('projects.gridLabel', 'Project portfolio grid')}
         >
           {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={project.featured ? 'md:col-span-2 lg:col-span-2' : ''}
-              role="listitem"
-            >
+            <div key={project.id} className={project.featured ? 'md:col-span-2 lg:col-span-2' : ''}>
               <ProjectCard project={project} index={index} t={t} />
             </div>
           ))}

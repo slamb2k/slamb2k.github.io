@@ -254,7 +254,6 @@ const NavigationSidebar: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8 }}
           className="flex space-x-4"
-          role="list"
           aria-label="Social media links"
         >
           {socialLinks.map(social => (
@@ -267,7 +266,6 @@ const NavigationSidebar: React.FC = () => {
               whileTap={{ scale: 0.95 }}
               className="p-2 text-secondary hover:text-cyan transition-all duration-300 rounded-lg focus:outline-none hover:scale-110 hover:rotate-6"
               aria-label={`${social.label} (opens in new tab)`}
-              role="listitem"
             >
               {React.createElement(social.icon, { size: 20, 'aria-hidden': true })}
             </motion.a>
