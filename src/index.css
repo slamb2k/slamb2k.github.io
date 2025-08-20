@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Arial&family=Helvetica&family=Times+New+Roman&family=Georgia&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
@@ -58,6 +58,18 @@ body {
 
 :root {
   --radius: 0.625rem;
+
+  /* Fluid spacing tokens */
+  --space-xs: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
+  --space-md: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+  --space-xl: clamp(2rem, 1.75rem + 1.25vw, 3rem);
+
+  /* Animation tokens */
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --background: oklch(0.2178 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -92,37 +104,56 @@ body {
 }
 
 .dark {
-  --background: oklch(40% 0.15 150);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Midnight Ocean Palette - Core backgrounds */
+  --background: oklch(0.12 0.02 230); /* Deep midnight blue */
+  --background-elevated: oklch(0.15 0.025 230); /* Elevated surfaces */
+  --background-accent: oklch(0.18 0.03 230); /* Hover states */
+
+  /* Text hierarchy */
+  --foreground: oklch(0.95 0.01 230); /* Almost white with blue tint */
+  --foreground-secondary: oklch(0.75 0.015 230); /* Muted blue-gray */
+  --foreground-tertiary: oklch(0.55 0.02 230); /* Subtle metadata */
+
+  /* Card and popover */
+  --card: oklch(0.15 0.025 230); /* Elevated surface */
+  --card-foreground: oklch(0.95 0.01 230);
+  --popover: oklch(0.15 0.025 230 / 95%);
+  --popover-foreground: oklch(0.95 0.01 230);
+
+  /* Accent colors */
+  --primary: oklch(0.82 0.18 165); /* Brighter cyan-teal for better contrast */
+  --primary-foreground: oklch(0.12 0.02 230);
+  --secondary: oklch(0.78 0.15 280); /* Brighter violet for improved visibility */
+  --secondary-foreground: oklch(0.95 0.01 230);
+  --accent: oklch(0.8 0.12 145); /* Brighter emerald for better readability */
+  --accent-foreground: oklch(0.12 0.02 230);
+
+  /* Muted states */
+  --muted: oklch(0.18 0.03 230);
+  --muted-foreground: oklch(0.55 0.02 230);
+
+  /* Semantic colors */
+  --destructive: oklch(0.65 0.25 15); /* Sophisticated red */
+  --border: oklch(0.25 0.02 230 / 20%); /* Very subtle borders */
+  --input: oklch(0.25 0.02 230 / 30%);
+  --ring: oklch(0.72 0.18 165 / 50%); /* Cyan focus ring */
+
+  /* Chart colors */
+  --chart-1: oklch(0.72 0.18 165); /* Cyan */
+  --chart-2: oklch(0.65 0.15 280); /* Violet */
+  --chart-3: oklch(0.7 0.12 145); /* Emerald */
+  --chart-4: oklch(0.75 0.14 95); /* Gold */
+  --chart-5: oklch(0.68 0.16 320); /* Magenta */
+
+  /* Sidebar specific */
+  --sidebar: oklch(0.13 0.022 230); /* Slightly different from main bg */
+  --sidebar-foreground: oklch(0.95 0.01 230);
+  --sidebar-primary: oklch(0.72 0.18 165);
+  --sidebar-primary-foreground: oklch(0.12 0.02 230);
+  --sidebar-accent: oklch(0.16 0.027 230);
+  --sidebar-accent-foreground: oklch(0.95 0.01 230);
+  --sidebar-border: oklch(0.25 0.02 230 / 15%);
+  --sidebar-ring: oklch(0.72 0.18 165 / 50%);
 }
 
 @layer base {
@@ -139,5 +170,129 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+  }
+}
+
+@layer utilities {
+  /* Midnight Ocean backgrounds */
+  .bg-midnight {
+    background-color: oklch(0.12 0.02 230);
+  }
+  .bg-midnight-elevated {
+    background-color: oklch(0.15 0.025 230);
+  }
+  .bg-midnight-accent {
+    background-color: oklch(0.18 0.03 230);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: oklch(0.15 0.025 230 / 80%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Text colors */
+  .text-primary {
+    color: oklch(0.95 0.01 230);
+  }
+  .text-secondary {
+    color: oklch(0.75 0.015 230);
+  }
+  .text-tertiary {
+    color: oklch(0.55 0.02 230);
+  }
+
+  /* Accent colors - Adjusted for better contrast */
+  .text-cyan {
+    color: oklch(0.82 0.18 165); /* Brighter cyan for better visibility */
+  }
+  .text-violet {
+    color: oklch(0.78 0.15 280); /* Brighter violet for better contrast */
+  }
+  .text-emerald {
+    color: oklch(0.8 0.12 145); /* Brighter emerald for better readability */
+  }
+
+  /* Gradient utilities */
+  .gradient-cyan {
+    background: linear-gradient(135deg, oklch(0.82 0.18 165), oklch(0.75 0.15 180));
+  }
+  .gradient-violet {
+    background: linear-gradient(135deg, oklch(0.78 0.15 280), oklch(0.7 0.12 290));
+  }
+  .gradient-border {
+    background: linear-gradient(135deg, oklch(0.82 0.18 165), oklch(0.78 0.15 280));
+  }
+
+  /* Shadow utilities */
+  .shadow-glow {
+    box-shadow: 0 0 20px oklch(0.82 0.18 165 / 10%);
+  }
+  .shadow-elevation-1 {
+    box-shadow:
+      0 1px 3px oklch(0 0 0 / 20%),
+      0 1px 2px oklch(0 0 0 / 10%);
+  }
+  .shadow-elevation-2 {
+    box-shadow:
+      0 4px 6px oklch(0 0 0 / 15%),
+      0 2px 4px oklch(0 0 0 / 10%);
+  }
+  .shadow-elevation-3 {
+    box-shadow:
+      0 10px 25px oklch(0 0 0 / 20%),
+      0 6px 10px oklch(0 0 0 / 10%);
+  }
+
+  /* Animation utilities */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Featured card styles */
+  .featured-glow {
+    box-shadow:
+      0 0 40px oklch(0.72 0.18 165 / 15%),
+      0 10px 25px oklch(0 0 0 / 20%);
+  }
+
+  /* Fluid typography */
+  .text-fluid-xs {
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  }
+  .text-fluid-sm {
+    font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  }
+  .text-fluid-base {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  }
+  .text-fluid-lg {
+    font-size: clamp(1.125rem, 1.05rem + 0.375vw, 1.25rem);
+  }
+  .text-fluid-xl {
+    font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  }
+  .text-fluid-2xl {
+    font-size: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+  }
+  .text-fluid-3xl {
+    font-size: clamp(2rem, 1.75rem + 1.25vw, 2.5rem);
+  }
+  .text-fluid-4xl {
+    font-size: clamp(2.5rem, 2rem + 2.5vw, 3.5rem);
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
+import { buttonHover, buttonTap } from '@/utils/animations';
 
 /**
  * Props for the Button component
@@ -77,13 +78,16 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   'aria-label': ariaLabel,
 }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isPressed, setIsPressed] = React.useState(false);
+
   const baseClasses =
-    'inline-flex items-center justify-center font-mono text-sm rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-300/50 disabled:opacity-50 disabled:cursor-not-allowed';
+    'inline-flex items-center justify-center font-mono text-fluid-sm rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[oklch(0.72_0.18_165_/_50%)] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
 
   const variantClasses = {
-    primary: 'bg-teal-300 text-slate-900 hover:bg-teal-200',
-    outline: 'border border-teal-300 text-teal-300 hover:bg-teal-300/10',
-    ghost: 'text-slate-400 hover:text-teal-300',
+    primary: 'gradient-cyan text-[oklch(0.12_0.02_230)] shadow-elevation-1 hover:shadow-glow',
+    outline: 'border border-cyan/50 text-cyan hover:bg-cyan/10 backdrop-blur-sm',
+    ghost: 'text-secondary hover:text-cyan',
   };
 
   const sizeClasses = {
@@ -102,22 +106,62 @@ const Button: React.FC<ButtonProps> = ({
 
   const content = (
     <>
-      {Icon && iconPosition === 'left' && (
-        <Icon size={iconSizeMap[size]} className="flex-shrink-0" />
+      {/* Ripple effect on click */}
+      <AnimatePresence>
+        {isPressed && variant === 'primary' && (
+          <motion.span
+            className="absolute inset-0 rounded-lg bg-white/20"
+            initial={{ scale: 0, opacity: 1 }}
+            animate={{ scale: 2, opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ originX: 0.5, originY: 0.5 }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Gradient animation for primary variant */}
+      {variant === 'primary' && (
+        <div className="absolute inset-0 rounded-lg gradient-cyan animate-gradient opacity-100" />
       )}
-      <span>{children}</span>
-      {Icon && iconPosition === 'right' && (
-        <Icon
-          size={iconSizeMap[size]}
-          className="flex-shrink-0 group-hover:translate-y-1 transition-transform duration-300"
-        />
-      )}
+
+      {/* Content */}
+      <span className="relative flex items-center space-x-2">
+        {Icon && iconPosition === 'left' && (
+          <motion.span animate={{ rotate: isHovered ? 360 : 0 }} transition={{ duration: 0.5 }}>
+            <Icon size={iconSizeMap[size]} className="flex-shrink-0" />
+          </motion.span>
+        )}
+        <span>{children}</span>
+        {Icon && iconPosition === 'right' && (
+          <motion.span
+            animate={{
+              x: isHovered ? 3 : 0,
+              rotate: isHovered ? 10 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <Icon size={iconSizeMap[size]} className="flex-shrink-0" />
+          </motion.span>
+        )}
+      </span>
     </>
   );
 
   const motionProps = {
-    whileHover: { scale: disabled ? 1 : 1.05 },
-    whileTap: { scale: disabled ? 1 : 0.95 },
+    initial: 'rest',
+    whileHover: disabled ? 'rest' : 'hover',
+    whileTap: disabled ? 'rest' : 'tap',
+    variants: {
+      rest: { scale: 1 },
+      hover: { scale: 1.03 },
+      tap: { scale: 0.97 },
+    },
+    onHoverStart: () => setIsHovered(true),
+    onHoverEnd: () => setIsHovered(false),
+    onTapStart: () => setIsPressed(true),
+    onTapCancel: () => setIsPressed(false),
+    onTap: () => setIsPressed(false),
     className: `group ${combinedClasses}`,
   };
 
