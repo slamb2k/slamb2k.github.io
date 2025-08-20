@@ -209,7 +209,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'azure-ai-governance-pipeline',
-      title: 'Azure Engineering Governance & Risk Management Platform v2',
+      title: 'Azure Core Engineering Platform - Governance & Risk Management Foundation',
       featured: true,
       technologies: [
         'C#',

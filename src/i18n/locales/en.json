@@ -47,6 +47,21 @@
     "title": "Projects",
     "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
     "items": {
+      "internal-ai-code-scanning-platform": {
+        "description": "Built a mandatory code analysis platform for Microsoft that automatically scanned commits and PRs for security vulnerabilities, performance issues, best practice violations, and maintainability risks. Integrated static analysis tools like CodeQL with advanced RAG pipelines to process millions of lines of code. Developed extensive prompt engineering solutions and generative UI components to produce consistent insights and reports. Implemented robust prompt evaluation pipelines to detect performance drift and utilized structured outputs with Liquid templates to ensure deterministic, reliable analysis results across the entire Microsoft codebase."
+      },
+      "microsoft-fabric-data-solutions": {
+        "description": "Extended the Microsoft Fabric web interface to provide accelerators and solution templates offering structured foundations for different business domains and industries, including industry-specific schemas, data pipelines, transformation logic, and semantic models."
+      },
+      "azure-deployment-accelerator-tui": {
+        "description": "Developed a bash-based TUI providing guided workflows for Microsoft's internal Azure deployment platform. Streamlined complex deployments through intelligent validation and Dev Container integration, becoming the standard tool across multiple engineering teams."
+      },
+      "devops-openhack-technical-lead": {
+        "description": "Served as Technical Lead for Microsoft coaches working with diverse teams from ISV, Enterprise, Government, SMC, and SMB organizations. After coaching at numerous events, was invited to lead all coaches and provide technical leadership at major DevOps OpenHacks including Microsoft Ready in Seattle, Microsoft Inspire in Las Vegas, GovTech conferences in Canberra, and during Scott Guthrie's keynote at the Microsoft AI Tour in Sydney (February 2024). Guided organizations through DevOps transformation, CI/CD implementation, infrastructure as code, and Azure DevOps adoption at scale."
+      },
+      "azure-ai-governance-pipeline": {
+        "description": "Contributed as part of a crucial DevOps team to the re-implementation of Microsoft's foundational engineering platform for Azure service governance. Delivered infrastructure as code solutions using Bicep and Ev2 to provision this next-generation platform, architected for massive capacity and scale."
+      },
       "about-me": {
         "description": "This site - A modern React portfolio website built with TypeScript and Vite, featuring responsive design and internationalization support."
       },

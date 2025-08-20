@@ -82,7 +82,7 @@ const Button: React.FC<ButtonProps> = ({
   const [isPressed, setIsPressed] = React.useState(false);
 
   const baseClasses =
-    'inline-flex items-center justify-center font-mono text-fluid-sm rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[oklch(0.72_0.18_165_/_50%)] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
+    'inline-flex items-center justify-center font-mono text-fluid-sm rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[oklch(0.72_0.18_165_/_50%)] focus:ring-offset-2 focus:ring-offset-midnight disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden';
 
   const variantClasses = {
     primary: 'gradient-cyan text-[oklch(0.12_0.02_230)] shadow-elevation-1 hover:shadow-glow',

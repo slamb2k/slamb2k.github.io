@@ -104,10 +104,10 @@ body {
 }
 
 .dark {
-  /* Midnight Ocean Palette - Core backgrounds */
-  --background: oklch(0.12 0.02 230); /* Deep midnight blue */
-  --background-elevated: oklch(0.15 0.025 230); /* Elevated surfaces */
-  --background-accent: oklch(0.18 0.03 230); /* Hover states */
+  /* Pure Black Theme - Core backgrounds */
+  --background: oklch(0 0 0); /* Pure black */
+  --background-elevated: oklch(0.03 0 0); /* Slightly elevated surfaces */
+  --background-accent: oklch(0.06 0 0); /* Hover states */
 
   /* Text hierarchy */
   --foreground: oklch(0.95 0.01 230); /* Almost white with blue tint */
@@ -146,13 +146,13 @@ body {
   --chart-5: oklch(0.68 0.16 320); /* Magenta */
 
   /* Sidebar specific */
-  --sidebar: oklch(0.13 0.022 230); /* Slightly different from main bg */
-  --sidebar-foreground: oklch(0.95 0.01 230);
+  --sidebar: oklch(0.02 0 0); /* Slightly elevated from main bg */
+  --sidebar-foreground: oklch(0.95 0 0);
   --sidebar-primary: oklch(0.72 0.18 165);
-  --sidebar-primary-foreground: oklch(0.12 0.02 230);
-  --sidebar-accent: oklch(0.16 0.027 230);
-  --sidebar-accent-foreground: oklch(0.95 0.01 230);
-  --sidebar-border: oklch(0.25 0.02 230 / 15%);
+  --sidebar-primary-foreground: oklch(0 0 0);
+  --sidebar-accent: oklch(0.04 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0 0 / 15%);
   --sidebar-ring: oklch(0.72 0.18 165 / 50%);
 }
 
@@ -176,13 +176,13 @@ body {
 @layer utilities {
   /* Midnight Ocean backgrounds */
   .bg-midnight {
-    background-color: oklch(0.12 0.02 230);
+    background-color: oklch(0 0 0);
   }
   .bg-midnight-elevated {
-    background-color: oklch(0.15 0.025 230);
+    background-color: oklch(0.03 0 0);
   }
   .bg-midnight-accent {
-    background-color: oklch(0.18 0.03 230);
+    background-color: oklch(0.06 0 0);
   }
 
   /* Glass morphism effect */

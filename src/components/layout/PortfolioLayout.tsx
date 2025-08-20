@@ -11,7 +11,7 @@ const PortfolioLayout: React.FC = () => {
   const hasSidebar = useHasSidebar();
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-300">
+    <div className="min-h-screen bg-midnight text-primary">
       {/* Skip Navigation - Always first for keyboard users */}
       <SkipNavigation mainContentId="main-content" />
 

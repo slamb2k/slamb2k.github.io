@@ -51,7 +51,7 @@ const ExperiencePage: React.FC = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-24"
+      className="max-w-6xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
       <motion.section
         initial={{ opacity: 0, y: 50 }}

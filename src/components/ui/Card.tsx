@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
     experience:
       'p-6 rounded-lg border border-white/5 bg-midnight-elevated/90 hover:border-cyan/20 hover:shadow-glow shadow-elevation-1',
     project:
-      'p-6 rounded-lg border border-white/5 bg-gradient-to-br from-midnight-elevated/90 to-midnight-accent/50 hover:border-violet/30 hover:shadow-glow shadow-elevation-2',
+      'p-6 rounded-lg border border-white/5 bg-midnight-elevated/90 hover:border-cyan/20 hover:bg-midnight-elevated/50 hover:shadow-glow shadow-elevation-1',
     feature:
       'p-6 rounded-lg glass border border-white/10 hover:border-emerald/20 shadow-elevation-1',
   };
