@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Twitter, Mail, Download, ChevronRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { portfolioData } from '@/data/portfolio';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { KEYS, createKeyboardNavigationHandler, getFocusableElements } from '@/utils/keyboard';
+import { fadeIn, staggerContainer, staggerItem } from '@/utils/animations';
 
 const NavigationSidebar: React.FC = () => {
   const { t } = useTranslation();
@@ -87,7 +88,7 @@ const NavigationSidebar: React.FC = () => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed left-0 top-0 h-screen w-96 bg-slate-900 border-r border-slate-800 p-12 flex flex-col justify-between z-40"
+      className="fixed left-0 top-0 h-screen w-96 bg-gradient-to-b from-[oklch(0.13_0.022_230)] to-[oklch(0.11_0.018_230)] border-r border-white/5 p-12 flex flex-col justify-between z-40 shadow-elevation-3"
     >
       {/* Header */}
       <div>
@@ -97,12 +98,12 @@ const NavigationSidebar: React.FC = () => {
           transition={{ delay: 0.2 }}
         >
           <Link to="/about" className="block">
-            <h1 className="text-4xl font-bold text-slate-100 mb-2 hover:text-teal-300 transition-colors">
+            <h1 className="text-fluid-3xl font-bold text-primary mb-2 hover:text-cyan transition-colors duration-300">
               {portfolioData.personal.name}
             </h1>
           </Link>
-          <h2 className="text-xl text-slate-300 mb-4">{portfolioData.personal.title}</h2>
-          <p className="text-slate-400 text-sm leading-relaxed mb-8">
+          <h2 className="text-fluid-xl text-secondary mb-4">{portfolioData.personal.title}</h2>
+          <p className="text-tertiary text-fluid-sm leading-relaxed mb-8">
             {portfolioData.personal.tagline}
           </p>
         </motion.div>
@@ -132,18 +133,29 @@ const NavigationSidebar: React.FC = () => {
                   onMouseLeave={() => setHoveredSection(null)}
                   aria-current={isActive ? 'page' : undefined}
                   aria-describedby={`nav-description-${item.id}`}
-                  className={`group flex items-center space-x-4 w-full text-left py-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg ${
-                    isActive ? 'text-slate-100' : 'text-slate-400 hover:text-slate-100'
-                  }`}
+                  className={`group relative flex items-center space-x-4 w-full text-left py-3 px-2 transition-all duration-300 focus:outline-none rounded-lg ${
+                    isActive ? 'text-primary' : 'text-secondary hover:text-primary'
+                  } ${isActive ? 'bg-[oklch(0.18_0.03_230_/_10%)]' : 'hover:bg-[oklch(0.18_0.03_230_/_5%)]'}`}
                 >
-                  <div
-                    className={`h-px transition-all duration-300 ${
-                      isActive
-                        ? 'w-16 bg-slate-100'
-                        : `w-8 bg-slate-600 ${!isActive ? 'group-hover:w-16 group-hover:bg-slate-100' : ''}`
-                    }`}
-                  />
-                  <div className="text-sm font-medium tracking-widest uppercase overflow-hidden">
+                  {/* Animated gradient indicator */}
+                  <div className="relative">
+                    <div
+                      className={`h-px transition-all duration-300 ${
+                        isActive
+                          ? 'w-16 gradient-cyan animate-gradient'
+                          : `w-8 bg-[oklch(0.35_0.02_230)] ${!isActive ? 'group-hover:w-16 group-hover:bg-cyan' : ''}`
+                      }`}
+                    />
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="absolute inset-0 w-16 h-px gradient-cyan shadow-glow"
+                        initial={false}
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </div>
+                  <div className="text-fluid-sm font-medium tracking-widest uppercase overflow-hidden flex items-center justify-between flex-1">
                     <div className="flex">
                       {item.label.split('').map((letter, letterIndex) => {
                         const isCurrentlyActive = isActive;
@@ -191,6 +203,16 @@ const NavigationSidebar: React.FC = () => {
                       })}
                     </div>
                   </div>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronRight size={16} className="text-cyan" />
+                    </motion.div>
+                  )}
                   {/* Hidden description for screen readers */}
                   <span id={`nav-description-${item.id}`} className="sr-only">
                     {t(`nav.description.${item.id}`, `Navigate to ${item.label} section`)}
@@ -203,6 +225,20 @@ const NavigationSidebar: React.FC = () => {
       </div>
 
       <div className="space-y-6">
+        {/* Quick action button */}
+        <motion.a
+          href="/resume.pdf"
+          download
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex items-center justify-center space-x-2 py-2 px-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-fluid-sm border border-cyan/20 hover:border-cyan/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
+        >
+          <Download size={16} />
+          <span>Download CV</span>
+        </motion.a>
         {/* Language Switcher */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -229,7 +265,7 @@ const NavigationSidebar: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+              className="p-2 text-secondary hover:text-cyan transition-all duration-300 rounded-lg focus:outline-none hover:scale-110 hover:rotate-6"
               aria-label={`${social.label} (opens in new tab)`}
               role="listitem"
             >
