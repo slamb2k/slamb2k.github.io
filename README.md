@@ -6,7 +6,7 @@
 
 🌐 **Live Site**: [simonlamb.codes](https://simonlamb.codes)
 
-A modern, responsive portfolio website showcasing my professional experience, projects, and technical expertise. Built with React, TypeScript, and Vite, featuring a sleek dark theme and smooth animations.
+A modern, responsive portfolio website showcasing my professional experience, projects, and technical expertise. Built with React, TypeScript, and Vite, featuring a sleek dark theme and smooth animations...
 
 ## ✨ Features
 
