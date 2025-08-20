@@ -21,25 +21,25 @@
     "description": "A chronological overview of my professional journey and the technologies I've worked with.",
     "jobs": {
       "azure-core": {
-        "description": "Build and maintain critical components for Azure infrastructure. Collaborate closely with the Semantic Kernel and Copilot teams to develop cutting-edge AI solutions and cloud engineering tools."
+        "description": "Lead development of an AI-powered code security analysis platform used by a significant portion of Azure products to identify security vulnerabilities, performance bottlenecks, and best practice violations in code deployed to Microsoft Cloud Platform. This platform evolved into a comprehensive governance and review system, becoming fundamental to all internal Microsoft product deployments for incident reduction and enterprise risk management."
       },
       "microsoft-cloud": {
-        "description": "Developed cloud infrastructure solutions and AI-driven development tools. Focused on scalable cloud services and integration with Microsoft AI platforms."
+        "description": "Extended Microsoft Fabric's native capabilities by implementing the Data Solution framework, delivering domain-specific solutions and industry accelerators across Microsoft Clouds. Specialized in developing internal tooling to enhance deployment consistency and velocity using Microsoft's proprietary delivery frameworks, significantly improving engineering efficiency across Azure teams."
       },
       "global-partner-solutions": {
-        "description": "Led enterprise cloud transformation initiatives and AI solution architecture. Specialized in prompt engineering, Azure cloud architecture, and DevOps practices for enterprise clients."
+        "description": "Partnered with Microsoft customers and partners to architect and build enterprise solutions on Azure, ensuring adherence to the Well-Architected Framework and maximizing Azure Marketplace opportunities. Leveraged extensive cross-technology expertise to guide complex implementations while championing DevOps adoption through direct consulting and scale programs including the DevOps OpenHack initiative."
       },
       "pacific-commerce": {
         "description": "Managed enterprise EDI solutions and e-commerce integrations using Sterling Commerce GENTRAN. Led technical initiatives for B2B data exchange and automated business processes across multiple client environments."
       },
       "microsoft-dx": {
-        "description": "Evangelized Microsoft development technologies and platforms to developer communities. Created technical content, delivered presentations, and provided architectural guidance for .NET, Azure, and emerging Microsoft technologies."
+        "description": "Evangelized Microsoft development technologies to global developer communities through technical content creation, conference presentations, and architectural guidance for .NET, Azure, and emerging technologies. Recognized as a primary DevOps subject matter expert within Microsoft, supporting enterprise customers and partners in their DevOps transformation journeys."
       },
       "fred-it-group": {
-        "description": "Led a team of six engineers to design scalable platforms for the pharmacy and healthcare industry. Managed platform design, Agile/DevOps/IaC delivery, and team leadership."
+        "description": "Led a team of six engineers developing mission-critical platforms for pharmacy and healthcare sectors. Architected and delivered industry-leading applications for pharmacy dispensing, store operations, and group management built on Microsoft Dynamics AX platform. Championed Agile methodologies and DevOps practices, establishing infrastructure-as-code standards that transformed delivery capabilities."
       },
       "leadtec-systems": {
-        "description": "Developed enterprise web applications and XML-based data integration systems. Built scalable solutions using C#, ASP.NET, and XSLT transformations for business process automation and reporting systems."
+        "description": "Architected and implemented the Intouch platform, an enterprise-scale retail management system adopted by Australia's largest retailers including Coles Myer (Myer, Coles, Target, Officeworks), David Jones, and Bunnings. Built sophisticated XML-based data integration systems and web applications using C#, ASP.NET, and XSLT transformations to enable real-time business process automation and reporting across thousands of retail locations."
       }
     }
   },

@@ -23,7 +23,7 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
       animate={{ opacity: 1, y: 0 }}
       className={className}
     >
-      <div className="bg-slate-800/90 backdrop-blur-sm text-slate-300 p-4 rounded-lg shadow-xl border border-slate-700 max-w-sm">
+      <div className="bg-slate-800 text-slate-300 p-4 rounded-lg shadow-xl border border-slate-700 max-w-sm">
         <div className="space-y-2 text-xs">
           {/* Environment Badge */}
           <div className="flex items-center justify-between">

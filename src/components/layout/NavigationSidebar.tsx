@@ -134,7 +134,7 @@ const NavigationSidebar: React.FC = () => {
                   aria-current={isActive ? 'page' : undefined}
                   aria-describedby={`nav-description-${item.id}`}
                   className={`group relative flex items-center space-x-4 w-full text-left py-3 px-2 transition-all duration-300 focus:outline-none rounded-lg ${
-                    isActive ? 'text-primary' : 'text-secondary hover:text-primary'
+                    isActive ? 'text-primary' : 'text-slate-600 hover:text-slate-400'
                   } ${isActive ? 'bg-[oklch(0.06_0_0_/_10%)]' : 'hover:bg-[oklch(0.06_0_0_/_5%)]'}`}
                 >
                   {/* Animated gradient indicator */}
@@ -143,7 +143,7 @@ const NavigationSidebar: React.FC = () => {
                       className={`h-px transition-all duration-300 ${
                         isActive
                           ? 'w-16 gradient-cyan animate-gradient'
-                          : `w-8 bg-[oklch(0.35_0_0)] ${!isActive ? 'group-hover:w-16 group-hover:bg-cyan' : ''}`
+                          : `w-8 bg-[oklch(0.25_0_0)] ${!isActive ? 'group-hover:w-16 group-hover:bg-[oklch(0.45_0_0)]' : ''}`
                       }`}
                     />
                     {isActive && (
@@ -227,14 +227,14 @@ const NavigationSidebar: React.FC = () => {
       <div className="space-y-6">
         {/* Quick action button */}
         <motion.a
-          href="/resume.pdf"
-          download
+          href="/Simon Lamb - Professional Resume.pdf"
+          download="Simon Lamb - Professional Resume.pdf"
           whileHover={{ scale: 1.05, y: -3 }}
           whileTap={{ scale: 0.98 }}
           className="flex items-center justify-center space-x-2 py-2 px-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-fluid-sm border border-cyan/20 hover:border-cyan/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
         >
           <Download size={16} />
-          <span>Download CV</span>
+          <span>Download Resume</span>
         </motion.a>
         {/* Language Switcher */}
         <motion.div

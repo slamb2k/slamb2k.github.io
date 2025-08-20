@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simon Lamb - Principal Engineer | DevOps Advocate</title>
+    <title>Simon Lamb - Principal AI Engineer | DevOps Advocate</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      @page {
+        margin: 0.6in;
+        size: letter;
+      }
+
+      @page :first {
+        margin-top: 0.5in;
       }
 
       body {
@@ -30,29 +39,60 @@
       .container {
         max-width: 850px;
         margin: 0 auto;
-        padding: 40px;
+        padding: 20px;
         background: white;
       }
 
-      /* Header Section */
+      /* Page Break Control */
+      .page-break {
+        page-break-after: always;
+        break-after: always;
+      }
+
+      .no-break {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .keep-together {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        display: block;
+      }
+
+      /* Modern Header Section with Gradient Accent */
       .header {
-        border-bottom: 3px solid #0891b2;
+        position: relative;
         padding-bottom: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #0891b2 0%, #6366f1 50%, #8b5cf6 100%);
       }
 
       h1 {
-        font-size: 36px;
-        font-weight: 700;
+        font-size: 38px;
+        font-weight: 800;
         color: #0f172a;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+        letter-spacing: -0.5px;
       }
 
       .subtitle {
-        font-size: 18px;
-        color: #475569;
-        font-weight: 500;
-        margin-bottom: 12px;
+        font-size: 19px;
+        color: #0891b2;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: 0.25px;
       }
 
       .tagline {
@@ -60,442 +100,805 @@
         color: #64748b;
         line-height: 1.5;
         margin-bottom: 16px;
+        max-width: 90%;
       }
 
       .contact-info {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
-        font-size: 13px;
+        font-size: 12px;
         color: #475569;
+      }
+
+      .contact-info span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
       }
 
       .contact-info a {
         color: #0891b2;
         text-decoration: none;
+        font-weight: 500;
       }
 
-      .contact-info a:hover {
-        text-decoration: underline;
-      }
-
-      /* Section Headers */
+      /* Distinctive Section Headers with Icons */
       h2 {
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 700;
         color: #0f172a;
-        margin-top: 28px;
-        margin-bottom: 16px;
-        padding-bottom: 6px;
-        border-bottom: 2px solid #e2e8f0;
+        margin-top: 20px;
+        margin-bottom: 14px;
+        padding: 8px 14px;
+        background: linear-gradient(90deg, #f0f9ff 0%, #f8fafc 100%);
+        border-left: 4px solid #0891b2;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        page-break-after: avoid;
+        break-after: avoid;
       }
 
-      /* About Section */
-      .about-section {
-        margin-bottom: 25px;
-      }
-
-      .about-section p {
+      h2::before {
+        content: attr(data-icon);
         font-size: 14px;
-        line-height: 1.7;
-        color: #334155;
-        margin-bottom: 12px;
-        text-align: justify;
       }
 
-      /* Experience Section */
-      .experience-item {
-        margin-bottom: 22px;
+      /* Professional Summary Section */
+      .summary-section {
+        margin-bottom: 16px;
+        background: #f8fafc;
+        padding: 14px;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
         page-break-inside: avoid;
+        break-inside: avoid;
       }
 
-      .experience-header {
+      .summary-section p {
+        font-size: 11px;
+        color: #334155;
+        line-height: 1.45;
+        margin-bottom: 7px;
+      }
+
+      .summary-section p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Experience Section with Timeline */
+      .experience-item {
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 16px;
+        border-left: 2px solid #e2e8f0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .experience-item::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 5px;
+        width: 8px;
+        height: 8px;
+        background: #0891b2;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #e2e8f0;
+      }
+
+      .job-header {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
       .job-title {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         color: #0f172a;
       }
 
-      .company {
-        font-size: 15px;
+      .job-company {
         color: #0891b2;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .job-period {
+        font-size: 12px;
+        color: #64748b;
         font-weight: 500;
       }
 
-      .period {
-        font-size: 13px;
-        color: #64748b;
-        font-style: italic;
-      }
-
-      .description {
-        font-size: 14px;
-        line-height: 1.6;
+      .job-description {
+        font-size: 11px;
         color: #475569;
-        margin-bottom: 10px;
+        line-height: 1.45;
+        margin-bottom: 5px;
       }
 
       .technologies {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 8px;
+        gap: 5px;
+        margin-top: 6px;
       }
 
       .tech-tag {
-        display: inline-block;
-        padding: 3px 10px;
-        background: #f0fdfa;
-        border: 1px solid #5eead4;
-        color: #0f766e;
-        border-radius: 12px;
-        font-size: 12px;
+        font-size: 10px;
+        padding: 2px 6px;
+        background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+        color: #0369a1;
+        border-radius: 3px;
         font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
       }
 
-      /* Projects Section */
+      /* Projects Grid */
       .projects-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 14px;
       }
 
-      .project-item {
+      .project-card {
+        padding: 12px;
+        background: #fafafa;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
         page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .project-card.featured {
+        grid-column: span 2;
+        background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+        border-color: #0891b2;
       }
 
       .project-title {
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 600;
         color: #0f172a;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
       }
 
       .project-description {
-        font-size: 13px;
-        line-height: 1.6;
+        font-size: 11px;
         color: #475569;
-        margin-bottom: 8px;
+        line-height: 1.4;
+        margin-bottom: 6px;
       }
 
       .project-tech {
         display: flex;
         flex-wrap: wrap;
-        gap: 6px;
+        gap: 3px;
       }
 
       .project-tech-tag {
-        display: inline-block;
-        padding: 2px 8px;
-        background: #f8fafc;
-        border: 1px solid #cbd5e1;
+        font-size: 9px;
+        padding: 2px 5px;
+        background: #e2e8f0;
         color: #475569;
-        border-radius: 10px;
-        font-size: 11px;
-        font-weight: 500;
+        border-radius: 2px;
+        font-family: 'JetBrains Mono', monospace;
       }
 
-      /* Print Styles */
+      /* Skills Section */
+      .skills-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 14px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .skill-category {
+        padding: 10px;
+        background: #f8fafc;
+        border-radius: 5px;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .skill-category-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .skill-list {
+        font-size: 11px;
+        color: #475569;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 2px solid #e2e8f0;
+        text-align: center;
+        font-size: 11px;
+        color: #94a3b8;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      /* Special containers for page control */
+      .page-one {
+        min-height: 0;
+      }
+
+      .page-two {
+        page-break-before: always;
+        break-before: always;
+        padding-top: 20px;
+      }
+
+      .page-three {
+        page-break-before: always;
+        break-before: always;
+        padding-top: 20px;
+      }
+
+      /* Print Optimization */
       @media print {
-        body {
-          margin: 0;
+        .container {
           padding: 0;
         }
 
-        .container {
-          padding: 20px;
-          max-width: 100%;
-        }
-
-        h1 {
-          font-size: 28px;
-        }
-
-        .subtitle {
-          font-size: 16px;
+        body {
+          font-size: 11pt;
         }
 
         .header {
-          border-bottom: 2px solid #0891b2;
+          margin-bottom: 20px;
         }
 
         h2 {
-          font-size: 18px;
-          margin-top: 20px;
+          margin-top: 18px;
+          margin-bottom: 12px;
         }
 
         .experience-item,
-        .project-item {
-          page-break-inside: avoid;
+        .project-card,
+        .skill-category {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Header -->
-      <div class="header">
-        <h1>Simon Lamb</h1>
-        <div class="subtitle">Principal Engineer | DevOps Advocate</div>
-        <div class="tagline">
-          With a proven track record delivering AI systems, Cloud platforms, and enterprise-scale
-          DevOps practices, I specialize in helping teams build solutions that are reliable,
-          scalable, and transformative.
-        </div>
-        <div class="contact-info">
-          <span>📧 <a href="mailto:me@simonlamb.codes">me@simonlamb.codes</a></span>
-          <span
-            >🔗
-            <a href="https://www.linkedin.com/in/slamb2k/" target="_blank"
-              >linkedin.com/in/slamb2k</a
-            ></span
-          >
-          <span
-            >💻 <a href="https://github.com/slamb2k" target="_blank">github.com/slamb2k</a></span
-          >
-          <span>🌐 <a href="https://simonlamb.codes" target="_blank">simonlamb.codes</a></span>
-        </div>
-      </div>
-
-      <!-- About Section -->
-      <div class="about-section">
-        <h2>Professional Summary</h2>
-        <p>
-          I am a seasoned software engineer with over two decades of experience delivering scalable,
-          impactful solutions - nearly nine of those years spent at Microsoft. My journey has
-          spanned diverse roles: from Technical Evangelist in Developer Experience, to Cloud
-          Solution Architect with Global Partner Solutions, to Senior Software Engineer in Azure
-          Core (One Fleet Partner).
-        </p>
-        <p>
-          Over the years, I've developed extensive expertise in DevOps, both in mastering the
-          tooling ecosystem (CI/CD pipelines, infrastructure-as-code, observability platforms,
-          release automation) and in championing the principles that make DevOps transformative -
-          continuous improvement, collaboration, automation, and measurement. I've helped teams
-          modernize their engineering practices to achieve faster delivery cycles, higher
-          reliability, and stronger alignment between development and operations.
-        </p>
-        <p>
-          What excites me most today is the evolving role of AI in engineering and product design.
-          I'm passionate about how intelligent tools can accelerate coding, testing, and
-          architecture, while also unlocking new product capabilities that create meaningful impact
-          for customers. I see AI not just as a way to boost productivity, but as a collaborator
-          that helps engineers and organizations innovate faster and with greater creativity.
-        </p>
-      </div>
-
-      <!-- Experience Section -->
-      <h2>Professional Experience</h2>
-
-      <div class="experience-item">
-        <div class="experience-header">
-          <div>
-            <span class="job-title">Senior Software Engineer</span>
-            <span class="company">· Microsoft (Engineering - Azure Core)</span>
+      <!-- PAGE 1 START -->
+      <div class="page-one">
+        <!-- Header Section -->
+        <div class="header keep-together">
+          <h1>Simon Lamb</h1>
+          <div class="subtitle">Principal AI Engineer | DevOps Advocate</div>
+          <div class="tagline">
+            With a proven track record delivering AI systems, Cloud platforms, and enterprise-scale
+            DevOps practices, I specialize in helping teams build solutions that are reliable,
+            scalable, and transformative.
           </div>
-          <span class="period">Jul 2024 - Present</span>
-        </div>
-        <div class="description">
-          Build and maintain critical components for Azure infrastructure. Collaborate closely with
-          the Semantic Kernel and Copilot teams to develop cutting-edge AI solutions and cloud
-          engineering tools.
-        </div>
-        <div class="technologies">
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">Azure</span>
-          <span class="tech-tag">AI/ML</span>
-          <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">React</span>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div class="experience-header">
-          <div>
-            <span class="job-title">Senior Software Engineer</span>
-            <span class="company">· Microsoft (Engineering - Microsoft Cloud)</span>
-          </div>
-          <span class="period">Apr 2024 - Jul 2024</span>
-        </div>
-        <div class="description">
-          Developed cloud infrastructure solutions and AI-driven development tools. Focused on
-          scalable cloud services and integration with Microsoft AI platforms.
-        </div>
-        <div class="technologies">
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">ASP.NET</span>
-          <span class="tech-tag">Semantic Kernel</span>
-          <span class="tech-tag">JavaScript/React</span>
-          <span class="tech-tag">SQL/Fabric</span>
-          <span class="tech-tag">ARM/Bicep</span>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div class="experience-header">
-          <div>
-            <span class="job-title">Cloud Solution Architect</span>
-            <span class="company">· Microsoft (Global Partner Solutions)</span>
-          </div>
-          <span class="period">Jul 2019 - Apr 2024</span>
-        </div>
-        <div class="description">
-          Led enterprise cloud transformation initiatives and AI solution architecture. Specialized
-          in prompt engineering, Azure cloud architecture, and DevOps practices for enterprise
-          clients.
-        </div>
-        <div class="technologies">
-          <span class="tech-tag">Prompt Engineering</span>
-          <span class="tech-tag">Azure Cloud</span>
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">ASP.NET</span>
-          <span class="tech-tag">Power BI</span>
-          <span class="tech-tag">Azure DevOps</span>
-          <span class="tech-tag">PowerShell</span>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div class="experience-header">
-          <div>
-            <span class="job-title">Technical Evangelist</span>
-            <span class="company">· Microsoft (DX - Developer Experience)</span>
-          </div>
-          <span class="period">Feb 2017 - Jul 2019</span>
-        </div>
-        <div class="description">
-          Evangelized Microsoft development technologies and platforms to developer communities.
-          Created technical content, delivered presentations, and provided architectural guidance
-          for .NET, Azure, and emerging Microsoft technologies.
-        </div>
-        <div class="technologies">
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">ASP.NET</span>
-          <span class="tech-tag">Javascript</span>
-          <span class="tech-tag">SQL</span>
-          <span class="tech-tag">Power BI</span>
-          <span class="tech-tag">ARM</span>
-          <span class="tech-tag">Azure DevOps</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">PowerShell</span>
-        </div>
-      </div>
-
-      <div class="experience-item">
-        <div class="experience-header">
-          <div>
-            <span class="job-title">Technical Architecture Lead</span>
-            <span class="company">· Fred IT Group</span>
-          </div>
-          <span class="period">Jun 2004 - Feb 2017</span>
-        </div>
-        <div class="description">
-          Led a team of six engineers to design scalable platforms for the pharmacy and healthcare
-          industry. Managed platform design, Agile/DevOps/IaC delivery, and team leadership.
-        </div>
-        <div class="technologies">
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">ASP.NET</span>
-          <span class="tech-tag">Dynamics AX (X++)</span>
-          <span class="tech-tag">SQL</span>
-          <span class="tech-tag">Team Leadership</span>
-        </div>
-      </div>
-
-      <!-- Key Projects Section -->
-      <h2>Key Projects</h2>
-
-      <div class="projects-grid">
-        <div class="project-item">
-          <div class="project-title">Enterprise AI Code Intelligence Platform for Azure</div>
-          <div class="project-description">
-            Architected and delivered an enterprise-scale AI-powered code intelligence platform
-            deployed across thousands of Azure DevOps repositories. Processes millions of lines of
-            code using advanced RAG pipelines and static analysis tools to identify security
-            vulnerabilities and performance bottlenecks.
-          </div>
-          <div class="project-tech">
-            <span class="project-tech-tag">React</span>
-            <span class="project-tech-tag">TypeScript</span>
-            <span class="project-tech-tag">Semantic Kernel</span>
-            <span class="project-tech-tag">OpenAI</span>
-            <span class="project-tech-tag">Azure DevOps</span>
+          <div class="contact-info">
+            <span>📧 <a href="mailto:me@simonlamb.codes">me@simonlamb.codes</a></span>
+            <span
+              >🔗 <a href="https://www.linkedin.com/in/slamb2k">linkedin.com/in/slamb2k</a></span
+            >
+            <span>💻 <a href="https://github.com/slamb2k">github.com/slamb2k</a></span>
+            <span>🌐 <a href="https://simonlamb.codes">simonlamb.codes</a></span>
           </div>
         </div>
 
-        <div class="project-item">
-          <div class="project-title">
-            Azure Engineering Governance & Risk Management Platform v2
-          </div>
-          <div class="project-description">
-            Contributed as part of a crucial DevOps team to the re-implementation of Microsoft's
-            foundational engineering platform for Azure service governance. Delivered infrastructure
-            as code solutions using Bicep and Ev2 to provision this next-generation platform,
-            architected for massive capacity and scale.
-          </div>
-          <div class="project-tech">
-            <span class="project-tech-tag">Bicep</span>
-            <span class="project-tech-tag">Ev2</span>
-            <span class="project-tech-tag">AKS</span>
-            <span class="project-tech-tag">Helm</span>
-            <span class="project-tech-tag">Azure DevOps</span>
+        <!-- Professional Summary -->
+        <div class="keep-together">
+          <h2 data-icon="🎯">Professional Summary</h2>
+          <div class="summary-section">
+            <p>
+              I am a
+              <strong>seasoned software engineer with over two decades of experience</strong>
+              delivering scalable, impactful solutions - nearly nine of those years spent at
+              Microsoft. My journey has spanned diverse roles: from Technical Evangelist in
+              Developer Experience, to Cloud Solution Architect with Global Partner Solutions, to
+              Senior Software Engineer in Azure Core (One Fleet Partner). During my time in Azure
+              Engineering, I built real products powered by generative AI, gaining deep expertise in
+              prompt engineering, RAG pipelines, model evaluation, and the unique challenges of
+              productionizing AI systems - from managing non-deterministic outputs to implementing
+              robust evaluation frameworks and ensuring reliability at scale.
+            </p>
+            <p>
+              Over the years, I've developed <strong>extensive expertise in DevOps</strong>, both in
+              mastering the tooling ecosystem (CI/CD pipelines, infrastructure-as-code,
+              observability platforms, release automation) and in championing the principles that
+              make DevOps transformative - continuous improvement, collaboration, automation, and
+              measurement. I've helped teams modernize their engineering practices to achieve faster
+              delivery cycles, higher reliability, and stronger alignment between development and
+              operations.
+            </p>
+            <p>
+              What excites me most today is the
+              <strong>evolving role of AI in engineering and product design</strong>. I'm passionate
+              about how intelligent tools can accelerate coding, testing, and architecture, while
+              also unlocking new product capabilities that create meaningful impact for customers. I
+              see AI not just as a way to boost productivity, but as a collaborator that helps
+              engineers and organizations innovate faster and with greater creativity.
+            </p>
+            <p>
+              Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect,
+              managing a team of six engineers to design scalable platforms for the pharmacy and
+              healthcare industry. Outside of work, I co-parent two teenagers with my partner,
+              endeavour to automate my household, enjoy time with my dog Pip (named after the Python
+              package manager), and perform as a vocalist in a cover band.
+            </p>
           </div>
         </div>
 
-        <div class="project-item">
-          <div class="project-title">Azure Deployment Accelerator TUI</div>
-          <div class="project-description">
-            Developed a bash-based TUI providing guided workflows for Microsoft's internal Azure
-            deployment platform. Streamlined complex deployments through intelligent validation and
-            Dev Container integration, becoming the standard tool across multiple engineering teams.
-          </div>
-          <div class="project-tech">
-            <span class="project-tech-tag">Bash</span>
-            <span class="project-tech-tag">Ev2</span>
-            <span class="project-tech-tag">Dev Containers</span>
-            <span class="project-tech-tag">Azure CLI</span>
-            <span class="project-tech-tag">Terminal UI</span>
-          </div>
-        </div>
+        <!-- Experience Section -->
+        <div class="keep-together">
+          <h2 data-icon="💼">Professional Experience</h2>
 
-        <div class="project-item">
-          <div class="project-title">Microsoft Fabric Data Solutions</div>
-          <div class="project-description">
-            Extended the Microsoft Fabric web interface to provide accelerators and solution
-            templates offering structured foundations for different business domains and industries,
-            including industry-specific schemas, data pipelines, transformation logic, and semantic
-            models.
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Senior Software Engineer</span>
+                <span class="job-company">@ Microsoft Azure Core</span>
+              </div>
+              <span class="job-period">Jul 2024 - Present</span>
+            </div>
+            <div class="job-description">
+              Lead development of an AI-powered code security analysis platform used by a
+              significant portion of Azure products to identify security vulnerabilities,
+              performance bottlenecks, and best practice violations. This platform evolved into a
+              comprehensive governance and review system, becoming fundamental to all internal
+              Microsoft product deployments for incident reduction and enterprise risk management.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">AI/ML</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+            </div>
           </div>
-          <div class="project-tech">
-            <span class="project-tech-tag">React</span>
-            <span class="project-tech-tag">TypeScript</span>
-            <span class="project-tech-tag">Azure DevOps</span>
-            <span class="project-tech-tag">Azure Artifacts</span>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Senior Software Engineer</span>
+                <span class="job-company">@ Microsoft Cloud</span>
+              </div>
+              <span class="job-period">Apr 2024 - Jul 2024</span>
+            </div>
+            <div class="job-description">
+              Extended Microsoft Fabric's native capabilities by implementing the Data Solution
+              framework, delivering domain-specific solutions and industry accelerators across
+              Microsoft Clouds. Specialized in developing internal tooling to enhance deployment
+              consistency and velocity using Microsoft's proprietary delivery frameworks.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">Semantic Kernel</span>
+              <span class="tech-tag">JavaScript/React</span>
+              <span class="tech-tag">SQL/Fabric</span>
+              <span class="tech-tag">ARM/Bicep</span>
+            </div>
+          </div>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Cloud Solution Architect</span>
+                <span class="job-company">@ Microsoft GPS</span>
+              </div>
+              <span class="job-period">Jul 2019 - Apr 2024</span>
+            </div>
+            <div class="job-description">
+              Partnered with Microsoft customers and partners to architect enterprise solutions on
+              Azure, ensuring adherence to the Well-Architected Framework and maximizing Azure
+              Marketplace opportunities. Championed DevOps adoption through direct consulting and
+              scale programs including the DevOps OpenHack initiative.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">Prompt Engineering</span>
+              <span class="tech-tag">Azure Cloud</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Azure DevOps</span>
+              <span class="tech-tag">PowerShell</span>
+            </div>
+          </div>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Technical Evangelist</span>
+                <span class="job-company">@ Microsoft DX</span>
+              </div>
+              <span class="job-period">Feb 2017 - Jul 2019</span>
+            </div>
+            <div class="job-description">
+              Evangelized Microsoft development technologies to global developer communities through
+              technical content creation, conference presentations, and architectural guidance.
+              Recognized as a primary DevOps subject matter expert within Microsoft, supporting
+              enterprise customers and partners in their DevOps transformation journeys.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">ARM</span>
+              <span class="tech-tag">Azure DevOps</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">PowerShell</span>
+            </div>
+          </div>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Technical Architecture Lead</span>
+                <span class="job-company">@ Fred IT Group</span>
+              </div>
+              <span class="job-period">Jun 2004 - Feb 2017</span>
+            </div>
+            <div class="job-description">
+              Led a team of six engineers developing mission-critical platforms for pharmacy and
+              healthcare sectors. Architected industry-leading applications for pharmacy dispensing,
+              store operations, and group management built on Microsoft Dynamics AX platform.
+              Championed Agile methodologies and DevOps practices, establishing
+              infrastructure-as-code standards that transformed delivery capabilities.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">Dynamics AX (X++)</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Team Leadership</span>
+            </div>
+          </div>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Senior Developer</span>
+                <span class="job-company">@ Leadtec Systems Australia</span>
+              </div>
+              <span class="job-period">2001 - 2004</span>
+            </div>
+            <div class="job-description">
+              Architected and implemented the Intouch platform, an enterprise-scale retail
+              management system adopted by Australia's largest retailers including Coles Myer (Myer,
+              Coles, Target, Officeworks), David Jones, and Bunnings. Built sophisticated XML-based
+              data integration systems enabling real-time business process automation across
+              thousands of retail locations.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">XML</span>
+              <span class="tech-tag">XSLT</span>
+              <span class="tech-tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="experience-item no-break">
+            <div class="job-header">
+              <div>
+                <span class="job-title">Solutions Manager</span>
+                <span class="job-company">@ Pacific Commerce</span>
+              </div>
+              <span class="job-period">1998 - 2001</span>
+            </div>
+            <div class="job-description">
+              Managed enterprise EDI solutions and e-commerce integrations using Sterling Commerce
+              GENTRAN. Led technical initiatives for B2B data exchange and automated business
+              processes across multiple client environments.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">Visual Basic</span>
+              <span class="tech-tag">EDI</span>
+              <span class="tech-tag">Sterling Commerce: GENTRAN</span>
+              <span class="tech-tag">SQL</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Core Competencies -->
-      <h2>Core Competencies</h2>
-      <div class="technologies" style="margin-top: 12px">
-        <span class="tech-tag">DevOps & CI/CD</span>
-        <span class="tech-tag">Infrastructure as Code</span>
-        <span class="tech-tag">Cloud Architecture</span>
-        <span class="tech-tag">AI & Machine Learning</span>
-        <span class="tech-tag">Microservices</span>
-        <span class="tech-tag">Agile Methodologies</span>
-        <span class="tech-tag">Team Leadership</span>
-        <span class="tech-tag">Solution Architecture</span>
-        <span class="tech-tag">Release Automation</span>
-        <span class="tech-tag">Observability</span>
+      <!-- PAGE 2 START -->
+      <div class="page-two">
+        <!-- Projects Section -->
+        <div class="keep-together">
+          <h2 data-icon="🚀">Projects & Achievements</h2>
+          <div class="projects-grid">
+            <div class="project-card featured no-break">
+              <div class="project-title">🔒 Enterprise AI Code Intelligence Platform for Azure</div>
+              <div class="project-description">
+                Built a mandatory code analysis platform for Microsoft that automatically scanned
+                commits and PRs for security vulnerabilities, performance issues, best practice
+                violations, and maintainability risks. Integrated static analysis tools like CodeQL
+                with advanced RAG pipelines to process millions of lines of code. Developed
+                extensive prompt engineering solutions and generative UI components to produce
+                consistent insights and reports. Implemented robust prompt evaluation pipelines to
+                detect performance drift and utilized structured outputs with Liquid templates to
+                ensure deterministic, reliable analysis results across the entire Microsoft
+                codebase.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">C#</span>
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">TypeScript</span>
+                <span class="project-tech-tag">Semantic Kernel</span>
+                <span class="project-tech-tag">OpenAI Structured Outputs</span>
+                <span class="project-tech-tag">Liquid Templates</span>
+                <span class="project-tech-tag">Azure AI Evaluation SDK</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">🎯 DevOps OpenHack Technical Lead</div>
+              <div class="project-description">
+                Served as Technical Lead for Microsoft coaches working with diverse teams from ISV,
+                Enterprise, Government, SMC, and SMB organizations. After coaching at numerous
+                events, was invited to lead all coaches and provide technical leadership at major
+                DevOps OpenHacks including Microsoft Ready in Seattle, Microsoft Inspire in Las
+                Vegas, GovTech conferences in Canberra, and during Scott Guthrie's keynote at the
+                Microsoft AI Tour in Sydney (February 2024). Guided organizations through DevOps
+                transformation, CI/CD implementation, infrastructure as code, and Azure DevOps
+                adoption at scale.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">Azure DevOps</span>
+                <span class="project-tech-tag">GitHub Actions</span>
+                <span class="project-tech-tag">Kubernetes</span>
+                <span class="project-tech-tag">Docker</span>
+                <span class="project-tech-tag">Terraform</span>
+                <span class="project-tech-tag">ARM/Bicep</span>
+                <span class="project-tech-tag">CI/CD Pipelines</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">
+                ☁️ Azure Core Engineering Platform - Governance & Risk Management Foundation
+              </div>
+              <div class="project-description">
+                Contributed as part of a crucial DevOps team to the re-implementation of Microsoft's
+                foundational engineering platform for Azure service governance. Delivered
+                infrastructure as code solutions using Bicep and Ev2 to provision this
+                next-generation platform, architected for massive capacity and scale.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">C#</span>
+                <span class="project-tech-tag">Bicep</span>
+                <span class="project-tech-tag">Ev2</span>
+                <span class="project-tech-tag">AKS</span>
+                <span class="project-tech-tag">Helm</span>
+                <span class="project-tech-tag">Azure DevOps</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">📊 Microsoft Fabric Data Solutions</div>
+              <div class="project-description">
+                Extended the Microsoft Fabric web interface to provide accelerators and solution
+                templates offering structured foundations for different business domains and
+                industries, including industry-specific schemas, data pipelines, transformation
+                logic, and semantic models.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">C#</span>
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">TypeScript</span>
+                <span class="project-tech-tag">Azure DevOps</span>
+                <span class="project-tech-tag">Azure Artifacts</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">🤖 GLAM MCP Server</div>
+              <div class="project-description">
+                A Model Context Protocol server that provides intelligent development experiences
+                through rich, contextual responses for AI assistants, transforming AI coding into
+                pair programming with a senior developer.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">Python</span>
+                <span class="project-tech-tag">Node.js</span>
+                <span class="project-tech-tag">MCP</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">🚀 Azure Deployment Accelerator TUI</div>
+              <div class="project-description">
+                Developed a bash-based TUI providing guided workflows for Microsoft's internal Azure
+                deployment platform. Streamlined complex deployments through intelligent validation
+                and Dev Container integration, becoming the standard tool across multiple
+                engineering teams.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">Bash</span>
+                <span class="project-tech-tag">Ev2</span>
+                <span class="project-tech-tag">Dev Containers</span>
+                <span class="project-tech-tag">Azure CLI</span>
+                <span class="project-tech-tag">Terminal UI</span>
+                <span class="project-tech-tag">Git Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE 3 START -->
+      <div class="page-three">
+        <!-- Additional Projects Section -->
+        <div class="keep-together">
+          <h2 data-icon="💡">Additional Projects & Open Source</h2>
+          <div class="projects-grid">
+            <div class="project-card no-break">
+              <div class="project-title">📝 About.me Portfolio</div>
+              <div class="project-description">
+                This site - A modern React portfolio website built with TypeScript and Vite,
+                featuring responsive design, internationalization support, and comprehensive CI/CD
+                with GitHub Actions.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">TypeScript</span>
+                <span class="project-tech-tag">Vite</span>
+                <span class="project-tech-tag">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">🤖 Gavin Copilot</div>
+              <div class="project-description">
+                A sample application demonstrating how Semantic Kernel and AI can work in web
+                applications, featuring a React frontend, .NET backend, and Azure OpenAI
+                integration.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">.NET</span>
+                <span class="project-tech-tag">Semantic Kernel</span>
+                <span class="project-tech-tag">Azure OpenAI</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">📋 Spec Chain</div>
+              <div class="project-description">
+                A comprehensive system of AI prompts that work together to generate complete product
+                documentation from a single app idea, designed specifically for Claude Code.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">Claude Code</span>
+                <span class="project-tech-tag">Markdown</span>
+                <span class="project-tech-tag">AI Documentation</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">⚙️ Azure SPA Environment Variables</div>
+              <div class="project-description">
+                A comprehensive guide and implementation for managing environment-specific
+                configurations in client-side React applications deployed to Azure, enabling 'build
+                once, deploy everywhere' workflows.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">React</span>
+                <span class="project-tech-tag">Azure</span>
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">DevOps</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">💻 Virtual DevBox</div>
+              <div class="project-description">
+                An AutoHotkey script for managing Microsoft Dev Box connections across Windows 11
+                virtual desktops, providing hotkeys to facilitate seamless switching between local
+                and remote development environments.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">AutoHotkey</span>
+                <span class="project-tech-tag">Windows 11</span>
+                <span class="project-tech-tag">RDP</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">🎛️ Dial Tray</div>
+              <div class="project-description">
+                A system tray application that provides enhanced Surface Dial control for better
+                integration with development tools like Warp and Claude Code.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">System Tray</span>
+                <span class="project-tech-tag">Surface Dial</span>
+                <span class="project-tech-tag">Windows</span>
+              </div>
+            </div>
+
+            <div class="project-card no-break">
+              <div class="project-title">📱 VS Mobile Center Build</div>
+              <div class="project-description">
+                A custom build task for triggering and managing builds in Visual Studio Mobile
+                Center, with the ability to download build artifacts and integrate with Team
+                Foundation Server pipelines.
+              </div>
+              <div class="project-tech">
+                <span class="project-tech-tag">JavaScript</span>
+                <span class="project-tech-tag">Azure Mobile Center</span>
+                <span class="project-tech-tag">TFS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="keep-together">
+          <h2 data-icon="🛠️">Technical Skills</h2>
+          <div class="skills-section">
+            <div class="skill-category">
+              <div class="skill-category-title">AI & Machine Learning</div>
+              <div class="skill-list">
+                • Prompt Engineering<br />
+                • RAG Pipelines<br />
+                • Semantic Kernel<br />
+                • Azure OpenAI<br />
+                • Model Evaluation<br />
+                • LangChain
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-category-title">Cloud & DevOps</div>
+              <div class="skill-list">
+                • Azure (Expert)<br />
+                • Kubernetes<br />
+                • Terraform/Bicep<br />
+                • GitHub Actions<br />
+                • Azure DevOps<br />
+                • Docker
+              </div>
+            </div>
+            <div class="skill-category">
+              <div class="skill-category-title">Languages & Frameworks</div>
+              <div class="skill-list">
+                • TypeScript/JavaScript<br />
+                • Python<br />
+                • C#/.NET<br />
+                • React/Next.js<br />
+                • Node.js<br />
+                • SQL
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">References available upon request | Portfolio at simonlamb.codes</div>
       </div>
     </div>
   </body>
