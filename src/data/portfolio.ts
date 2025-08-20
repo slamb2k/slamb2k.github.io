@@ -53,7 +53,7 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   personal: {
     name: 'Simon Lamb',
-    title: 'Principal Engineer | DevOps Advocate',
+    title: 'Principal AI Engineer | DevOps Advocate',
     tagline:
       'With a proven track record delivering AI systems, Cloud platforms, and enterprise-scale DevOps practices, I specialize in helping teams build solutions that are reliable, scalable, and transformative.',
     about: [
