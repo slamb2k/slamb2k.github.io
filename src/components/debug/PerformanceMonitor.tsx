@@ -79,7 +79,7 @@ const PerformanceDisplay: React.FC = () => {
       </button>
 
       {isVisible && (
-        <div className="bg-slate-900 border border-slate-700 rounded-lg p-4 text-xs font-mono w-64 shadow-xl">
+        <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 text-xs font-mono w-64 shadow-xl">
           <h3 className="text-slate-100 font-semibold mb-3 text-sm">Core Web Vitals</h3>
 
           <div className="space-y-2">

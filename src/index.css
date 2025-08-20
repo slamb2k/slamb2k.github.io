@@ -6,16 +6,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Override default Tailwind slate colors for WCAG AA contrast with pure black */
-  --color-slate-100: rgb(242, 242, 242);
-  --color-slate-200: rgb(229, 229, 229);
-  --color-slate-300: rgb(217, 217, 217);
-  --color-slate-400: rgb(191, 191, 191);
-  --color-slate-500: rgb(166, 166, 166);
-  --color-slate-600: rgb(140, 140, 140);
-  --color-slate-700: rgb(115, 115, 115);
-  --color-slate-800: rgb(89, 89, 89);
-  --color-slate-900: rgb(64, 64, 64);
+  /* Override default Tailwind slate colors for pure black theme */
+  --color-slate-100: oklch(0.25 0.02 230);
+  --color-slate-200: oklch(0.35 0.02 230);
+  --color-slate-300: oklch(0.45 0.02 230);
+  --color-slate-400: oklch(0.55 0.02 230);
+  --color-slate-500: oklch(0.65 0.015 230);
+  --color-slate-600: oklch(0.75 0.015 230);
+  --color-slate-700: oklch(0.85 0.01 230);
+  --color-slate-800: oklch(0.9 0.01 230);
+  --color-slate-900: oklch(0.95 0.01 230);
 }
 
 body {
@@ -117,10 +117,10 @@ body {
 }
 
 .dark {
-  /* Pure Black Theme - Core backgrounds */
-  --background: oklch(0 0 0); /* Pure black */
-  --background-elevated: oklch(0.03 0 0); /* Slightly elevated surfaces */
-  --background-accent: oklch(0.06 0 0); /* Hover states */
+  /* Dark Theme - Core backgrounds */
+  --background: oklch(0.15 0.025 230); /* Dark with subtle blue tint */
+  --background-elevated: oklch(0.18 0.025 230); /* Slightly elevated surfaces */
+  --background-accent: oklch(0.21 0.025 230); /* Hover states */
 
   /* Text hierarchy */
   --foreground: oklch(0.95 0.01 230); /* Almost white with blue tint */
@@ -159,13 +159,13 @@ body {
   --chart-5: oklch(0.68 0.16 320); /* Magenta */
 
   /* Sidebar specific */
-  --sidebar: oklch(0.02 0 0); /* Slightly elevated from main bg */
-  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar: oklch(0.18 0 0); /* Dark grey sidebar */
+  --sidebar-foreground: oklch(0.95 0.01 230);
   --sidebar-primary: oklch(0.72 0.18 165);
-  --sidebar-primary-foreground: oklch(0 0 0);
-  --sidebar-accent: oklch(0.04 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0 0 / 15%);
+  --sidebar-primary-foreground: oklch(0.15 0.025 230);
+  --sidebar-accent: oklch(0.22 0 0); /* Grey accent for hover */
+  --sidebar-accent-foreground: oklch(0.95 0.01 230);
+  --sidebar-border: oklch(0.25 0.02 230 / 15%);
   --sidebar-ring: oklch(0.72 0.18 165 / 50%);
 }
 
@@ -187,15 +187,15 @@ body {
 }
 
 @layer utilities {
-  /* Midnight Ocean backgrounds */
+  /* Dark theme backgrounds */
   .bg-midnight {
-    background-color: oklch(0 0 0);
+    background-color: oklch(0.15 0.025 230);
   }
   .bg-midnight-elevated {
-    background-color: oklch(0.03 0 0);
+    background-color: oklch(0.18 0.025 230);
   }
   .bg-midnight-accent {
-    background-color: oklch(0.06 0 0);
+    background-color: oklch(0.21 0.025 230);
   }
 
   /* Glass morphism effect */
@@ -205,94 +205,94 @@ body {
     -webkit-backdrop-filter: blur(10px);
   }
 
-  /* Text colors - WCAG AA compliant */
+  /* Text colors - Blue-tinted theme */
   .text-primary {
     color: oklch(0.95 0.01 230);
   }
   .text-secondary {
-    color: oklch(0.8 0.015 230);
+    color: oklch(0.75 0.015 230);
   }
   .text-tertiary {
-    color: oklch(0.65 0.02 230);
+    color: oklch(0.55 0.02 230);
   }
 
-  /* Text slate colors for WCAG AA compliance - using rgb for better browser support */
+  /* Text slate colors - Blue-tinted for dark theme */
   .text-slate-100 {
-    color: rgb(242, 242, 242) !important;
+    color: oklch(0.95 0.01 230);
   }
   .text-slate-200 {
-    color: rgb(229, 229, 229) !important;
+    color: oklch(0.9 0.01 230);
   }
   .text-slate-300 {
-    color: rgb(217, 217, 217) !important;
+    color: oklch(0.85 0.01 230);
   }
   .text-slate-400 {
-    color: rgb(191, 191, 191) !important;
+    color: oklch(0.75 0.015 230);
   }
   .text-slate-500 {
-    color: rgb(166, 166, 166) !important;
+    color: oklch(0.65 0.015 230);
   }
   .text-slate-600 {
-    color: rgb(140, 140, 140) !important;
+    color: oklch(0.55 0.02 230);
   }
 
-  /* Override red colors for better contrast */
+  /* Red colors for dark theme */
   .text-red-400 {
-    color: oklch(0.75 0.22 25);
+    color: oklch(0.65 0.25 25);
   }
   .text-red-500 {
-    color: oklch(0.7 0.22 25);
+    color: oklch(0.6 0.25 25);
   }
 
-  /* Background slate colors for pure black theme */
+  /* Background slate colors for dark theme */
   .bg-slate-800 {
-    background-color: oklch(0.15 0 0);
+    background-color: oklch(0.2 0.02 230);
   }
   .bg-slate-800\/50 {
-    background-color: oklch(0.15 0 0 / 0.5);
+    background-color: oklch(0.2 0.02 230 / 0.5);
   }
   .bg-slate-900 {
-    background-color: oklch(0.08 0 0);
+    background-color: oklch(0.16 0.025 230);
   }
   .bg-slate-900\/30 {
-    background-color: oklch(0.08 0 0 / 0.3);
+    background-color: oklch(0.16 0.025 230 / 0.3);
   }
   .bg-slate-900\/50 {
-    background-color: oklch(0.08 0 0 / 0.5);
+    background-color: oklch(0.16 0.025 230 / 0.5);
   }
   .bg-slate-900\/95 {
-    background-color: oklch(0.08 0 0 / 0.95);
+    background-color: oklch(0.16 0.025 230 / 0.95);
   }
 
   /* Border slate colors */
   .border-slate-700 {
-    border-color: rgb(115, 115, 115);
+    border-color: oklch(0.25 0.02 230 / 30%);
   }
   .border-slate-800 {
-    border-color: rgb(89, 89, 89);
+    border-color: oklch(0.25 0.02 230 / 20%);
   }
 
   /* Hover states */
   .hover\:text-slate-300:hover {
-    color: rgb(217, 217, 217) !important;
+    color: oklch(0.85 0.01 230);
   }
   .hover\:text-slate-400:hover {
-    color: rgb(191, 191, 191) !important;
+    color: oklch(0.75 0.015 230);
   }
   .hover\:bg-slate-700:hover {
-    background-color: oklch(0.2 0 0);
+    background-color: oklch(0.25 0.02 230);
   }
   .hover\:bg-slate-800:hover {
-    background-color: oklch(0.15 0 0);
+    background-color: oklch(0.2 0.02 230);
   }
   .hover\:bg-slate-800\/50:hover {
-    background-color: oklch(0.15 0 0 / 0.5);
+    background-color: oklch(0.2 0.02 230 / 0.5);
   }
   .hover\:border-slate-600:hover {
-    border-color: rgb(140, 140, 140);
+    border-color: oklch(0.25 0.02 230 / 40%);
   }
   .hover\:border-slate-700:hover {
-    border-color: rgb(115, 115, 115);
+    border-color: oklch(0.25 0.02 230 / 30%);
   }
 
   /* Accent colors - Adjusted for better contrast */
