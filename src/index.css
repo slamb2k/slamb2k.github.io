@@ -6,16 +6,16 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Override default Tailwind slate colors for high contrast with pure black */
-  --color-slate-100: oklch(0.9 0 0);
-  --color-slate-200: oklch(0.85 0 0);
-  --color-slate-300: oklch(0.8 0 0);
-  --color-slate-400: oklch(0.7 0 0);
-  --color-slate-500: oklch(0.6 0 0);
-  --color-slate-600: oklch(0.5 0 0);
-  --color-slate-700: oklch(0.4 0 0);
-  --color-slate-800: oklch(0.3 0 0);
-  --color-slate-900: oklch(0.2 0 0);
+  /* Override default Tailwind slate colors for WCAG AA contrast with pure black */
+  --color-slate-100: rgb(242, 242, 242);
+  --color-slate-200: rgb(229, 229, 229);
+  --color-slate-300: rgb(217, 217, 217);
+  --color-slate-400: rgb(191, 191, 191);
+  --color-slate-500: rgb(166, 166, 166);
+  --color-slate-600: rgb(140, 140, 140);
+  --color-slate-700: rgb(115, 115, 115);
+  --color-slate-800: rgb(89, 89, 89);
+  --color-slate-900: rgb(64, 64, 64);
 }
 
 body {
@@ -205,15 +205,43 @@ body {
     -webkit-backdrop-filter: blur(10px);
   }
 
-  /* Text colors */
+  /* Text colors - WCAG AA compliant */
   .text-primary {
     color: oklch(0.95 0.01 230);
   }
   .text-secondary {
-    color: oklch(0.75 0.015 230);
+    color: oklch(0.8 0.015 230);
   }
   .text-tertiary {
-    color: oklch(0.55 0.02 230);
+    color: oklch(0.65 0.02 230);
+  }
+
+  /* Text slate colors for WCAG AA compliance - using rgb for better browser support */
+  .text-slate-100 {
+    color: rgb(242, 242, 242) !important;
+  }
+  .text-slate-200 {
+    color: rgb(229, 229, 229) !important;
+  }
+  .text-slate-300 {
+    color: rgb(217, 217, 217) !important;
+  }
+  .text-slate-400 {
+    color: rgb(191, 191, 191) !important;
+  }
+  .text-slate-500 {
+    color: rgb(166, 166, 166) !important;
+  }
+  .text-slate-600 {
+    color: rgb(140, 140, 140) !important;
+  }
+
+  /* Override red colors for better contrast */
+  .text-red-400 {
+    color: oklch(0.75 0.22 25);
+  }
+  .text-red-500 {
+    color: oklch(0.7 0.22 25);
   }
 
   /* Background slate colors for pure black theme */
@@ -238,18 +266,18 @@ body {
 
   /* Border slate colors */
   .border-slate-700 {
-    border-color: oklch(0.25 0 0);
+    border-color: rgb(115, 115, 115);
   }
   .border-slate-800 {
-    border-color: oklch(0.2 0 0);
+    border-color: rgb(89, 89, 89);
   }
 
   /* Hover states */
   .hover\:text-slate-300:hover {
-    color: oklch(0.8 0 0);
+    color: rgb(217, 217, 217) !important;
   }
   .hover\:text-slate-400:hover {
-    color: oklch(0.7 0 0);
+    color: rgb(191, 191, 191) !important;
   }
   .hover\:bg-slate-700:hover {
     background-color: oklch(0.2 0 0);
@@ -261,10 +289,10 @@ body {
     background-color: oklch(0.15 0 0 / 0.5);
   }
   .hover\:border-slate-600:hover {
-    border-color: oklch(0.3 0 0);
+    border-color: rgb(140, 140, 140);
   }
   .hover\:border-slate-700:hover {
-    border-color: oklch(0.25 0 0);
+    border-color: rgb(115, 115, 115);
   }
 
   /* Accent colors - Adjusted for better contrast */
