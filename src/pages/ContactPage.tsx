@@ -26,7 +26,6 @@ const SocialLink: React.FC<{ social: SocialLinkWithIcon; index: number }> = Reac
       whileTap={{ scale: 0.95 }}
       className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
       aria-label={`Visit ${social.label} profile (opens in new tab)`}
-      role="listitem"
     >
       {React.createElement(social.icon, { size: 24, 'aria-hidden': true })}
     </motion.a>
@@ -57,7 +56,7 @@ const ContactPage: React.FC = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto px-6 lg:px-12 py-12 lg:py-24"
+      className="max-w-6xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
       <motion.section
         initial={{ opacity: 0, y: 50 }}
@@ -78,15 +77,17 @@ const ContactPage: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-12"
         >
-          <a
+          <motion.a
             href={`mailto:${contactConfig.email}`}
-            className="inline-flex items-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors duration-300 text-lg focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+            className="inline-flex items-center px-8 py-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-lg border border-cyan/20 hover:border-cyan/40 shadow-elevation-2 hover:shadow-elevation-3 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
             aria-label={t('contact.buttonLabel', `Send email to ${contactConfig.email}`)}
             role="button"
+            whileHover={{ scale: 1.05, y: -3 }}
+            whileTap={{ scale: 0.98 }}
           >
             <Mail className="mr-3" size={20} aria-hidden="true" />
             {t('contact.button')}
-          </a>
+          </motion.a>
         </motion.div>
 
         <LazySection
@@ -104,7 +105,6 @@ const ContactPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex justify-center space-x-6"
-            role="list"
             aria-label={t('contact.socialLinksLabel', 'Social media and contact links')}
           >
             {socialLinks.map((social, index) => (
