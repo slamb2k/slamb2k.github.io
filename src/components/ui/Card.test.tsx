@@ -40,8 +40,8 @@ describe('Card', () => {
     render(<Card variant="project">Project Card</Card>);
     const card = screen.getByText('Project Card').closest('div');
     expect(card?.className).toContain('border-white/5');
-    expect(card?.className).toContain('from-midnight-elevated/90');
-    expect(card?.className).toContain('hover:border-violet/30');
+    expect(card?.className).toContain('bg-midnight-elevated/90');
+    expect(card?.className).toContain('hover:border-cyan/20');
   });
 
   it('applies feature variant styles', () => {
