@@ -203,6 +203,86 @@ body {
     color: oklch(0.55 0.02 230);
   }
 
+  /* Override Tailwind slate colors for better contrast with pure black */
+  .text-slate-100 {
+    color: oklch(0.9 0 0); /* Light gray with good contrast */
+  }
+  .text-slate-200 {
+    color: oklch(0.85 0 0);
+  }
+  .text-slate-300 {
+    color: oklch(0.8 0 0);
+  }
+  .text-slate-400 {
+    color: oklch(0.7 0 0); /* Medium gray with AA contrast */
+  }
+  .text-slate-500 {
+    color: oklch(0.6 0 0);
+  }
+  .text-slate-600 {
+    color: oklch(0.5 0 0);
+  }
+  .text-slate-700 {
+    color: oklch(0.4 0 0);
+  }
+  .text-slate-800 {
+    color: oklch(0.3 0 0);
+  }
+  .text-slate-900 {
+    color: oklch(0.2 0 0);
+  }
+
+  /* Background slate colors for pure black theme */
+  .bg-slate-800 {
+    background-color: oklch(0.15 0 0);
+  }
+  .bg-slate-800\/50 {
+    background-color: oklch(0.15 0 0 / 0.5);
+  }
+  .bg-slate-900 {
+    background-color: oklch(0.08 0 0);
+  }
+  .bg-slate-900\/30 {
+    background-color: oklch(0.08 0 0 / 0.3);
+  }
+  .bg-slate-900\/50 {
+    background-color: oklch(0.08 0 0 / 0.5);
+  }
+  .bg-slate-900\/95 {
+    background-color: oklch(0.08 0 0 / 0.95);
+  }
+
+  /* Border slate colors */
+  .border-slate-700 {
+    border-color: oklch(0.25 0 0);
+  }
+  .border-slate-800 {
+    border-color: oklch(0.2 0 0);
+  }
+
+  /* Hover states */
+  .hover\:text-slate-300:hover {
+    color: oklch(0.8 0 0);
+  }
+  .hover\:text-slate-400:hover {
+    color: oklch(0.7 0 0);
+  }
+  .hover\:bg-slate-700:hover {
+    background-color: oklch(0.2 0 0);
+  }
+  .hover\:bg-slate-800:hover {
+    background-color: oklch(0.15 0 0);
+  }
+  .hover\:bg-slate-800\/50:hover {
+    background-color: oklch(0.15 0 0 / 0.5);
+  }
+  .hover\:border-slate-600:hover {
+    border-color: oklch(0.3 0 0);
+  }
+  .hover\:border-slate-700:hover {
+    border-color: oklch(0.25 0 0);
+  }
+
   /* Accent colors - Adjusted for better contrast */
   .text-cyan {
     color: oklch(0.82 0.18 165); /* Brighter cyan for better visibility */
