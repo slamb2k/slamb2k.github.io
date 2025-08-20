@@ -5,6 +5,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  /* Override default Tailwind slate colors for high contrast with pure black */
+  --color-slate-100: oklch(0.9 0 0);
+  --color-slate-200: oklch(0.85 0 0);
+  --color-slate-300: oklch(0.8 0 0);
+  --color-slate-400: oklch(0.7 0 0);
+  --color-slate-500: oklch(0.6 0 0);
+  --color-slate-600: oklch(0.5 0 0);
+  --color-slate-700: oklch(0.4 0 0);
+  --color-slate-800: oklch(0.3 0 0);
+  --color-slate-900: oklch(0.2 0 0);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -201,35 +214,6 @@ body {
   }
   .text-tertiary {
     color: oklch(0.55 0.02 230);
-  }
-
-  /* Override Tailwind slate colors for better contrast with pure black */
-  .text-slate-100 {
-    color: oklch(0.9 0 0) !important; /* Light gray with good contrast */
-  }
-  .text-slate-200 {
-    color: oklch(0.85 0 0) !important;
-  }
-  .text-slate-300 {
-    color: oklch(0.8 0 0) !important;
-  }
-  .text-slate-400 {
-    color: oklch(0.7 0 0) !important; /* Medium gray with AA contrast */
-  }
-  .text-slate-500 {
-    color: oklch(0.6 0 0) !important;
-  }
-  .text-slate-600 {
-    color: oklch(0.5 0 0) !important;
-  }
-  .text-slate-700 {
-    color: oklch(0.4 0 0) !important;
-  }
-  .text-slate-800 {
-    color: oklch(0.3 0 0) !important;
-  }
-  .text-slate-900 {
-    color: oklch(0.2 0 0) !important;
   }
 
   /* Background slate colors for pure black theme */
