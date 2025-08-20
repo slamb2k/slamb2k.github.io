@@ -229,10 +229,7 @@ const NavigationSidebar: React.FC = () => {
         <motion.a
           href="/resume.pdf"
           download
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          whileHover={{ scale: 1.05, y: -2 }}
+          whileHover={{ scale: 1.05, y: -3 }}
           whileTap={{ scale: 0.98 }}
           className="flex items-center justify-center space-x-2 py-2 px-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-fluid-sm border border-cyan/20 hover:border-cyan/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
         >

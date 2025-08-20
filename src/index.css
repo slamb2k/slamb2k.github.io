@@ -5,6 +5,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  /* Override default Tailwind slate colors for high contrast with pure black */
+  --color-slate-100: oklch(0.9 0 0);
+  --color-slate-200: oklch(0.85 0 0);
+  --color-slate-300: oklch(0.8 0 0);
+  --color-slate-400: oklch(0.7 0 0);
+  --color-slate-500: oklch(0.6 0 0);
+  --color-slate-600: oklch(0.5 0 0);
+  --color-slate-700: oklch(0.4 0 0);
+  --color-slate-800: oklch(0.3 0 0);
+  --color-slate-900: oklch(0.2 0 0);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -201,6 +214,57 @@ body {
   }
   .text-tertiary {
     color: oklch(0.55 0.02 230);
+  }
+
+  /* Background slate colors for pure black theme */
+  .bg-slate-800 {
+    background-color: oklch(0.15 0 0);
+  }
+  .bg-slate-800\/50 {
+    background-color: oklch(0.15 0 0 / 0.5);
+  }
+  .bg-slate-900 {
+    background-color: oklch(0.08 0 0);
+  }
+  .bg-slate-900\/30 {
+    background-color: oklch(0.08 0 0 / 0.3);
+  }
+  .bg-slate-900\/50 {
+    background-color: oklch(0.08 0 0 / 0.5);
+  }
+  .bg-slate-900\/95 {
+    background-color: oklch(0.08 0 0 / 0.95);
+  }
+
+  /* Border slate colors */
+  .border-slate-700 {
+    border-color: oklch(0.25 0 0);
+  }
+  .border-slate-800 {
+    border-color: oklch(0.2 0 0);
+  }
+
+  /* Hover states */
+  .hover\:text-slate-300:hover {
+    color: oklch(0.8 0 0);
+  }
+  .hover\:text-slate-400:hover {
+    color: oklch(0.7 0 0);
+  }
+  .hover\:bg-slate-700:hover {
+    background-color: oklch(0.2 0 0);
+  }
+  .hover\:bg-slate-800:hover {
+    background-color: oklch(0.15 0 0);
+  }
+  .hover\:bg-slate-800\/50:hover {
+    background-color: oklch(0.15 0 0 / 0.5);
+  }
+  .hover\:border-slate-600:hover {
+    border-color: oklch(0.3 0 0);
+  }
+  .hover\:border-slate-700:hover {
+    border-color: oklch(0.25 0 0);
   }
 
   /* Accent colors - Adjusted for better contrast */

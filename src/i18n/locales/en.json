@@ -7,13 +7,13 @@
   },
   "about": {
     "title": "Hi, I'm {{name}}.",
-    "subtitle": "Principal-Level Software Engineer ",
-    "tagline": "With a proven track record in AI systems, Azure, and DevOps at enterprise scale.",
+    "subtitle": "Principal AI Engineer | DevOps Advocate",
+    "tagline": "",
     "heading": "About",
-    "paragraph1": "I'm a seasoned software engineer with over two decades of experience, including nearly nine years at Microsoft. My career has spanned roles from Technical Evangelist in Developer Experience to Cloud Solution Architect with Global Partner Solutions, culminating as a Senior Software Engineer in Azure Core (One Fleet Partner).",
-    "paragraph2": "Throughout my tenure at Microsoft, I've developed deep expertise in Azure cloud engineering, DevOps practices, and AI-driven software development. Notably, I've collaborated closely with the Semantic Kernel and Copilot teams at Microsoft to build cutting-edge AI solutions.",
-    "paragraph3": "Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, managing a team of six engineers to design scalable platforms for the pharmacy and healthcare industry.",
-    "paragraph4": "With AI now being an integral part of development, I have chosen to look to find solutions that incorporate and are complemented by AI, rather than worrying about what AI will eliminate. With that in mind, I'm intensely focused on mastering and integrating agentic coding tools, empowering cloud engineers to leverage AI proactively and stay ahead.",
+    "paragraph1": "I am a seasoned software engineer with over two decades of experience delivering scalable, impactful solutions - nearly nine of those years spent at Microsoft. My journey has spanned diverse roles: from Technical Evangelist in Developer Experience, to Cloud Solution Architect with Global Partner Solutions, to Senior Software Engineer in Azure Core (One Fleet Partner). During my time in Azure Engineering, I built real products powered by generative AI, gaining deep expertise in prompt engineering, RAG pipelines, model evaluation, and the unique challenges of productionizing AI systems - from managing non-deterministic outputs to implementing robust evaluation frameworks and ensuring reliability at scale.",
+    "paragraph2": "Over the years, I've developed extensive expertise in DevOps, both in mastering the tooling ecosystem (CI/CD pipelines, infrastructure-as-code, observability platforms, release automation) and in championing the principles that make DevOps transformative - continuous improvement, collaboration, automation, and measurement. I've helped teams modernize their engineering practices to achieve faster delivery cycles, higher reliability, and stronger alignment between development and operations.",
+    "paragraph3": "What excites me most today is the evolving role of AI in engineering and product design. I'm passionate about how intelligent tools can accelerate coding, testing, and architecture, while also unlocking new product capabilities that create meaningful impact for customers. I see AI not just as a way to boost productivity, but as a collaborator that helps engineers and organizations innovate faster and with greater creativity.",
+    "paragraph4": "Prior to Microsoft, I spent 13 years at Fred IT Group as Lead Technical Architect, managing a team of six engineers to design scalable platforms for the pharmacy and healthcare industry.",
     "paragraph5": "Outside of work, I co-parent two teenagers with my partner, endeavour to automate my household, enjoy time with my dog Pip (named after the Python package manager), and perform as a vocalist in a cover band."
   },
   "experience": {
