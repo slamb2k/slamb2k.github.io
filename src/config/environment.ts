@@ -83,8 +83,10 @@ function getEnvNumber(key: string, defaultValue: number = 0): number {
  * Create application configuration from environment variables
  */
 export function createConfig(): AppConfig {
-  // Direct access to VITE_NODE_ENV so Vite can replace it at build time
-  const environment = (import.meta.env.VITE_NODE_ENV || 'development') as Environment;
+  // Simple environment detection: development for local, production for deployed
+  const environment = (
+    import.meta.env.MODE === 'development' ? 'development' : 'production'
+  ) as Environment;
 
   return {
     environment,
