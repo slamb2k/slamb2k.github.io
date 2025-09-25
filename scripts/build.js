@@ -54,6 +54,7 @@ VITE_BUILD_DATE=${buildInfo.buildDate}
 VITE_BUILD_GIT_HASH=${buildInfo.gitHash}
 VITE_BUILD_GIT_BRANCH=${buildInfo.gitBranch}
 VITE_BUILD_ENVIRONMENT=${environment}
+VITE_NODE_ENV=${environment}
 `;
 
   const envPath = join(rootDir, '.env.build');
@@ -84,6 +85,7 @@ function runBuild(environment) {
       env: {
         ...process.env,
         NODE_ENV: nodeEnv,
+        VITE_NODE_ENV: environment,
         VITE_BUILD_VERSION: buildInfo.version,
         VITE_BUILD_DATE: buildInfo.buildDate,
       },
