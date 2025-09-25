@@ -6,25 +6,19 @@
 export function preloadCriticalResources() {
   if (typeof window === 'undefined') return;
 
-  // Preload critical CSS
-  const preloadLink = document.createElement('link');
-  preloadLink.rel = 'preload';
-  preloadLink.as = 'style';
-  preloadLink.href = '/src/index.css';
-  document.head.appendChild(preloadLink);
+  // Note: CSS is already bundled and injected by Vite in production
+  // No need to manually preload it
 
-  // Preload critical images (if any)
-  const criticalImages = [
-    '/api/placeholder/150/150', // Profile image placeholder
-  ];
-
-  criticalImages.forEach(src => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = src;
-    document.head.appendChild(link);
-  });
+  // Only preload actual critical images that exist
+  // For now, we don't have any critical images to preload
+  // const criticalImages = [];
+  // criticalImages.forEach(src => {
+  //   const link = document.createElement('link');
+  //   link.rel = 'preload';
+  //   link.as = 'image';
+  //   link.href = src;
+  //   document.head.appendChild(link);
+  // });
 }
 
 // Resource hints for improved loading
@@ -62,26 +56,28 @@ export function lazyLoadNonCriticalResources() {
     // Example: Load Google Analytics
     // gtag('js', new Date());
     // gtag('config', 'GA_MEASUREMENT_ID');
-
     // Load other non-critical scripts
-    console.log('Non-critical resources loaded');
+    // Removed console.log to avoid console errors in production
   });
 }
 
 // Service Worker registration for caching
 export function registerServiceWorker() {
-  if (typeof window === 'undefined' || !('serviceWorker' in navigator)) return;
+  // Only register service worker if it exists
+  // Currently disabled until we implement a service worker
+  return;
 
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/sw.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
-  });
+  // if (typeof window === 'undefined' || !('serviceWorker' in navigator)) return;
+  // window.addEventListener('load', () => {
+  //   navigator.serviceWorker
+  //     .register('/sw.js')
+  //     .then(registration => {
+  //       console.log('SW registered: ', registration);
+  //     })
+  //     .catch(registrationError => {
+  //       console.log('SW registration failed: ', registrationError);
+  //     });
+  // });
 }
 
 // Initialize all performance optimizations
