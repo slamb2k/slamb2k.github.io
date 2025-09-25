@@ -43,6 +43,7 @@ coverage/
 .env
 .env.local
 .env.*.local
+.env.build
 
 # Debug logs
 npm-debug.log*
