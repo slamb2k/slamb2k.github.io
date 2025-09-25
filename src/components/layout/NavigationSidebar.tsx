@@ -88,7 +88,7 @@ const NavigationSidebar: React.FC = () => {
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed left-0 top-0 h-screen w-96 bg-gradient-to-b from-[oklch(0.02_0_0)] to-[oklch(0.01_0_0)] border-r border-white/5 p-12 flex flex-col justify-between z-40 shadow-elevation-3"
+      className="fixed left-0 top-0 h-screen w-96 bg-slate-900 border-r border-white/5 p-12 flex flex-col justify-between z-40"
     >
       {/* Header */}
       <div>
@@ -135,7 +135,7 @@ const NavigationSidebar: React.FC = () => {
                   aria-describedby={`nav-description-${item.id}`}
                   className={`group relative flex items-center space-x-4 w-full text-left py-3 px-2 transition-all duration-300 focus:outline-none rounded-lg ${
                     isActive ? 'text-primary' : 'text-slate-600 hover:text-slate-400'
-                  } ${isActive ? 'bg-[oklch(0.06_0_0_/_10%)]' : 'hover:bg-[oklch(0.06_0_0_/_5%)]'}`}
+                  } ${isActive ? 'bg-slate-800/20' : 'hover:bg-slate-800/10'}`}
                 >
                   {/* Animated gradient indicator */}
                   <div className="relative">
