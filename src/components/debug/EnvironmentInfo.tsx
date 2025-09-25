@@ -12,8 +12,8 @@ const EnvironmentInfo: React.FC<EnvironmentInfoProps> = ({ className = '' }) => 
   const isDevelopment = useIsDevelopment();
   const validation = validateConfig();
 
-  // Only show in development mode
-  if (!isDevelopment) {
+  // Only show in development mode or when explicitly enabled
+  if (!isDevelopment && !config.development.showPerformanceMetrics) {
     return null;
   }
 

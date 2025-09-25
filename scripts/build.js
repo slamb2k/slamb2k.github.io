@@ -76,7 +76,8 @@ function runBuild(environment) {
     const nodeEnv = environment === 'development' ? 'development' : 'production';
 
     // Run the build command with environment
-    const buildCommand = `NODE_ENV=${nodeEnv} npm run build`;
+    // Use vite directly with --mode flag to load the correct .env file
+    const buildCommand = `NODE_ENV=${nodeEnv} npx tsc -b && npx vite build --mode ${environment}`;
     console.log(`📦 Running: ${buildCommand}`);
 
     execSync(buildCommand, {
