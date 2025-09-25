@@ -33,10 +33,13 @@ function App() {
       <ErrorBoundary>
         <div className="h-full w-full flex flex-col items-center justify-center">
           {generatedComponent}
-          <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
+          <aside
+            className="fixed bottom-4 right-4 z-50 flex items-end gap-2"
+            aria-label="Debug information"
+          >
             <PerformanceMonitor />
             <EnvironmentInfo />
-          </div>
+          </aside>
         </div>
       </ErrorBoundary>
     );
@@ -44,10 +47,13 @@ function App() {
     return (
       <ErrorBoundary>
         {generatedComponent}
-        <div className="fixed bottom-4 right-4 z-50 flex items-end gap-2">
+        <aside
+          className="fixed bottom-4 right-4 z-50 flex items-end gap-2"
+          aria-label="Debug information"
+        >
           <PerformanceMonitor />
           <EnvironmentInfo />
-        </div>
+        </aside>
       </ErrorBoundary>
     );
   }
