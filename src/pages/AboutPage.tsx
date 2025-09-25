@@ -34,6 +34,7 @@ const AboutPage: React.FC = () => {
       t('about.paragraph3'),
       t('about.paragraph4'),
       t('about.paragraph5'),
+      t('about.paragraph6'),
     ],
     [t]
   );
