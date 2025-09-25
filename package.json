@@ -6,10 +6,8 @@
   "homepage": "https://slamb2k.github.io",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:dev": "node scripts/build.js development",
-    "build:staging": "node scripts/build.js staging",
-    "build:prod": "node scripts/build.js production",
+    "build": "node scripts/build.js",
+    "build:prod": "node scripts/build.js",
     "build:analyze": "vite build --mode analyze",
     "lint": "eslint .",
     "preview": "vite preview",
