@@ -17,11 +17,7 @@ const BLOG_URLS = [
 
 // Create directories
 async function ensureDirectories() {
-  const dirs = [
-    'public/blog-media',
-    'src/data/blog/posts',
-    'src/data/blog/metadata',
-  ];
+  const dirs = ['public/blog-media', 'src/data/blog/posts', 'src/data/blog/metadata'];
 
   for (const dir of dirs) {
     await fs.mkdir(path.join(process.cwd(), dir), { recursive: true });
@@ -33,15 +29,17 @@ function fetchUrl(url) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
 
-    protocol.get(url, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        return fetchUrl(res.headers.location).then(resolve).catch(reject);
-      }
+    protocol
+      .get(url, res => {
+        if (res.statusCode === 301 || res.statusCode === 302) {
+          return fetchUrl(res.headers.location).then(resolve).catch(reject);
+        }
 
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
-    }).on('error', reject);
+        let data = '';
+        res.on('data', chunk => (data += chunk));
+        res.on('end', () => resolve(data));
+      })
+      .on('error', reject);
   });
 }
 
@@ -50,33 +48,42 @@ async function downloadImage(imageUrl, filename) {
   const protocol = imageUrl.startsWith('https') ? https : http;
 
   return new Promise((resolve, reject) => {
-    protocol.get(imageUrl, (response) => {
-      if (response.statusCode === 200) {
-        const chunks = [];
-        response.on('data', chunk => chunks.push(chunk));
-        response.on('end', async () => {
-          const buffer = Buffer.concat(chunks);
-          const filepath = path.join(process.cwd(), 'public/blog-media', filename);
-          await fs.writeFile(filepath, buffer);
-          resolve(`/blog-media/${filename}`);
-        });
-      } else {
-        reject(new Error(`Failed to download ${imageUrl}: ${response.statusCode}`));
-      }
-    }).on('error', reject);
+    protocol
+      .get(imageUrl, response => {
+        if (response.statusCode === 200) {
+          const chunks = [];
+          response.on('data', chunk => chunks.push(chunk));
+          response.on('end', async () => {
+            const buffer = Buffer.concat(chunks);
+            const filepath = path.join(process.cwd(), 'public/blog-media', filename);
+            await fs.writeFile(filepath, buffer);
+            resolve(`/blog-media/${filename}`);
+          });
+        } else {
+          reject(new Error(`Failed to download ${imageUrl}: ${response.statusCode}`));
+        }
+      })
+      .on('error', reject);
   });
 }
 
 // Extract blog post data from HTML
 function extractPostData(html, url) {
   // Extract title
-  const titleMatch = html.match(/<h1[^>]*class="entry-title"[^>]*>([^<]+)<\/h1>/i) ||
-                     html.match(/<title>([^<]+)<\/title>/i);
-  const title = titleMatch ? titleMatch[1].trim().replace(/&#8211;/g, '–').replace(/&#8217;/g, "'").replace(/&#8220;/g, '"').replace(/&#8221;/g, '"') : '';
+  const titleMatch =
+    html.match(/<h1[^>]*class="entry-title"[^>]*>([^<]+)<\/h1>/i) ||
+    html.match(/<title>([^<]+)<\/title>/i);
+  const title = titleMatch
+    ? titleMatch[1]
+        .trim()
+        .replace(/&#8211;/g, '–')
+        .replace(/&#8217;/g, "'")
+        .replace(/&#8220;/g, '"')
+        .replace(/&#8221;/g, '"')
+    : '';
 
   // Extract date
-  const dateMatch = html.match(/<time[^>]*datetime="([^"]+)"/) ||
-                   html.match(/datetime="([^"]+)"/);
+  const dateMatch = html.match(/<time[^>]*datetime="([^"]+)"/) || html.match(/datetime="([^"]+)"/);
   const publishedAt = dateMatch ? dateMatch[1] : new Date().toISOString();
 
   // Extract content
@@ -95,18 +102,25 @@ function extractPostData(html, url) {
   }
 
   // Extract featured image
-  const featuredImageMatch = html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]+)"/) ||
-                             html.match(/<img[^>]*class="[^"]*featured[^"]*"[^>]*src="([^"]+)"/);
+  const featuredImageMatch =
+    html.match(/<meta[^>]*property="og:image"[^>]*content="([^"]+)"/) ||
+    html.match(/<img[^>]*class="[^"]*featured[^"]*"[^>]*src="([^"]+)"/);
   const featuredImage = featuredImageMatch ? featuredImageMatch[1] : images[0];
 
   // Extract excerpt
-  const excerptMatch = html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"/) ||
-                      html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]+)"/);
-  const excerpt = excerptMatch ? excerptMatch[1] : content.substring(0, 200).replace(/<[^>]*>/g, '');
+  const excerptMatch =
+    html.match(/<meta[^>]*name="description"[^>]*content="([^"]+)"/) ||
+    html.match(/<meta[^>]*property="og:description"[^>]*content="([^"]+)"/);
+  const excerpt = excerptMatch
+    ? excerptMatch[1]
+    : content.substring(0, 200).replace(/<[^>]*>/g, '');
 
   // Generate slug from URL
   const urlParts = new URL(url);
-  const slug = urlParts.pathname.replace(/^\/|\/$/g, '').split('/').pop();
+  const slug = urlParts.pathname
+    .replace(/^\/|\/$/g, '')
+    .split('/')
+    .pop();
 
   return {
     title,
@@ -150,7 +164,10 @@ async function processBlogPost(url, index) {
     if (postData.featuredImage) {
       try {
         const imageName = path.basename(new URL(postData.featuredImage).pathname);
-        const localPath = await downloadImage(postData.featuredImage, `${id}-featured-${imageName}`);
+        const localPath = await downloadImage(
+          postData.featuredImage,
+          `${id}-featured-${imageName}`
+        );
         postData.featuredImage = localPath;
       } catch (err) {
         console.error(`Failed to download featured image:`, err.message);

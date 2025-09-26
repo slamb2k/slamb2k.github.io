@@ -8,48 +8,46 @@ const https = require('https');
 const BLOG_POSTS = [
   {
     url: 'https://simonlamb.codes/2018/06/08/weird-issue-when-service-connections-are-parameterized-in-task-groups/',
-    title: 'How I ensure consistency when creating pipelines in VSTS using Task Groups and Variable Groups',
-    date: '2018-06-08'
+    title:
+      'How I ensure consistency when creating pipelines in VSTS using Task Groups and Variable Groups',
+    date: '2018-06-08',
   },
   {
     url: 'https://simonlamb.codes/2017/11/07/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun/',
-    title: "The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
-    date: '2017-11-07'
+    title:
+      "The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
+    date: '2017-11-07',
   },
   {
     url: 'https://simonlamb.codes/2017/08/07/mobile-devops-hypothesis-driven-development-and-visual-studio-mobile-center/',
     title: 'Mobile DevOps – Hypothesis Driven Development and Visual Studio Mobile Center',
-    date: '2017-08-07'
+    date: '2017-08-07',
   },
   {
     url: 'https://simonlamb.codes/2017/07/15/visual-studio-mobile-center-showing-build-status-on-your-vsts-dashboard/',
     title: 'Visual Studio Mobile Center – Showing build status on your VSTS dashboard',
-    date: '2017-07-15'
+    date: '2017-07-15',
   },
   {
     url: 'https://simonlamb.codes/2017/06/22/desktop-bridge-link-roundup/',
     title: 'Desktop Bridge Link Roundup',
-    date: '2017-06-22'
+    date: '2017-06-22',
   },
   {
     url: 'https://simonlamb.codes/2017/05/05/vsts-build-tasks-mobile-center-build/',
     title: 'VSTS Build Tasks - Mobile Center Build',
-    date: '2017-05-05'
+    date: '2017-05-05',
   },
   {
     url: 'https://simonlamb.codes/2016/04/14/the-well-technically-podcast-episode-1-buckleup/',
     title: 'The Well, Technically Podcast Episode 1 – #BuckleUp',
-    date: '2016-04-14'
-  }
+    date: '2016-04-14',
+  },
 ];
 
 // Create directories
 async function ensureDirectories() {
-  const dirs = [
-    'public/blog-media',
-    'src/data/blog/posts',
-    'src/data/blog/content',
-  ];
+  const dirs = ['public/blog-media', 'src/data/blog/posts', 'src/data/blog/content'];
 
   for (const dir of dirs) {
     await fs.mkdir(path.join(process.cwd(), dir), { recursive: true });
@@ -62,20 +60,24 @@ function fetchFromWayback(url) {
     // Get the most recent snapshot
     const waybackUrl = `https://web.archive.org/web/20230000000000/${url}`;
 
-    https.get(waybackUrl, (res) => {
-      if (res.statusCode === 302 || res.statusCode === 301) {
-        // Follow redirect to actual snapshot
-        https.get(res.headers.location, (res2) => {
+    https
+      .get(waybackUrl, res => {
+        if (res.statusCode === 302 || res.statusCode === 301) {
+          // Follow redirect to actual snapshot
+          https
+            .get(res.headers.location, res2 => {
+              let data = '';
+              res2.on('data', chunk => (data += chunk));
+              res2.on('end', () => resolve(data));
+            })
+            .on('error', reject);
+        } else {
           let data = '';
-          res2.on('data', chunk => data += chunk);
-          res2.on('end', () => resolve(data));
-        }).on('error', reject);
-      } else {
-        let data = '';
-        res.on('data', chunk => data += chunk);
-        res.on('end', () => resolve(data));
-      }
-    }).on('error', reject);
+          res.on('data', chunk => (data += chunk));
+          res.on('end', () => resolve(data));
+        }
+      })
+      .on('error', reject);
   });
 }
 
@@ -105,7 +107,7 @@ async function createStaticContent() {
       originalUrl: post.url,
       readingTime: 5,
       tags: getTags(post.title),
-      categories: getCategories(post.title)
+      categories: getCategories(post.title),
     };
 
     // Save post data
@@ -132,7 +134,7 @@ async function createStaticContent() {
       featuredImage: p.featuredImage,
       readingTime: p.readingTime,
       tags: p.tags,
-      categories: p.categories
+      categories: p.categories,
     })),
     lastUpdated: new Date().toISOString(),
   };
@@ -145,16 +147,26 @@ async function createStaticContent() {
 
 function getExcerpt(title, date) {
   const excerpts = {
-    'weird-issue-when-service-connections-are-parameterized-in-task-groups': 'A deep dive into an interesting issue I encountered when using parameterized service connections in VSTS Task Groups, and how to ensure consistency in your CI/CD pipelines.',
-    'the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun': 'Troubleshooting guide for resolving the "Microsoft.Docker.Sdk could not be found" error and other common .NET Core Docker configuration issues.',
-    'mobile-devops-hypothesis-driven-development-and-visual-studio-mobile-center': 'Exploring how to implement hypothesis-driven development practices in mobile DevOps using Visual Studio Mobile Center to create effective feedback loops.',
-    'visual-studio-mobile-center-showing-build-status-on-your-vsts-dashboard': 'Learn how to integrate Visual Studio Mobile Center build status into your VSTS dashboard for better visibility across your CI/CD pipeline.',
-    'desktop-bridge-link-roundup': 'A comprehensive collection of resources, tutorials, and tools for using Desktop Bridge (Project Centennial) to convert Win32 applications to Windows Store apps.',
-    'vsts-build-tasks-mobile-center-build': 'Guide to using VSTS build tasks for Mobile Center builds, automating your mobile app CI/CD pipeline.',
-    'the-well-technically-podcast-episode-1-buckleup': 'Inaugural episode of The Well, Technically Podcast discussing technology trends and software development practices.'
+    'weird-issue-when-service-connections-are-parameterized-in-task-groups':
+      'A deep dive into an interesting issue I encountered when using parameterized service connections in VSTS Task Groups, and how to ensure consistency in your CI/CD pipelines.',
+    'the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun':
+      'Troubleshooting guide for resolving the "Microsoft.Docker.Sdk could not be found" error and other common .NET Core Docker configuration issues.',
+    'mobile-devops-hypothesis-driven-development-and-visual-studio-mobile-center':
+      'Exploring how to implement hypothesis-driven development practices in mobile DevOps using Visual Studio Mobile Center to create effective feedback loops.',
+    'visual-studio-mobile-center-showing-build-status-on-your-vsts-dashboard':
+      'Learn how to integrate Visual Studio Mobile Center build status into your VSTS dashboard for better visibility across your CI/CD pipeline.',
+    'desktop-bridge-link-roundup':
+      'A comprehensive collection of resources, tutorials, and tools for using Desktop Bridge (Project Centennial) to convert Win32 applications to Windows Store apps.',
+    'vsts-build-tasks-mobile-center-build':
+      'Guide to using VSTS build tasks for Mobile Center builds, automating your mobile app CI/CD pipeline.',
+    'the-well-technically-podcast-episode-1-buckleup':
+      'Inaugural episode of The Well, Technically Podcast discussing technology trends and software development practices.',
   };
 
-  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const slug = title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
   return excerpts[slug] || `Blog post from ${date} discussing ${title}`;
 }
 
@@ -722,11 +734,14 @@ Thanks for joining us on this journey. Buckle up - it's going to be an exciting 
 ---
 
 *The Well, Technically Podcast is produced by Simon Lamb. Views expressed are those of the hosts and guests and don't necessarily represent their employers.*
-`
+`,
   };
 
   const slug = post.url.split('/').filter(Boolean).pop();
-  return contents[slug] || `# ${post.title}\n\n*Published on ${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}*\n\nContent for this blog post is being restored.`;
+  return (
+    contents[slug] ||
+    `# ${post.title}\n\n*Published on ${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}*\n\nContent for this blog post is being restored.`
+  );
 }
 
 // Run the script
