@@ -59,7 +59,7 @@ export function getProjectsWithTranslations(t: TFunction): ProjectWithTranslatio
     technologies: project.technologies,
     featured: project.featured,
     github: project.github,
-    demo: project.demo,
+    link: project.link,
   }));
 }
 
