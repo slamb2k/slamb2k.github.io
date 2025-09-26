@@ -19,7 +19,8 @@ export default {
       },
     },
     assert: {
-      // Set performance budgets and accessibility thresholds
+      // Use lighthouse:recommended preset and override specific assertions
+      preset: 'lighthouse:recommended',
       assertions: {
         // Performance budgets
         'categories:performance': ['warn', { minScore: 0.8 }],
@@ -62,9 +63,9 @@ export default {
         'no-vulnerable-libraries': 'error',
         charset: 'error',
 
-        // Override Lighthouse CI's hardcoded defaults with realistic values
-        'network-dependency-tree-insight': ['warn', { minScore: 0 }], // Network chains are normal in SPAs
-        'unused-javascript': ['warn', { maxLength: 5 }], // Allow some unused JS from code splitting
+        // Explicitly disable problematic metrics with hardcoded defaults
+        'network-dependency-tree-insight': 'off', // This metric has hardcoded defaults
+        'unused-javascript': 'off', // Disable to avoid false positives from code splitting
       },
     },
     upload: {
