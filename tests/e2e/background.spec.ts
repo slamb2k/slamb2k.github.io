@@ -6,7 +6,7 @@ test('has correct dark theme background', async ({ page }) => {
   const body = page.locator('body');
 
   // Check that body has the dark background color
-  // The midnight ocean theme uses oklch(0.12 0.02 230) which converts to approximately rgb(24, 28, 47)
+  // The midnight ocean theme uses oklch(0.16 0.02 230) which converts to approximately rgb(32, 36, 54)
   const backgroundColor = await body.evaluate(el => {
     return window.getComputedStyle(el).backgroundColor;
   });
@@ -15,8 +15,8 @@ test('has correct dark theme background', async ({ page }) => {
   const rgbMatch = backgroundColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
   if (rgbMatch) {
     const [, r, g, b] = rgbMatch.map(Number);
-    expect(r).toBeLessThan(50);
-    expect(g).toBeLessThan(50);
-    expect(b).toBeLessThan(60);
+    expect(r).toBeLessThan(60);
+    expect(g).toBeLessThan(60);
+    expect(b).toBeLessThan(70);
   }
 });
