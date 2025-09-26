@@ -1,0 +1,83 @@
+{
+  "totalPosts": 7,
+  "posts": [
+    {
+      "id": "weird-issue-when-service-connections-are-parameterized-in-task-groups",
+      "slug": "weird-issue-when-service-connections-are-parameterized-in-task-groups",
+      "title": "How I ensure consistency when creating pipelines in VSTS using Task Groups and Variable Groups",
+      "excerpt": "Blog post from 2018-06-08 discussing How I ensure consistency when creating pipelines in VSTS using Task Groups and Variable Groups",
+      "publishedAt": "2018-06-08T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["VSTS", "Azure DevOps"],
+      "categories": ["DevOps"]
+    },
+    {
+      "id": "the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun",
+      "slug": "the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun",
+      "title": "The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
+      "excerpt": "Blog post from 2017-11-07 discussing The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
+      "publishedAt": "2017-11-07T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["Docker", "Containers", ".NET", "C#"],
+      "categories": ["Development"]
+    },
+    {
+      "id": "mobile-devops-hypothesis-driven-development-and-visual-studio-mobile-center",
+      "slug": "mobile-devops-hypothesis-driven-development-and-visual-studio-mobile-center",
+      "title": "Mobile DevOps – Hypothesis Driven Development and Visual Studio Mobile Center",
+      "excerpt": "Exploring how to implement hypothesis-driven development practices in mobile DevOps using Visual Studio Mobile Center to create effective feedback loops.",
+      "publishedAt": "2017-08-07T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["Mobile Development", "DevOps", "CI/CD", "Visual Studio"],
+      "categories": ["DevOps", "Mobile Development"]
+    },
+    {
+      "id": "visual-studio-mobile-center-showing-build-status-on-your-vsts-dashboard",
+      "slug": "visual-studio-mobile-center-showing-build-status-on-your-vsts-dashboard",
+      "title": "Visual Studio Mobile Center – Showing build status on your VSTS dashboard",
+      "excerpt": "Learn how to integrate Visual Studio Mobile Center build status into your VSTS dashboard for better visibility across your CI/CD pipeline.",
+      "publishedAt": "2017-07-15T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["VSTS", "Azure DevOps", "Mobile Development", "Visual Studio"],
+      "categories": ["DevOps", "Mobile Development"]
+    },
+    {
+      "id": "desktop-bridge-link-roundup",
+      "slug": "desktop-bridge-link-roundup",
+      "title": "Desktop Bridge Link Roundup",
+      "excerpt": "A comprehensive collection of resources, tutorials, and tools for using Desktop Bridge (Project Centennial) to convert Win32 applications to Windows Store apps.",
+      "publishedAt": "2017-06-22T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["Windows", "UWP"],
+      "categories": ["Windows Development"]
+    },
+    {
+      "id": "vsts-build-tasks-mobile-center-build",
+      "slug": "vsts-build-tasks-mobile-center-build",
+      "title": "VSTS Build Tasks - Mobile Center Build",
+      "excerpt": "Guide to using VSTS build tasks for Mobile Center builds, automating your mobile app CI/CD pipeline.",
+      "publishedAt": "2017-05-05T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["VSTS", "Azure DevOps", "Mobile Development"],
+      "categories": ["DevOps", "Mobile Development"]
+    },
+    {
+      "id": "the-well-technically-podcast-episode-1-buckleup",
+      "slug": "the-well-technically-podcast-episode-1-buckleup",
+      "title": "The Well, Technically Podcast Episode 1 – #BuckleUp",
+      "excerpt": "Inaugural episode of The Well, Technically Podcast discussing technology trends and software development practices.",
+      "publishedAt": "2016-04-14T00:00:00.000Z",
+      "featuredImage": null,
+      "readingTime": 5,
+      "tags": ["Podcast", "Community"],
+      "categories": ["Podcast"]
+    }
+  ],
+  "lastUpdated": "2025-09-26T09:43:17.734Z"
+}

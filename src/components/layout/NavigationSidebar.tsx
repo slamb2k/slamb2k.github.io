@@ -38,6 +38,7 @@ const NavigationSidebar: React.FC = () => {
     { id: 'about', label: t('nav.about') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
+    { id: 'blog', label: t('nav.blog') },
     { id: 'contact', label: t('nav.contact') },
   ];
 

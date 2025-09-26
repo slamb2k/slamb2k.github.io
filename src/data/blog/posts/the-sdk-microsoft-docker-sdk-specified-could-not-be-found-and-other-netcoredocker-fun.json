@@ -1,0 +1,15 @@
+{
+  "id": "the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun",
+  "slug": "the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun",
+  "title": "The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
+  "excerpt": "Blog post from 2017-11-07 discussing The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun",
+  "content": "\n# The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun\n\n*Published on November 7, 2017*\n\nIf you've been working with .NET Core and Docker, you might have encountered this frustrating error message. Let me save you some time with the solution.\n\n## The Error\n\n```\nThe SDK 'Microsoft.Docker.Sdk' specified could not be found\n```\n\n## Root Cause\n\nThis error typically occurs when:\n- The Docker SDK is not properly installed\n- There's a version mismatch between your project and the installed SDK\n- Docker Desktop is not running or properly configured\n\n## Quick Fix\n\nHere's the solution that worked for me:\n\n1. **Ensure Docker Desktop is running**\n   - On Windows, check the system tray\n   - On Mac, check the menu bar\n\n2. **Update your global.json file**\n   ```json\n   {\n     \"sdk\": {\n       \"version\": \"2.1.403\"\n     }\n   }\n   ```\n\n3. **Clear NuGet cache**\n   ```bash\n   dotnet nuget locals all --clear\n   ```\n\n4. **Restore packages**\n   ```bash\n   dotnet restore\n   ```\n\n## Other Common Docker/.NET Core Issues\n\n### Issue 1: Container fails to start\n- Check your Dockerfile for correct base image\n- Ensure exposed ports match your configuration\n\n### Issue 2: Volume mounting problems\n- Use proper path formats for your OS\n- Check Docker Desktop file sharing settings\n\n## Conclusion\n\nDocker and .NET Core work beautifully together once you get past these initial configuration hurdles. Hope this saves you some debugging time!\n",
+  "publishedAt": "2017-11-07T00:00:00.000Z",
+  "author": "Simon Lamb",
+  "featuredImage": null,
+  "images": [],
+  "originalUrl": "https://simonlamb.codes/2017/11/07/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun/",
+  "readingTime": 5,
+  "tags": ["Docker", "Containers", ".NET", "C#"],
+  "categories": ["Development"]
+}
