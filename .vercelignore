@@ -1,0 +1,51 @@
+# Vercel Ignore File
+# Files and directories to exclude from deployment
+
+# Development files
+.github
+.vscode
+.storybook
+tests
+scripts
+docs
+
+# Test coverage
+coverage
+playwright-report
+
+# Source files (only deploy built assets)
+src
+
+# Configuration files
+*.config.js
+*.config.ts
+*.config.cjs
+.eslintrc*
+.prettierrc*
+.lighthouserc.js
+vitest.config.ts
+playwright.config.ts
+tsconfig*.json
+
+# Documentation
+*.md
+!README.md
+
+# Git
+.git
+.gitignore
+
+# Dependencies
+node_modules
+
+# Environment files
+.env*
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+
+# Build analysis
+stats.json
+report.html
