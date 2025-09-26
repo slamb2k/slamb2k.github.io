@@ -1,5 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import PortfolioLayout from '@/components/layout/PortfolioLayout';
 import RouteErrorBoundary from '@/components/RouteErrorBoundary';
 
@@ -10,11 +11,14 @@ const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
 
 // Loading component for Suspense fallback
-const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-[50vh]">
-    <div className="animate-pulse text-muted-foreground">Loading...</div>
-  </div>
-);
+const PageLoader = () => {
+  const { t } = useTranslation();
+  return (
+    <div className="flex items-center justify-center min-h-[50vh]">
+      <div className="animate-pulse text-muted-foreground">{t('common.loading')}</div>
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
   {

@@ -68,11 +68,11 @@ const ContactPage: React.FC = () => {
       >
         <h1
           id="contact-heading"
-          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-amber-300 to-orange-500 bg-clip-text text-transparent mb-6"
+          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-amber-300 to-orange-500 bg-clip-text text-transparent mb-2 leading-tight pb-2"
         >
           {t('contact.title')}
         </h1>
-        <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">{t('contact.message')}</p>
+        <p className="text-lg text-neutral-500 mb-12 max-w-2xl mx-auto">{t('contact.message')}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

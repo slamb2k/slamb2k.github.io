@@ -5,10 +5,14 @@
     "projects": "Projects",
     "contact": "Contact"
   },
+  "sidebar": {
+    "title": "Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE",
+    "tagline": "I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from the ground up. Specializing in LLM platform engineering with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines, guardrails, observability, and cost/latency governance."
+  },
   "about": {
     "title": "Hi, I'm {{name}}.",
-    "subtitle": "Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE",
-    "tagline": "I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from the ground up.",
+    "subtitle": "",
+    "tagline": "GenAI platforms, e-commerce gateways or integrated drug dispensing—I've shipped and operated them all and more. Whether Cloud-native or cloud-migration, I always lead with a DevOps mindset. Systems fail. Winners learn fastest. I compress feedback loops, cut lead time, and drive MTTR down—without slowing delivery.",
     "heading": "About",
     "paragraph1": "I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms that analyze millions of lines of code using LLMs to surface security risks and governance issues before deployment.",
     "paragraph2": "My expertise spans the full AI stack: Azure OpenAI, RAG pipelines, LLMOps/MLOps, token optimization, and human-in-the-loop evaluation systems. I bring 15+ years of DevOps leadership and SRE practices to ensure these systems deliver clinical-grade reliability.",
@@ -19,24 +23,51 @@
     "description": "A chronological overview of my professional journey and the technologies I've worked with.",
     "jobs": {
       "azure-core": {
+        "title": "Senior Software Engineer",
+        "company": "Microsoft (Azure Core)",
+        "period": "Apr 2024 - Jul 2025",
         "description": "Engineered an LLM-driven governance platform that analyzes internal Microsoft product codebases using Azure OpenAI + agentic retrieval to automatically surface security, performance, and best-practice risks before rollout. This platform strengthened governance and reduced incidents from problematic deployments across Azure. With code contexts spanning thousands of lines, I designed token-aware batching, caching, and aggregation strategies that made multi-chunk evaluation feasible and cost-effective. Embedded automatic + human-in-the-loop eval gates with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines, guardrails, observability, and cost/latency governance—enabling multiple developers to iterate safely on prompt designs without regressions. The platform is now used by a significant portion of Azure products and has become fundamental to all internal Microsoft product deployments for incident reduction and enterprise risk management."
       },
       "microsoft-cloud": {
+        "title": "Senior Software Engineer",
+        "company": "Microsoft (Fabric Data Solutions)",
+        "period": "Apr 2024 - Jul 2025",
         "description": "Extended Microsoft Fabric's native capabilities by implementing the Data Solution framework, delivering domain-specific solutions and industry accelerators across Microsoft Clouds. Specialized in developing internal tooling to enhance deployment consistency and velocity using Microsoft's proprietary delivery frameworks, significantly improving engineering efficiency across Azure teams."
       },
       "global-partner-solutions": {
+        "title": "Cloud Solution Architect",
+        "company": "Microsoft (Global Partner Solutions)",
+        "period": "Jul 2019 - Apr 2024",
         "description": "As Cloud Solution Architect, partnered with enterprises and ISVs to modernize workloads onto Azure (AKS, App Services, Front Door, Private Link) and accelerate GenAI adoption (Databricks, MLflow, Semantic Kernel). Ran workshops, design reviews, and enablement sessions that reduced prototype-to-production cycles from months to weeks. Ensured adherence to the Well-Architected Framework while maximizing Azure Marketplace opportunities. Led DevOps OpenHack programs globally in Melbourne, Sydney (with Satya Nadella's ANZ visit), Canberra Government, Las Vegas (Inspire/Ready), and Seattle (TechReady), directing coach teams and mentoring hundreds of engineers from partners like ANZ, Deloitte, EY, KPMG, Accenture, PwC, Seek, and MYOB. Achieved near-perfect satisfaction scores (~95%+) while enabling immediate improvements in DevOps practices."
       },
       "pacific-commerce": {
+        "title": "Solutions Manager",
+        "company": "Pacific Commerce",
+        "period": "1998 - 2001",
         "description": "Managed enterprise EDI solutions and e-commerce integrations using Sterling Commerce GENTRAN. Led technical initiatives for B2B data exchange and automated business processes across multiple client environments."
       },
       "microsoft-dx": {
+        "title": "DevOps OpenHack Tech Lead (Part-time)",
+        "company": "Microsoft",
+        "period": "Jun 2019 - Sep 2021",
         "description": "As Technical Evangelist and DevOps OpenHack Tech Lead, evangelized Microsoft development technologies to global developer communities through technical content creation, conference presentations, and architectural guidance for .NET, Azure, and emerging technologies. Recognized as primary DevOps subject matter expert within Microsoft, supporting enterprise customers and partners in their DevOps transformation journeys. Led global OpenHacks achieving ~95%+ satisfaction scores while directing international coaching teams and mentoring hundreds of engineers across ANZ, US, and Asia-Pacific regions."
       },
+      "microsoft-evangelist": {
+        "title": "Technical Evangelist",
+        "company": "Microsoft (Developer Experience)",
+        "period": "Feb 2017 - Jul 2019",
+        "description": "Evangelized Microsoft development technologies to global developer communities through technical content creation, conference presentations, and architectural guidance for .NET, Azure, and emerging technologies."
+      },
       "fred-it-group": {
+        "title": "Tech Architect Lead / DevOps Lead",
+        "company": "Fred IT Group",
+        "period": "Jun 2004 - Feb 2017",
         "description": "As Tech Architect/DevOps Lead, led a team of six engineers developing regulated healthcare platforms for pharmacy and healthcare sectors. Embedded SRE practices (SLOs/SLIs, error budgets), IaC, and CI/CD to deliver clinical-grade reliability. Architected industry-leading applications for pharmacy dispensing, store operations, and group management built on Microsoft Dynamics AX platform with .NET, SQL Server optimizations. Implemented robust pipelines for ingesting monthly PBS updates critical to pharmacy compliance. Established infrastructure-as-code standards using Bicep/Terraform and GitOps practices that transformed delivery capabilities. Core stack included Azure services, GitHub Actions/Azure DevOps, OPA/Azure Policy, Managed Identity/Key Vault, Azure Monitor/Grafana/Prometheus, ensuring mission-critical uptime for healthcare operations."
       },
       "leadtec-systems": {
+        "title": "Senior Developer",
+        "company": "LeadTec Systems",
+        "period": "2001 - 2004",
         "description": "Architected and implemented the Intouch platform, an enterprise-scale retail management system adopted by Australia's largest retailers including Coles Myer (Myer, Coles, Target, Officeworks), David Jones, and Bunnings. Built sophisticated XML-based data integration systems and web applications using C#, ASP.NET, and XSLT transformations to enable real-time business process automation and reporting across thousands of retail locations."
       }
     }
@@ -46,48 +77,63 @@
     "description": "A collection of projects I've built, showcasing different technologies and problem-solving approaches.",
     "items": {
       "internal-ai-code-scanning-platform": {
+        "title": "Internal AI Code Scanning Platform",
         "description": "Built a mandatory code analysis platform for Microsoft that automatically scanned commits and PRs for security vulnerabilities, performance issues, best practice violations, and maintainability risks. Integrated static analysis tools like CodeQL with advanced RAG pipelines to process millions of lines of code. Developed extensive prompt engineering solutions and generative UI components to produce consistent insights and reports. Implemented robust prompt evaluation pipelines to detect performance drift and utilized structured outputs with Liquid templates to ensure deterministic, reliable analysis results across the entire Microsoft codebase."
       },
       "microsoft-fabric-data-solutions": {
+        "title": "Microsoft Fabric Data Solutions",
         "description": "Extended the Microsoft Fabric web interface to provide accelerators and solution templates offering structured foundations for different business domains and industries, including industry-specific schemas, data pipelines, transformation logic, and semantic models."
       },
       "azure-deployment-accelerator-tui": {
+        "title": "Azure Deployment Accelerator TUI",
         "description": "Developed a bash-based TUI providing guided workflows for Microsoft's internal Azure deployment platform. Streamlined complex deployments through intelligent validation and Dev Container integration, becoming the standard tool across multiple engineering teams."
       },
       "devops-openhack-technical-lead": {
+        "title": "DevOps OpenHack Technical Lead - Global Events",
         "description": "Served as Tech Lead for Microsoft's global DevOps OpenHack program, leading events in Melbourne, Sydney (with Satya Nadella's ANZ visit), Canberra Government, Las Vegas (Inspire/Ready), and Seattle (TechReady). Directed international coaching teams of 10+ Microsoft engineers and mentored hundreds of attendees from partners like Telstra, NSW Health, CBA, ANZ, Deloitte, EY, KPMG, Accenture, PwC, Seek, and MYOB. Achieved consistently high participant satisfaction (~95%+) with immediate improvements in DevOps practices and cloud adoption."
       },
       "azure-ai-governance-pipeline": {
+        "title": "Azure AI Governance Pipeline",
         "description": "Contributed as part of a crucial DevOps team to the re-implementation of Microsoft's foundational engineering platform for Azure service governance. Delivered infrastructure as code solutions using Bicep and Ev2 to provision this next-generation platform, architected for massive capacity and scale."
       },
       "azure-llm-governance": {
+        "title": "LLM-Driven Governance Platform - Microsoft Azure Core",
         "description": "Engineered an LLM-driven governance platform at Microsoft Azure Core that analyzes internal product codebases to surface security, performance, and best-practice risks before rollout. Implemented token-aware batching, caching, and aggregation strategies for processing thousands of lines of code. Built structured outputs with Liquid templates for hallucination-free reports and embedded human-in-the-loop evaluation gates for safe prompt iteration."
       },
       "healthcare-platform-fred": {
+        "title": "Regulated Healthcare Platform - Fred IT Group",
         "description": "Led a team of 6 engineers at Fred IT Group to design and deliver a dispensing and store-management platform for major pharmacy groups. Built on .NET, SQL Server, and Microsoft Dynamics AX, optimized for clinical-grade reliability with SLO/SLI monitoring, error budgets, and blue/green deployments. Implemented robust pipelines for ingesting monthly PBS updates critical to pharmacy compliance."
       },
       "about-me": {
+        "title": "About.me Portfolio",
         "description": "This site - A modern React portfolio website built with TypeScript and Vite, featuring responsive design and internationalization support."
       },
       "glam-mcp": {
+        "title": "GLAM MCP Server",
         "description": "A Model Context Protocol server that provides intelligent development experiences through rich, contextual responses for AI assistants, transforming AI coding into pair programming with a senior developer."
       },
       "gavin-copilot": {
+        "title": "Gavin Copilot",
         "description": "A sample application demonstrating how Semantic Kernel and AI can work in web applications, featuring a React frontend, .NET backend, and Azure OpenAI integration."
       },
       "spec-chain": {
+        "title": "Spec Chain",
         "description": "A comprehensive system of AI prompts that work together to generate complete product documentation from a single app idea, designed specifically for Claude Code."
       },
       "azure-spa-environment-variables": {
+        "title": "Azure SPA Environment Variables",
         "description": "A comprehensive guide and implementation for managing environment-specific configurations in client-side React applications deployed to Azure, enabling 'build once, deploy everywhere' workflows."
       },
       "virtual-devbox": {
+        "title": "Virtual DevBox",
         "description": "An AutoHotkey script for managing Microsoft Dev Box connections across Windows 11 virtual desktops, providing hotkeys to facilitate seamless switching between local and remote development environments."
       },
       "dial-tray": {
+        "title": "Dial Tray",
         "description": "A system tray application that provides enhanced Surface Dial control for better integration with development tools like Warp and Claude Code."
       },
       "vs-mobile-center-build": {
+        "title": "VS Mobile Center Build",
         "description": "A custom build task for triggering and managing builds in Visual Studio Mobile Center, with the ability to download build artifacts and integrate with Team Foundation Server pipelines."
       }
     }
@@ -102,10 +148,105 @@
     "visitProject": "Visit {{title}}",
     "viewOnGithub": "{{title}} GitHub repository",
     "toggleMenu": "Toggle navigation menu",
-    "close": "Close"
+    "close": "Close",
+    "downloadResume": "Download Resume",
+    "featured": "Featured",
+    "loading": "Loading...",
+    "failedToLoad": "Failed to load",
+    "months": {
+      "jan": "Jan",
+      "feb": "Feb",
+      "mar": "Mar",
+      "apr": "Apr",
+      "may": "May",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Aug",
+      "sep": "Sep",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Dec"
+    },
+    "present": "Present"
   },
   "language": {
     "switchTo": "Switch to {{language}}",
     "current": "Current language: {{language}}"
+  },
+  "technologies": {
+    "Azure OpenAI": "Azure OpenAI",
+    "RAG/Vector Search": "RAG/Vector Search",
+    "LLMOps/MLOps": "LLMOps/MLOps",
+    "Semantic Kernel": "Semantic Kernel",
+    "Python": "Python",
+    "C#": "C#",
+    "Liquid Templates": "Liquid Templates",
+    "Structured Outputs": "Structured Outputs",
+    "Databricks": "Databricks",
+    "MLflow": "MLflow",
+    "AKS": "AKS",
+    "Azure DevOps": "Azure DevOps",
+    "Bicep/Terraform": "Bicep/Terraform",
+    "GitOps": "GitOps",
+    "CI/CD": "CI/CD",
+    "IaC": "IaC",
+    "SRE": "SRE",
+    "GitHub Actions": "GitHub Actions",
+    "Docker": "Docker",
+    "Kubernetes": "Kubernetes",
+    "Technical Coaching": "Technical Coaching",
+    "ASP.NET": "ASP.NET",
+    "Javascript": "Javascript",
+    "Azure": "Azure",
+    "DevOps": "DevOps",
+    "ARM": "ARM",
+    "Node.js": "Node.js",
+    "PowerShell": "PowerShell",
+    "SQL Server": "SQL Server",
+    "Microsoft Dynamics AX": "Microsoft Dynamics AX",
+    ".NET": ".NET",
+    "Prometheus": "Prometheus",
+    "Grafana": "Grafana",
+    "OPA/Azure Policy": "OPA/Azure Policy",
+    "XML": "XML",
+    "XSLT": "XSLT",
+    "Web Services": "Web Services",
+    "React": "React",
+    "TypeScript": "TypeScript",
+    "Tailwind CSS": "Tailwind CSS",
+    "Vite": "Vite",
+    "i18n": "i18n",
+    "Claude Code": "Claude Code",
+    "GitHub": "GitHub",
+    "AutoHotkey": "AutoHotkey",
+    "Windows 11": "Windows 11",
+    "System Tray": "System Tray",
+    "VSMC": "VSMC",
+    "TFS": "TFS",
+    "EDI": "EDI",
+    "Sterling Commerce": "Sterling Commerce",
+    "GENTRAN": "GENTRAN",
+    "B2B": "B2B",
+    "C#/.NET": "C#/.NET",
+    "Visual Basic": "Visual Basic",
+    "SQL": "SQL",
+    "Bash": "Bash",
+    "Dev Container": "Dev Container",
+    "Internal Tooling": "Internal Tooling",
+    "Melbourne/Sydney/Canberra": "Melbourne/Sydney/Canberra",
+    "Las Vegas/Seattle": "Las Vegas/Seattle",
+    "Hackathons": "Hackathons",
+    "Pharmacy Dispensing": "Pharmacy Dispensing",
+    "PBS": "PBS",
+    "Blue/Green Deployment": "Blue/Green Deployment",
+    "Markdown": "Markdown",
+    "AI Documentation": "AI Documentation",
+    "JavaScript": "JavaScript",
+    "MCP": "MCP",
+    "RDP": "RDP",
+    "Surface Dial": "Surface Dial",
+    "Windows": "Windows",
+    "Azure Mobile Center": "Azure Mobile Center",
+    "Azure Artifacts": "Azure Artifacts"
   }
 }
