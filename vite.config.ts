@@ -37,14 +37,15 @@ export default defineConfig(({ mode }) => ({
           }
 
           if (id.includes('node_modules')) {
-            // Core React - always needed
-            if (id.includes('react/') || id.includes('react-dom/') || id.includes('react-router')) {
-              return 'react-core';
+            // Split React into smaller chunks
+            if (id.includes('react-dom/')) {
+              return 'react-dom';
             }
-
-            // React ecosystem - often needed but not always
-            if (id.includes('react')) {
-              return 'react-ecosystem';
+            if (id.includes('react/')) {
+              return 'react';
+            }
+            if (id.includes('react-router')) {
+              return 'react-router';
             }
 
             // Animation libraries - lazy load when possible
@@ -57,7 +58,7 @@ export default defineConfig(({ mode }) => ({
               return 'icons';
             }
 
-            // i18n - needed for most pages
+            // i18n - defer loading
             if (id.includes('i18next') || id.includes('react-i18next')) {
               return 'i18n';
             }
@@ -80,6 +81,11 @@ export default defineConfig(({ mode }) => ({
             // 3D libraries - only if used
             if (id.includes('three') || id.includes('@react-three')) {
               return 'three-3d';
+            }
+
+            // Other React ecosystem
+            if (id.includes('react')) {
+              return 'react-ecosystem';
             }
 
             // All other vendor code
@@ -116,6 +122,8 @@ export default defineConfig(({ mode }) => ({
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
       },
+      // Add external for development-only dependencies
+      external: mode === 'production' ? [] : [],
     },
     // Performance optimizations
     minify: 'terser',
@@ -125,16 +133,22 @@ export default defineConfig(({ mode }) => ({
         drop_debugger: true,
         pure_funcs: mode === 'production' ? ['console.log', 'console.info', 'console.debug'] : [],
         passes: 2, // Run compress passes twice for better optimization
+        ecma: 2020,
+        module: true,
+        toplevel: true,
       },
       mangle: {
         safari10: true, // Work around Safari 10 bugs
+        module: true,
+        toplevel: true,
       },
       format: {
         comments: false, // Remove all comments
+        ecma: 2020,
       },
     },
     // Set appropriate chunk size limits
-    chunkSizeWarningLimit: 200, // 200kb warning for individual chunks
+    chunkSizeWarningLimit: 150, // 150kb warning for individual chunks
     // Target modern browsers for smaller bundles
     target: 'es2020',
     // Better tree shaking
