@@ -13,7 +13,7 @@ interface BlogCardPost {
   title: string;
   excerpt: string;
   publishedAt: string;
-  featuredImage?: string;
+  featuredImage?: string | null;
   readingTime?: number;
   tags?: string[];
   categories?: string[];

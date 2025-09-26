@@ -50,7 +50,7 @@ const AboutParagraph: React.FC<{
   // Handle personal paragraph with highlighted phrases
   if (isPersonal) {
     // Simple approach: manually parse the known structure
-    const parts = [];
+    const parts: (string | React.ReactElement)[] = [];
     let remaining = content;
 
     // Find and replace "right clicking to publish"
