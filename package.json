@@ -28,7 +28,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "migrate:wordpress": "node scripts/wordpress-to-mdx.js"
   },
   "bundlesize": [
     {
@@ -118,10 +119,12 @@
     "remark-mdx-frontmatter": "^5.2.0",
     "tailwindcss": "^4.0.9",
     "terser": "^5.44.0",
+    "turndown": "^7.2.1",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "xml2js": "^0.6.2"
   },
   "overrides": {
     "@radix-ui/react-compose-refs": {

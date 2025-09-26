@@ -1,0 +1,76 @@
+---
+title: "VSTS and Visual Studio 2017: Unable to determine the location of vstest.console.exe"
+date: "2017-04-07"
+excerpt: ""
+tags: ["Uncategorized"]
+readingTime: 3
+legacy: true
+originalUrl: "https://simonlambcodesblog.wordpress.com/2017/04/07/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe/"
+---
+
+# VSTS and Visual Studio 2017: Unable to determine the location of vstest.console.exe
+
+With the release of Visual Studio 2017 I made the decision to uninstall 2015 a couple of days ago. This immediately presented me with two challenges:
+
+1.  My unit tests stopped working when run on my private build agents.
+2.  I could no longer push to my VSTS Git repositories. This turned out to be my error but I'll cover that one in a separate post...
+
+In this post I'll surface some options to resolve the issue and justify why I chose one particular solution. It seems that when you add the _**Visual Studio Test**_ build task it sets the VSTest version to Visual Studio 2015 by default: !(/images/blog/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe-1758894631022.png) This means when the build attempts to run the unit tests it now couldn't find _**vstest.console.exe**_ as I assume it's looking in the old C:\\Program Files (x86)\\Microsoft Visual Studio 14.0 path.
+
+> \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+> 
+> Starting: Test Assemblies
+> 
+> \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+> 
+> \==============================================================================
+> 
+> Task : Visual Studio Test
+> 
+> Description : Run tests with Visual Studio test runner
+> 
+> Version : 1.0.84
+> 
+> Author : Microsoft Corporation
+> 
+> Help : \(https://go.microsoft.com/fwlink/?LinkId=624539)
+> 
+> \==============================================================================
+> 
+> Preparing task execution handler.
+> 
+> Executing the powershell script: C:\\Users\\SimonLamb\\Downloads\\vsts-agent-win7-x64-2.111.1\\\_work\\\_tasks\\VSTest\_ef087383-ee5e-42c7-9a53-ab56c98420f9\\1.0.84\\VSTest.ps1
+> 
+> No results found to publish.
+> 
+> System.Management.Automation.CmdletInvocationException: Unable to determine the location of vstest.console.exe ---> System.IO.FileNotFoundException: **Unable to determine the location of vstest.console.exe**
+> 
+> at Microsoft.TeamFoundation.DistributedTask.Task.Internal.InvokeVSTestCmdlet.GetVsTestLocation()
+> 
+> at Microsoft.TeamFoundation.DistributedTask.Task.Internal.InvokeVSTestCmdlet.ProcessRecord()
+> 
+> at System.Management.Automation.CommandProcessor.ProcessRecord()
+> 
+> \--- End of inner exception stack trace ---
+> 
+> at System.Management.Automation.Runspaces.PipelineBase.Invoke(IEnumerable input)
+> 
+> at System.Management.Automation.PowerShell.Worker.ConstructPipelineAndDoWork(Runspace rs, Boolean performSyncInvoke)
+> 
+> at System.Management.Automation.PowerShell.Worker.CreateRunspaceIfNeededAndDoWork(Runspace rsToUse, Boolean isSync)
+> 
+> at System.Management.Automation.PowerShell.CoreInvokeHelper\(PSDataCollection\`1 input, PSDataCollection\`1 output, PSInvocationSettings settings)
+> 
+> at System.Management.Automation.PowerShell.CoreInvoke\(PSDataCollection\`1 input, PSDataCollection\`1 output, PSInvocationSettings settings)
+> 
+> at Microsoft.TeamFoundation.DistributedTask.Handlers.LegacyVSTSPowerShellHost.VSTSPowerShellHost.Main(String\ args)
+> 
+> LegacyVSTSPowerShellHost.exe completed with return code: -1.
+> 
+> \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+> 
+> Finishing: Test Assemblies
+> 
+> \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+
+There's actually a few solutions to this but I'll throw down three because it's nice to have options. :-) 1. Specify the location to the _**vstest.console.exe**_ executable. It's located in the Visual Studio directory which has now dropped the version number and is just _**C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\.**_ !(/images/blog/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe-1758894631397.png) 2. Choose _**Latest**_ for the _**Test platform version.**_ !(/images/blog/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe-1758894632005.png) 3. Flick the test task to Version 2.0 which opens up some more options for the _**Test Platform version**_. !(/images/blog/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe-1758894632349.png) This means you have some different options in the _**Test platform version.**_ Note there is no _**Latest**_ on the Version 2.0 task. !(/images/blog/vsts-and-visual-studio-2017-unable-to-determine-the-location-of-vstest-console-exe-1758894632656.png) Selecting _**Visual Studio 2017**_ will also solve your problem. Which option did I go with? I chose to specify the _**Test platform version**_ as _**Latest**_ so that my build definitions would work on both my machine running the private agent or a hosted agent. The other options would work fine but this ensures it still works regardless of the environment.

@@ -1,0 +1,13 @@
+---
+title: "Things I Learned Today #1 - where.exe have you been all my life?"
+date: "2015-06-02"
+excerpt: ""
+tags: ["Uncategorized"]
+readingTime: 2
+legacy: true
+originalUrl: "https://simonlambcodesblog.wordpress.com/2015/06/02/things-i-learned-today-1/"
+---
+
+# Things I Learned Today #1 - where.exe have you been all my life?
+
+Since my memory isn't what it used to be, I'm going to start blogging anything cool I learn on a given day. Even if nobody reads this it will be a good way for me to create a hit list of cool solutions to problems. Today's mad man is the (https://technet.microsoft.com/en-us/library/cc753148.aspx) command on Windows. Here is the description of the command: \Displays the location of files that match the search pattern. By default, the search is done along the current directory and in the paths specified by the PATH environment variable.\ So why am I so excited about this? A co-worker was trying to generate service references in a script and wanted to do it in the same way as Visual Studio 2013. He had found svcutil.exe in an SDK directory but when executing it the resulting output wasn't what he expected. I suspected that it wasn't the same svcutil.exe that Visual Studio was using and wanted a way to detective out the right one. After a little bit of Google-Fu, I found this (http://stackoverflow.com/questions/24993437/what-svcutil-exe-does-visual-studio-2013-use-when-adding-or-updating-service-ref) on Stack Overflow. I opened up the Visual Studio 2013 Command Prompt and typed the following command: \ C:Windowssystem32>where svcutil.exe C:Program Files (x86)Microsoft SDKsWindowsv8.0AbinNETFX 4.0 ToolsSvcUtil.exe C:Program Files (x86)Microsoft SDKsWindowsv7.0ABinSvcUtil.exe \ The results show anywhere that svcutil.exe exists based on the PATH variable used by the command prompt. I used this svcutil.exe and BOOM! The resulting service references were the same as what is produced by Visual Studio 2013.
