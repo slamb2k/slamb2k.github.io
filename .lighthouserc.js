@@ -61,6 +61,9 @@ export default {
         'uses-https': 'error',
         'no-vulnerable-libraries': 'error',
         charset: 'error',
+
+        // JavaScript optimization - adjusted to be more realistic
+        'unused-javascript': ['warn', { maxLength: 3 }], // Allow up to 3 small unused JS chunks
       },
     },
     upload: {

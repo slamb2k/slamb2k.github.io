@@ -64,7 +64,7 @@ export const portfolioData: PortfolioData = {
       "Earlier at Microsoft, I served as Technical Evangelist and later DevOps OpenHack Tech Lead. I led global OpenHacks in Melbourne, Sydney (with Satya Nadella's ANZ visit), Canberra, Las Vegas (Inspire/Ready), and Seattle (TechReady), directing coach teams and mentoring hundreds of engineers with near-perfect satisfaction scores (~95%+).",
       'My roots are in Fred IT Group, where I was Tech Architect/DevOps Lead for regulated healthcare platforms, embedding SRE practices (SLOs/SLIs, error budgets), IaC, and CI/CD to deliver clinical-grade reliability.',
       'Core stack: Azure OpenAI, RAG (vector/hybrid), Semantic Kernel/LangChain, Azure AI Search, Databricks/Delta/Unity Catalog, MLflow, Azure ML, AKS, GitHub Actions/Azure DevOps, Bicep/Terraform, GitOps (Flux/Argo), OPA/Azure Policy, Managed Identity/Key Vault, Azure Monitor/Grafana/Prometheus, SRE practices, Python, C#.',
-      "I'm open to Senior AI Engineer / Senior Data Scientist (GenAI) / Principal Engineer roles in Melbourne, where I can apply my mix of AI platform engineering + DevOps leadership to deliver impact at scale.",
+      "I'm open to Senior AI Engineer / Senior Data Scientist (GenAI) / Principal Engineer roles, where I can apply my mix of AI platform engineering + DevOps leadership to deliver impact at scale.",
     ],
   },
   navigation: [

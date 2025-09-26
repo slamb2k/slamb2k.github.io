@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import PortfolioLayout from '@/components/layout/PortfolioLayout';
-import AboutPage from '@/pages/AboutPage';
-import ExperiencePage from '@/pages/ExperiencePage';
-import ProjectsPage from '@/pages/ProjectsPage';
-import ContactPage from '@/pages/ContactPage';
 import RouteErrorBoundary from '@/components/RouteErrorBoundary';
+
+// Lazy load route components for better code splitting
+const AboutPage = lazy(() => import('@/pages/AboutPage'));
+const ExperiencePage = lazy(() => import('@/pages/ExperiencePage'));
+const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
+const ContactPage = lazy(() => import('@/pages/ContactPage'));
+
+// Loading component for Suspense fallback
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="animate-pulse text-muted-foreground">Loading...</div>
+  </div>
+);
 
 const router = createBrowserRouter([
   {
@@ -15,7 +24,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AboutPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AboutPage />
+          </Suspense>
+        ),
       },
       {
         path: 'about',
@@ -23,15 +36,27 @@ const router = createBrowserRouter([
       },
       {
         path: 'experience',
-        element: <ExperiencePage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ExperiencePage />
+          </Suspense>
+        ),
       },
       {
         path: 'projects',
-        element: <ProjectsPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ProjectsPage />
+          </Suspense>
+        ),
       },
       {
         path: 'contact',
-        element: <ContactPage />,
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ContactPage />
+          </Suspense>
+        ),
       },
       {
         path: '*',
