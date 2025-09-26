@@ -19,21 +19,21 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
       whileHover={{ scale: 1.02 }}
       className={`group relative p-6 rounded-lg border transition-all duration-300 ${
         project.featured
-          ? 'border-teal-800/50 hover:border-teal-700 bg-slate-900/30 hover:bg-slate-800/50'
+          ? 'border-sky-500/30 hover:border-sky-400/50 bg-sky-950/10 hover:bg-sky-900/20 shadow-lg shadow-sky-500/10'
           : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
       }`}
     >
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3
-            className={`font-semibold group-hover:text-teal-300 transition-colors ${
+            className={`font-semibold group-hover:text-sky-400 transition-colors ${
               project.featured ? 'text-lg text-slate-100' : 'text-slate-100'
             }`}
           >
             {project.title}
           </h3>
           {project.featured && (
-            <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-teal-400/10 text-teal-300 rounded">
+            <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-sky-500/10 text-sky-400 rounded border border-sky-500/20">
               Featured
             </span>
           )}
@@ -44,7 +44,7 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-teal-300 transition-colors"
+              className="text-slate-400 hover:text-sky-400 transition-colors"
               aria-label={`View on GitHub`}
             >
               <Github size={16} aria-hidden="true" />
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-teal-300 transition-colors"
+              className="text-slate-400 hover:text-sky-400 transition-colors"
               aria-label={`Visit website`}
             >
               <ExternalLink size={16} aria-hidden="true" />
@@ -74,7 +74,10 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
 
       <div className="flex flex-wrap gap-2">
         {project.technologies.map((tech: string) => (
-          <span key={tech} className="px-3 py-1 text-xs bg-teal-400/10 text-teal-300 rounded-full">
+          <span
+            key={tech}
+            className="px-3 py-1.5 text-xs bg-sky-500/10 text-sky-300 rounded-full border border-sky-500/20 font-medium"
+          >
             {tech}
           </span>
         ))}
@@ -104,7 +107,10 @@ const ProjectsPage: React.FC = () => {
         aria-labelledby="projects-heading"
         role="main"
       >
-        <h1 id="projects-heading" className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
+        <h1
+          id="projects-heading"
+          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent mb-6"
+        >
           {t('projects.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl">{t('projects.description')}</p>

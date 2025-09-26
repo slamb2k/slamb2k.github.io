@@ -98,12 +98,12 @@ const NavigationSidebar: React.FC = () => {
           transition={{ delay: 0.2 }}
         >
           <Link to="/about" className="block">
-            <div className="text-fluid-3xl font-bold text-primary mb-2 hover:text-cyan transition-colors duration-300">
+            <div className="text-fluid-3xl font-bold text-white mb-2 hover:text-accent transition-colors duration-300">
               {portfolioData.personal.name}
             </div>
           </Link>
-          <div className="text-fluid-xl text-secondary mb-4">{portfolioData.personal.title}</div>
-          <p className="text-tertiary text-fluid-sm leading-relaxed mb-8">
+          <div className="text-fluid-xl text-accent mb-4">{portfolioData.personal.title}</div>
+          <p className="text-slate-400 text-fluid-sm leading-relaxed mb-8">
             {portfolioData.personal.tagline}
           </p>
         </motion.div>
@@ -134,22 +134,22 @@ const NavigationSidebar: React.FC = () => {
                   aria-current={isActive ? 'page' : undefined}
                   aria-describedby={`nav-description-${item.id}`}
                   className={`group relative flex items-center space-x-4 w-full text-left py-3 px-2 transition-all duration-300 focus:outline-none rounded-lg ${
-                    isActive ? 'text-primary' : 'text-slate-600 hover:text-slate-400'
-                  } ${isActive ? 'bg-slate-800/20' : 'hover:bg-slate-800/10'}`}
+                    isActive ? 'text-accent' : 'text-slate-400 hover:text-slate-200'
+                  } ${isActive ? 'bg-accent/10' : 'hover:bg-slate-800/10'}`}
                 >
                   {/* Animated gradient indicator */}
                   <div className="relative">
                     <div
                       className={`h-px transition-all duration-300 ${
                         isActive
-                          ? 'w-16 gradient-cyan animate-gradient'
-                          : `w-8 bg-[oklch(0.25_0_0)] ${!isActive ? 'group-hover:w-16 group-hover:bg-[oklch(0.45_0_0)]' : ''}`
+                          ? 'w-16 bg-accent animate-gradient'
+                          : `w-8 bg-slate-600 ${!isActive ? 'group-hover:w-16 group-hover:bg-accent/50' : ''}`
                       }`}
                     />
                     {isActive && (
                       <motion.div
                         layoutId="activeIndicator"
-                        className="absolute inset-0 w-16 h-px gradient-cyan shadow-glow"
+                        className="absolute inset-0 w-16 h-px bg-accent shadow-glow"
                         initial={false}
                         transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                       />
@@ -210,7 +210,7 @@ const NavigationSidebar: React.FC = () => {
                       exit={{ opacity: 0, x: -10 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ChevronRight size={16} className="text-cyan" />
+                      <ChevronRight size={16} className="text-accent" />
                     </motion.div>
                   )}
                   {/* Hidden description for screen readers */}
@@ -231,7 +231,7 @@ const NavigationSidebar: React.FC = () => {
           download="Simon Lamb - Professional Resume.pdf"
           whileHover={{ scale: 1.05, y: -3 }}
           whileTap={{ scale: 0.98 }}
-          className="flex items-center justify-center space-x-2 py-2 px-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-fluid-sm border border-cyan/20 hover:border-cyan/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
+          className="flex items-center justify-center space-x-2 py-2 px-4 bg-accent/10 hover:bg-accent/20 text-accent font-semibold rounded-lg text-fluid-sm border border-accent/20 hover:border-accent/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-slate-900"
         >
           <Download size={16} />
           <span>Download Resume</span>
@@ -261,7 +261,7 @@ const NavigationSidebar: React.FC = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 text-secondary hover:text-cyan transition-all duration-300 rounded-lg focus:outline-none hover:scale-110 hover:rotate-6"
+              className="p-2 text-slate-400 hover:text-accent transition-all duration-300 rounded-lg focus:outline-none hover:scale-110 hover:rotate-6"
               aria-label={`${social.label} (opens in new tab)`}
             >
               {React.createElement(social.icon, { size: 20, 'aria-hidden': true })}
