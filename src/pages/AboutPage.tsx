@@ -95,17 +95,22 @@ const AboutPage: React.FC = () => {
       >
         <div className="relative aspect-square">
           <AnimatePresence mode="wait">
-            <motion.img
-              key={currentImageIndex}
-              src={heroImages[currentImageIndex].src}
-              alt={heroImages[currentImageIndex].alt}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-            />
+            <motion.picture key={currentImageIndex}>
+              <source
+                srcSet={heroImages[currentImageIndex].src.replace('.jpg', '.webp')}
+                type="image/webp"
+              />
+              <motion.img
+                src={heroImages[currentImageIndex].src}
+                alt={heroImages[currentImageIndex].alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
+              />
+            </motion.picture>
           </AnimatePresence>
 
           {/* Dark overlay on hover for better text readability */}
