@@ -1,38 +1,18 @@
-/**
- * Blog post types and interfaces
- */
-
-export interface BlogPost {
-  id: string;
-  slug: string;
+export interface BlogFrontmatter {
   title: string;
+  date: string;
   excerpt: string;
-  content: string;
-  publishedAt: string; // ISO date string
-  updatedAt?: string;
-  author: string;
-  featuredImage?: string;
-  images: string[];
   tags?: string[];
-  categories?: string[];
-  originalUrl: string;
   readingTime?: number;
+  featuredImage?: string;
 }
 
-export interface BlogMetadata {
-  totalPosts: number;
-  categories: string[];
-  tags: string[];
-  authors: string[];
+export interface BlogPost extends BlogFrontmatter {
+  slug: string;
+  content?: React.ComponentType;
 }
 
-export interface BlogListItem {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  publishedAt: string;
-  featuredImage?: string;
-  readingTime?: number;
-  tags?: string[];
+export interface MDXModule {
+  frontmatter: BlogFrontmatter;
+  default: React.ComponentType;
 }
