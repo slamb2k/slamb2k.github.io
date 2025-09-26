@@ -103,7 +103,7 @@ describe.skip('AppRouter', () => {
     render(<RouterProvider router={router} />);
 
     expect(screen.getByText('Experience')).toBeInTheDocument();
-    expect(screen.getByText('Senior Frontend Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Principal AI/Software Engineer')).toBeInTheDocument();
   });
 
   it('should render ProjectsPage on /projects path', () => {
@@ -111,7 +111,9 @@ describe.skip('AppRouter', () => {
     render(<RouterProvider router={router} />);
 
     expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('E-Commerce Platform')).toBeInTheDocument();
+    expect(
+      screen.getByText('LLM-Driven Governance Platform - Microsoft Azure Core')
+    ).toBeInTheDocument();
   });
 
   it('should render ContactPage on /contact path', () => {

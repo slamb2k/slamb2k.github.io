@@ -17,8 +17,9 @@ vi.mock('react-i18next', () => ({
       const translations: Record<string, string> = {
         // About page translations
         'about.title': "Hi, I'm {{name}}.",
-        'about.subtitle': 'Senior Frontend Engineer',
-        'about.tagline': 'I build pixel-perfect, engaging, and accessible digital experiences.',
+        'about.subtitle': 'Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE',
+        'about.tagline':
+          'I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from the ground up.',
         'about.heading': 'About',
         'about.paragraph1': 'Test paragraph 1',
         'about.paragraph2': 'Test paragraph 2',
@@ -72,7 +73,7 @@ vi.mock('react-i18next', () => ({
       // Handle Spanish translations for testing
       const spanishTranslations: Record<string, string> = {
         'about.title': 'Hola, soy {{name}}.',
-        'about.subtitle': 'Ingeniero Frontend Senior',
+        'about.subtitle': 'Ingeniero Principal de IA/Software | GenAI/RAG, LLMOps, SRE',
         'about.heading': 'Acerca de',
       };
 

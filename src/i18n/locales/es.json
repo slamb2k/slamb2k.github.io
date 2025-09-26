@@ -7,14 +7,12 @@
   },
   "about": {
     "title": "Hola, soy {{name}}.",
-    "subtitle": "Ingeniero de Software Principal",
-    "tagline": "Con un historial comprobado en sistemas de IA, Azure y DevOps a escala empresarial.",
+    "subtitle": "Ingeniero Principal de IA/Software | GenAI/RAG, LLMOps, SRE",
+    "tagline": "Construyo plataformas GenAI de producción en Microsoft Azure y aporto liderazgo DevOps desde cero.",
     "heading": "Acerca de",
-    "paragraph1": "Soy un ingeniero de software experimentado con más de dos décadas de experiencia, incluyendo casi nueve años en Microsoft. Mi carrera ha abarcado roles desde Evangelista Técnico en Experiencia del Desarrollador hasta Arquitecto de Soluciones en la Nube con Global Partner Solutions, culminando como Ingeniero de Software Senior en Azure Core (One Fleet Partner).",
-    "paragraph2": "A lo largo de mi tiempo en Microsoft, he desarrollado una profunda experiencia en ingeniería de nube de Azure, prácticas DevOps y desarrollo de software impulsado por IA. Notablemente, he colaborado estrechamente con los equipos de Semantic Kernel y Copilot en Microsoft para construir soluciones de IA de vanguardia.",
-    "paragraph3": "Antes de Microsoft, pasé 13 años en Fred IT Group como Arquitecto Técnico Principal, gestionando un equipo de seis ingenieros para diseñar plataformas escalables para la industria farmacéutica y de atención médica.",
-    "paragraph4": "Con la IA ahora siendo una parte integral del desarrollo, he elegido buscar soluciones que incorporen y sean complementadas por la IA, en lugar de preocuparme por lo que la IA eliminará. Con eso en mente, estoy intensamente enfocado en dominar e integrar herramientas de codificación agéntica, empoderando a los ingenieros de nube para aprovechar la IA de manera proactiva y mantenerse a la vanguardia.",
-    "paragraph5": "Fuera del trabajo, co-crío dos adolescentes con mi pareja, me esfuerzo por automatizar mi hogar, disfruto del tiempo con mi perro Pip (nombrado por el gestor de paquetes de Python), y actúo como vocalista en una banda de covers."
+    "paragraph1": "Diseño sistemas de IA de producción a escala. En Microsoft Azure Core, construí plataformas que analizan millones de líneas de código usando LLMs para identificar riesgos de seguridad y problemas de gobernanza antes del despliegue.",
+    "paragraph2": "Mi experiencia abarca toda la pila de IA: Azure OpenAI, pipelines RAG, LLMOps/MLOps, optimización de tokens y sistemas de evaluación con humano en el bucle. Aporto más de 15 años de liderazgo DevOps y prácticas SRE para garantizar que estos sistemas ofrezcan confiabilidad de grado clínico.",
+    "paragraph3": "Abierto a roles de Ingeniero Principal donde pueda aplicar ingeniería de plataforma de IA y liderazgo DevOps para generar impacto a escala."
   },
   "experience": {
     "title": "Experiencia",

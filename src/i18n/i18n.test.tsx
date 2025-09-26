@@ -67,8 +67,9 @@ const testI18nConfig = {
         },
         about: {
           title: "Hi, I'm {{name}}.",
-          subtitle: 'Senior Frontend Engineer',
-          tagline: 'I build pixel-perfect, engaging, and accessible digital experiences.',
+          subtitle: 'Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE',
+          tagline:
+            'I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from the ground up.',
           heading: 'About',
           paragraph1: 'Test paragraph 1',
           paragraph2: 'Test paragraph 2',
@@ -90,8 +91,9 @@ const testI18nConfig = {
         },
         about: {
           title: 'Hola, soy {{name}}.',
-          subtitle: 'Ingeniero Frontend Senior',
-          tagline: 'Construyo experiencias digitales perfectas, atractivas y accesibles.',
+          subtitle: 'Ingeniero Principal de IA/Software | GenAI/RAG, LLMOps, SRE',
+          tagline:
+            'Construyo plataformas GenAI de producción en Microsoft Azure y aporto liderazgo DevOps desde cero.',
           heading: 'Acerca de',
           paragraph1: 'Párrafo de prueba 1',
           paragraph2: 'Párrafo de prueba 2',
@@ -127,7 +129,9 @@ describe.skip('Internationalization', () => {
     renderWithI18n(<AboutPage />);
 
     expect(screen.getByText("Hi, I'm Simon Lamb.")).toBeInTheDocument();
-    expect(screen.getByText('Senior Frontend Engineer')).toBeInTheDocument();
+    expect(
+      screen.getByText('Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE')
+    ).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
   });
 
@@ -135,7 +139,9 @@ describe.skip('Internationalization', () => {
     renderWithI18n(<AboutPage />, 'es');
 
     expect(screen.getByText('Hola, soy Simon Lamb.')).toBeInTheDocument();
-    expect(screen.getByText('Ingeniero Frontend Senior')).toBeInTheDocument();
+    expect(
+      screen.getByText('Ingeniero Principal de IA/Software | GenAI/RAG, LLMOps, SRE')
+    ).toBeInTheDocument();
     expect(screen.getByText('Acerca de')).toBeInTheDocument();
   });
 
@@ -184,6 +190,6 @@ describe.skip('Internationalization', () => {
     );
 
     // Should fallback to English if French translation is missing
-    expect(screen.getByText(/Hi, I'm|Senior Frontend Engineer/)).toBeInTheDocument();
+    expect(screen.getByText(/Hi, I'm|Principal AI\/Software Engineer/)).toBeInTheDocument();
   });
 });
