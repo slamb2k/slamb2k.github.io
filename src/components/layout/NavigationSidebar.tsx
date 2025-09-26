@@ -158,34 +158,112 @@ const NavigationSidebar: React.FC = () => {
                   </div>
                   <div className="text-fluid-sm font-medium tracking-widest uppercase overflow-hidden flex items-center justify-between flex-1">
                     <div className="flex items-center">
-                      {/* Custom vomiting icon for Blog */}
+                      {/* Blog icon - podcast/broadcasting */}
                       {item.id === 'blog' && (
                         <svg
                           width="20"
                           height="20"
-                          viewBox="0 0 512 512"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          {/* Microphone body */}
+                          <path
+                            d="M12 14C13.1 14 14 13.1 14 12V6C14 4.9 13.1 4 12 4C10.9 4 10 4.9 10 6V12C10 13.1 10.9 14 12 14Z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinejoin="round"
+                          />
+                          {/* Stand */}
+                          <path
+                            d="M12 14V20"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                          {/* Sound waves - left */}
+                          <path
+                            d="M7 8C5.5 8 5.5 10 5.5 10C5.5 10 5.5 12 7 12M4 6C2 6 2 10 2 10C2 10 2 14 4 14"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                          {/* Sound waves - right */}
+                          <path
+                            d="M17 8C18.5 8 18.5 10 18.5 10C18.5 10 18.5 12 17 12M20 6C22 6 22 10 22 10C22 10 22 14 20 14"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                      {/* Experience icon - briefcase */}
+                      {item.id === 'experience' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          <rect
+                            x="3"
+                            y="7"
+                            width="18"
+                            height="13"
+                            rx="2"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 12V12.01"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                          <path
+                            d="M3 12H21"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                      {/* Projects icon - folder */}
+                      {item.id === 'projects' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                           className="mr-2 flex-shrink-0"
                         >
                           <path
-                            d="M256 40C134.4 40 36 138.4 36 260C36 381.6 134.4 480 256 480C377.6 480 476 381.6 476 260C476 138.4 377.6 40 256 40ZM256 60C366.5 60 456 149.5 456 260C456 370.5 366.5 460 256 460C145.5 460 56 370.5 56 260C56 149.5 145.5 60 256 60Z"
-                            fill="currentColor"
+                            d="M3 7V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H11L9 4H5C3.89543 4 3 4.89543 3 6V7Z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
-                          <path d="M210 125L140 155C180 170 210 125 210 125Z" fill="currentColor" />
-                          <path d="M302 125L372 155C332 170 302 125 302 125Z" fill="currentColor" />
-                          <path d="M150 195L225 235L150 265Z" fill="currentColor" />
-                          <path d="M362 195L287 235L362 265Z" fill="currentColor" />
                           <path
-                            d="M256 280C210 280 171 319 171 365C171 385 180 400 195 410V420H195V470C135 460 120 440 120 440C110 450 110 460 120 470C130 480 256 500 390 470C400 460 400 450 390 440C390 440 375 460 320 470V420V410C335 400 344 385 344 365C344 319 305 280 256 280ZM256 300C295 300 324 329 324 365V345H196V345V365C196 329 217 300 256 300Z"
-                            fill="currentColor"
+                            d="M7 13L10 16L17 9"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
-                          <circle cx="247" cy="375" r="10" fill="currentColor" />
-                          <circle cx="290" cy="405" r="15" fill="currentColor" />
-                          <circle cx="216" cy="395" r="5" fill="currentColor" />
-                          <circle cx="237" cy="435" r="8" fill="currentColor" />
-                          <circle cx="80" cy="420" r="12" fill="currentColor" />
-                          <circle cx="440" cy="420" r="12" fill="currentColor" />
                         </svg>
                       )}
                       {item.label.split('').map((letter, letterIndex) => {

@@ -11,6 +11,10 @@
     "title": "Ingénieur Principal IA/Logiciel | GenAI/RAG, LLMOps, SRE",
     "tagline": "Je construis des plateformes GenAI de production sur Microsoft Azure et apporte un leadership DevOps depuis la base. Spécialisé dans l'ingénierie de plateforme LLM avec une rigueur complète LLMOps/MLOps : CI/CD, pipelines d'évaluation, garde-fous, observabilité et gouvernance des coûts/latence."
   },
+  "blog": {
+    "title": "Blog Technique",
+    "subtitle": "Réflexions sur le DevOps, l'architecture cloud, l'IA et le développement logiciel"
+  },
   "about": {
     "title": "Salut, je suis {{name}}.",
     "subtitle": "",

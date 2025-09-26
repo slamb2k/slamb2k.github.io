@@ -128,11 +128,9 @@ const BlogPage: React.FC = () => {
         className="mb-12"
       >
         <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-300 to-pink-500 bg-clip-text text-transparent mb-2 leading-tight pb-2">
-          Blog
+          {t('blog.title')}
         </h1>
-        <p className="text-lg text-neutral-500 max-w-2xl">
-          Thoughts on DevOps, cloud architecture, AI, and software development
-        </p>
+        <p className="text-lg text-neutral-500 max-w-2xl">{t('blog.subtitle')}</p>
       </motion.section>
 
       {/* Blog posts grouped by year */}
