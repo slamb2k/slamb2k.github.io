@@ -118,9 +118,9 @@ body {
 
 .dark {
   /* Dark Theme - Core backgrounds with RGB fallbacks */
-  --background: rgb(26, 30, 40);
-  --background-elevated: rgb(32, 36, 46);
-  --background-accent: rgb(38, 42, 52);
+  --background: rgb(18, 22, 32); /* Darker background */
+  --background-elevated: rgb(24, 28, 38); /* Slightly elevated surfaces */
+  --background-accent: rgb(30, 34, 44); /* Hover states */
 
   /* Text hierarchy with RGB fallbacks */
   --foreground: rgb(242, 242, 244);
@@ -128,9 +128,9 @@ body {
   --foreground-tertiary: rgb(217, 217, 224);
 
   /* Card and popover with RGB fallbacks */
-  --card: rgb(26, 30, 40);
+  --card: rgb(24, 28, 38); /* Match elevated background */
   --card-foreground: rgb(242, 242, 244);
-  --popover: rgba(26, 30, 40, 0.95);
+  --popover: rgba(24, 28, 38, 0.95);
   --popover-foreground: rgb(242, 242, 244);
 
   /* Accent colors with RGB fallbacks */
@@ -159,11 +159,11 @@ body {
   --chart-5: rgb(236, 72, 153);
 
   /* Sidebar specific with RGB fallbacks */
-  --sidebar: rgb(32, 32, 32);
+  --sidebar: rgb(22, 26, 36); /* Slightly different from main background */
   --sidebar-foreground: rgb(242, 242, 244);
   --sidebar-primary: rgb(125, 211, 252);
-  --sidebar-primary-foreground: rgb(26, 30, 40);
-  --sidebar-accent: rgb(40, 40, 40);
+  --sidebar-primary-foreground: rgb(18, 22, 32);
+  --sidebar-accent: rgb(28, 32, 42); /* Hover state for sidebar */
   --sidebar-accent-foreground: rgb(242, 242, 244);
   --sidebar-border: rgba(64, 68, 82, 0.15);
   --sidebar-ring: rgba(125, 211, 252, 0.5);
@@ -189,18 +189,18 @@ body {
 @layer utilities {
   /* Dark theme backgrounds with RGB fallbacks */
   .bg-midnight {
-    background-color: rgb(32, 36, 48);
+    background-color: rgb(18, 22, 32);
   }
   .bg-midnight-elevated {
-    background-color: rgb(38, 42, 52);
+    background-color: rgb(24, 28, 38);
   }
   .bg-midnight-accent {
-    background-color: rgb(44, 48, 58);
+    background-color: rgb(30, 34, 44);
   }
 
   /* Glass morphism effect */
   .glass {
-    background: rgba(26, 30, 40, 0.8);
+    background: rgba(18, 22, 32, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }

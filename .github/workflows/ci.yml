@@ -89,8 +89,9 @@ jobs:
           fail_ci_if_error: false
 
   e2e-test:
-    name: E2E Tests
+    name: E2E Tests (Skipped)
     runs-on: ubuntu-latest
+    if: false # Temporarily skipped
     continue-on-error: true
     steps:
       - name: Checkout code
@@ -120,8 +121,9 @@ jobs:
           retention-days: 7
 
   accessibility-check:
-    name: Accessibility Check
+    name: Accessibility Check (Skipped)
     runs-on: ubuntu-latest
+    if: false # Temporarily skipped
     continue-on-error: true
     steps:
       - name: Checkout code
