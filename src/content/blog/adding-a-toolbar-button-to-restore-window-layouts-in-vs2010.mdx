@@ -1,21 +1,24 @@
 ---
-title: "Adding a toolbar button to restore window layouts in VS2010"
-date: "2012-03-01"
-excerpt: ""
-tags: ["Development", "Featured", "Visual Studio"]
+title: 'Adding a toolbar button to restore window layouts in VS2010'
+date: '2012-03-01'
+excerpt: ''
+tags: ['Development', 'Featured', 'Visual Studio']
 readingTime: 2
 legacy: true
-originalUrl: "https://simonlambcodesblog.wordpress.com/2012/03/01/adding-a-toolbar-button-to-restore-window-layouts-in-vs2010/"
+originalUrl: 'https://simonlambcodesblog.wordpress.com/2012/03/01/adding-a-toolbar-button-to-restore-window-layouts-in-vs2010/'
 ---
 
 # Adding a toolbar button to restore window layouts in VS2010
 
-I use multiple monitors at my place of work to spread my development environment over the largest area possible. I have the code window on my left monitor and all of the other tool windows like Solution Explorer on my right monitor. This gives me the largest amount of work space possible for me to write code with as well as having quick access to the solution explorer and property windows.  
+I use multiple monitors at my place of work to spread my development environment over the largest area possible. I have the code window on my left monitor and all of the other tool windows like Solution Explorer on my right monitor. This gives me the largest amount of work space possible for me to write code with as well as having quick access to the solution explorer and property windows.
 
 Left Monitor
 
-(http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/left-300x161.jpg "Left Monitor")](http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/left.jpg)  
+![Left](http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/left.jpg)
 
 Right Monitor
 
-(http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/right-300x159.jpg "Right Monitor")](http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/right.jpg)   This is all good and well until I come in on a Remote Desktop session. This constricts my desktop to a single monitor and turns my window layout into a steaming pile. Every time I remoted into my computer from home at night, the following morning I would have to endure the painful task of restoring my design and debug layouts in Visual Studio. My solution was to write a macro that would import a previously exported settings file that contained the windows layout just how I liked it. I then hosted the macro as a command button on the toolbar and I could get cracking with a single click of the magic button. Getting an icon against the button was a little harder and for those of you who are interested you require an extension to pull this off: (http://visualstudiogallery.msdn.microsoft.com/ff5060af-3df8-4063-b61b-19da41c66f20 "CommandingImage @ Visual Studio Gallery") I did all of this some time ago and when a co-worker asked for it this morning I decided to post an article so other people could bask in my genius. It was then that I discovered that someone has written an extension which is also available in the gallery. Set article = pointless. The extension is called _**Perspectives**_ and it allows you to save and load any number of predefined window layouts. This also solves my problem of having another window layout for Remote Desktop sessions. Grab the extension from the gallery at: (http://visualstudiogallery.msdn.microsoft.com/d446d9d3-4994-4d78-853d-f266b0bfd4ec) Good times...
+[Right](http://welltechnically.azurewebsites.net/wp-content/uploads/2012/03/right.jpg) This is all good and well until I come in on a Remote Desktop session. This constricts my desktop to a single monitor and turns my window layout into a steaming pile.
+Every time I remoted into my computer from home at night, the following morning I would have to endure the painful task of restoring my design and debug layouts in Visual Studio. My solution was to write a macro that would import a previously exported settings file that contained the windows layout just how I liked it.
+I then hosted the macro as a command button on the toolbar and I could get cracking with a single click of the magic button. Getting an icon against the button was a little harder and for those of you who are interested you require an extension to pull this off: [CommandingImage @ Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/ff5060af-3df8-4063-b61b-19da41c66f20) I did all of this some time ago and when a co-worker asked for it this morning I decided to post an article so other people could bask in my genius. It was then that I discovered that someone has written an extension which is also available in the gallery. Set article = pointless.
+The extension is called _**Perspectives**_ and it allows you to save and load any number of predefined window layouts. This also solves my problem of having another window layout for Remote Desktop sessions. Grab the extension from the gallery at: [http://visualstudiogallery.msdn.microsoft.com/d446d9d3-4994-4d78-853d-f266b0bfd4ec](http://visualstudiogallery.msdn.microsoft.com/d446d9d3-4994-4d78-853d-f266b0bfd4ec) Good times...

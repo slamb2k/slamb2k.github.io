@@ -1,16 +1,16 @@
 ---
-title: "#RubDevOpsOnYourBots - Configuring continuous delivery for your Bot Applications."
-date: "2017-05-31"
-excerpt: ""
-tags: ["DevOps"]
+title: '#RubDevOpsOnYourBots - Configuring continuous delivery for your Bot Applications.'
+date: '2017-05-31'
+excerpt: ''
+tags: ['DevOps']
 readingTime: 4
 legacy: true
-originalUrl: "https://simonlambcodesblog.wordpress.com/2017/05/31/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications/"
+originalUrl: 'https://simonlambcodesblog.wordpress.com/2017/05/31/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications/'
 ---
 
 # #RubDevOpsOnYourBots - Configuring continuous delivery for your Bot Applications.
 
-I have been involved in a Conversation as a Platform (CaaP) hack this week and the first thing that seemed to be valuable to the teams was to sort out a CI/CD pipeline for their projects. With the introduction of the _**Continuous Delivery Tools for Visual Studio**_ from the marketplace this is actually surprisingly easy to do. The tool will perform the following activities:
+I have been involved in a Conversation as a Platform (CaaP) hack this week and the first thing that seemed to be valuable to the teams was to sort out a CI/CD pipeline for their projects. With the introduction of the _**Continuous Delivery Tools for Visual Studio**_ from the marketplace this is actually surprisingly easy to do. The tool will perform the following activities:
 
 1.  Create an App Service in your Azure subscription.
 2.  Create a CI build for the bot.
@@ -22,24 +22,20 @@ With that in place, the teams could then hack away together with all of their ch
 
 I'm glad you ask. We need a few cogs to make this machine run:
 
-### Bot Application Template
+### Bot Application Template
 
-First hit the (https://docs.microsoft.com/en-us/bot-framework/resources-tools-downloads) and grab the SDK but most importantly the (http://aka.ms/bf-bc-vstemplate). You're going to need to put the template in your templates folder so you can create it in Visual Studio. For more information on how to do this check out this (https://msdn.microsoft.com/en-us/library/y3kkate1.aspx). Basically we need to copy the _**Bot Application.zip**_ file we downloaded to the following directory: _**My Documents\\Visual Studio 2017\\Templates\\ProjectTemplates\\Visual C#**_ Now you'll be able to create a Bot Application within Visual Studio 2017.
+First hit the [Bot Framework SDK page](https://docs.microsoft.com/en-us/bot-framework/resources-tools-downloads) and grab the SDK but most importantly the [Bot template for Visual Studio](http://aka.ms/bf-bc-vstemplate). You're going to need to put the template in your templates folder so you can create it in Visual Studio.
+For more information on how to do this check out this [documentation](https://msdn.microsoft.com/en-us/library/y3kkate1.aspx). Basically we need to copy the _**Bot Application.zip**_ file we downloaded to the following directory: _**My Documents\\Visual Studio 2017\\Templates\\ProjectTemplates\\Visual C#**_ Now you'll be able to create a Bot Application within Visual Studio 2017.
 
 ### Continuous Delivery Extension
 
-Next hit up the marketplace and install the (https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) extension. You will need to restart Visual Studio after you do this.
+Next hit up the marketplace and install the [Continuous Delivery](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) extension. You will need to restart Visual Studio after you do this.
 
 ### Visual Studio Team Services
 
-Hopefully you're already using the one product on the planet that can satisfy all of your ALM needs but if you're not, go to (https://www.visualstudio.com/) and then click on the _**"get started for free"**_ button to create your very own instance. Remember, it's free for up to five users and fully functional for those five lucky souls. !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894638452.png)
-
-### Azure Subscription
-
-Hopefully you're also using the fastest growing cloud platform in the universe or you have access to an Azure pass so we have somewhere to host all of the Bot goodness you're going to create. Have your subscription details in hand because you're going to need them when we set up the deployment pipeline.
-
-## Alright, I have everything I need. Let's do this!!!
-
-First load up Visual Studio and create a new Bot Application with the template we just added. !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894639400.png) Once you have created the bot application, right click on the _**solution**_ and click the _**Configure Continuous Delivery**_ menu item: !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894640092.png) As your code isn't in source control you will get this friendly instruction to do so: !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894640711.png) From here you can simply click on the _**Add this project to source control**_ link and choose whether you want to push the code to VSTS Git (Unlimited private repos!!!) or Github. I was using Github in my hack so I'll assume we used that from here on. After we have pushed we simply click the same _**Configure Continuous Delivery**_ link and we're presented with a dialog to enter our details into: !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894641977.png) You'll need to create a personal access token (PAT) on Github so do that and be sure to grant it the _**repo**_ and _**notifications**_ scopes. !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894642588.png) Finally enter in the details for your VSTS instance and your Azure subscription and then hit OK. Buckle up for the magic... It's in the output window. :-) !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894643018.png) Once this is complete it will actually kick off the build and the deployment automatically but if you want to have a look, open VSTS and delve into the Build and Release sections to see the inner workings of your pipeline. \ The end result is a bot application that is all ready to rock on Azure. Now the team can happily hack away knowing that all of their changes are straight up to a place where they see the results immediately. It's all about feedback loops!!! !(/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894643871.png)
+Hopefully you're already using the one product on the planet that can satisfy all of your ALM needs but if you're not, go to [visualstudio.com](https://www.visualstudio.com/) and then click on the _**"get started for free"**_ button to create your very own instance. Remember, it's free for up to five users and fully functional for those five lucky souls.
+![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894638452.### Azure SubscriptionHopefully you're also using the fastest growing cloud platform in the universe or you have access to an Azure pass so we have somewhere to host all of the Bot goodness you're going to create. Have your subscription details in hand because you're going to need them when we set up the deployment pipeline.## Alright, I have everything I need. Let's do this!!!First load up Visual Studio and create a new Bot Application with the template we just added. ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894639400.png) Once you have created the bot application, right click on the _**solution**_ and click the _**Configure Continuous Delivery**_ menu item: ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894640092.png) As your code isn't in source control you will get this friendly instruction to do so: ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894640711.png) From here you can simply click on the _**Add this project to source control**_ link and choose whether you want to push the code to VSTS Git (Unlimited private repos!!!) or Github. I was using Github in my hack so I'll assume we used that from here on.
+After we have pushed we simply click the same _**Configure Continuous Delivery**_ link and we're presented with a dialog to enter our details into: ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894641977.png) You'll need to create a personal access token (PAT) on Github so do that and be sure to grant it the _**repo**_ and _**notifications**_ scopes. ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894642588.png) Finally enter in the details for your VSTS instance and your Azure subscription and then hit OK. Buckle up for the magic... It's in the output window. :-) ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894643018.png) Once this is complete it will actually kick off the build and the deployment automatically but if you want to have a look, open VSTS and delve into the Build and Release sections to see the inner workings of your pipeline. \ The end result is a bot application that is all ready to rock on Azure.
+Now the team can happily hack away knowing that all of their changes are straight up to a place where they see the results immediately. It's all about feedback loops!!! ![Rubdevopsonyourbots Configuring Continuous Delivery For Your Bot Applications](/images/blog/rubdevopsonyourbots-configuring-continuous-delivery-for-your-bot-applications-1758894643871.
 
 # Happy hacking!!!

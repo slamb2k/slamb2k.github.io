@@ -1,13 +1,14 @@
 ---
-title: "Things I Learned Today #3 - Moving Azure boxes to a new virtual network"
-date: "2015-07-17"
-excerpt: ""
-tags: ["Uncategorized"]
+title: 'Things I Learned Today #3 - Moving Azure boxes to a new virtual network'
+date: '2015-07-17'
+excerpt: ''
+tags: ['Uncategorized']
 readingTime: 1
 legacy: true
-originalUrl: "https://simonlambcodesblog.wordpress.com/2015/07/17/things-i-learned-today-3-moving-azure-boxes-to-a-new-virtual-network/"
+originalUrl: 'https://simonlambcodesblog.wordpress.com/2015/07/17/things-i-learned-today-3-moving-azure-boxes-to-a-new-virtual-network/'
 ---
 
 # Things I Learned Today #3 - Moving Azure boxes to a new virtual network
 
-While playing around with Power BI in the cloud I ran into some difficulties with authenticating with on-premise SQL Server Analysis Services. I found a great post showing how to get around this for a demo but it first involved connecting my box running the cube to an existing AD. To do this I had to get my existing VM on another virtual network. Apparently this isn't just setting some magic configuration setting but it can be pulled off with a simple lift and shift operation. This (http://blogs.technet.com/b/canitpro/archive/2014/06/17/step-by-step-move-a-vm-to-a-different-vnet-on-azure.aspx) shows you how to make it happen... Next I'll post the details of how to trick AD into playing nice with Power BI.
+While playing around with Power BI in the cloud I ran into some difficulties with authenticating with on-premise SQL Server Analysis Services. I found a great post showing how to get around this for a demo but it first involved connecting my box running the cube to an existing AD. To do this I had to get my existing VM on another virtual network.
+Apparently this isn't just setting some magic configuration setting but it can be pulled off with a simple lift and shift operation. This [TechNet article](http://blogs.technet.com/b/canitpro/archive/2014/06/17/step-by-step-move-a-vm-to-a-different-vnet-on-azure.aspx) shows you how to make it happen... Next I'll post the details of how to trick AD into playing nice with Power BI.

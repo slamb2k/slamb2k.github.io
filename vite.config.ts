@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => ({
       enforce: 'pre' as const,
       ...mdx({
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+        providerImportSource: '@mdx-js/react',
       }),
     },
     react(),
