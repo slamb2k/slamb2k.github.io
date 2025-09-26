@@ -7,15 +7,15 @@
 
 @theme {
   /* Override default Tailwind slate colors for better contrast */
-  --color-slate-100: oklch(0.95 0.01 230);
-  --color-slate-200: oklch(0.85 0.01 230);
-  --color-slate-300: oklch(0.7 0.015 230);
-  --color-slate-400: oklch(0.6 0.02 230);
-  --color-slate-500: oklch(0.5 0.02 230);
-  --color-slate-600: oklch(0.4 0.02 230);
-  --color-slate-700: oklch(0.85 0.01 230);
-  --color-slate-800: oklch(0.9 0.01 230);
-  --color-slate-900: oklch(0.95 0.01 230);
+  --color-slate-100: rgb(242, 242, 244);
+  --color-slate-200: rgb(217, 217, 224);
+  --color-slate-300: rgb(179, 179, 194);
+  --color-slate-400: rgb(153, 153, 170);
+  --color-slate-500: rgb(128, 128, 148);
+  --color-slate-600: rgb(102, 102, 126);
+  --color-slate-700: rgb(217, 217, 224);
+  --color-slate-800: rgb(230, 230, 235);
+  --color-slate-900: rgb(242, 242, 244);
 }
 
 body {
@@ -83,90 +83,90 @@ body {
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  --background: oklch(0.2178 0 0);
-  --foreground: oklch(0.85 0.01 230);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.85 0.01 230);
-  --primary-foreground: oklch(0.15 0.025 230);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: rgb(55, 55, 55);
+  --foreground: rgb(217, 217, 224);
+  --card: rgb(255, 255, 255);
+  --card-foreground: rgb(37, 37, 37);
+  --popover: rgb(255, 255, 255);
+  --popover-foreground: rgb(37, 37, 37);
+  --primary: rgb(217, 217, 224);
+  --primary-foreground: rgb(38, 38, 51);
+  --secondary: rgb(247, 247, 247);
+  --secondary-foreground: rgb(52, 52, 52);
+  --muted: rgb(247, 247, 247);
+  --muted-foreground: rgb(142, 142, 142);
+  --accent: rgb(247, 247, 247);
+  --accent-foreground: rgb(52, 52, 52);
+  --destructive: rgb(206, 88, 55);
+  --border: rgb(235, 235, 235);
+  --input: rgb(235, 235, 235);
+  --ring: rgb(180, 180, 180);
+  --chart-1: rgb(204, 134, 70);
+  --chart-2: rgb(100, 149, 185);
+  --chart-3: rgb(64, 91, 148);
+  --chart-4: rgb(234, 196, 53);
+  --chart-5: rgb(215, 180, 55);
+  --sidebar: rgb(251, 251, 251);
+  --sidebar-foreground: rgb(37, 37, 37);
+  --sidebar-primary: rgb(52, 52, 52);
+  --sidebar-primary-foreground: rgb(251, 251, 251);
+  --sidebar-accent: rgb(247, 247, 247);
+  --sidebar-accent-foreground: rgb(52, 52, 52);
+  --sidebar-border: rgb(235, 235, 235);
+  --sidebar-ring: rgb(180, 180, 180);
 }
 
 .dark {
-  /* Dark Theme - Core backgrounds */
-  --background: oklch(0.15 0.025 230); /* Dark with subtle blue tint */
-  --background-elevated: oklch(0.18 0.025 230); /* Slightly elevated surfaces */
-  --background-accent: oklch(0.21 0.025 230); /* Hover states */
+  /* Dark Theme - Core backgrounds with RGB fallbacks */
+  --background: rgb(26, 30, 40);
+  --background-elevated: rgb(32, 36, 46);
+  --background-accent: rgb(38, 42, 52);
 
-  /* Text hierarchy */
-  --foreground: oklch(0.95 0.01 230); /* Almost white with blue tint */
-  --foreground-secondary: oklch(0.9 0.01 230); /* Muted blue-gray */
-  --foreground-tertiary: oklch(0.85 0.01 230); /* Subtle metadata */
+  /* Text hierarchy with RGB fallbacks */
+  --foreground: rgb(242, 242, 244);
+  --foreground-secondary: rgb(230, 230, 235);
+  --foreground-tertiary: rgb(217, 217, 224);
 
-  /* Card and popover */
-  --card: oklch(0.15 0.025 230); /* Elevated surface */
-  --card-foreground: oklch(0.95 0.01 230);
-  --popover: oklch(0.15 0.025 230 / 95%);
-  --popover-foreground: oklch(0.95 0.01 230);
+  /* Card and popover with RGB fallbacks */
+  --card: rgb(26, 30, 40);
+  --card-foreground: rgb(242, 242, 244);
+  --popover: rgba(26, 30, 40, 0.95);
+  --popover-foreground: rgb(242, 242, 244);
 
-  /* Accent colors */
-  --primary: oklch(0.82 0.18 165); /* Brighter cyan-teal for better contrast */
-  --primary-foreground: oklch(0.12 0.02 230);
-  --secondary: oklch(0.78 0.15 280); /* Brighter violet for improved visibility */
-  --secondary-foreground: oklch(0.95 0.01 230);
-  --accent: oklch(0.8 0.12 145); /* Brighter emerald for better readability */
-  --accent-foreground: oklch(0.12 0.02 230);
+  /* Accent colors with RGB fallbacks */
+  --primary: rgb(125, 211, 252); /* Bright cyan */
+  --primary-foreground: rgb(20, 24, 35);
+  --secondary: rgb(167, 139, 250); /* Bright violet */
+  --secondary-foreground: rgb(242, 242, 244);
+  --accent: rgb(134, 239, 172); /* Bright emerald */
+  --accent-foreground: rgb(20, 24, 35);
 
-  /* Muted states */
-  --muted: oklch(0.18 0.03 230);
-  --muted-foreground: oklch(0.75 0.02 230);
+  /* Muted states with RGB fallbacks */
+  --muted: rgb(32, 36, 48);
+  --muted-foreground: rgb(191, 191, 204);
 
-  /* Semantic colors */
-  --destructive: oklch(0.65 0.25 15); /* Sophisticated red */
-  --border: oklch(0.25 0.02 230 / 20%); /* Very subtle borders */
-  --input: oklch(0.25 0.02 230 / 30%);
-  --ring: oklch(0.72 0.18 165 / 50%); /* Cyan focus ring */
+  /* Semantic colors with RGB fallbacks */
+  --destructive: rgb(239, 68, 68);
+  --border: rgba(64, 68, 82, 0.2);
+  --input: rgba(64, 68, 82, 0.3);
+  --ring: rgba(125, 211, 252, 0.5);
 
-  /* Chart colors */
-  --chart-1: oklch(0.72 0.18 165); /* Cyan */
-  --chart-2: oklch(0.65 0.15 280); /* Violet */
-  --chart-3: oklch(0.7 0.12 145); /* Emerald */
-  --chart-4: oklch(0.75 0.14 95); /* Gold */
-  --chart-5: oklch(0.68 0.16 320); /* Magenta */
+  /* Chart colors with RGB fallbacks */
+  --chart-1: rgb(125, 211, 252);
+  --chart-2: rgb(167, 139, 250);
+  --chart-3: rgb(134, 239, 172);
+  --chart-4: rgb(251, 191, 36);
+  --chart-5: rgb(236, 72, 153);
 
-  /* Sidebar specific */
-  --sidebar: oklch(0.18 0 0); /* Dark grey sidebar */
-  --sidebar-foreground: oklch(0.95 0.01 230);
-  --sidebar-primary: oklch(0.72 0.18 165);
-  --sidebar-primary-foreground: oklch(0.15 0.025 230);
-  --sidebar-accent: oklch(0.22 0 0); /* Grey accent for hover */
-  --sidebar-accent-foreground: oklch(0.95 0.01 230);
-  --sidebar-border: oklch(0.25 0.02 230 / 15%);
-  --sidebar-ring: oklch(0.72 0.18 165 / 50%);
+  /* Sidebar specific with RGB fallbacks */
+  --sidebar: rgb(32, 32, 32);
+  --sidebar-foreground: rgb(242, 242, 244);
+  --sidebar-primary: rgb(125, 211, 252);
+  --sidebar-primary-foreground: rgb(26, 30, 40);
+  --sidebar-accent: rgb(40, 40, 40);
+  --sidebar-accent-foreground: rgb(242, 242, 244);
+  --sidebar-border: rgba(64, 68, 82, 0.15);
+  --sidebar-ring: rgba(125, 211, 252, 0.5);
 }
 
 @layer base {
@@ -187,154 +187,154 @@ body {
 }
 
 @layer utilities {
-  /* Dark theme backgrounds */
+  /* Dark theme backgrounds with RGB fallbacks */
   .bg-midnight {
-    background-color: oklch(0.16 0.02 230);
+    background-color: rgb(32, 36, 48);
   }
   .bg-midnight-elevated {
-    background-color: oklch(0.18 0.025 230);
+    background-color: rgb(38, 42, 52);
   }
   .bg-midnight-accent {
-    background-color: oklch(0.21 0.025 230);
+    background-color: rgb(44, 48, 58);
   }
 
   /* Glass morphism effect */
   .glass {
-    background: oklch(0.15 0.025 230 / 80%);
+    background: rgba(26, 30, 40, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
-  /* Text colors - Blue-tinted theme */
+  /* Text colors with RGB fallbacks - High contrast */
   .text-primary {
-    color: oklch(0.92 0.01 230);
+    color: rgb(255, 255, 255);
   }
   .text-secondary {
-    color: oklch(0.88 0.01 230);
+    color: rgb(245, 245, 245);
   }
   .text-tertiary {
-    color: oklch(0.85 0.01 230);
+    color: rgb(235, 235, 235);
   }
 
-  /* Text slate colors - Blue-tinted for dark theme */
+  /* Text slate colors with RGB fallbacks - High contrast */
   .text-slate-100 {
-    color: oklch(0.98 0.005 230);
+    color: rgb(255, 255, 255);
   }
   .text-slate-200 {
-    color: oklch(0.95 0.008 230);
+    color: rgb(250, 250, 250);
   }
   .text-slate-300 {
-    color: oklch(0.92 0.01 230);
+    color: rgb(245, 245, 245);
   }
   .text-slate-400 {
-    color: oklch(0.88 0.01 230);
+    color: rgb(235, 235, 235);
   }
   .text-slate-500 {
-    color: oklch(0.82 0.01 230);
+    color: rgb(225, 225, 225);
   }
   .text-slate-600 {
-    color: oklch(0.75 0.015 230);
+    color: rgb(215, 215, 215);
   }
 
   /* Red colors for dark theme */
   .text-red-400 {
-    color: oklch(0.65 0.25 25);
+    color: rgb(248, 113, 113);
   }
   .text-red-500 {
-    color: oklch(0.6 0.25 25);
+    color: rgb(239, 68, 68);
   }
 
   /* Background slate colors for dark theme */
   .bg-slate-800 {
-    background-color: oklch(0.2 0.02 230);
+    background-color: rgb(38, 42, 52);
   }
   .bg-slate-800\/50 {
-    background-color: oklch(0.2 0.02 230 / 0.5);
+    background-color: rgba(38, 42, 52, 0.5);
   }
   .bg-slate-900 {
-    background-color: oklch(0.16 0.025 230);
+    background-color: rgb(32, 36, 48);
   }
   .bg-slate-900\/30 {
-    background-color: oklch(0.16 0.025 230 / 0.3);
+    background-color: rgba(32, 36, 48, 0.3);
   }
   .bg-slate-900\/50 {
-    background-color: oklch(0.16 0.025 230 / 0.5);
+    background-color: rgba(32, 36, 48, 0.5);
   }
   .bg-slate-900\/95 {
-    background-color: oklch(0.16 0.025 230 / 0.95);
+    background-color: rgba(32, 36, 48, 0.95);
   }
 
   /* Border slate colors */
   .border-slate-700 {
-    border-color: oklch(0.25 0.02 230 / 30%);
+    border-color: rgba(64, 68, 82, 0.3);
   }
   .border-slate-800 {
-    border-color: oklch(0.25 0.02 230 / 20%);
+    border-color: rgba(64, 68, 82, 0.2);
   }
 
   /* Hover states */
   .hover\:text-slate-300:hover {
-    color: oklch(0.9 0.01 230);
+    color: rgb(230, 230, 235);
   }
   .hover\:text-slate-400:hover {
-    color: oklch(0.85 0.015 230);
+    color: rgb(217, 217, 224);
   }
   .hover\:bg-slate-700:hover {
-    background-color: oklch(0.25 0.02 230);
+    background-color: rgb(51, 55, 67);
   }
   .hover\:bg-slate-800:hover {
-    background-color: oklch(0.2 0.02 230);
+    background-color: rgb(38, 42, 52);
   }
   .hover\:bg-slate-800\/50:hover {
-    background-color: oklch(0.2 0.02 230 / 0.5);
+    background-color: rgba(38, 42, 52, 0.5);
   }
   .hover\:border-slate-600:hover {
-    border-color: oklch(0.25 0.02 230 / 40%);
+    border-color: rgba(64, 68, 82, 0.4);
   }
   .hover\:border-slate-700:hover {
-    border-color: oklch(0.25 0.02 230 / 30%);
+    border-color: rgba(64, 68, 82, 0.3);
   }
 
-  /* Accent colors - Adjusted for better contrast */
+  /* Accent colors with RGB fallbacks */
   .text-cyan {
-    color: oklch(0.82 0.18 165); /* Brighter cyan for better visibility */
+    color: rgb(125, 211, 252);
   }
   .text-violet {
-    color: oklch(0.78 0.15 280); /* Brighter violet for better contrast */
+    color: rgb(167, 139, 250);
   }
   .text-emerald {
-    color: oklch(0.8 0.12 145); /* Brighter emerald for better readability */
+    color: rgb(134, 239, 172);
   }
 
   /* Gradient utilities */
   .gradient-cyan {
-    background: linear-gradient(135deg, oklch(0.82 0.18 165), oklch(0.75 0.15 180));
+    background: linear-gradient(135deg, rgb(125, 211, 252), rgb(100, 200, 245));
   }
   .gradient-violet {
-    background: linear-gradient(135deg, oklch(0.78 0.15 280), oklch(0.7 0.12 290));
+    background: linear-gradient(135deg, rgb(167, 139, 250), rgb(147, 119, 240));
   }
   .gradient-border {
-    background: linear-gradient(135deg, oklch(0.82 0.18 165), oklch(0.78 0.15 280));
+    background: linear-gradient(135deg, rgb(125, 211, 252), rgb(167, 139, 250));
   }
 
   /* Shadow utilities */
   .shadow-glow {
-    box-shadow: 0 0 20px oklch(0.82 0.18 165 / 10%);
+    box-shadow: 0 0 20px rgba(125, 211, 252, 0.1);
   }
   .shadow-elevation-1 {
     box-shadow:
-      0 1px 3px oklch(0 0 0 / 20%),
-      0 1px 2px oklch(0 0 0 / 10%);
+      0 1px 3px rgba(0, 0, 0, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.1);
   }
   .shadow-elevation-2 {
     box-shadow:
-      0 4px 6px oklch(0 0 0 / 15%),
-      0 2px 4px oklch(0 0 0 / 10%);
+      0 4px 6px rgba(0, 0, 0, 0.15),
+      0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .shadow-elevation-3 {
     box-shadow:
-      0 10px 25px oklch(0 0 0 / 20%),
-      0 6px 10px oklch(0 0 0 / 10%);
+      0 10px 25px rgba(0, 0, 0, 0.2),
+      0 6px 10px rgba(0, 0, 0, 0.1);
   }
 
   /* Animation utilities */
@@ -358,8 +358,8 @@ body {
   /* Featured card styles */
   .featured-glow {
     box-shadow:
-      0 0 40px oklch(0.72 0.18 165 / 15%),
-      0 10px 25px oklch(0 0 0 / 20%);
+      0 0 40px rgba(125, 211, 252, 0.15),
+      0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
   /* Fluid typography */
