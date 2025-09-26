@@ -30,15 +30,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to="/blog" replace />,
+      },
+      {
+        path: 'about',
         element: (
           <Suspense fallback={<PageLoader />}>
             <AboutPage />
           </Suspense>
         ),
-      },
-      {
-        path: 'about',
-        element: <Navigate to="/" replace />,
       },
       {
         path: 'experience',

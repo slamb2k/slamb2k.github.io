@@ -1,6 +1,7 @@
 {
   "nav": {
     "about": "Acerca de",
+    "aboutMe": "Acerca de Mí",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "blog": "Blog",
@@ -14,10 +15,11 @@
     "title": "Hola, soy {{name}}.",
     "subtitle": "",
     "tagline": "Plataformas GenAI, gateways de comercio electrónico o dispensación de medicamentos integrada: las he enviado y operado todas y más. Ya sea nativo en la nube o migración a la nube, siempre lidero con una mentalidad DevOps. Los sistemas fallan. Los ganadores aprenden más rápido. Comprimo los ciclos de retroalimentación, reduzco el tiempo de entrega y reduzco el MTTR, sin ralentizar la entrega.",
-    "heading": "Acerca de",
+    "heading": "Acerca de Mí",
     "paragraph1": "Diseño sistemas de IA de producción a escala. En Microsoft Azure Core, construí plataformas que analizan millones de líneas de código usando LLMs para identificar riesgos de seguridad y problemas de gobernanza antes del despliegue.",
     "paragraph2": "Mi experiencia abarca toda la pila de IA: Azure OpenAI, pipelines RAG, LLMOps/MLOps, optimización de tokens y sistemas de evaluación con humano en el bucle. Aporto más de 15 años de liderazgo DevOps y prácticas SRE para garantizar que estos sistemas ofrezcan confiabilidad de grado clínico.",
-    "paragraph3": "Abierto a roles de Ingeniero Principal donde pueda aplicar ingeniería de plataforma de IA y liderazgo DevOps para generar impacto a escala."
+    "paragraph3": "Abierto a roles de Ingeniero Principal donde pueda aplicar ingeniería de plataforma de IA y liderazgo DevOps para generar impacto a escala. ¿Interesado en discutir oportunidades? ¡Conectemos!",
+    "paragraph4": "Más allá del código, soy padre de dos hijas increíbles que entienden la importancia de no \"hacer clic derecho para publicar\". También soy cantante y baterista en una banda con otros Microsofties llamada \"No Pilots\"—porque ¿quién necesita un Copilot cuando tienes DevOps?"
   },
   "experience": {
     "title": "Experiencia",

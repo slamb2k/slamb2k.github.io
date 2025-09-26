@@ -1,27 +1,108 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { portfolioData } from '@/data/portfolio';
 import LazySection from '@/components/ui/LazySection';
 
 // Memoized paragraph component
-const AboutParagraph: React.FC<{ content: string; className?: string }> = React.memo(
-  ({ content, className = '' }) => {
-    if (content.includes('Upstatement')) {
+const AboutParagraph: React.FC<{
+  content: string;
+  className?: string;
+  isLast?: boolean;
+  isPersonal?: boolean;
+}> = React.memo(({ content, className = '', isLast = false, isPersonal = false }) => {
+  if (content.includes('Upstatement')) {
+    return (
+      <p className={className}>
+        {content.split('Upstatement').map((part, i, arr) => (
+          <React.Fragment key={i}>
+            {part}
+            {i < arr.length - 1 && <span className="text-accent font-medium">Upstatement</span>}
+          </React.Fragment>
+        ))}
+      </p>
+    );
+  }
+
+  // Handle the last paragraph with contact link
+  if (isLast) {
+    // Check for different language versions of the contact text
+    const contactPhrases = ["Let's connect!", '¡Conectemos!', 'Connectons-nous!'];
+    const foundPhrase = contactPhrases.find(phrase => content.includes(phrase));
+
+    if (foundPhrase) {
+      const parts = content.split(foundPhrase);
       return (
         <p className={className}>
-          {content.split('Upstatement').map((part, i, arr) => (
-            <React.Fragment key={i}>
-              {part}
-              {i < arr.length - 1 && <span className="text-accent font-medium">Upstatement</span>}
-            </React.Fragment>
-          ))}
+          {parts[0]}
+          <Link
+            to="/contact"
+            className="text-teal-400 hover:text-teal-300 font-semibold underline decoration-2 underline-offset-2 transition-colors"
+          >
+            {foundPhrase}
+          </Link>
         </p>
       );
     }
-    return <p className={className}>{content}</p>;
   }
-);
+
+  // Handle personal paragraph with highlighted phrases
+  if (isPersonal) {
+    // Simple approach: manually parse the known structure
+    const parts = [];
+    let remaining = content;
+
+    // Find and replace "right clicking to publish"
+    const rightClickIndex = remaining.indexOf('"right clicking to publish"');
+    if (rightClickIndex !== -1) {
+      // Add everything before
+      parts.push(remaining.substring(0, rightClickIndex));
+      // Add the highlighted phrase with quotes
+      parts.push('"');
+      parts.push(
+        <span key="right-click" className="text-purple-400 font-medium">
+          right clicking to publish
+        </span>
+      );
+      parts.push('"');
+      // Check if there's a period after
+      const afterPhrase = rightClickIndex + '"right clicking to publish"'.length;
+      if (remaining[afterPhrase] === '.') {
+        parts.push('.');
+        remaining = remaining.substring(afterPhrase + 1);
+      } else {
+        remaining = remaining.substring(afterPhrase);
+      }
+    }
+
+    // Find and replace "No Pilots"
+    const noPilotsIndex = remaining.indexOf('"No Pilots"');
+    if (noPilotsIndex !== -1) {
+      // Add everything before
+      parts.push(remaining.substring(0, noPilotsIndex));
+      // Add the highlighted phrase with quotes
+      parts.push('"');
+      parts.push(
+        <span key="no-pilots" className="text-purple-400 font-medium">
+          No Pilots
+        </span>
+      );
+      parts.push('"');
+      // Update remaining text
+      remaining = remaining.substring(noPilotsIndex + '"No Pilots"'.length);
+    }
+
+    // Add any remaining text
+    if (remaining) {
+      parts.push(remaining);
+    }
+
+    return <p className={className}>{parts.length > 0 ? parts : content}</p>;
+  }
+
+  return <p className={className}>{content}</p>;
+});
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation();
@@ -61,6 +142,26 @@ const AboutPage: React.FC = () => {
         title: 'DevOps Workshop Speaker',
         description: 'Empowering teams with hands-on DevOps training',
       },
+      {
+        src: '/devops-bootcamp.png',
+        alt: 'Daughters wearing DevOps Bootcamp shirts explaining Deploy or Die',
+        title: 'DevOps Bootcamp - Next Generation',
+        description: 'My daughters explaining the risks of "right clicking to publish"',
+      },
+      {
+        src: '/devops-lambdog.jpg',
+        alt: 'DevOps t-shirt with LambDog wordplay',
+        title: 'DevOps Recognition',
+        description:
+          'My partner recognising the importance of DevOps - where coding meets chaos management',
+      },
+      {
+        src: '/no-pilots.jpg',
+        alt: 'No Pilots band photo with Microsoft colleagues',
+        title: 'No Pilots Band',
+        description:
+          "Rocking out with fellow Microsofties - because who needs a Copilot when you've got DevOps!",
+      },
     ],
     []
   );
@@ -75,7 +176,12 @@ const AboutPage: React.FC = () => {
 
   // Memoize paragraphs to prevent unnecessary re-renders
   const aboutParagraphs = React.useMemo(
-    () => [t('about.paragraph1'), t('about.paragraph2'), t('about.paragraph3')],
+    () => [
+      t('about.paragraph1'),
+      t('about.paragraph2'),
+      t('about.paragraph3'),
+      t('about.paragraph4'),
+    ],
     [t]
   );
 
@@ -95,22 +201,26 @@ const AboutPage: React.FC = () => {
       >
         <div className="relative aspect-square">
           <AnimatePresence mode="wait">
-            <motion.picture key={currentImageIndex}>
-              <source
-                srcSet={heroImages[currentImageIndex].src.replace('.jpg', '.webp')}
-                type="image/webp"
-              />
-              <motion.img
-                src={heroImages[currentImageIndex].src}
-                alt={heroImages[currentImageIndex].alt}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
-              />
-            </motion.picture>
+            <motion.img
+              key={currentImageIndex}
+              src={heroImages[currentImageIndex].src}
+              alt={heroImages[currentImageIndex].alt}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`absolute inset-0 w-full h-full ${
+                heroImages[currentImageIndex].src.includes('no-pilots')
+                  ? 'object-contain bg-black object-bottom'
+                  : 'object-cover'
+              }`}
+              style={
+                heroImages[currentImageIndex].src.includes('no-pilots')
+                  ? { transform: 'scale(1.08)', transformOrigin: 'center bottom' }
+                  : {}
+              }
+              loading={currentImageIndex === 0 ? 'eager' : 'lazy'}
+            />
           </AnimatePresence>
 
           {/* Gradient overlay and text - visible by default, hidden on hover */}
@@ -150,7 +260,7 @@ const AboutPage: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="mb-24"
+        className="mb-12"
       >
         <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-teal-300 to-accent bg-clip-text text-transparent mb-2 leading-tight pb-2">
           {t('about.title', { name: portfolioData.personal.name })}
@@ -161,7 +271,7 @@ const AboutPage: React.FC = () => {
         <p className="text-lg text-neutral-500 max-w-4xl">{t('about.tagline')}</p>
       </motion.section>
 
-      {/* About Section - Lazy loaded */}
+      {/* About Me Section - Lazy loaded */}
       <LazySection
         fallback={
           <div className="mb-24">
@@ -179,13 +289,31 @@ const AboutPage: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-24"
+          className="mb-12"
         >
-          <h2 className="text-2xl font-bold text-white mb-6">{t('about.heading')}</h2>
-          <div className="space-y-4 text-slate-400 leading-relaxed">
-            {aboutParagraphs.map((paragraph, index) => (
-              <AboutParagraph key={index} content={paragraph} />
-            ))}
+          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6">{t('about.heading')}</h2>
+          <div className="space-y-4 text-neutral-500 leading-relaxed">
+            {aboutParagraphs.map((paragraph, index) => {
+              let className = '';
+              if (index === 2) {
+                // Call to action paragraph
+                className =
+                  'text-lg font-medium text-white bg-gradient-to-r from-teal-500/10 to-purple-500/10 p-4 rounded-lg border border-teal-500/20';
+              } else if (index === 3) {
+                // Personal paragraph
+                className = 'text-base italic mt-6 pt-6 border-t border-slate-800';
+              }
+
+              return (
+                <AboutParagraph
+                  key={index}
+                  content={paragraph}
+                  className={className}
+                  isLast={index === 2}
+                  isPersonal={index === 3}
+                />
+              );
+            })}
           </div>
         </motion.section>
       </LazySection>

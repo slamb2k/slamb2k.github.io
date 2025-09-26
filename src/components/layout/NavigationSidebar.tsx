@@ -18,8 +18,8 @@ const NavigationSidebar: React.FC = () => {
   const navigationRef = React.useRef<HTMLElement>(null);
 
   // Get current active section from URL path
-  const currentPath = location.pathname === '/' ? '/about' : location.pathname;
-  const activeSection = currentPath.replace('/', '') || 'about';
+  const currentPath = location.pathname === '/' ? '/blog' : location.pathname;
+  const activeSection = currentPath.replace('/', '') || 'blog';
 
   React.useEffect(() => {
     if (isInitialLoad && activeSection) {
@@ -35,11 +35,11 @@ const NavigationSidebar: React.FC = () => {
   }, [activeSection, previousActiveSection, isInitialLoad]);
 
   const navigationItems = [
-    { id: 'about', label: t('nav.about') },
+    { id: 'blog', label: t('nav.blog') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
-    { id: 'blog', label: t('nav.blog') },
     { id: 'contact', label: t('nav.contact') },
+    { id: 'about', label: t('nav.aboutMe') },
   ];
 
   const socialIcons = {
@@ -98,7 +98,7 @@ const NavigationSidebar: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Link to="/about" className="block">
+          <Link to="/blog" className="block">
             <div className="text-fluid-3xl font-bold text-white mb-2 hover:text-accent transition-colors duration-300">
               {portfolioData.personal.name}
             </div>
@@ -119,7 +119,7 @@ const NavigationSidebar: React.FC = () => {
         >
           {navigationItems.map((item, index) => {
             const isActive = activeSection === item.id;
-            const routePath = item.id === 'about' ? '/' : `/${item.id}`;
+            const routePath = `/${item.id}`;
 
             return (
               <motion.div
@@ -157,7 +157,37 @@ const NavigationSidebar: React.FC = () => {
                     )}
                   </div>
                   <div className="text-fluid-sm font-medium tracking-widest uppercase overflow-hidden flex items-center justify-between flex-1">
-                    <div className="flex">
+                    <div className="flex items-center">
+                      {/* Custom vomiting icon for Blog */}
+                      {item.id === 'blog' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 512 512"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          <path
+                            d="M256 40C134.4 40 36 138.4 36 260C36 381.6 134.4 480 256 480C377.6 480 476 381.6 476 260C476 138.4 377.6 40 256 40ZM256 60C366.5 60 456 149.5 456 260C456 370.5 366.5 460 256 460C145.5 460 56 370.5 56 260C56 149.5 145.5 60 256 60Z"
+                            fill="currentColor"
+                          />
+                          <path d="M210 125L140 155C180 170 210 125 210 125Z" fill="currentColor" />
+                          <path d="M302 125L372 155C332 170 302 125 302 125Z" fill="currentColor" />
+                          <path d="M150 195L225 235L150 265Z" fill="currentColor" />
+                          <path d="M362 195L287 235L362 265Z" fill="currentColor" />
+                          <path
+                            d="M256 280C210 280 171 319 171 365C171 385 180 400 195 410V420H195V470C135 460 120 440 120 440C110 450 110 460 120 470C130 480 256 500 390 470C400 460 400 450 390 440C390 440 375 460 320 470V420V410C335 400 344 385 344 365C344 319 305 280 256 280ZM256 300C295 300 324 329 324 365V345H196V345V365C196 329 217 300 256 300Z"
+                            fill="currentColor"
+                          />
+                          <circle cx="247" cy="375" r="10" fill="currentColor" />
+                          <circle cx="290" cy="405" r="15" fill="currentColor" />
+                          <circle cx="216" cy="395" r="5" fill="currentColor" />
+                          <circle cx="237" cy="435" r="8" fill="currentColor" />
+                          <circle cx="80" cy="420" r="12" fill="currentColor" />
+                          <circle cx="440" cy="420" r="12" fill="currentColor" />
+                        </svg>
+                      )}
                       {item.label.split('').map((letter, letterIndex) => {
                         const isCurrentlyActive = isActive;
                         const isHovered = hoveredSection === item.id;
@@ -196,9 +226,11 @@ const NavigationSidebar: React.FC = () => {
                             style={{
                               transformOrigin: 'center center',
                               transformStyle: 'preserve-3d',
+                              // Preserve spaces in display
+                              whiteSpace: letter === ' ' ? 'pre' : 'normal',
                             }}
                           >
-                            {letter}
+                            {letter === ' ' ? '\u00A0' : letter}
                           </motion.span>
                         );
                       })}
