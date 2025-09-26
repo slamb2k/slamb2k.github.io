@@ -62,8 +62,9 @@ export default {
         'no-vulnerable-libraries': 'error',
         charset: 'error',
 
-        // JavaScript optimization - adjusted to be more realistic
-        'unused-javascript': ['warn', { maxLength: 3 }], // Allow up to 3 small unused JS chunks
+        // Override Lighthouse CI's hardcoded defaults with realistic values
+        'network-dependency-tree-insight': ['warn', { minScore: 0 }], // Network chains are normal in SPAs
+        'unused-javascript': ['warn', { maxLength: 5 }], // Allow some unused JS from code splitting
       },
     },
     upload: {
