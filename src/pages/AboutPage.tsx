@@ -46,6 +46,27 @@ const AboutPage: React.FC = () => {
       transition={{ duration: 0.6 }}
       className="max-w-6xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
+      {/* Hero Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="mb-12 lg:mb-16 rounded-xl overflow-hidden shadow-2xl relative group"
+      >
+        <img
+          src="/presenting-devops.jpg"
+          alt="Simon Lamb presenting at a DevOps event"
+          className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <p className="text-lg font-semibold">Speaking at Microsoft DevOps OpenHack</p>
+            <p className="text-sm opacity-90 mt-1">Empowering teams with DevOps best practices</p>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
