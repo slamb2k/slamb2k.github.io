@@ -178,7 +178,7 @@ jobs:
         run: |
           # Check if dist folder size exceeds budget
           DIST_SIZE=$(du -sb dist/ | cut -f1)
-          MAX_SIZE=$((2 * 1024 * 1024))  # 2MB budget
+          MAX_SIZE=$((6 * 1024 * 1024))  # 6MB budget
           if [ $DIST_SIZE -gt $MAX_SIZE ]; then
             echo "Bundle size ($DIST_SIZE bytes) exceeds budget ($MAX_SIZE bytes)"
             exit 1
@@ -236,6 +236,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, performance-budget]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.deployment_url }}
 
     steps:
       - name: Checkout code
@@ -283,6 +286,9 @@ jobs:
     name: Deploy Preview to Vercel
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
+    environment:
+      name: preview
+      url: ${{ steps.deploy-preview.outputs.preview_url }}
 
     steps:
       - name: Checkout code

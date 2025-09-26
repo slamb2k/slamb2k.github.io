@@ -1,22 +1,29 @@
 {
   "nav": {
     "about": "À propos",
+    "aboutMe": "À Propos de Moi",
     "experience": "Expérience",
     "projects": "Projets",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "sidebar": {
     "title": "Ingénieur Principal IA/Logiciel | GenAI/RAG, LLMOps, SRE",
     "tagline": "Je construis des plateformes GenAI de production sur Microsoft Azure et apporte un leadership DevOps depuis la base. Spécialisé dans l'ingénierie de plateforme LLM avec une rigueur complète LLMOps/MLOps : CI/CD, pipelines d'évaluation, garde-fous, observabilité et gouvernance des coûts/latence."
   },
+  "blog": {
+    "title": "Blog Technique",
+    "subtitle": "Réflexions sur le DevOps, l'architecture cloud, l'IA et le développement logiciel"
+  },
   "about": {
     "title": "Salut, je suis {{name}}.",
     "subtitle": "",
     "tagline": "Plateformes GenAI, passerelles de commerce électronique ou distribution de médicaments intégrée : j'ai tout livré et opéré, et plus encore. Qu'il s'agisse de cloud natif ou de migration cloud, je dirige toujours avec un état d'esprit DevOps. Les systèmes échouent. Les gagnants apprennent le plus rapidement. Je compresse les boucles de rétroaction, réduis le délai de livraison et diminue le MTTR, sans ralentir la livraison.",
-    "heading": "À propos",
+    "heading": "À Propos de Moi",
     "paragraph1": "Je conçois des systèmes IA de production à grande échelle. Chez Microsoft Azure Core, j'ai construit des plateformes qui analysent des millions de lignes de code en utilisant des LLMs pour identifier les risques de sécurité et les problèmes de gouvernance avant le déploiement.",
     "paragraph2": "Mon expertise couvre toute la pile IA : Azure OpenAI, pipelines RAG, LLMOps/MLOps, optimisation des tokens et systèmes d'évaluation avec humain dans la boucle. J'apporte plus de 15 ans de leadership DevOps et de pratiques SRE pour garantir que ces systèmes offrent une fiabilité de niveau clinique.",
-    "paragraph3": "Ouvert aux rôles d'Ingénieur Principal où je peux appliquer l'ingénierie de plateforme IA et le leadership DevOps pour générer un impact à grande échelle."
+    "paragraph3": "Ouvert aux rôles d'Ingénieur Principal où je peux appliquer l'ingénierie de plateforme IA et le leadership DevOps pour générer un impact à grande échelle. Intéressé à discuter d'opportunités? Connectons-nous!",
+    "paragraph4": "Au-delà du code, je suis père de deux filles extraordinaires qui comprennent l'importance de ne pas \"faire un clic droit pour publier\". Je suis aussi chanteur et batteur dans un groupe avec d'autres Microsofties appelé \"No Pilots\"—parce que qui a besoin d'un Copilot quand on a DevOps?"
   },
   "experience": {
     "title": "Expérience",

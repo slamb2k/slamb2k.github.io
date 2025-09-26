@@ -18,8 +18,8 @@ const NavigationSidebar: React.FC = () => {
   const navigationRef = React.useRef<HTMLElement>(null);
 
   // Get current active section from URL path
-  const currentPath = location.pathname === '/' ? '/about' : location.pathname;
-  const activeSection = currentPath.replace('/', '') || 'about';
+  const currentPath = location.pathname === '/' ? '/blog' : location.pathname;
+  const activeSection = currentPath.replace('/', '') || 'blog';
 
   React.useEffect(() => {
     if (isInitialLoad && activeSection) {
@@ -35,10 +35,11 @@ const NavigationSidebar: React.FC = () => {
   }, [activeSection, previousActiveSection, isInitialLoad]);
 
   const navigationItems = [
-    { id: 'about', label: t('nav.about') },
+    { id: 'blog', label: t('nav.blog') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
     { id: 'contact', label: t('nav.contact') },
+    { id: 'about', label: t('nav.aboutMe') },
   ];
 
   const socialIcons = {
@@ -97,7 +98,7 @@ const NavigationSidebar: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Link to="/about" className="block">
+          <Link to="/blog" className="block">
             <div className="text-fluid-3xl font-bold text-white mb-2 hover:text-accent transition-colors duration-300">
               {portfolioData.personal.name}
             </div>
@@ -118,7 +119,7 @@ const NavigationSidebar: React.FC = () => {
         >
           {navigationItems.map((item, index) => {
             const isActive = activeSection === item.id;
-            const routePath = item.id === 'about' ? '/' : `/${item.id}`;
+            const routePath = `/${item.id}`;
 
             return (
               <motion.div
@@ -156,7 +157,115 @@ const NavigationSidebar: React.FC = () => {
                     )}
                   </div>
                   <div className="text-fluid-sm font-medium tracking-widest uppercase overflow-hidden flex items-center justify-between flex-1">
-                    <div className="flex">
+                    <div className="flex items-center">
+                      {/* Blog icon - podcast/broadcasting */}
+                      {item.id === 'blog' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          {/* Microphone body */}
+                          <path
+                            d="M12 14C13.1 14 14 13.1 14 12V6C14 4.9 13.1 4 12 4C10.9 4 10 4.9 10 6V12C10 13.1 10.9 14 12 14Z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinejoin="round"
+                          />
+                          {/* Stand */}
+                          <path
+                            d="M12 14V20"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                          {/* Sound waves - left */}
+                          <path
+                            d="M7 8C5.5 8 5.5 10 5.5 10C5.5 10 5.5 12 7 12M4 6C2 6 2 10 2 10C2 10 2 14 4 14"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                          {/* Sound waves - right */}
+                          <path
+                            d="M17 8C18.5 8 18.5 10 18.5 10C18.5 10 18.5 12 17 12M20 6C22 6 22 10 22 10C22 10 22 14 20 14"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                      {/* Experience icon - briefcase */}
+                      {item.id === 'experience' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          <rect
+                            x="3"
+                            y="7"
+                            width="18"
+                            height="13"
+                            rx="2"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 12V12.01"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                          <path
+                            d="M3 12H21"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                      )}
+                      {/* Projects icon - folder */}
+                      {item.id === 'projects' && (
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="mr-2 flex-shrink-0"
+                        >
+                          <path
+                            d="M3 7V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H11L9 4H5C3.89543 4 3 4.89543 3 6V7Z"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M7 13L10 16L17 9"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
                       {item.label.split('').map((letter, letterIndex) => {
                         const isCurrentlyActive = isActive;
                         const isHovered = hoveredSection === item.id;
@@ -195,9 +304,11 @@ const NavigationSidebar: React.FC = () => {
                             style={{
                               transformOrigin: 'center center',
                               transformStyle: 'preserve-3d',
+                              // Preserve spaces in display
+                              whiteSpace: letter === ' ' ? 'pre' : 'normal',
                             }}
                           >
-                            {letter}
+                            {letter === ' ' ? '\u00A0' : letter}
                           </motion.span>
                         );
                       })}

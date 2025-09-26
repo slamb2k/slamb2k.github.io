@@ -1,22 +1,29 @@
 {
   "nav": {
     "about": "About",
+    "aboutMe": "About Me",
     "experience": "Experience",
     "projects": "Projects",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "sidebar": {
     "title": "Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE",
     "tagline": "I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from the ground up. Specializing in LLM platform engineering with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines, guardrails, observability, and cost/latency governance."
   },
+  "blog": {
+    "title": "Technical Blog",
+    "subtitle": "Thoughts on DevOps, cloud architecture, AI, and software development"
+  },
   "about": {
     "title": "Hi, I'm {{name}}.",
     "subtitle": "",
     "tagline": "GenAI platforms, e-commerce gateways or integrated drug dispensing—I've shipped and operated them all and more. Whether Cloud-native or cloud-migration, I always lead with a DevOps mindset. Systems fail. Winners learn fastest. I compress feedback loops, cut lead time, and drive MTTR down—without slowing delivery.",
-    "heading": "About",
+    "heading": "About Me",
     "paragraph1": "I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms that analyze millions of lines of code using LLMs to surface security risks and governance issues before deployment.",
     "paragraph2": "My expertise spans the full AI stack: Azure OpenAI, RAG pipelines, LLMOps/MLOps, token optimization, and human-in-the-loop evaluation systems. I bring 15+ years of DevOps leadership and SRE practices to ensure these systems deliver clinical-grade reliability.",
-    "paragraph3": "Open to Principal Engineer roles where I can apply AI platform engineering and DevOps leadership to deliver impact at scale."
+    "paragraph3": "Open to Principal Engineer roles where I can apply AI platform engineering and DevOps leadership to deliver impact at scale. Interested in discussing opportunities? Let's connect!",
+    "paragraph4": "Beyond the code, I'm a father of two amazing daughters who understand the importance of not \"right clicking to publish.\" I'm also a singer and drummer in a band with other Microsofties called the \"No Pilots\"—because who needs a Copilot when you've got DevOps?"
   },
   "experience": {
     "title": "Experience",

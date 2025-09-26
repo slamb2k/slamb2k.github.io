@@ -9,6 +9,8 @@ const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ExperiencePage = lazy(() => import('@/pages/ExperiencePage'));
 const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
 
 // Loading component for Suspense fallback
 const PageLoader = () => {
@@ -28,15 +30,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Navigate to="/blog" replace />,
+      },
+      {
+        path: 'about',
         element: (
           <Suspense fallback={<PageLoader />}>
             <AboutPage />
           </Suspense>
         ),
-      },
-      {
-        path: 'about',
-        element: <Navigate to="/" replace />,
       },
       {
         path: 'experience',
@@ -59,6 +61,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <ContactPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'blog',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <BlogPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'blog/:slug',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <BlogPostPage />
           </Suspense>
         ),
       },
