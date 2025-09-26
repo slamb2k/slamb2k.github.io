@@ -4,13 +4,11 @@ import { Calendar, Clock, ChevronRight, Tag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import LazySection from '@/components/ui/LazySection';
-import type { BlogPost, MDXModule } from '@/types/blog';
-
-// Import all MDX files
-const blogModules = import.meta.glob<MDXModule>('/src/content/blog/*.mdx', { eager: true });
+import { blogMetadata } from '@/data/blog-metadata';
+import type { BlogMetadata } from '@/data/blog-metadata';
 
 // Blog post card component
-const BlogCard: React.FC<{ post: BlogPost; index: number }> = React.memo(({ post, index }) => {
+const BlogCard: React.FC<{ post: BlogMetadata; index: number }> = React.memo(({ post, index }) => {
   const publishDate = new Date(post.date);
   const formattedDate = publishDate.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -48,30 +46,24 @@ const BlogCard: React.FC<{ post: BlogPost; index: number }> = React.memo(({ post
           </div>
 
           {/* Excerpt */}
-          <p className="text-slate-400 line-clamp-3 text-sm leading-relaxed">{post.excerpt}</p>
+          {post.excerpt && <p className="text-slate-400 line-clamp-2">{post.excerpt}</p>}
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
-              {post.tags.slice(0, 3).map((tag: string) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-purple-500/10 text-purple-300 rounded-full border border-purple-500/20"
-                >
-                  <Tag size={10} />
-                  {tag}
-                </span>
+              {post.tags.slice(0, 3).map(tag => (
+                <div key={tag} className="flex items-center gap-1">
+                  <Tag size={12} className="text-purple-400" />
+                  <span className="text-xs text-purple-400/70 uppercase tracking-wider">{tag}</span>
+                </div>
               ))}
             </div>
           )}
 
           {/* Read more indicator */}
-          <div className="flex items-center text-purple-400 text-sm font-medium group-hover:text-purple-300 transition-colors">
-            <span>Read more</span>
-            <ChevronRight
-              size={16}
-              className="ml-1 group-hover:translate-x-1 transition-transform"
-            />
+          <div className="flex items-center gap-1 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-sm">Read more</span>
+            <ChevronRight size={16} />
           </div>
         </div>
       </Link>
@@ -79,24 +71,16 @@ const BlogCard: React.FC<{ post: BlogPost; index: number }> = React.memo(({ post
   );
 });
 
+BlogCard.displayName = 'BlogCard';
+
 const BlogPage: React.FC = () => {
   const { t } = useTranslation();
 
-  // Process MDX modules into blog posts
+  // Sort posts by date (newest first)
   const blogPosts = useMemo(() => {
-    const posts: BlogPost[] = Object.entries(blogModules).map(([path, module]) => {
-      // Extract slug from file path
-      const slug = path.split('/').pop()?.replace('.mdx', '') || '';
-
-      return {
-        slug,
-        ...module.frontmatter,
-        content: module.default,
-      };
-    });
-
-    // Sort posts by date (newest first)
-    return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return [...blogMetadata].sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
   }, []);
 
   // Group posts by year
@@ -118,62 +102,65 @@ const BlogPage: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="max-w-6xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
+      transition={{ duration: 0.8 }}
+      className="max-w-7xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
-      {/* Header */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
+      {/* Page Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-300 to-pink-500 bg-clip-text text-transparent mb-2 leading-tight pb-2">
+        <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4">
           {t('blog.title')}
         </h1>
-        <p className="text-lg text-neutral-500 max-w-2xl">{t('blog.subtitle')}</p>
-      </motion.section>
+        <p className="text-lg text-slate-400">{t('blog.subtitle')}</p>
+      </motion.div>
 
-      {/* Blog posts grouped by year */}
-      {years.map(year => (
-        <LazySection
-          key={year}
-          fallback={
-            <div className="mb-16">
-              <div className="h-8 w-20 bg-slate-800/50 rounded mb-6 animate-pulse" />
-              <div className="space-y-6">
-                {Array.from({ length: 2 }).map((_, i) => (
-                  <div key={i} className="h-48 bg-slate-800/50 rounded-lg animate-pulse" />
+      {/* Posts by Year */}
+      <div className="space-y-16">
+        {years.map(year => (
+          <LazySection key={year}>
+            <div>
+              {/* Year Header */}
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-2xl font-bold text-purple-400 mb-8 flex items-center gap-3"
+              >
+                <span className="w-12 h-px bg-purple-400/30"></span>
+                {year}
+                <span className="text-sm text-slate-500 font-normal">
+                  ({postsByYear[year].length} {postsByYear[year].length === 1 ? 'post' : 'posts'})
+                </span>
+              </motion.h2>
+
+              {/* Posts Grid */}
+              <div className="grid gap-6 lg:grid-cols-2">
+                {postsByYear[year].map((post, index) => (
+                  <BlogCard key={post.slug} post={post} index={index} />
                 ))}
               </div>
             </div>
-          }
-          rootMargin="150px"
-        >
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-300 mb-6 flex items-center">
-              <span className="text-purple-400 mr-2">{year}</span>
-              <span className="text-sm font-normal text-slate-500">
-                ({postsByYear[year].length} {postsByYear[year].length === 1 ? 'post' : 'posts'})
-              </span>
-            </h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              {postsByYear[year].map((post, index) => (
-                <BlogCard key={post.slug} post={post} index={index} />
-              ))}
-            </div>
-          </section>
-        </LazySection>
-      ))}
+          </LazySection>
+        ))}
+      </div>
 
-      {/* Empty state */}
+      {/* Empty State */}
       {blogPosts.length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-slate-400">No blog posts yet. Check back soon!</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center py-16"
+        >
+          <p className="text-lg text-slate-500">{t('blog.noPosts')}</p>
+        </motion.div>
       )}
     </motion.div>
   );
 };
 
-export default React.memo(BlogPage);
+export default BlogPage;
