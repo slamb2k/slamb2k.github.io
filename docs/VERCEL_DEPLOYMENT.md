@@ -1,10 +1,15 @@
 # Vercel Deployment Guide
 
-This portfolio is configured for deployment on Vercel, providing automatic deployments, preview URLs, and global CDN distribution.
+This portfolio is configured for deployment on Vercel through GitHub Actions CI/CD, providing controlled deployments, preview URLs, and global CDN distribution.
 
-## Automatic Deployment
+## CI/CD Deployment
 
-The project is configured to automatically deploy to Vercel when changes are pushed to the main branch.
+Deployments to Vercel are managed through GitHub Actions rather than Vercel's automatic Git integration. This provides:
+
+- Better control over when deployments occur
+- Integration with existing CI/CD pipeline
+- Deployment only after all tests pass
+- Consistent deployment process
 
 ### Configuration Files
 
@@ -23,20 +28,40 @@ The project is configured to automatically deploy to Vercel when changes are pus
 
 ### Initial Setup
 
-1. **Connect to Vercel:**
+1. **Create Vercel Project:**
 
    ```bash
    npm i -g vercel
    vercel
    ```
 
-2. **Link to existing project or create new:**
-
    - Follow the CLI prompts
    - Select the appropriate scope/team
    - Configure project settings
+   - **Important:** When asked about linking to existing Git repo, select "No" (we're using CI/CD instead)
 
-3. **Environment Variables (if needed):**
+2. **Get Vercel Token:**
+
+   - Go to [Vercel Account Settings](https://vercel.com/account/tokens)
+   - Create a new token with appropriate scope
+   - Copy the token value
+
+3. **Add Token to GitHub Secrets:**
+
+   - Go to GitHub repo → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `VERCEL_TOKEN`
+   - Value: Your Vercel token
+
+4. **Get Project and Org IDs:**
+
+   ```bash
+   vercel project ls
+   ```
+
+   Note the project ID and org ID for the `.vercel/project.json` file
+
+5. **Environment Variables (if needed):**
    - Set via Vercel Dashboard → Project Settings → Environment Variables
    - Or use Vercel CLI: `vercel env add`
 
@@ -56,8 +81,9 @@ vercel --prod
 
 ### Preview Deployments
 
-- Every pull request gets a unique preview URL
+- Every pull request gets a unique preview URL via GitHub Actions
 - Preview URLs are automatically posted as PR comments
+- Preview deployments run after PR creation/updates
 - Allows testing changes before merging
 
 ### Performance Optimization
@@ -122,11 +148,33 @@ Force cache refresh by:
 
 ## CI/CD Integration
 
-While deployment is handled by Vercel, GitHub Actions still:
+GitHub Actions handles the complete deployment pipeline:
 
-- Runs tests and linting
-- Performs type checking
-- Checks bundle size
-- Creates build artifacts
+1. **On Pull Request:**
 
-This ensures code quality before automatic deployment to Vercel.
+   - Runs tests and linting
+   - Performs type checking
+   - Checks bundle size
+   - Deploys preview to Vercel
+   - Comments preview URL on PR
+
+2. **On Merge to Main:**
+   - Runs full test suite
+   - Builds production artifacts
+   - Deploys to Vercel production
+   - Comments deployment URL on commit
+
+### GitHub Actions Jobs
+
+- `deploy-vercel`: Production deployment (main branch only)
+- `deploy-vercel-preview`: Preview deployment (PRs only)
+
+### Required GitHub Secrets
+
+- `VERCEL_TOKEN`: Your Vercel authentication token
+- `VERCEL_ORG_ID`: Your Vercel organization ID (if using team)
+- `VERCEL_PROJECT_ID`: Your Vercel project ID
+
+### Disabling Vercel Auto-Deploy
+
+The `vercel.json` includes `"github": { "enabled": false }` to disable Vercel's automatic Git deployments, ensuring deployments only happen through CI/CD.

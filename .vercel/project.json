@@ -1,0 +1,11 @@
+{
+  "projectId": "VERCEL_PROJECT_ID",
+  "orgId": "VERCEL_ORG_ID",
+  "settings": {
+    "buildCommand": "npm run build:prod",
+    "devCommand": "npm run dev",
+    "outputDirectory": "dist",
+    "installCommand": "npm ci",
+    "framework": "vite"
+  }
+}

@@ -65,3 +65,7 @@ desktop.ini
 # Build analysis
 stats.html
 bundle-stats.json
+
+# Vercel
+.vercel/*
+!.vercel/project.json
