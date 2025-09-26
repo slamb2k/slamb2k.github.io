@@ -13,7 +13,7 @@ const AboutParagraph: React.FC<{ content: string; className?: string }> = React.
           {content.split('Upstatement').map((part, i, arr) => (
             <React.Fragment key={i}>
               {part}
-              {i < arr.length - 1 && <span className="text-teal-300 font-medium">Upstatement</span>}
+              {i < arr.length - 1 && <span className="text-accent font-medium">Upstatement</span>}
             </React.Fragment>
           ))}
         </p>
@@ -113,12 +113,13 @@ const AboutPage: React.FC = () => {
             </motion.picture>
           </AnimatePresence>
 
-          {/* Dark overlay on hover for better text readability */}
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Gradient overlay and text - visible by default, hidden on hover */}
+          <div className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0">
+            {/* Gradient overlay at the top for text readability */}
+            <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-black/95 via-black/70 to-transparent" />
 
-          {/* Image overlay with description */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            {/* Text at the top */}
+            <div className="absolute top-0 left-0 right-0 p-6 text-white">
               <p className="text-lg font-semibold drop-shadow-lg">
                 {heroImages[currentImageIndex].title}
               </p>
@@ -151,10 +152,10 @@ const AboutPage: React.FC = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mb-24"
       >
-        <h1 className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
+        <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-teal-300 to-accent bg-clip-text text-transparent mb-6">
           {t('about.title', { name: portfolioData.personal.name })}
         </h1>
-        <h2 className="text-xl lg:text-2xl text-slate-300 mb-8">{t('about.subtitle')}</h2>
+        <h2 className="text-xl lg:text-2xl text-accent mb-8">{t('about.subtitle')}</h2>
         <p className="text-lg text-slate-400 max-w-2xl">{t('about.tagline')}</p>
       </motion.section>
 
@@ -178,7 +179,7 @@ const AboutPage: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-24"
         >
-          <h2 className="text-2xl font-bold text-slate-100 mb-6">{t('about.heading')}</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">{t('about.heading')}</h2>
           <div className="space-y-4 text-slate-400 leading-relaxed">
             {aboutParagraphs.map((paragraph, index) => (
               <AboutParagraph key={index} content={paragraph} />

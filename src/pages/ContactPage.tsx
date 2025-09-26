@@ -24,7 +24,7 @@ const SocialLink: React.FC<{ social: SocialLinkWithIcon; index: number }> = Reac
       transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
       whileHover={{ scale: 1.1, y: -2 }}
       whileTap={{ scale: 0.95 }}
-      className="p-4 text-slate-400 hover:text-teal-300 transition-colors duration-300 rounded-lg hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-teal-300/50 focus:ring-offset-2 focus:ring-offset-slate-900"
+      className="p-4 text-slate-400 hover:text-amber-400 transition-colors duration-300 rounded-lg hover:bg-slate-800/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
       aria-label={`Visit ${social.label} profile (opens in new tab)`}
     >
       {React.createElement(social.icon, { size: 24, 'aria-hidden': true })}
@@ -66,7 +66,10 @@ const ContactPage: React.FC = () => {
         aria-labelledby="contact-heading"
         role="main"
       >
-        <h1 id="contact-heading" className="text-4xl lg:text-6xl font-bold text-slate-100 mb-6">
+        <h1
+          id="contact-heading"
+          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-amber-300 to-orange-500 bg-clip-text text-transparent mb-6"
+        >
           {t('contact.title')}
         </h1>
         <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">{t('contact.message')}</p>
@@ -79,7 +82,7 @@ const ContactPage: React.FC = () => {
         >
           <motion.a
             href={`mailto:${contactConfig.email}`}
-            className="inline-flex items-center px-8 py-4 bg-midnight-accent hover:bg-midnight-elevated text-cyan font-semibold rounded-lg text-lg border border-cyan/20 hover:border-cyan/40 shadow-elevation-2 hover:shadow-elevation-3 focus:outline-none focus:ring-2 focus:ring-cyan/50 focus:ring-offset-2 focus:ring-offset-midnight"
+            className="inline-flex items-center px-8 py-4 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 font-semibold rounded-lg text-lg border border-amber-500/20 hover:border-amber-500/40 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-2 focus:ring-offset-slate-900"
             aria-label={t('contact.buttonLabel', `Send email to ${contactConfig.email}`)}
             role="button"
             whileHover={{ scale: 1.05, y: -3 }}

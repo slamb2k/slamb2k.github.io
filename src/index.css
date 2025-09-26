@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import 'tailwindcss';
 
 @plugin "tailwindcss-animate";
@@ -6,16 +6,24 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Override default Tailwind slate colors for better contrast */
-  --color-slate-100: rgb(242, 242, 244);
-  --color-slate-200: rgb(217, 217, 224);
-  --color-slate-300: rgb(179, 179, 194);
-  --color-slate-400: rgb(153, 153, 170);
-  --color-slate-500: rgb(128, 128, 148);
-  --color-slate-600: rgb(102, 102, 126);
-  --color-slate-700: rgb(217, 217, 224);
-  --color-slate-800: rgb(230, 230, 235);
-  --color-slate-900: rgb(242, 242, 244);
+  /* Showcase-inspired color palette */
+  --color-slate-100: rgb(226, 232, 240);
+  --color-slate-200: rgb(203, 213, 225);
+  --color-slate-300: rgb(148, 163, 184);
+  --color-slate-400: rgb(100, 116, 139);
+  --color-slate-500: rgb(71, 85, 105);
+  --color-slate-600: rgb(51, 65, 85);
+  --color-slate-700: rgb(30, 41, 59);
+  --color-slate-800: rgb(15, 23, 42);
+  --color-slate-900: rgb(15, 20, 25);
+
+  /* Accent colors */
+  --color-teal-300: rgb(94, 234, 212);
+  --color-teal-400: rgb(45, 212, 191);
+  --color-teal-500: rgb(20, 184, 166);
+  --color-emerald-400: rgb(52, 211, 153);
+  --color-emerald-500: rgb(16, 185, 129);
+  --color-accent-primary: rgb(20, 241, 149);
 }
 
 body {
@@ -27,13 +35,26 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   overflow: auto;
+  font-family:
+    'Outfit',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(15, 20, 25);
+  color: rgb(226, 232, 240);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:
+    'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -83,24 +104,24 @@ body {
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  --background: rgb(55, 55, 55);
-  --foreground: rgb(217, 217, 224);
-  --card: rgb(255, 255, 255);
-  --card-foreground: rgb(37, 37, 37);
-  --popover: rgb(255, 255, 255);
-  --popover-foreground: rgb(37, 37, 37);
-  --primary: rgb(217, 217, 224);
-  --primary-foreground: rgb(38, 38, 51);
-  --secondary: rgb(247, 247, 247);
-  --secondary-foreground: rgb(52, 52, 52);
-  --muted: rgb(247, 247, 247);
-  --muted-foreground: rgb(142, 142, 142);
-  --accent: rgb(247, 247, 247);
-  --accent-foreground: rgb(52, 52, 52);
-  --destructive: rgb(206, 88, 55);
-  --border: rgb(235, 235, 235);
-  --input: rgb(235, 235, 235);
-  --ring: rgb(180, 180, 180);
+  --background: rgb(15, 20, 25);
+  --foreground: rgb(226, 232, 240);
+  --card: rgb(26, 31, 46);
+  --card-foreground: rgb(226, 232, 240);
+  --popover: rgb(26, 31, 46);
+  --popover-foreground: rgb(226, 232, 240);
+  --primary: rgb(20, 241, 149);
+  --primary-foreground: rgb(15, 20, 25);
+  --secondary: rgb(30, 41, 59);
+  --secondary-foreground: rgb(226, 232, 240);
+  --muted: rgb(30, 41, 59);
+  --muted-foreground: rgb(148, 163, 184);
+  --accent: rgb(20, 241, 149);
+  --accent-foreground: rgb(15, 20, 25);
+  --destructive: rgb(239, 68, 68);
+  --border: rgb(45, 55, 72);
+  --input: rgb(45, 55, 72);
+  --ring: rgb(20, 241, 149);
   --chart-1: rgb(204, 134, 70);
   --chart-2: rgb(100, 149, 185);
   --chart-3: rgb(64, 91, 148);
@@ -117,33 +138,33 @@ body {
 }
 
 .dark {
-  /* Dark Theme - Core backgrounds with RGB fallbacks */
-  --background: rgb(18, 22, 32); /* Darker background */
-  --background-elevated: rgb(24, 28, 38); /* Slightly elevated surfaces */
-  --background-accent: rgb(30, 34, 44); /* Hover states */
+  /* Dark Theme - Showcase inspired colors */
+  --background: rgb(15, 20, 25); /* Deep dark background */
+  --background-elevated: rgb(26, 31, 46); /* Card background */
+  --background-accent: rgb(30, 41, 59); /* Hover states */
 
-  /* Text hierarchy with RGB fallbacks */
-  --foreground: rgb(242, 242, 244);
-  --foreground-secondary: rgb(230, 230, 235);
-  --foreground-tertiary: rgb(217, 217, 224);
+  /* Text hierarchy with showcase colors */
+  --foreground: rgb(226, 232, 240);
+  --foreground-secondary: rgb(203, 213, 225);
+  --foreground-tertiary: rgb(148, 163, 184);
 
-  /* Card and popover with RGB fallbacks */
-  --card: rgb(24, 28, 38); /* Match elevated background */
-  --card-foreground: rgb(242, 242, 244);
-  --popover: rgba(24, 28, 38, 0.95);
-  --popover-foreground: rgb(242, 242, 244);
+  /* Card and popover */
+  --card: rgb(26, 31, 46);
+  --card-foreground: rgb(226, 232, 240);
+  --popover: rgb(26, 31, 46);
+  --popover-foreground: rgb(226, 232, 240);
 
-  /* Accent colors with RGB fallbacks */
-  --primary: rgb(125, 211, 252); /* Bright cyan */
-  --primary-foreground: rgb(20, 24, 35);
-  --secondary: rgb(167, 139, 250); /* Bright violet */
-  --secondary-foreground: rgb(242, 242, 244);
-  --accent: rgb(134, 239, 172); /* Bright emerald */
-  --accent-foreground: rgb(20, 24, 35);
+  /* Accent colors - Bright teal/emerald */
+  --primary: rgb(20, 241, 149); /* Bright teal */
+  --primary-foreground: rgb(15, 20, 25);
+  --secondary: rgb(45, 55, 72); /* Muted background */
+  --secondary-foreground: rgb(226, 232, 240);
+  --accent: rgb(20, 241, 149); /* Match primary */
+  --accent-foreground: rgb(15, 20, 25);
 
-  /* Muted states with RGB fallbacks */
-  --muted: rgb(32, 36, 48);
-  --muted-foreground: rgb(191, 191, 204);
+  /* Muted states */
+  --muted: rgb(45, 55, 72);
+  --muted-foreground: rgb(148, 163, 184);
 
   /* Semantic colors with RGB fallbacks */
   --destructive: rgb(239, 68, 68);

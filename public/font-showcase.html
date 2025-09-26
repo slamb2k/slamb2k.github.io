@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Showcase - Simon Lamb Portfolio</title>
+
+    <!-- Font Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Top 20 Fonts for Developer Portfolios -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Geist Font via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/geist.css" rel="stylesheet" />
+
+    <!-- JetBrains Mono for code examples -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0f1419;
+        color: #e2e8f0;
+        overflow-x: hidden;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #2d3748;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .header p {
+        color: #94a3b8;
+        font-size: 1.125rem;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .font-grid {
+        display: grid;
+        gap: 3rem;
+      }
+
+      .font-card {
+        background: #1a1f2e;
+        border-radius: 12px;
+        padding: 2.5rem;
+        border: 1px solid #2d3748;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .font-card:hover {
+        border-color: #4a5568;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .font-label {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #2d3748;
+        color: #14f195;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 500;
+      }
+
+      .hero-content {
+        margin-top: 1rem;
+      }
+
+      .greeting {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        color: #14f195;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .tagline {
+        font-size: 1.125rem;
+        color: #94a3b8;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-heading {
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+
+      .about-text {
+        color: #cbd5e1;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .tech-tag {
+        background: rgba(20, 241, 149, 0.1);
+        color: #14f195;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        border: 1px solid rgba(20, 241, 149, 0.2);
+      }
+
+      /* Font-specific styles */
+      .font-inter {
+        font-family: 'Inter', sans-serif;
+      }
+      .font-plus-jakarta {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .font-geist {
+        font-family: 'Geist', sans-serif;
+      }
+      .font-space-grotesk {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .font-sora {
+        font-family: 'Sora', sans-serif;
+      }
+      .font-outfit {
+        font-family: 'Outfit', sans-serif;
+      }
+      .font-manrope {
+        font-family: 'Manrope', sans-serif;
+      }
+      .font-lexend {
+        font-family: 'Lexend', sans-serif;
+      }
+      .font-dm-sans {
+        font-family: 'DM Sans', sans-serif;
+      }
+      .font-work-sans {
+        font-family: 'Work Sans', sans-serif;
+      }
+      .font-ibm-plex {
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+      .font-rubik {
+        font-family: 'Rubik', sans-serif;
+      }
+      .font-karla {
+        font-family: 'Karla', sans-serif;
+      }
+      .font-poppins {
+        font-family: 'Poppins', sans-serif;
+      }
+      .font-nunito {
+        font-family: 'Nunito Sans', sans-serif;
+      }
+      .font-source-sans {
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .font-barlow {
+        font-family: 'Barlow', sans-serif;
+      }
+      .font-montserrat {
+        font-family: 'Montserrat', sans-serif;
+      }
+      .font-figtree {
+        font-family: 'Figtree', sans-serif;
+      }
+      .font-raleway {
+        font-family: 'Raleway', sans-serif;
+      }
+      .font-open-sans {
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        .greeting {
+          font-size: 2rem;
+        }
+        .title {
+          font-size: 1.25rem;
+        }
+        .font-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Font Showcase</h1>
+        <p>Top 20 fonts for your developer portfolio - Simon Lamb</p>
+      </div>
+
+      <div class="font-grid">
+        <!-- 1. Inter -->
+        <div class="font-card">
+          <div class="font-label">Inter</div>
+          <div class="hero-content font-inter">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Plus Jakarta Sans -->
+        <div class="font-card">
+          <div class="font-label">Plus Jakarta Sans</div>
+          <div class="hero-content font-plus-jakarta">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Geist -->
+        <div class="font-card">
+          <div class="font-label">Geist (Vercel)</div>
+          <div class="hero-content font-geist">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Space Grotesk -->
+        <div class="font-card">
+          <div class="font-label">Space Grotesk</div>
+          <div class="hero-content font-space-grotesk">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Sora -->
+        <div class="font-card">
+          <div class="font-label">Sora</div>
+          <div class="hero-content font-sora">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Outfit -->
+        <div class="font-card">
+          <div class="font-label">Outfit</div>
+          <div class="hero-content font-outfit">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Manrope -->
+        <div class="font-card">
+          <div class="font-label">Manrope</div>
+          <div class="hero-content font-manrope">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Lexend -->
+        <div class="font-card">
+          <div class="font-label">Lexend</div>
+          <div class="hero-content font-lexend">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. DM Sans -->
+        <div class="font-card">
+          <div class="font-label">DM Sans</div>
+          <div class="hero-content font-dm-sans">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Work Sans -->
+        <div class="font-card">
+          <div class="font-label">Work Sans</div>
+          <div class="hero-content font-work-sans">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. IBM Plex Sans -->
+        <div class="font-card">
+          <div class="font-label">IBM Plex Sans</div>
+          <div class="hero-content font-ibm-plex">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Rubik -->
+        <div class="font-card">
+          <div class="font-label">Rubik</div>
+          <div class="hero-content font-rubik">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Karla -->
+        <div class="font-card">
+          <div class="font-label">Karla</div>
+          <div class="hero-content font-karla">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Poppins -->
+        <div class="font-card">
+          <div class="font-label">Poppins</div>
+          <div class="hero-content font-poppins">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Nunito Sans -->
+        <div class="font-card">
+          <div class="font-label">Nunito Sans</div>
+          <div class="hero-content font-nunito">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Source Sans 3 -->
+        <div class="font-card">
+          <div class="font-label">Source Sans 3</div>
+          <div class="hero-content font-source-sans">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. Barlow -->
+        <div class="font-card">
+          <div class="font-label">Barlow</div>
+          <div class="hero-content font-barlow">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. Montserrat -->
+        <div class="font-card">
+          <div class="font-label">Montserrat</div>
+          <div class="hero-content font-montserrat">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 19. Figtree -->
+        <div class="font-card">
+          <div class="font-label">Figtree</div>
+          <div class="hero-content font-figtree">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20. Raleway -->
+        <div class="font-card">
+          <div class="font-label">Raleway</div>
+          <div class="hero-content font-raleway">
+            <h1 class="greeting">Hi, I'm Simon Lamb.</h1>
+            <h2 class="title">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</h2>
+            <p class="tagline">
+              I build production GenAI platforms on Microsoft Azure and bring DevOps leadership from
+              the ground up.
+            </p>
+            <h3 class="about-heading">About</h3>
+            <p class="about-text">
+              I engineer production AI systems at scale. At Microsoft Azure Core, I built platforms
+              that analyze millions of lines of code using LLMs to surface security risks and
+              governance issues before deployment.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMOps</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

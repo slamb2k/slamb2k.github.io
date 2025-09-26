@@ -20,6 +20,7 @@ export interface Job {
   title: string;
   company: string;
   technologies: string[];
+  featured?: boolean; // Hero card styling for important roles
   // description moved to i18n translations
 }
 
@@ -85,6 +86,7 @@ export const portfolioData: PortfolioData = {
       period: 'Apr 2024 - Jul 2025',
       title: 'Senior Software Engineer',
       company: 'Microsoft (Azure Core)',
+      featured: true,
       technologies: [
         'Azure OpenAI',
         'RAG/Vector Search',
@@ -118,6 +120,7 @@ export const portfolioData: PortfolioData = {
       period: 'Jun 2019 - Sep 2021',
       title: 'DevOps OpenHack Tech Lead (Part-time)',
       company: 'Microsoft',
+      featured: true,
       technologies: [
         'CI/CD',
         'IaC',
@@ -150,6 +153,7 @@ export const portfolioData: PortfolioData = {
       period: 'Jun 2004 - Feb 2017',
       title: 'Tech Architect Lead / DevOps Lead',
       company: 'Fred IT Group',
+      featured: true,
       technologies: [
         'C#/.NET',
         'SQL Server',
