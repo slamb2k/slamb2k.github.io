@@ -1,10 +1,13 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, lazy, Suspense } from 'react';
 import { Container, Theme } from './settings/types';
 import settings from './settings/theme';
 import AppRouter from './router/AppRouter';
-import { EnvironmentInfo, PerformanceMonitor } from './components/debug';
 import { initializePerformanceOptimizations } from './utils/preloader';
 import ErrorBoundary from './components/ErrorBoundary';
+
+// Lazy load debug components as they're not critical
+const EnvironmentInfo = lazy(() => import('./components/debug/EnvironmentInfo'));
+const PerformanceMonitor = lazy(() => import('./components/debug/PerformanceMonitor'));
 
 function App() {
   // Use the injected theme settings instead of hardcoded values
@@ -37,8 +40,12 @@ function App() {
             className="fixed bottom-4 right-4 z-50 flex items-end gap-2"
             aria-label="Debug information"
           >
-            <PerformanceMonitor />
-            <EnvironmentInfo />
+            <Suspense fallback={null}>
+              <PerformanceMonitor />
+            </Suspense>
+            <Suspense fallback={null}>
+              <EnvironmentInfo />
+            </Suspense>
           </aside>
         </div>
       </ErrorBoundary>

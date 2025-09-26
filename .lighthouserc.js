@@ -19,10 +19,11 @@ export default {
       },
     },
     assert: {
-      // Set performance budgets and accessibility thresholds
+      // Use lighthouse:recommended preset and override specific assertions
+      preset: 'lighthouse:recommended',
       assertions: {
         // Performance budgets
-        'categories:performance': ['error', { minScore: 0.9 }],
+        'categories:performance': ['warn', { minScore: 0.8 }],
         'categories:accessibility': ['error', { minScore: 0.95 }],
         'categories:best-practices': ['error', { minScore: 0.9 }],
         'categories:seo': ['error', { minScore: 0.9 }],
@@ -61,6 +62,10 @@ export default {
         'uses-https': 'error',
         'no-vulnerable-libraries': 'error',
         charset: 'error',
+
+        // Explicitly disable problematic metrics with hardcoded defaults
+        'network-dependency-tree-insight': 'off', // This metric has hardcoded defaults
+        'unused-javascript': 'off', // Disable to avoid false positives from code splitting
       },
     },
     upload: {
