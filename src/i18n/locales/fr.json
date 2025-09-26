@@ -5,10 +5,14 @@
     "projects": "Projets",
     "contact": "Contact"
   },
+  "sidebar": {
+    "title": "Ingénieur Principal IA/Logiciel | GenAI/RAG, LLMOps, SRE",
+    "tagline": "Je construis des plateformes GenAI de production sur Microsoft Azure et apporte un leadership DevOps depuis la base. Spécialisé dans l'ingénierie de plateforme LLM avec une rigueur complète LLMOps/MLOps : CI/CD, pipelines d'évaluation, garde-fous, observabilité et gouvernance des coûts/latence."
+  },
   "about": {
     "title": "Salut, je suis {{name}}.",
-    "subtitle": "Ingénieur Principal IA/Logiciel | GenAI/RAG, LLMOps, SRE",
-    "tagline": "Je construis des plateformes GenAI de production sur Microsoft Azure et apporte un leadership DevOps depuis la base.",
+    "subtitle": "",
+    "tagline": "Plateformes GenAI, passerelles de commerce électronique ou distribution de médicaments intégrée : j'ai tout livré et opéré, et plus encore. Qu'il s'agisse de cloud natif ou de migration cloud, je dirige toujours avec un état d'esprit DevOps. Les systèmes échouent. Les gagnants apprennent le plus rapidement. Je compresse les boucles de rétroaction, réduis le délai de livraison et diminue le MTTR, sans ralentir la livraison.",
     "heading": "À propos",
     "paragraph1": "Je conçois des systèmes IA de production à grande échelle. Chez Microsoft Azure Core, j'ai construit des plateformes qui analysent des millions de lignes de code en utilisant des LLMs pour identifier les risques de sécurité et les problèmes de gouvernance avant le déploiement.",
     "paragraph2": "Mon expertise couvre toute la pile IA : Azure OpenAI, pipelines RAG, LLMOps/MLOps, optimisation des tokens et systèmes d'évaluation avec humain dans la boucle. J'apporte plus de 15 ans de leadership DevOps et de pratiques SRE pour garantir que ces systèmes offrent une fiabilité de niveau clinique.",
@@ -19,24 +23,51 @@
     "description": "Un aperçu chronologique de mon parcours professionnel et des technologies avec lesquelles j'ai travaillé.",
     "jobs": {
       "azure-core": {
-        "description": "Construire et maintenir des composants critiques pour l'infrastructure Azure. Collaborer étroitement avec les équipes Semantic Kernel et Copilot pour développer des solutions IA de pointe et des outils d'ingénierie cloud."
+        "title": "Ingénieur Logiciel Senior",
+        "company": "Microsoft (Azure Core)",
+        "period": "Avr 2024 - Juil 2025",
+        "description": "J'ai conçu une plateforme de gouvernance pilotée par LLM qui analyse les bases de code des produits Microsoft internes en utilisant Azure OpenAI + récupération agentique pour identifier automatiquement les risques de sécurité, de performance et de meilleures pratiques avant le déploiement. Cette plateforme a renforcé la gouvernance et réduit les incidents des déploiements problématiques dans Azure. Avec des contextes de code s'étendant sur des milliers de lignes, j'ai conçu des stratégies de traitement par lots, de mise en cache et d'agrégation sensibles aux tokens qui ont rendu l'évaluation multi-chunks faisable et rentable."
       },
       "microsoft-cloud": {
+        "title": "Ingénieur Logiciel Senior",
+        "company": "Microsoft (Fabric Data Solutions)",
+        "period": "Avr 2024 - Juil 2025",
         "description": "Développé des solutions d'infrastructure cloud et des outils de développement alimentés par l'IA. Concentré sur les services cloud évolutifs et l'intégration avec les plateformes IA de Microsoft."
       },
       "global-partner-solutions": {
+        "title": "Architecte de Solutions Cloud",
+        "company": "Microsoft (Global Partner Solutions)",
+        "period": "Juil 2019 - Avr 2024",
         "description": "Dirigé des initiatives de transformation cloud d'entreprise et l'architecture de solutions IA. Spécialisé dans l'ingénierie de prompts, l'architecture cloud Azure et les pratiques DevOps pour les clients d'entreprise."
       },
       "pacific-commerce": {
+        "title": "Gestionnaire de Solutions",
+        "company": "Pacific Commerce",
+        "period": "1998 - 2001",
         "description": "Géré des solutions EDI d'entreprise et des intégrations e-commerce utilisant Sterling Commerce GENTRAN. Dirigé des initiatives techniques pour l'échange de données B2B et les processus métier automatisés dans plusieurs environnements clients."
       },
       "microsoft-dx": {
-        "description": "Évangélisé les technologies et plateformes de développement Microsoft auprès des communautés de développeurs. Créé du contenu technique, livré des présentations et fourni des conseils architecturaux pour .NET, Azure et les technologies Microsoft émergentes."
+        "title": "Chef Technique DevOps OpenHack (Temps partiel)",
+        "company": "Microsoft",
+        "period": "Juin 2019 - Sept 2021",
+        "description": "En tant que Technical Evangelist et DevOps OpenHack Tech Lead, j'ai évangélisé les technologies de développement Microsoft auprès des communautés mondiales de développeurs. Reconnu comme expert principal DevOps au sein de Microsoft, j'ai dirigé des OpenHacks mondiaux atteignant ~95%+ de satisfaction tout en dirigeant des équipes de coaching internationales et en mentorant des centaines d'ingénieurs."
+      },
+      "microsoft-evangelist": {
+        "title": "Évangéliste Technique",
+        "company": "Microsoft (Developer Experience)",
+        "period": "Fév 2017 - Juil 2019",
+        "description": "J'ai évangélisé les technologies de développement Microsoft auprès des communautés mondiales de développeurs par la création de contenu technique, des présentations de conférences et des conseils architecturaux pour .NET, Azure et les technologies émergentes."
       },
       "fred-it-group": {
+        "title": "Chef Architecte Technique / Chef DevOps",
+        "company": "Fred IT Group",
+        "period": "Juin 2004 - Fév 2017",
         "description": "Dirigé une équipe de six ingénieurs pour concevoir des plateformes évolutives pour l'industrie pharmaceutique et de la santé. Géré la conception de plateformes, la livraison Agile/DevOps/IaC et le leadership d'équipe."
       },
       "leadtec-systems": {
+        "title": "Développeur Senior",
+        "company": "LeadTec Systems",
+        "period": "2001 - 2004",
         "description": "Développé des applications web d'entreprise et des systèmes d'intégration de données basés sur XML. Construit des solutions évolutives utilisant C#, ASP.NET et les transformations XSLT pour l'automatisation des processus métier et les systèmes de rapport."
       }
     }
@@ -45,28 +76,64 @@
     "title": "Projets",
     "description": "Une collection de projets que j'ai construits, montrant différentes technologies et approches de résolution de problèmes.",
     "items": {
+      "internal-ai-code-scanning-platform": {
+        "title": "Plateforme Interne d'Analyse de Code par IA",
+        "description": "J'ai construit une plateforme d'analyse de code obligatoire pour Microsoft qui analysait automatiquement les commits et les PR pour détecter les vulnérabilités de sécurité, les problèmes de performance, les violations des meilleures pratiques et les risques de maintenabilité. J'ai intégré des outils d'analyse statique comme CodeQL avec des pipelines RAG avancés pour traiter des millions de lignes de code."
+      },
+      "microsoft-fabric-data-solutions": {
+        "title": "Solutions de Données Microsoft Fabric",
+        "description": "Extension de l'interface web Microsoft Fabric pour fournir des accélérateurs et des modèles de solutions offrant des bases structurées pour différents domaines d'affaires et industries, y compris des schémas spécifiques à l'industrie, des pipelines de données, une logique de transformation et des modèles sémantiques."
+      },
+      "azure-deployment-accelerator-tui": {
+        "title": "Accélérateur de Déploiement Azure TUI",
+        "description": "Développement d'une interface TUI basée sur bash fournissant des flux de travail guidés pour la plateforme de déploiement Azure interne de Microsoft. Déploiements complexes rationalisés grâce à une validation intelligente et une intégration Dev Container, devenant l'outil standard dans plusieurs équipes d'ingénierie."
+      },
+      "devops-openhack-technical-lead": {
+        "title": "Chef Technique DevOps OpenHack - Événements Mondiaux",
+        "description": "J'ai servi en tant que Tech Lead pour le programme global DevOps OpenHack de Microsoft, dirigeant des événements à Melbourne, Sydney (avec la visite ANZ de Satya Nadella), Canberra Government, Las Vegas (Inspire/Ready) et Seattle (TechReady). J'ai dirigé des équipes de coaching internationales de plus de 10 ingénieurs Microsoft et mentoré des centaines de participants."
+      },
+      "azure-ai-governance-pipeline": {
+        "title": "Pipeline de Gouvernance IA Azure",
+        "description": "J'ai contribué en tant que membre d'une équipe DevOps cruciale à la réimplémentation de la plateforme d'ingénierie fondamentale de Microsoft pour la gouvernance des services Azure. J'ai livré des solutions d'infrastructure en tant que code utilisant Bicep et Ev2 pour provisionner cette plateforme de nouvelle génération, architecturée pour une capacité et une échelle massives."
+      },
+      "azure-llm-governance": {
+        "title": "Plateforme de Gouvernance Pilotée par LLM - Microsoft Azure Core",
+        "description": "J'ai conçu une plateforme de gouvernance pilotée par LLM chez Microsoft Azure Core qui analyse les bases de code des produits internes pour identifier les risques de sécurité, de performance et de meilleures pratiques avant le déploiement. J'ai implémenté des stratégies de traitement par lots, de mise en cache et d'agrégation sensibles aux tokens pour traiter des milliers de lignes de code."
+      },
+      "healthcare-platform-fred": {
+        "title": "Plateforme de Santé Réglementée - Fred IT Group",
+        "description": "J'ai dirigé une équipe de 6 ingénieurs chez Fred IT Group pour concevoir et livrer une plateforme de dispensation et de gestion de magasin pour les grands groupes pharmaceutiques. Construit sur .NET, SQL Server et Microsoft Dynamics AX, optimisé pour une fiabilité de qualité clinique avec surveillance SLO/SLI, budgets d'erreur et déploiements bleu/vert."
+      },
       "about-me": {
+        "title": "Portfolio About.me",
         "description": "Ce site - Un site portfolio React moderne construit avec TypeScript et Vite, présentant un design réactif et un support d'internationalisation."
       },
       "glam-mcp": {
+        "title": "Serveur GLAM MCP",
         "description": "Un serveur Model Context Protocol qui fournit des expériences de développement intelligentes grâce à des réponses riches et contextuelles pour les assistants IA, transformant le codage IA en programmation en binôme avec un développeur senior."
       },
       "gavin-copilot": {
+        "title": "Gavin Copilot",
         "description": "Une application exemple démontrant comment Semantic Kernel et l'IA peuvent fonctionner dans les applications web, présentant un frontend React, un backend .NET et une intégration Azure OpenAI."
       },
       "spec-chain": {
+        "title": "Chaîne de Spécifications",
         "description": "Un système complet de prompts IA qui travaillent ensemble pour générer une documentation produit complète à partir d'une seule idée d'application, conçu spécifiquement pour Claude Code."
       },
       "azure-spa-environment-variables": {
+        "title": "Variables d'Environnement Azure SPA",
         "description": "Un guide complet et une implémentation pour gérer les configurations spécifiques à l'environnement dans les applications React côté client déployées sur Azure, permettant des workflows 'construire une fois, déployer partout'."
       },
       "virtual-devbox": {
+        "title": "DevBox Virtuel",
         "description": "Un script AutoHotkey pour gérer les connexions Microsoft Dev Box à travers les bureaux virtuels Windows 11, fournissant des raccourcis clavier pour faciliter le basculement transparent entre les environnements de développement locaux et distants."
       },
       "dial-tray": {
+        "title": "Plateau Dial",
         "description": "Une application de barre système qui fournit un contrôle Surface Dial amélioré pour une meilleure intégration avec les outils de développement comme Warp et Claude Code."
       },
       "vs-mobile-center-build": {
+        "title": "Build VS Mobile Center",
         "description": "Une tâche de build personnalisée pour déclencher et gérer les builds dans Visual Studio Mobile Center, avec la capacité de télécharger les artefacts de build et s'intégrer avec les pipelines Team Foundation Server."
       }
     }
@@ -81,10 +148,105 @@
     "visitProject": "Visiter {{title}}",
     "viewOnGithub": "Dépôt GitHub de {{title}}",
     "toggleMenu": "Basculer le menu de navigation",
-    "close": "Fermer"
+    "close": "Fermer",
+    "downloadResume": "Télécharger le CV",
+    "featured": "En vedette",
+    "loading": "Chargement...",
+    "failedToLoad": "Échec du chargement",
+    "months": {
+      "jan": "Jan",
+      "feb": "Fév",
+      "mar": "Mar",
+      "apr": "Avr",
+      "may": "Mai",
+      "jun": "Juin",
+      "jul": "Juil",
+      "aug": "Août",
+      "sep": "Sept",
+      "oct": "Oct",
+      "nov": "Nov",
+      "dec": "Déc"
+    },
+    "present": "Présent"
   },
   "language": {
     "switchTo": "Passer à {{language}}",
     "current": "Langue actuelle: {{language}}"
+  },
+  "technologies": {
+    "Azure OpenAI": "Azure OpenAI",
+    "RAG/Vector Search": "RAG/Recherche Vectorielle",
+    "LLMOps/MLOps": "LLMOps/MLOps",
+    "Semantic Kernel": "Semantic Kernel",
+    "Python": "Python",
+    "C#": "C#",
+    "Liquid Templates": "Modèles Liquid",
+    "Structured Outputs": "Sorties Structurées",
+    "Databricks": "Databricks",
+    "MLflow": "MLflow",
+    "AKS": "AKS",
+    "Azure DevOps": "Azure DevOps",
+    "Bicep/Terraform": "Bicep/Terraform",
+    "GitOps": "GitOps",
+    "CI/CD": "CI/CD",
+    "IaC": "IaC",
+    "SRE": "SRE",
+    "GitHub Actions": "Actions GitHub",
+    "Docker": "Docker",
+    "Kubernetes": "Kubernetes",
+    "Technical Coaching": "Coaching Technique",
+    "ASP.NET": "ASP.NET",
+    "Javascript": "Javascript",
+    "Azure": "Azure",
+    "DevOps": "DevOps",
+    "ARM": "ARM",
+    "Node.js": "Node.js",
+    "PowerShell": "PowerShell",
+    "SQL Server": "SQL Server",
+    "Microsoft Dynamics AX": "Microsoft Dynamics AX",
+    ".NET": ".NET",
+    "Prometheus": "Prometheus",
+    "Grafana": "Grafana",
+    "OPA/Azure Policy": "OPA/Politique Azure",
+    "XML": "XML",
+    "XSLT": "XSLT",
+    "Web Services": "Services Web",
+    "React": "React",
+    "TypeScript": "TypeScript",
+    "Tailwind CSS": "Tailwind CSS",
+    "Vite": "Vite",
+    "i18n": "i18n",
+    "Claude Code": "Claude Code",
+    "GitHub": "GitHub",
+    "AutoHotkey": "AutoHotkey",
+    "Windows 11": "Windows 11",
+    "System Tray": "Barre Système",
+    "VSMC": "VSMC",
+    "TFS": "TFS",
+    "EDI": "EDI",
+    "Sterling Commerce": "Sterling Commerce",
+    "GENTRAN": "GENTRAN",
+    "B2B": "B2B",
+    "C#/.NET": "C#/.NET",
+    "Visual Basic": "Visual Basic",
+    "SQL": "SQL",
+    "Bash": "Bash",
+    "Dev Container": "Conteneur de Développement",
+    "Internal Tooling": "Outils Internes",
+    "Melbourne/Sydney/Canberra": "Melbourne/Sydney/Canberra",
+    "Las Vegas/Seattle": "Las Vegas/Seattle",
+    "Hackathons": "Hackathons",
+    "Pharmacy Dispensing": "Dispensation Pharmaceutique",
+    "PBS": "PBS",
+    "Blue/Green Deployment": "Déploiement Bleu/Vert",
+    "Markdown": "Markdown",
+    "AI Documentation": "Documentation IA",
+    "JavaScript": "JavaScript",
+    "MCP": "MCP",
+    "RDP": "RDP",
+    "Surface Dial": "Surface Dial",
+    "Windows": "Windows",
+    "Azure Mobile Center": "Azure Mobile Center",
+    "Azure Artifacts": "Azure Artifacts"
   }
 }

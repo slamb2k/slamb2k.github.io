@@ -34,7 +34,7 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
           </h3>
           {project.featured && (
             <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-sky-500/10 text-sky-400 rounded border border-sky-500/20">
-              Featured
+              {t('common.featured')}
             </span>
           )}
         </div>
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
             key={tech}
             className="px-3 py-1.5 text-xs bg-sky-500/10 text-sky-300 rounded-full border border-sky-500/20 font-medium"
           >
-            {tech}
+            {t(`technologies.${tech}`, tech)}
           </span>
         ))}
       </div>
@@ -109,11 +109,11 @@ const ProjectsPage: React.FC = () => {
       >
         <h1
           id="projects-heading"
-          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent mb-6"
+          className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-sky-300 to-blue-500 bg-clip-text text-transparent mb-2 leading-tight pb-2"
         >
           {t('projects.title')}
         </h1>
-        <p className="text-lg text-slate-400 mb-12 max-w-2xl">{t('projects.description')}</p>
+        <p className="text-lg text-neutral-500 mb-12 max-w-2xl">{t('projects.description')}</p>
 
         {/* Project grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

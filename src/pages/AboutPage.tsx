@@ -152,11 +152,13 @@ const AboutPage: React.FC = () => {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mb-24"
       >
-        <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-teal-300 to-accent bg-clip-text text-transparent mb-6">
+        <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-teal-300 to-accent bg-clip-text text-transparent mb-2 leading-tight pb-2">
           {t('about.title', { name: portfolioData.personal.name })}
         </h1>
-        <h2 className="text-xl lg:text-2xl text-accent mb-8">{t('about.subtitle')}</h2>
-        <p className="text-lg text-slate-400 max-w-2xl">{t('about.tagline')}</p>
+        {t('about.subtitle') && (
+          <h2 className="text-xl lg:text-2xl text-accent mb-8">{t('about.subtitle')}</h2>
+        )}
+        <p className="text-lg text-neutral-500 max-w-4xl">{t('about.tagline')}</p>
       </motion.section>
 
       {/* About Section - Lazy loaded */}

@@ -102,9 +102,9 @@ const NavigationSidebar: React.FC = () => {
               {portfolioData.personal.name}
             </div>
           </Link>
-          <div className="text-fluid-xl text-accent mb-4">{portfolioData.personal.title}</div>
-          <p className="text-slate-400 text-fluid-sm leading-relaxed mb-8">
-            {portfolioData.personal.tagline}
+          <div className="text-fluid-xl text-accent mb-4">{t('sidebar.title')}</div>
+          <p className="text-neutral-500 text-fluid-sm leading-relaxed mb-12">
+            {t('sidebar.tagline')}
           </p>
         </motion.div>
 
@@ -234,7 +234,7 @@ const NavigationSidebar: React.FC = () => {
           className="flex items-center justify-center space-x-2 py-2 px-4 bg-accent/10 hover:bg-accent/20 text-accent font-semibold rounded-lg text-fluid-sm border border-accent/20 hover:border-accent/40 shadow-elevation-1 hover:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-slate-900"
         >
           <Download size={16} />
-          <span>Download Resume</span>
+          <span>{t('common.downloadResume')}</span>
         </motion.a>
         {/* Language Switcher */}
         <motion.div
