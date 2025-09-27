@@ -105,18 +105,67 @@ const BlogPage: React.FC = () => {
       transition={{ duration: 0.8 }}
       className="max-w-7xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
-      {/* Page Header */}
+      {/* Page Intro */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-12"
+        className="mb-12 space-y-4"
       >
-        <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4 leading-tight pb-2">
-          {t('blog.title')}
-        </h1>
         <p className="text-lg text-neutral-400">{t('blog.subtitle')}</p>
+
+        <p className="text-lg text-slate-300">
+          Welcome to my technical blog where I share insights, lessons learned, and occasional war
+          stories from building production systems at scale. From LLM platforms at Microsoft to
+          e-commerce gateways and everything in between, these posts capture the real-world
+          challenges and solutions I've encountered.
+        </p>
+
+        <p className="text-lg text-slate-300">
+          Looking for more? Check out my{' '}
+          <Link
+            to="/experience"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            professional experience
+          </Link>{' '}
+          to see my journey through Microsoft, Pacific Commerce, and beyond. Browse{' '}
+          <Link
+            to="/projects"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            notable projects
+          </Link>{' '}
+          for deep dives into specific implementations, or{' '}
+          <Link
+            to="/contact"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            reach out directly
+          </Link>{' '}
+          if you'd like to discuss opportunities or collaborations!
+        </p>
       </motion.div>
+
+      {/* Separator */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="my-12 flex items-center justify-center"
+      >
+        <div className="h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent w-full"></div>
+      </motion.div>
+
+      {/* Posts Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-8 leading-tight"
+      >
+        Posts Archive
+      </motion.h1>
 
       {/* Posts by Year */}
       <div className="space-y-16">
