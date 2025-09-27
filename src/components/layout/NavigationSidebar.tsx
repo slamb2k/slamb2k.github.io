@@ -104,7 +104,7 @@ const NavigationSidebar: React.FC = () => {
             </div>
           </Link>
           <div className="text-fluid-xl text-accent mb-4">{t('sidebar.title')}</div>
-          <p className="text-neutral-500 text-fluid-sm leading-relaxed mb-12">
+          <p className="text-neutral-400 text-fluid-sm leading-relaxed mb-12">
             {t('sidebar.tagline')}
           </p>
         </motion.div>

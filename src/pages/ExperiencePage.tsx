@@ -88,7 +88,7 @@ const ExperiencePage: React.FC = () => {
         <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-300 to-green-500 bg-clip-text text-transparent mb-2 leading-tight pb-2">
           {t('experience.title')}
         </h1>
-        <p className="text-lg text-neutral-500 mb-12 max-w-2xl">{t('experience.description')}</p>
+        <p className="text-lg text-neutral-400 mb-12 max-w-2xl">{t('experience.description')}</p>
 
         <LazySection
           fallback={

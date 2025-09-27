@@ -15,14 +15,6 @@ export interface BlogMetadata {
 
 export const blogMetadata: BlogMetadata[] = [
   {
-    slug: 'welcome-to-mdx',
-    title: 'Welcome to MDX!',
-    date: '2024-01-15',
-    excerpt: 'Learn how to use MDX with React components',
-    tags: ['React', 'MDX', 'Documentation'],
-    readingTime: 5,
-  },
-  {
     slug: 'devops-at-scale',
     title: 'DevOps at Scale',
     date: '2024-01-10',

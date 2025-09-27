@@ -268,7 +268,7 @@ const AboutPage: React.FC = () => {
         {t('about.subtitle') && (
           <h2 className="text-xl lg:text-2xl text-accent mb-8">{t('about.subtitle')}</h2>
         )}
-        <p className="text-lg text-neutral-500 max-w-4xl">{t('about.tagline')}</p>
+        <p className="text-lg text-neutral-400 max-w-4xl">{t('about.tagline')}</p>
       </motion.section>
 
       {/* About Me Section - Lazy loaded */}
@@ -292,7 +292,7 @@ const AboutPage: React.FC = () => {
           className="mb-12"
         >
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-6">{t('about.heading')}</h2>
-          <div className="space-y-4 text-neutral-500 leading-relaxed">
+          <div className="space-y-4 text-neutral-400 leading-relaxed">
             {aboutParagraphs.map((paragraph, index) => {
               let className = '';
               if (index === 2) {

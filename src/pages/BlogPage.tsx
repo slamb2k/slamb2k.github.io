@@ -112,10 +112,10 @@ const BlogPage: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="mb-12"
       >
-        <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4">
+        <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4 leading-tight pb-2">
           {t('blog.title')}
         </h1>
-        <p className="text-lg text-slate-400">{t('blog.subtitle')}</p>
+        <p className="text-lg text-neutral-400">{t('blog.subtitle')}</p>
       </motion.div>
 
       {/* Posts by Year */}
