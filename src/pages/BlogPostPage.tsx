@@ -136,7 +136,7 @@ const BlogPostPage: React.FC = () => {
 
       {/* Article content */}
       <div
-        className="prose prose-invert prose-lg max-w-none
+        className="mdx-content prose prose-invert prose-lg max-w-none
         prose-headings:text-slate-100
         prose-h1:text-3xl prose-h1:font-bold prose-h1:mb-6 prose-h1:mt-8
         prose-h2:text-2xl prose-h2:font-semibold prose-h2:mb-4 prose-h2:mt-6 prose-h2:text-purple-300
@@ -145,14 +145,12 @@ const BlogPostPage: React.FC = () => {
         prose-a:text-purple-400 prose-a:no-underline hover:prose-a:text-purple-300
         prose-strong:text-slate-100 prose-strong:font-semibold
         prose-code:text-purple-300 prose-code:bg-slate-800/50 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-        prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800 prose-pre:overflow-x-auto
+        prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800
         prose-blockquote:border-l-purple-500 prose-blockquote:bg-slate-900/50 prose-blockquote:text-slate-400
-        prose-ul:text-slate-300 prose-ul:list-disc prose-ul:pl-6
-        prose-ol:text-slate-300 prose-ol:list-decimal prose-ol:pl-6
+        prose-ul:text-slate-300
+        prose-ol:text-slate-300
         prose-li:mb-2
-        prose-hr:border-slate-800
-        prose-img:rounded-lg prose-img:shadow-lg
-      "
+        prose-img:rounded-lg prose-img:shadow-lg"
       >
         <MDXContent />
       </div>
