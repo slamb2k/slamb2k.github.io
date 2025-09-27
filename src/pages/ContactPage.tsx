@@ -72,7 +72,7 @@ const ContactPage: React.FC = () => {
         >
           {t('contact.title')}
         </h1>
-        <p className="text-lg text-neutral-500 mb-12 max-w-2xl mx-auto">{t('contact.message')}</p>
+        <p className="text-lg text-neutral-400 mb-12 max-w-2xl mx-auto">{t('contact.message')}</p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -14,14 +14,15 @@ const NavigationHeader: React.FC = () => {
   const mobileMenuRef = React.useRef<HTMLDivElement>(null);
 
   // Get current active section from URL path
-  const currentPath = location.pathname === '/' ? '/about' : location.pathname;
-  const activeSection = currentPath.replace('/', '') || 'about';
+  const currentPath = location.pathname === '/' ? '/blog' : location.pathname;
+  const activeSection = currentPath.replace('/', '') || 'blog';
 
   const navigationItems = [
-    { id: 'about', label: t('nav.about') },
+    { id: 'blog', label: t('nav.blog') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
     { id: 'contact', label: t('nav.contact') },
+    { id: 'about', label: t('nav.aboutMe') },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -79,7 +80,7 @@ const NavigationHeader: React.FC = () => {
         className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-white/5"
       >
         <div className="px-6 py-4 flex items-center justify-between">
-          <Link to="/about" onClick={closeMenu}>
+          <Link to="/blog" onClick={closeMenu}>
             <div className="text-xl font-bold text-primary hover:text-cyan transition-colors">
               {portfolioData.personal.name}
             </div>
@@ -140,7 +141,7 @@ const NavigationHeader: React.FC = () => {
                 <nav className="space-y-6" role="navigation" aria-label="Mobile navigation">
                   {navigationItems.map((item, index) => {
                     const isActive = activeSection === item.id;
-                    const routePath = item.id === 'about' ? '/' : `/${item.id}`;
+                    const routePath = `/${item.id}`;
 
                     return (
                       <motion.div

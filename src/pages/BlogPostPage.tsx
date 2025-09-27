@@ -100,7 +100,7 @@ const BlogPostPage: React.FC = () => {
 
       {/* Article header */}
       <header className="mb-12">
-        <h1 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-purple-300 to-pink-500 bg-clip-text text-transparent mb-4 leading-tight">
+        <h1 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-purple-300 to-pink-500 bg-clip-text text-transparent mb-4 leading-tight pb-2">
           {frontmatter.title}
         </h1>
 

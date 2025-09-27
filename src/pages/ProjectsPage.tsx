@@ -113,7 +113,7 @@ const ProjectsPage: React.FC = () => {
         >
           {t('projects.title')}
         </h1>
-        <p className="text-lg text-neutral-500 mb-12 max-w-2xl">{t('projects.description')}</p>
+        <p className="text-lg text-neutral-400 mb-12 max-w-2xl">{t('projects.description')}</p>
 
         {/* Project grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
