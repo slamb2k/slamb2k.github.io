@@ -89,7 +89,7 @@ mdxFiles.forEach(mdxFile => {
         if (keepFile.startsWith(basePattern)) {
           replacements.push({
             from: `/images/blog/${imageName}`,
-            to: `/images/blog/${keepFile}`
+            to: `/images/blog/${keepFile}`,
           });
           foundReplacement = true;
           break;
@@ -103,7 +103,7 @@ mdxFiles.forEach(mdxFile => {
   }
 
   // Apply replacements
-  replacements.forEach(({from, to}) => {
+  replacements.forEach(({ from, to }) => {
     content = content.replace(new RegExp(from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), to);
     updated = true;
     totalUpdates++;
@@ -128,4 +128,4 @@ remainingFiles.forEach(file => {
 });
 
 console.log(`Remaining images: ${remainingFiles.length}`);
-console.log(`Total size: ${Math.round(totalSize / 1024 / 1024 * 10) / 10}MB`);
+console.log(`Total size: ${Math.round((totalSize / 1024 / 1024) * 10) / 10}MB`);

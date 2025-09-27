@@ -17,10 +17,10 @@ mdxFiles.forEach(file => {
 
   // Find all image references (multiple patterns)
   const patterns = [
-    /!\[.*?\]\(\/images\/blog\/([^)]+)\)/g,  // Markdown images
-    /src="\/images\/blog\/([^"]+)"/g,          // HTML img src
-    /src='\/images\/blog\/([^']+)'/g,          // HTML img src with single quotes
-    /\/images\/blog\/([^\s"')]+)/g             // Any reference
+    /!\[.*?\]\(\/images\/blog\/([^)]+)\)/g, // Markdown images
+    /src="\/images\/blog\/([^"]+)"/g, // HTML img src
+    /src='\/images\/blog\/([^']+)'/g, // HTML img src with single quotes
+    /\/images\/blog\/([^\s"')]+)/g, // Any reference
   ];
 
   patterns.forEach(pattern => {
@@ -52,22 +52,26 @@ if (unusedImages.length > 0) {
     totalSize += stats.size;
   });
 
-  console.log(`\nTotal size of unused images: ${Math.round(totalSize / 1024 / 1024 * 10) / 10}MB`);
+  console.log(
+    `\nTotal size of unused images: ${Math.round((totalSize / 1024 / 1024) * 10) / 10}MB`
+  );
 
   // Ask for confirmation
   const readline = require('readline');
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
   });
 
-  rl.question('\nDelete unused images? (y/n): ', (answer) => {
+  rl.question('\nDelete unused images? (y/n): ', answer => {
     if (answer.toLowerCase() === 'y') {
       unusedImages.forEach(img => {
         fs.unlinkSync(path.join(imagesDir, img));
         console.log(`Deleted: ${img}`);
       });
-      console.log(`\n✅ Removed ${unusedImages.length} unused images, saved ${Math.round(totalSize / 1024 / 1024 * 10) / 10}MB`);
+      console.log(
+        `\n✅ Removed ${unusedImages.length} unused images, saved ${Math.round((totalSize / 1024 / 1024) * 10) / 10}MB`
+      );
     } else {
       console.log('Deletion cancelled');
     }

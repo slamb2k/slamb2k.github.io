@@ -63,17 +63,19 @@ console.log(`Space to be saved: ${Math.round(totalSaved / 1024 / 1024)}MB`);
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
-rl.question('\nProceed with deletion? (y/n): ', (answer) => {
+rl.question('\nProceed with deletion? (y/n): ', answer => {
   if (answer.toLowerCase() === 'y') {
     filesToDelete.forEach(file => {
       const filePath = path.join(imagesDir, file);
       fs.unlinkSync(filePath);
       console.log(`Deleted: ${file}`);
     });
-    console.log(`\n✅ Removed ${duplicatesRemoved} duplicate images, saved ${Math.round(totalSaved / 1024 / 1024)}MB`);
+    console.log(
+      `\n✅ Removed ${duplicatesRemoved} duplicate images, saved ${Math.round(totalSaved / 1024 / 1024)}MB`
+    );
   } else {
     console.log('Deletion cancelled');
   }
