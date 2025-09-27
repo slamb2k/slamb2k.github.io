@@ -12,8 +12,7 @@
     "tagline": "Je construis des plateformes GenAI de production sur Microsoft Azure et apporte un leadership DevOps depuis la base. Spécialisé dans l'ingénierie de plateforme LLM avec une rigueur complète LLMOps/MLOps : CI/CD, pipelines d'évaluation, garde-fous, observabilité et gouvernance des coûts/latence."
   },
   "blog": {
-    "title": "Perspectives Techniques",
-    "subtitle": "Opinions personnelles sur l'IA, le DevOps et l'architecture cloud—généreusement assaisonnées de faits, de cicatrices de bataille et de la perle occasionnelle de sagesse d'incidents en production."
+    "title": "Perspectives Techniques"
   },
   "about": {
     "title": "Salut, je suis {{name}}.",
