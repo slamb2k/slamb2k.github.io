@@ -56,7 +56,9 @@ async function optimizeImage(imagePath) {
     } else if (ext === '.png') {
       // For any remaining PNGs, use aggressive compression
       try {
-        await execPromise(`pngquant --quality=50-70 --force --output "${imagePath}" "${imagePath}"`);
+        await execPromise(
+          `pngquant --quality=50-70 --force --output "${imagePath}" "${imagePath}"`
+        );
       } catch {
         // Fallback to ImageMagick if pngquant not available
         await execPromise(`mogrify -quality 70 -strip "${imagePath}"`);
@@ -146,7 +148,9 @@ async function removeUnusedImages() {
   }
 
   if (removedCount > 0) {
-    console.log(`\n✓ Removed ${removedCount} unused images (${(removedSize / (1024 * 1024)).toFixed(2)}MB)`);
+    console.log(
+      `\n✓ Removed ${removedCount} unused images (${(removedSize / (1024 * 1024)).toFixed(2)}MB)`
+    );
   }
 
   return removedSize;
