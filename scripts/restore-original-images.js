@@ -9,7 +9,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Parse WordPress XML
-const xmlContent = fs.readFileSync('/home/slamb2k/Downloads/simonlambcodes.WordPress.2025-09-26.xml', 'utf-8');
+const xmlContent = fs.readFileSync(
+  '/home/slamb2k/Downloads/simonlambcodes.WordPress.2025-09-26.xml',
+  'utf-8'
+);
 const parser = new xml2js.Parser();
 
 async function downloadImage(url, filepath) {
@@ -17,16 +20,18 @@ async function downloadImage(url, filepath) {
     const file = fs.createWriteStream(filepath);
     const protocol = url.startsWith('https') ? https : http;
 
-    protocol.get(url, (response) => {
-      response.pipe(file);
-      file.on('finish', () => {
-        file.close();
-        resolve();
+    protocol
+      .get(url, response => {
+        response.pipe(file);
+        file.on('finish', () => {
+          file.close();
+          resolve();
+        });
+      })
+      .on('error', err => {
+        fs.unlink(filepath, () => {});
+        reject(err);
       });
-    }).on('error', (err) => {
-      fs.unlink(filepath, () => {});
-      reject(err);
-    });
   });
 }
 
@@ -38,7 +43,11 @@ async function extractPostImages() {
   const postImageMap = {};
 
   for (const item of items) {
-    if (item['wp:post_type'] && item['wp:post_type'][0] === 'post' && item['wp:status'][0] === 'publish') {
+    if (
+      item['wp:post_type'] &&
+      item['wp:post_type'][0] === 'post' &&
+      item['wp:status'][0] === 'publish'
+    ) {
       const title = item.title[0];
       const link = item.link[0];
       const content = item['content:encoded'] ? item['content:encoded'][0] : '';
@@ -60,7 +69,7 @@ async function extractPostImages() {
         postImageMap[slug] = {
           title,
           images,
-          content
+          content,
         };
         console.log(`Found ${images.length} images for post: ${slug}`);
       }
@@ -105,7 +114,7 @@ async function updateMdxFiles(postImageMap) {
         full: match[0],
         alt: match[1],
         url: match[2],
-        index: match.index
+        index: match.index,
       });
     }
 

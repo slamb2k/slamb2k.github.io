@@ -31,7 +31,6 @@ async function optimizeImage(imagePath) {
       await execPromise(`cwebp -q 80 "${imagePath}" -o "${webpPath}"`);
 
       console.log(`  ✓ Optimized PNG: ${path.basename(imagePath)} (${sizeBefore}KB → smaller)`);
-
     } else if (ext === '.jpg' || ext === '.jpeg') {
       // Optimize JPEG
       await execPromise(`jpegoptim --max=80 --strip-all --overwrite "${imagePath}"`);
@@ -43,12 +42,13 @@ async function optimizeImage(imagePath) {
       const statsAfter = fs.statSync(imagePath);
       const sizeAfter = (statsAfter.size / 1024).toFixed(2);
 
-      console.log(`  ✓ Optimized JPEG: ${path.basename(imagePath)} (${sizeBefore}KB → ${sizeAfter}KB)`);
+      console.log(
+        `  ✓ Optimized JPEG: ${path.basename(imagePath)} (${sizeBefore}KB → ${sizeAfter}KB)`
+      );
     }
 
     // Resize if too large (max width 1200px)
     await execPromise(`mogrify -resize "1200>" "${imagePath}"`);
-
   } catch (err) {
     console.log(`  ✗ Failed to optimize ${path.basename(imagePath)}: ${err.message}`);
   }
@@ -66,7 +66,9 @@ async function main() {
   } catch (err) {
     console.log('⚠️  Installing required image optimization tools...');
     try {
-      await execPromise('sudo apt-get update && sudo apt-get install -y pngquant jpegoptim webp imagemagick');
+      await execPromise(
+        'sudo apt-get update && sudo apt-get install -y pngquant jpegoptim webp imagemagick'
+      );
     } catch (installErr) {
       console.log('❌ Failed to install tools. Please install manually:');
       console.log('   sudo apt-get install pngquant jpegoptim webp imagemagick');
@@ -75,7 +77,8 @@ async function main() {
   }
 
   // Get all image files
-  const files = fs.readdirSync(imagesDir)
+  const files = fs
+    .readdirSync(imagesDir)
     .filter(f => /\.(png|jpg|jpeg)$/i.test(f))
     .map(f => path.join(imagesDir, f));
 

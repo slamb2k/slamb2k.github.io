@@ -30,8 +30,9 @@ files.forEach(file => {
       if (seenImages.has(imagePath)) {
         // Check if the image is inline with text (part of a paragraph)
         const hasTextBefore = line.indexOf('![') > 0;
-        const hasTextAfter = line.indexOf(')') < line.length - 1 &&
-                            !line.substring(line.indexOf(')') + 1).match(/^\s*$/);
+        const hasTextAfter =
+          line.indexOf(')') < line.length - 1 &&
+          !line.substring(line.indexOf(')') + 1).match(/^\s*$/);
 
         if (hasTextBefore || hasTextAfter) {
           // It's inline with text, remove just the image reference but keep the text

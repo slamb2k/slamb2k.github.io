@@ -10,7 +10,7 @@ originalUrl: 'https://simonlambcodesblog.wordpress.com/2018/06/08/weird-issue-wh
 
 # How I ensure consistency when creating pipelines in VSTS using Task Groups and Variable Groups...
 
-I was showing someone my blog the other day and they asked when my last post was. I confidently said, "About a month or so ago.." and then I saw it... ![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197103-0.png) Where did all those months go? Maybe I blacked out out or something...
+I was showing someone my blog the other day and they asked when my last post was. I confidently said, "About a month or so ago.." and then I saw it... ![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197103-0.jpg) Where did all those months go? Maybe I blacked out out or something...
 In order to ease into my "blogging resurgence", I thought I would start with a quick one regarding how I use VSTS and an interesting issue I encountered last night. Since this problem owes me a few hours, I hope it shortcuts somebody else's pain. I love how VSTS gives teams the flexibility to work in whatever way they like but a framework still exists to put some guard rails in place.
 More important than governance though is the ability to share proven DevOps patterns so team members can focus on the unique aspects of the solution rather than common activities like deployment.
 
@@ -25,21 +25,21 @@ More important than governance though is the ability to share proven DevOps patt
 2.  Create a web app on Azure as a deployment target.
 3.  Add the required tasks for a blue/green deployment to the environment . i.e. [Deploy to a Slot](https://en.wikipedia.org/wiki/Development,_testing,_acceptance_and_production), [Quick Performance test](https://docs.microsoft.com/en-us/vsts/pipelines/tasks/test/cloud-based-web-performance-test?view=vsts), [variable for specifying the Azure Subscription in a task group](https://docs.microsoft.com/en-us/vsts/pipelines/tasks/deploy/azure-app-service-manage?view=vsts).
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197130-1.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197130-1.jpg)
 
 1.  Since these tasks are pretty consistent to all of the different environments, select all of the tasks, right click and then select _**Create task group**_ from the context menu.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197160-2.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197160-2.jpg)
 
 1.  Name the task group and save it.
 2.  Specify the required properties you need to pass in as parameters using variables. These will be the _**App Service Name**_, the _**Resource Group Name**_ and the **_Azure Subscription_**.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197195-3.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197195-3.jpg)
 
 The only property that doesn't love this strategy is the _**Azure Subscription**_. In a normal build or release it is not possible to use a variable to specify the Azure Subscription normally but at some stage the VSTS team added the ability to use a [variable for specifying the Azure Subscription in a task group](https://docs.microsoft.com/en-us/vsts/pipelines/tasks/deploy/azure-app-service-manage?view=vsts). The issue I discovered last night is that there is some sensitivity however when it comes to the name of this variable. \_\*\*IMPORTANT!!! If you try to use a variable name for the Azure Subscription with a hyphen in it like $(Subscription-Name), VSTS will attempt to verify the subscription and report a validation error.
 This will prevent you from saving the task group.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197228-4.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197228-4.jpg)
 
 This took me a couple of hours to realise so as a result I was pretty motivated to share this for the common good of all. I removed the hyphen and the world was fair again. Save the task group and return to the release pipeline.
 
@@ -47,19 +47,19 @@ This took me a couple of hours to realise so as a result I was pretty motivated 
 
 The subscription is the only one we can't use a variable for, so go ahead and manually select the desired Azure subscription.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197252-5.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197252-5.jpg)
 
 1.  For all of the other properties lets create a variable group. For this example we need the _**ResourceGroup**_ and the _**AppServiceName**_.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197282-6.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197282-6.jpg)
 
 1.  We can then link the variable group and scope it to the _**Dev**_ environment. This means when variables with the names above are used in the release to _**Dev**_ they will use these linked values.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197307-7.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197307-7.jpg)
 
 1.  From here we can clone the environment three times to create the entire DTAP pipeline. We also need to create the matching App Services on Azure that we will use for deployment targets.
 
-![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197339-8.png)
+![Weird Issue When Service Connections Are Parameterized In Task Groups](/images/blog/weird-issue-when-service-connections-are-parameterized-in-task-groups-1758985197339-8.jpg)
 
 1.  We can then duplicate the variable group three times and create one for each environment. Unfortunately there isn't a clone function so you have to do it manually. I do have a PowerShell script that can automate the process by hitting the REST API and I'll throw that in another post before the end of the long weekend.
 2.  Finally we link all of the other new variable groups to the remaining environments and specify the scope so their values are used exclusively in that environment. We additionally have to ensure we have remembered to select the desired Azure subscription in all of the environments using the task group.

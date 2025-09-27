@@ -11,7 +11,7 @@ originalUrl: 'https://simonlambcodesblog.wordpress.com/2017/11/07/the-sdk-micros
 # The SDK 'Microsoft.Docker.Sdk' specified could not be found and other .NET Core/Docker fun...
 
 This is a brief post because it's the second time I've had to resolve the same issue and as I don't think my memory is getting any better, it's probably better this goes down on my permanent record. ;-) I love those rabbit holes that you don't see coming until too late. I had offered to assist with some Docker investigations for another Technical Evangelist at Microsoft.
-In order to do that I needed to take a currently functional ASP.NET Core site and add docker support. So easy... Right click to win... ![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196416-0.png) After Visual Studio added the DockerFile and the Docker-Compose scripts, I clicked on the Continuous Delivery Extension and configured the release to deploy using an Azure App Service for Linux. The resulting build would submit a Docker Image to my Azure Container Registry and the Azure App Service for Linux would host this as content.
+In order to do that I needed to take a currently functional ASP.NET Core site and add docker support. So easy... Right click to win... ![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196416-0.jpg) After Visual Studio added the DockerFile and the Docker-Compose scripts, I clicked on the Continuous Delivery Extension and configured the release to deploy using an Azure App Service for Linux. The resulting build would submit a Docker Image to my Azure Container Registry and the Azure App Service for Linux would host this as content.
 This approach is really attractive as we benefit from the enhanced DevOps story as well as benefiting from features such as SSL termination and App Settings integration. The extension usually performs a rapid job of created the App Service, generated a .NET Core build and provisioned a release to to the App Service.
 
 > 2017-11-07T08:01:53.4574767Z Creating network "devrisecontainer_default" with the default driver
@@ -20,7 +20,7 @@ This approach is really attractive as we benefit from the enhanced DevOps story 
 >
 > 2017-11-07T08:01:53.5434806Z ##\Creating network "devrisecontainer_default" with the default driver
 
-After a bit of messing around I figured out the agent was configured to _**VS2017**_ so I set it back to _**Hosted Linux Preview**_ and kicked off the build again. ![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196443-1.png) The build failed again with a different error:
+After a bit of messing around I figured out the agent was configured to _**VS2017**_ so I set it back to _**Hosted Linux Preview**_ and kicked off the build again. ![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196443-1.jpg) The build failed again with a different error:
 
 > Creating network "devrisecontainer_default" with the default driver
 >
@@ -82,10 +82,10 @@ To my frustration it failed again with an error that looked almost identical to 
 
 Some further research found that this is the result of a [known issue](https://github.com/aspnet/aspnet-docker/issues/299) in the command-line tooling. I simply had to update the image one last time to a custom image, _**microsoft/aspnetcore-build:1.0-2.0**_ that the .NET Core team had created to enable the CI build with Visual Studio.
 
-![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196474-2.png)
+![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196474-2.jpg)
 
 With a successful build, the continuous deployment then fired and configured our App Service for Linux to point at the delivered container in the Azure Container Registry.
 
-![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196499-3.png)
+![The Sdk Microsoft Docker Sdk Specified Could Not Be Found And Other Netcoredocker Fun](/images/blog/the-sdk-microsoft-docker-sdk-specified-could-not-be-found-and-other-netcoredocker-fun-1758985196499-3.jpg)
 
 I find it really interesting that these kind of posts are the ones that readers will hit the most. I just hope this post finds people with the same issues I had so you can get back to creating value instead of tricking your tools into working.
