@@ -178,12 +178,24 @@ jobs:
         run: |
           # Check if dist folder size exceeds budget
           DIST_SIZE=$(du -sb dist/ | cut -f1)
-          MAX_SIZE=$((6 * 1024 * 1024))  # 6MB budget
+          MAX_SIZE=$((12 * 1024 * 1024))  # 12MB budget (adjusted for blog with images)
+
+          # Also check JavaScript bundle size separately
+          JS_SIZE=$(find dist -name "*.js" -type f -exec du -cb {} + | grep total$ | cut -f1)
+          MAX_JS_SIZE=$((1 * 1024 * 1024))  # 1MB JavaScript budget
+
           if [ $DIST_SIZE -gt $MAX_SIZE ]; then
-            echo "Bundle size ($DIST_SIZE bytes) exceeds budget ($MAX_SIZE bytes)"
+            echo "Total bundle size ($DIST_SIZE bytes) exceeds budget ($MAX_SIZE bytes)"
             exit 1
           fi
-          echo "Bundle size ($DIST_SIZE bytes) is within budget ($MAX_SIZE bytes)"
+
+          if [ $JS_SIZE -gt $MAX_JS_SIZE ]; then
+            echo "JavaScript bundle size ($JS_SIZE bytes) exceeds budget ($MAX_JS_SIZE bytes)"
+            exit 1
+          fi
+
+          echo "Total bundle size ($DIST_SIZE bytes) is within budget ($MAX_SIZE bytes)"
+          echo "JavaScript bundle size ($JS_SIZE bytes) is within budget ($MAX_JS_SIZE bytes)"
 
   build:
     name: Build
