@@ -22,7 +22,7 @@ The original application is included in the [Master](https://github.com/slamb2k/
 
 We start our journey with a simple Christmas List application which has no concept of formal identity besides a drop down box to choose whose list we are working on.
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894599442.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 From here we have two destinations. The first is to demonstrate the addition of ADAL to incorporate authentication to an Azure AD tenant and the second is to use MSAL to leverage both Azure AD and Microsoft Accounts.
 
@@ -118,11 +118,11 @@ public void ConfigureAuth(IAppBuilder app)
 
 Go to the Azure portal and create a new App Registration in your Azure Active Directory blade:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894601052.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 Once this has been created, open the properties and update Web.Config. The tenant and audience should be the tenant name and the App ID URI respectively.
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894603490.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 Next we need to update the client application to use ADAL by loading it from nuget:
 
@@ -166,17 +166,17 @@ The Windows Store application requires a special callback URI that can be obtain
 
 Record this callback URI and create a new native App Registration:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894605538.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 This msapp:// style URI should be then added as a redirect URI to the newly created application.
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894606885.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 We also need to delegate permission from this new Native App Registration to use our Web API App Registration:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894608267.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894609583.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 The actual authentication process is taken care of by the following line which uses the special Callback URI:
 
@@ -198,11 +198,11 @@ The resulting token is then set as the default authorization header for all subs
 
 Now simply spin up the Web API and the Native application and login. You should encounter the standard OAuth experience where you are asked to verify permission in order to grant consent:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894610437.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 Once this is complete you will be logged in and can add gifts until your heart is content:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894612276.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 That’s it! We now have a working authentication scheme in our application and to summarise these are the steps we had to perform:
 
@@ -260,11 +260,11 @@ The initialisation logic requires a special class which is available from severa
 
 As this application will use the new converged API experience we need to register it in the new [apps.dev.microsoft.com](https://apps.dev.microsoft.com). In this portal you can see any old Live SDK registrations as well as any applications using the V2 endpoints.
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894614103.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 Add an application and create both a Web platform for the API and a Mobile application (It seems if it’s not web its mobile!) to represent the Native client.
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894616007.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 All we really need is both the **_Application ID_** and the **_Client ID_** and we’re off to the races. In the sample code for the API the application ID is stored in the Web.Config. We simply fill the **_ida:Audience_** configuration setting with the **_Application ID_** so it can be used in ConfigureAuth method shown above:
 
@@ -319,15 +319,15 @@ In the same way as before the default authorization header can be specified:
 
 If we then spin up the service and client, upon login we will be presented with a slightly different login dialog:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894617437.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 We notice that we are now presented with the option of either an Azure AD account or a Microsoft Account and if we authenticate using the latter the equivalent permission screen is displayed:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894618717.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 The end result is a Christmas list keyed off my Microsoft Account rather than an organizational one:
 
-![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894620950.png)
+![Net332 Introduction To Authentication On Azure Active Directory](/images/blog/net332-introduction-to-authentication-on-azure-active-directory-1758894530331.png)
 
 That’s a wrap! Let’s review the steps required which I consider a lot simpler if you can live with the limitations of the V2 endpoint:
 
