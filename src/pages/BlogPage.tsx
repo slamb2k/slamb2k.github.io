@@ -105,14 +105,46 @@ const BlogPage: React.FC = () => {
       transition={{ duration: 0.8 }}
       className="max-w-7xl mx-auto px-8 lg:px-16 py-12 lg:py-24"
     >
-      {/* Page Subtitle */}
+      {/* Page Intro */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-12"
+        className="mb-12 space-y-4"
       >
         <p className="text-lg text-neutral-400">{t('blog.subtitle')}</p>
+
+        <p className="text-lg text-slate-300">
+          Welcome to my technical blog where I share insights, lessons learned, and occasional war
+          stories from building production systems at scale. From LLM platforms at Microsoft to
+          e-commerce gateways and everything in between, these posts capture the real-world
+          challenges and solutions I've encountered.
+        </p>
+
+        <p className="text-lg text-slate-300">
+          Looking for more? Check out my{' '}
+          <Link
+            to="/experience"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            professional experience
+          </Link>{' '}
+          to see my journey through Microsoft, Pacific Commerce, and beyond. Browse{' '}
+          <Link
+            to="/projects"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            notable projects
+          </Link>{' '}
+          for deep dives into specific implementations, or{' '}
+          <Link
+            to="/contact"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            reach out directly
+          </Link>{' '}
+          if you'd like to discuss opportunities or collaborations!
+        </p>
       </motion.div>
 
       {/* Posts by Year */}
