@@ -1,0 +1,16 @@
+version: 1.0.0
+scope: project
+initialized: true
+components:
+  mpcServer: true
+  statusLines: true
+  gitHooks: true
+  gitTemplates: true
+  utilityScripts: true
+preferences:
+  defaultBranchPrefix: feature/
+  autoCleanup: true
+  confirmBeforePush: true
+  colorOutput: true
+  verboseLogging: true
+installPath: .hansolo
