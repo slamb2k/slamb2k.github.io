@@ -112,8 +112,6 @@ const BlogPage: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="mb-12 space-y-4"
       >
-        <p className="text-lg text-neutral-400">{t('blog.subtitle')}</p>
-
         <p className="text-lg text-slate-300">
           Welcome to my technical blog where I share insights, lessons learned, and occasional war
           stories from building production systems at scale. From LLM platforms at Microsoft to
