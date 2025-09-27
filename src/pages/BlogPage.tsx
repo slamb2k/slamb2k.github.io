@@ -147,6 +147,26 @@ const BlogPage: React.FC = () => {
         </p>
       </motion.div>
 
+      {/* Separator */}
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="my-12 flex items-center justify-center"
+      >
+        <div className="h-px bg-gradient-to-r from-transparent via-purple-400/30 to-transparent w-full"></div>
+      </motion.div>
+
+      {/* Posts Heading */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-8 leading-tight"
+      >
+        Posts Archive
+      </motion.h1>
+
       {/* Posts by Year */}
       <div className="space-y-16">
         {years.map(year => (
