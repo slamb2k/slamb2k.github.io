@@ -110,12 +110,40 @@ const BlogPage: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-12"
+        className="mb-8"
       >
         <h1 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4 leading-tight pb-2">
           {t('blog.title')}
         </h1>
         <p className="text-lg text-neutral-400">{t('blog.subtitle')}</p>
+      </motion.div>
+
+      {/* Welcome Message */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mb-12 p-6 rounded-lg bg-slate-900/50 border border-slate-800"
+      >
+        <p className="text-lg text-slate-300 leading-relaxed">
+          Welcome! Here you'll find my technical musings and insights gathered throughout my journey
+          in AI, cloud architecture, and DevOps. Feel free to explore my thoughts below, or check
+          out more about my{' '}
+          <Link
+            to="/experience"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            professional experience
+          </Link>{' '}
+          and{' '}
+          <Link
+            to="/projects"
+            className="text-purple-400 hover:text-purple-300 transition-colors underline"
+          >
+            highlighted projects
+          </Link>{' '}
+          elsewhere on the site.
+        </p>
       </motion.div>
 
       {/* Posts by Year */}
