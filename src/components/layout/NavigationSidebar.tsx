@@ -235,7 +235,7 @@ const NavigationSidebar: React.FC = () => {
                           />
                         </svg>
                       )}
-                      {/* Projects icon - folder */}
+                      {/* Projects icon - code/terminal */}
                       {item.id === 'projects' && (
                         <svg
                           width="20"
@@ -246,18 +246,24 @@ const NavigationSidebar: React.FC = () => {
                           className="mr-2 flex-shrink-0"
                         >
                           <path
-                            d="M3 7V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V9C21 7.89543 20.1046 7 19 7H11L9 4H5C3.89543 4 3 4.89543 3 6V7Z"
+                            d="M8 9L4 12L8 15"
                             stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                           />
                           <path
-                            d="M7 13L10 16L17 9"
+                            d="M16 9L20 12L16 15"
                             stroke="currentColor"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                          />
+                          <path
+                            d="M12 5L10 19"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
                           />
                         </svg>
                       )}
