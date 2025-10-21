@@ -17,6 +17,7 @@ export interface JobWithTranslation
   description: string; // Translated description
   technologies: string[];
   featured?: boolean;
+  highlight?: boolean;
 }
 
 /**
@@ -46,6 +47,7 @@ export function getJobsWithTranslations(t: TFunction): JobWithTranslation[] {
     description: t(`experience.jobs.${job.id}.description`),
     technologies: job.technologies,
     featured: job.featured,
+    highlight: job.highlight,
   }));
 }
 
