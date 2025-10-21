@@ -81,9 +81,8 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
         className={`text-slate-400 leading-relaxed mb-4 ${
           project.featured ? 'text-sm lg:text-base' : 'text-sm'
         }`}
-      >
-        {project.description}
-      </p>
+        dangerouslySetInnerHTML={{ __html: project.description }}
+      />
 
       <div className="flex flex-wrap gap-2">
         {project.technologies.map((tech: string) => (
