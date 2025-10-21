@@ -69,3 +69,11 @@ bundle-stats.json
 # Vercel
 .vercel/*
 !.vercel/project.json
+
+# devsolo runtime files
+.devsolo/
+!.devsolo/hooks/
+.devsolo/debug.log
+.devsolo/locks/*.lock
+.devsolo/sessions/
+.devsolo/audit/

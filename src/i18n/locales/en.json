@@ -31,8 +31,14 @@
       "azure-core": {
         "title": "Senior Software Engineer",
         "company": "Microsoft (Azure Core)",
-        "period": "Apr 2024 - Jul 2025",
-        "description": "Engineered an LLM-driven governance platform that analyzes internal Microsoft product codebases using Azure OpenAI + agentic retrieval to automatically surface security, performance, and best-practice risks before rollout. This platform strengthened governance and reduced incidents from problematic deployments across Azure. With code contexts spanning thousands of lines, I designed token-aware batching, caching, and aggregation strategies that made multi-chunk evaluation feasible and cost-effective. Embedded automatic + human-in-the-loop eval gates with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines, guardrails, observability, and cost/latency governance—enabling multiple developers to iterate safely on prompt designs without regressions. The platform is now used by a significant portion of Azure products and has become fundamental to all internal Microsoft product deployments for incident reduction and enterprise risk management."
+        "period": "Jul 2024 - Jul 2025",
+        "description": "Engineered an LLM-driven governance platform that analyzes internal Microsoft product codebases using Azure OpenAI + agentic retrieval to automatically surface security, performance, and best-practice risks before rollout. This platform strengthened governance and reduced incidents from problematic deployments across Azure. With code contexts spanning thousands of lines, I designed token-aware batching, caching, and aggregation strategies that made multi-chunk evaluation feasible and cost-effective. Embedded automatic + human-in-the-loop eval gates with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines, guardrails, observability, and cost/latency governance—enabling multiple developers to iterate safely on prompt designs without regressions. The platform is now used by a significant portion of Azure products and has become fundamental to all internal Microsoft product deployments for incident reduction and enterprise risk management. Additionally, developed Azure DevOps extensions using React.js (see https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task for React.js integration with Azure DevOps Extension SDK), working closely with teams to develop, test, and deploy to Microsoft's internal Azure DevOps platform while adhering to all security, performance, and best practices for React.js development."
+      },
+      "microsoft-cloud-industry": {
+        "title": "Senior Software Engineer",
+        "company": "Microsoft (Microsoft Cloud for Industry)",
+        "period": "Apr 2024 - Jul 2024",
+        "description": "As part of the Microsoft Cloud for Industry team, worked closely with the Microsoft Fabric team to build a framework that optimized the onboarding of Industry Solutions (see https://learn.microsoft.com/en-us/industry/), providing packaged sets of resources tailored for specific verticals including retail, manufacturing, and healthcare. These comprehensive solutions included industry data models, pre-built connectors, pipelines, templates, and analytics capabilities. Developed solution accelerators using React.js that leveraged .NET APIs and integrated directly with the Microsoft Fabric backend. The industry solutions were hosted within the Microsoft Fabric portal and enabled scaffolding of purpose-built data components designed specifically for each vertical they addressed."
       },
       "microsoft-cloud": {
         "title": "Senior Software Engineer",
@@ -105,6 +111,10 @@
       "azure-llm-governance": {
         "title": "LLM-Driven Governance Platform - Microsoft Azure Core",
         "description": "Engineered an LLM-driven governance platform at Microsoft Azure Core that analyzes internal product codebases to surface security, performance, and best-practice risks before rollout. Implemented token-aware batching, caching, and aggregation strategies for processing thousands of lines of code. Built structured outputs with Liquid templates for hallucination-free reports and embedded human-in-the-loop evaluation gates for safe prompt iteration."
+      },
+      "azure-devops-governance-extensions": {
+        "title": "Azure DevOps Governance Extensions - Microsoft Azure Core",
+        "description": "Developed React.js-based Azure DevOps Extensions using the Azure DevOps Extension SDK (https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task) to display outputs from the LLM-Driven Governance Platform at massive scale across Microsoft's global build platform. These extensions integrated seamlessly with all builds and pull requests performed by Microsoft product teams worldwide, providing real-time governance insights and security risk analysis directly within the Azure DevOps interface. Engineered for extreme performance and scale to handle thousands of concurrent builds while maintaining responsive user experiences. The extensions became mandatory tooling for all Microsoft product deployments, ensuring consistent governance and risk visibility across the entire organization."
       },
       "healthcare-platform-fred": {
         "title": "Regulated Healthcare Platform - Fred IT Group",
@@ -253,6 +263,18 @@
     "Surface Dial": "Surface Dial",
     "Windows": "Windows",
     "Azure Mobile Center": "Azure Mobile Center",
-    "Azure Artifacts": "Azure Artifacts"
+    "Azure Artifacts": "Azure Artifacts",
+    "Azure DevOps Extensions": "Azure DevOps Extensions",
+    "Microsoft Fabric": "Microsoft Fabric",
+    "Industry Solutions": "Industry Solutions",
+    "Azure DevOps Extension SDK": "Azure DevOps Extension SDK",
+    "REST APIs": "REST APIs",
+    "Performance Optimization": "Performance Optimization",
+    "Scale Engineering": "Scale Engineering",
+    "Token-Aware Batching": "Token-Aware Batching",
+    "Multi-Chunk Evaluation": "Multi-Chunk Evaluation",
+    "Human-in-the-Loop Gates": "Human-in-the-Loop Gates",
+    "Cost/Latency Optimization": "Cost/Latency Optimization",
+    "Security Risk Analysis": "Security Risk Analysis"
   }
 }
