@@ -17,9 +17,11 @@ const ExperienceCard: React.FC<{
     transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
     whileHover={{ scale: 1.02 }}
     className={`group relative p-6 rounded-lg border transition-all duration-300 ${
-      job.featured
-        ? 'border-emerald-500/30 hover:border-emerald-400/50 bg-emerald-950/10 hover:bg-emerald-900/20 shadow-lg shadow-emerald-500/10'
-        : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
+      job.highlight
+        ? 'border-amber-500/40 hover:border-amber-400/60 bg-gradient-to-br from-amber-950/20 via-emerald-950/10 to-amber-950/20 hover:from-amber-900/30 hover:via-emerald-900/20 hover:to-amber-900/30 shadow-xl shadow-amber-500/20'
+        : job.featured
+          ? 'border-emerald-500/30 hover:border-emerald-400/50 bg-emerald-950/10 hover:bg-emerald-900/20 shadow-lg shadow-emerald-500/10'
+          : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
     }`}
   >
     <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
@@ -27,21 +29,30 @@ const ExperienceCard: React.FC<{
         {job.period}
       </div>
       <div className="flex-1">
-        <div className="flex items-start justify-between mb-2">
+        <div className="mb-2">
           <h3
             className={`font-semibold transition-colors ${
-              job.featured
-                ? 'text-lg text-slate-100 group-hover:text-emerald-400'
-                : 'text-slate-100 group-hover:text-emerald-300'
+              job.highlight
+                ? 'text-xl text-slate-100 group-hover:text-amber-400'
+                : job.featured
+                  ? 'text-lg text-slate-100 group-hover:text-emerald-400'
+                  : 'text-slate-100 group-hover:text-emerald-300'
             }`}
           >
             {job.title} · {job.company}
           </h3>
-          {job.featured && (
-            <span className="inline-block ml-2 px-2 py-0.5 text-xs bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">
-              {t('common.featured')}
-            </span>
-          )}
+          <div className="flex gap-2 mt-1">
+            {job.highlight && (
+              <span className="inline-block px-2 py-0.5 text-xs bg-amber-500/10 text-amber-400 rounded border border-amber-500/30 font-semibold">
+                {t('common.highlight')}
+              </span>
+            )}
+            {job.featured && (
+              <span className="inline-block px-2 py-0.5 text-xs bg-emerald-500/10 text-emerald-400 rounded border border-emerald-500/20">
+                {t('common.featured')}
+              </span>
+            )}
+          </div>
         </div>
         <p
           className={`text-slate-400 mt-2 leading-relaxed ${

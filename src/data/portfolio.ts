@@ -21,6 +21,7 @@ export interface Job {
   company: string;
   technologies: string[];
   featured?: boolean; // Hero card styling for important roles
+  highlight?: boolean; // Enhanced visual styling with amber colors
   // description moved to i18n translations
 }
 
@@ -86,8 +87,9 @@ export const portfolioData: PortfolioData = {
       id: 'azure-core',
       period: 'Jul 2024 - Jul 2025',
       title: 'Senior Software Engineer',
-      company: 'Microsoft (Azure Core)',
+      company: 'Microsoft Engineering (Azure Core)',
       featured: true,
+      highlight: true,
       technologies: [
         'Azure OpenAI',
         'RAG/Vector Search',
@@ -105,8 +107,9 @@ export const portfolioData: PortfolioData = {
       id: 'microsoft-cloud-industry',
       period: 'Apr 2024 - Jul 2024',
       title: 'Senior Software Engineer',
-      company: 'Microsoft (Microsoft Cloud for Industry)',
+      company: 'Microsoft Engineering (Microsoft Cloud)',
       featured: false,
+      highlight: true,
       technologies: [
         'React',
         'TypeScript',
@@ -139,6 +142,7 @@ export const portfolioData: PortfolioData = {
       title: 'DevOps OpenHack Tech Lead (Part-time)',
       company: 'Microsoft',
       featured: true,
+      highlight: true,
       technologies: [
         'CI/CD',
         'IaC',
