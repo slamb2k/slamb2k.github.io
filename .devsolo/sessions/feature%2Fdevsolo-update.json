@@ -2,13 +2,19 @@
   "id": "747c9da6-acdc-47fb-8ce6-cc7ac33db014",
   "branchName": "feature/devsolo-update",
   "workflowType": "launch",
-  "currentState": "BRANCH_READY",
+  "currentState": "CHANGES_COMMITTED",
   "stateHistory": [
     {
       "from": "INIT",
       "to": "BRANCH_READY",
       "trigger": "user_action",
       "timestamp": "2025-10-21T08:03:18.629Z"
+    },
+    {
+      "from": "BRANCH_READY",
+      "to": "CHANGES_COMMITTED",
+      "trigger": "user_action",
+      "timestamp": "2025-10-21T08:06:24.511Z"
     }
   ],
   "metadata": {
@@ -19,6 +25,6 @@
     }
   },
   "createdAt": "2025-10-21T08:03:18.628Z",
-  "updatedAt": "2025-10-21T08:03:18.629Z",
+  "updatedAt": "2025-10-21T08:06:24.512Z",
   "expiresAt": "2025-11-20T08:03:18.628Z"
 }
