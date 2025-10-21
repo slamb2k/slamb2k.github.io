@@ -31,8 +31,14 @@
       "azure-core": {
         "title": "Ingénieur Logiciel Senior",
         "company": "Microsoft (Azure Core)",
-        "period": "Avr 2024 - Juil 2025",
-        "description": "J'ai conçu une plateforme de gouvernance pilotée par LLM qui analyse les bases de code des produits Microsoft internes en utilisant Azure OpenAI + récupération agentique pour identifier automatiquement les risques de sécurité, de performance et de meilleures pratiques avant le déploiement. Cette plateforme a renforcé la gouvernance et réduit les incidents des déploiements problématiques dans Azure. Avec des contextes de code s'étendant sur des milliers de lignes, j'ai conçu des stratégies de traitement par lots, de mise en cache et d'agrégation sensibles aux tokens qui ont rendu l'évaluation multi-chunks faisable et rentable."
+        "period": "Juil 2024 - Juil 2025",
+        "description": "J'ai conçu une plateforme de gouvernance pilotée par LLM qui analyse les bases de code des produits Microsoft internes en utilisant Azure OpenAI + récupération agentique pour identifier automatiquement les risques de sécurité, de performance et de meilleures pratiques avant le déploiement. Cette plateforme a renforcé la gouvernance et réduit les incidents des déploiements problématiques dans Azure. Avec des contextes de code s'étendant sur des milliers de lignes, j'ai conçu des stratégies de traitement par lots, de mise en cache et d'agrégation sensibles aux tokens qui ont rendu l'évaluation multi-chunks faisable et rentable. J'ai intégré des portes d'évaluation automatiques + humain-dans-la-boucle avec une rigueur complète LLMOps/MLOps—CI/CD, pipelines d'évaluation, garde-fous, observabilité et gouvernance des coûts/latence—permettant à plusieurs développeurs d'itérer en toute sécurité sur les conceptions de prompts sans régressions. La plateforme est maintenant utilisée par une partie importante des produits Azure et est devenue fondamentale pour tous les déploiements de produits Microsoft internes pour la réduction des incidents et la gestion des risques d'entreprise. De plus, j'ai développé des extensions Azure DevOps en utilisant React.js (voir https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task pour l'intégration React.js avec Azure DevOps Extension SDK), en travaillant en étroite collaboration avec les équipes pour développer, tester et déployer sur la plateforme Azure DevOps interne de Microsoft tout en respectant toutes les meilleures pratiques de sécurité, de performance et de développement React.js."
+      },
+      "microsoft-cloud-industry": {
+        "title": "Ingénieur Logiciel Senior",
+        "company": "Microsoft (Microsoft Cloud for Industry)",
+        "period": "Avr 2024 - Juil 2024",
+        "description": "Dans le cadre de l'équipe Microsoft Cloud for Industry, j'ai travaillé en étroite collaboration avec l'équipe Microsoft Fabric pour construire un framework qui optimisait l'intégration des Solutions Industrielles (voir https://learn.microsoft.com/en-us/industry/), fournissant des ensembles de ressources emballées adaptées à des secteurs verticaux spécifiques, notamment la vente au détail, la fabrication et la santé. Ces solutions complètes comprenaient des modèles de données industriels, des connecteurs pré-construits, des pipelines, des modèles et des capacités d'analyse. J'ai développé des accélérateurs de solutions en utilisant React.js qui exploitaient des API .NET et s'intégraient directement avec le backend Microsoft Fabric. Les solutions industrielles étaient hébergées dans le portail Microsoft Fabric et permettaient l'échafaudage de composants de données sur mesure conçus spécifiquement pour chaque secteur vertical qu'elles adressaient."
       },
       "microsoft-cloud": {
         "title": "Ingénieur Logiciel Senior",
@@ -105,6 +111,10 @@
       "azure-llm-governance": {
         "title": "Plateforme de Gouvernance Pilotée par LLM - Microsoft Azure Core",
         "description": "J'ai conçu une plateforme de gouvernance pilotée par LLM chez Microsoft Azure Core qui analyse les bases de code des produits internes pour identifier les risques de sécurité, de performance et de meilleures pratiques avant le déploiement. J'ai implémenté des stratégies de traitement par lots, de mise en cache et d'agrégation sensibles aux tokens pour traiter des milliers de lignes de code."
+      },
+      "azure-devops-governance-extensions": {
+        "title": "Extensions de Gouvernance Azure DevOps - Microsoft Azure Core",
+        "description": "J'ai développé des extensions Azure DevOps basées sur React.js en utilisant l'Azure DevOps Extension SDK (https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-build-task) pour afficher les sorties de la plateforme de gouvernance pilotée par LLM à grande échelle sur la plateforme de construction mondiale de Microsoft. Ces extensions s'intègrent de manière transparente avec toutes les constructions et pull requests effectuées par les équipes de produits Microsoft dans le monde entier, fournissant des informations de gouvernance en temps réel et une analyse des risques de sécurité directement dans l'interface Azure DevOps. Conçues pour des performances et une échelle extrêmes afin de gérer des milliers de constructions simultanées tout en maintenant des expériences utilisateur réactives. Les extensions sont devenues des outils obligatoires pour tous les déploiements de produits Microsoft, assurant une gouvernance cohérente et une visibilité des risques dans toute l'organisation."
       },
       "healthcare-platform-fred": {
         "title": "Plateforme de Santé Réglementée - Fred IT Group",
@@ -253,6 +263,18 @@
     "Surface Dial": "Surface Dial",
     "Windows": "Windows",
     "Azure Mobile Center": "Azure Mobile Center",
-    "Azure Artifacts": "Azure Artifacts"
+    "Azure Artifacts": "Azure Artifacts",
+    "Azure DevOps Extensions": "Extensions Azure DevOps",
+    "Microsoft Fabric": "Microsoft Fabric",
+    "Industry Solutions": "Solutions Industrielles",
+    "Azure DevOps Extension SDK": "SDK d'Extension Azure DevOps",
+    "REST APIs": "APIs REST",
+    "Performance Optimization": "Optimisation de Performance",
+    "Scale Engineering": "Ingénierie d'Échelle",
+    "Token-Aware Batching": "Traitement par Lots Sensible aux Tokens",
+    "Multi-Chunk Evaluation": "Évaluation Multi-Chunks",
+    "Human-in-the-Loop Gates": "Portes Humain-dans-la-Boucle",
+    "Cost/Latency Optimization": "Optimisation Coût/Latence",
+    "Security Risk Analysis": "Analyse des Risques de Sécurité"
   }
 }

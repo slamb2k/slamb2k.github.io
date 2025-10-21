@@ -83,7 +83,7 @@ export const portfolioData: PortfolioData = {
   experience: [
     {
       id: 'azure-core',
-      period: 'Apr 2024 - Jul 2025',
+      period: 'Jul 2024 - Jul 2025',
       title: 'Senior Software Engineer',
       company: 'Microsoft (Azure Core)',
       featured: true,
@@ -94,8 +94,25 @@ export const portfolioData: PortfolioData = {
         'Semantic Kernel',
         'Python',
         'C#',
+        'React',
+        'Azure DevOps Extensions',
         'Liquid Templates',
         'Structured Outputs',
+      ],
+    },
+    {
+      id: 'microsoft-cloud-industry',
+      period: 'Apr 2024 - Jul 2024',
+      title: 'Senior Software Engineer',
+      company: 'Microsoft (Microsoft Cloud for Industry)',
+      featured: false,
+      technologies: [
+        'React',
+        'TypeScript',
+        '.NET',
+        'Microsoft Fabric',
+        'Azure DevOps',
+        'Industry Solutions',
       ],
     },
     {
@@ -195,6 +212,20 @@ export const portfolioData: PortfolioData = {
         'Human-in-the-Loop Gates',
         'Cost/Latency Optimization',
         'Security Risk Analysis',
+      ],
+    },
+    {
+      id: 'azure-devops-governance-extensions',
+      title: 'Azure DevOps Governance Extensions - Microsoft Azure Core',
+      featured: true,
+      technologies: [
+        'React',
+        'TypeScript',
+        'Azure DevOps Extensions',
+        'Azure DevOps Extension SDK',
+        'REST APIs',
+        'Performance Optimization',
+        'Scale Engineering',
       ],
     },
     {
