@@ -110,7 +110,7 @@ export const portfolioData: PortfolioData = {
       period: 'Apr 2024 - Jul 2024',
       title: 'Senior Software Engineer',
       company: 'Microsoft Engineering (Microsoft Cloud)',
-      featured: false,
+      featured: true,
       highlight: true,
       technologies: [
         'React',
