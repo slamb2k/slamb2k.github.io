@@ -201,8 +201,9 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       id: 'azure-llm-governance',
-      title: 'LLM-Driven Governance Platform - Microsoft Azure Core',
+      title: 'LLM-Driven Governance Platform - Microsoft Engineering',
       featured: true,
+      highlight: true,
       technologies: [
         'Azure OpenAI',
         'RAG/Vector Search',
@@ -217,8 +218,9 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'azure-devops-governance-extensions',
-      title: 'Azure DevOps Governance Extensions - Microsoft Azure Core',
+      title: 'Azure DevOps Governance Extensions - Microsoft Engineering',
       featured: true,
+      highlight: true,
       technologies: [
         'React',
         'TypeScript',
@@ -231,7 +233,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'microsoft-fabric-industry-solutions',
-      title: 'Microsoft Fabric Industry Solutions',
+      title: 'Microsoft Fabric Industry Solutions - Microsoft Engineering',
       featured: true,
       highlight: true,
       technologies: [
