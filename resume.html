@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simon Lamb - Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
       * {
         margin: 0;
@@ -14,547 +14,736 @@
       }
 
       @page {
-        margin: 0.5in 0.6in;
+        margin: 0;
         size: letter;
       }
 
       body {
-        font-family:
-          'Inter',
-          -apple-system,
-          BlinkMacSystemFont,
-          'Segoe UI',
-          sans-serif;
+        font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         line-height: 1.5;
-        color: #1f2937;
+        color: #1e293b;
         background: white;
-        font-size: 10.5pt;
+        font-size: 9pt;
       }
 
-      .container {
-        max-width: 100%;
-        margin: 0 auto;
+      /* Page Layout */
+      .page-container {
+        position: relative;
       }
 
-      /* Header Section */
-      .header {
-        border-bottom: 2px solid #047857;
-        padding-bottom: 12px;
+      /* Left Sidebar */
+      .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30%;
+        background: #1e3a4a;
+        color: white;
+        padding: 22px 18px 24px 14px;
+        max-height: calc(11in - 0.2in);
+        overflow: hidden;
+      }
+
+      /* Profile Photo */
+      .profile-photo-container {
+        text-align: center;
         margin-bottom: 20px;
       }
 
-      h1 {
-        font-size: 28pt;
-        font-weight: 700;
-        color: #0f172a;
-        margin-bottom: 4px;
-        letter-spacing: -0.5px;
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 5px solid #f0b429;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
       }
 
-      .subtitle {
-        font-size: 13pt;
-        color: #0f766e;
-        font-weight: 600;
-        margin-bottom: 6px;
+      /* Sidebar Sections */
+      .sidebar-section {
+        margin-bottom: 20px;
       }
 
-      .contact-info {
-        font-size: 9.5pt;
-        color: #4b5563;
+      .sidebar-section-header {
         display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin-top: 8px;
+        align-items: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(240, 180, 41, 0.3);
+        padding-bottom: 6px;
       }
 
-      .contact-info span {
-        white-space: nowrap;
+      .sidebar-icon {
+        color: #f0b429;
+        font-size: 16pt;
+        margin-right: 6px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
       }
 
-      /* Section Headers */
-      h2 {
-        font-size: 13pt;
-        font-weight: 700;
-        color: #047857;
-        margin-top: 18px;
-        margin-bottom: 8px;
+      .sidebar-section-title {
+        font-size: 11pt;
+        font-weight: 800;
+        color: white;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border-bottom: 1px solid #e5e7eb;
-        padding-bottom: 3px;
+        letter-spacing: 0.3px;
       }
 
-      /* Professional Summary */
-      .summary {
+      .sidebar-content {
+        font-size: 8.5pt;
+        color: #e2e8f0;
+        line-height: 1.6;
+      }
+
+      .sidebar-content ul {
+        list-style-type: disc;
+        padding-left: 18px;
+        margin: 0;
+      }
+
+      .sidebar-content li {
+        margin-bottom: 3px;
+        padding-left: 0;
+      }
+
+      .sidebar-content li::marker {
+        color: #f0b429;
         font-size: 10pt;
-        color: #374151;
-        margin-bottom: 16px;
-        text-align: justify;
       }
 
-      .summary p {
-        margin-bottom: 8px;
+      /* Main Content Area */
+      .main-content {
+        background: white;
       }
 
-      /* Experience Section */
-      .experience-item {
-        margin-bottom: 16px;
-        page-break-inside: avoid;
+      /* Page One Content - with sidebar margin */
+      .page-one-content {
+        margin-left: 30%;
+        padding: 22px 28px 0 28px;
       }
 
-      .job-header {
+      /* Page Two Content - full width */
+      .page-two-content {
+        page-break-before: always;
+        padding: 22px 28px 24px 28px;
+      }
+
+      /* Header with Name */
+      .main-header {
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 6px;
+        margin-bottom: 70px;
+      }
+
+      .name-section {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: flex-start;
         margin-bottom: 4px;
       }
 
-      .job-title {
-        font-size: 11pt;
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .job-period {
-        font-size: 9pt;
-        color: #6b7280;
-        font-weight: 500;
-      }
-
-      .company {
-        font-size: 10pt;
-        color: #4b5563;
-        font-style: italic;
-        margin-bottom: 6px;
-      }
-
-      .job-description {
-        font-size: 9.5pt;
-        color: #374151;
-        margin-bottom: 6px;
-        text-align: justify;
-      }
-
-      .job-description ul {
-        margin-left: 20px;
-        margin-top: 4px;
-      }
-
-      .job-description li {
+      .name {
+        font-size: 28pt;
+        font-weight: 700;
+        color: #1e293b;
+        line-height: 0.95;
         margin-bottom: 3px;
       }
 
-      .technologies {
-        font-size: 8.5pt;
-        color: #6b7280;
-        margin-top: 6px;
-      }
-
-      .tech-tag {
-        display: inline-block;
-        background: #f3f4f6;
-        padding: 2px 6px;
-        margin-right: 4px;
-        margin-bottom: 4px;
-        border-radius: 3px;
+      .contact-info-top {
+        text-align: right;
         font-size: 8pt;
-      }
-
-      /* Projects Section */
-      .project-item {
-        margin-bottom: 12px;
-        page-break-inside: avoid;
-      }
-
-      .project-header {
-        font-size: 10.5pt;
-        font-weight: 600;
-        color: #111827;
-        margin-bottom: 3px;
-      }
-
-      .project-description {
-        font-size: 9pt;
-        color: #374151;
-        margin-bottom: 4px;
-        text-align: justify;
-      }
-
-      /* Skills Section */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        margin-top: 8px;
-      }
-
-      .skill-category {
-        page-break-inside: avoid;
-      }
-
-      .skill-category-title {
-        font-size: 10pt;
-        font-weight: 600;
-        color: #374151;
-        margin-bottom: 4px;
-      }
-
-      .skill-list {
-        font-size: 9pt;
-        color: #4b5563;
+        color: #64748b;
         line-height: 1.4;
       }
 
-      /* Links */
-      a {
-        color: #0891b2;
+      .contact-info-top div {
+        margin-bottom: 2px;
+      }
+
+      .email-link {
+        color: #f0b429;
         text-decoration: none;
+        font-weight: 600;
       }
 
-      /* Page break utilities */
-      .page-break {
-        page-break-after: always;
+      .job-title-main {
+        font-size: 11pt;
+        color: #64748b;
+        font-weight: 400;
+        margin-top: 1px;
       }
 
-      .no-break {
-        page-break-inside: avoid;
+      /* Section Styling */
+      .section {
+        margin-bottom: 16px;
       }
 
-      /* Compact spacing for PDF */
+      .section:first-of-type {
+        page-break-inside: auto;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 5px;
+      }
+
+      .section-icon {
+        color: #f0b429;
+        font-size: 16pt;
+        margin-right: 6px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .section-title {
+        font-size: 11pt;
+        font-weight: 800;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+      }
+
+      /* Experience Items with Timeline */
+      .experience-item {
+        position: relative;
+        padding-left: 32px;
+        margin-bottom: 18px;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        width: 12px;
+        height: 12px;
+        background: #f0b429;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #f0b429;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 7px;
+        top: 20px;
+        width: 2px;
+        height: calc(100% - 18px);
+        background: #e2e8f0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      /* Hide timeline line only for the very last experience item (Fred IT) */
+      .page-two-content .experience-item:last-child .timeline-line {
+        display: none;
+      }
+
+      .experience-header {
+        margin-bottom: 8px;
+      }
+
+      .experience-period {
+        font-size: 8pt;
+        color: #f0b429;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .experience-title {
+        font-size: 12pt;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 4px;
+      }
+
+      .experience-company {
+        font-size: 10pt;
+        color: #64748b;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .experience-description {
+        font-size: 8.5pt;
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+
+      .experience-description ul {
+        margin-left: 18px;
+        margin-top: 4px;
+        list-style-type: disc;
+      }
+
+      .experience-description li {
+        margin-bottom: 4px;
+      }
+
+      .experience-description li::marker {
+        color: #f0b429;
+      }
+
+      /* Technology Tags */
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 8px;
+      }
+
+      .tech-tag {
+        background: #fef3c7;
+        color: #92400e;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 7pt;
+        font-weight: 600;
+      }
+
+      /* Projects */
+      .project-item {
+        margin-bottom: 14px;
+        padding-left: 32px;
+        position: relative;
+      }
+
+      .project-item::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: #f0b429;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 0 2px #f0b429;
+      }
+
+      .project-title {
+        font-size: 10pt;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+      }
+
+      .project-description {
+        font-size: 8.5pt;
+        color: #475569;
+        line-height: 1.7;
+      }
+
+      /* Print Optimization */
       @media print {
+        .page-container {
+          display: block;
+        }
+
+        .sidebar {
+          position: fixed;
+          max-height: 100vh;
+          overflow: hidden;
+        }
+
+        .sidebar,
+        .tech-tag,
+        .timeline-dot,
+        .timeline-line,
+        .project-item::before {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          color-adjust: exact;
+        }
+
         body {
-          font-size: 10pt;
-        }
-        .container {
-          padding: 0;
-        }
-        h2 {
-          margin-top: 14px;
-        }
-        .experience-item {
-          margin-bottom: 14px;
+          font-size: 8.5pt;
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Header -->
-      <div class="header">
-        <h1>Simon Lamb</h1>
-        <div class="subtitle">Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE</div>
-        <div class="contact-info">
-          <span>📧 me@simonlamb.codes</span>
-          <span>🔗 linkedin.com/in/slamb2k</span>
-          <span>💼 github.com/slamb2k</span>
-          <span>📍 Melbourne, Australia</span>
+    <div class="page-container">
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <!-- Profile Photo -->
+        <div class="profile-photo-container">
+          <img
+            src="devops-workshop-speaker.jpg"
+            alt="Simon Lamb"
+            class="profile-photo"
+            onerror="this.style.display='none'"
+          />
+        </div>
+
+        <!-- Summary Section -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header">
+            <div class="sidebar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="17" viewBox="0 -960 960 960" width="17" fill="#f0b429"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q14-36 44-58t68-22q38 0 68 22t44 58h168q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm280-670q13 0 21.5-8.5T510-820q0-13-8.5-21.5T480-850q-13 0-21.5 8.5T450-820q0 13 8.5 21.5T480-790ZM200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM280-200h400v-10q-42-35-93-52.5T480-280q-56 0-107 17.5T280-210v10Zm200-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"/></svg>
+            </div>
+            <h2 class="sidebar-section-title">Summary</h2>
+          </div>
+          <div class="sidebar-content">
+            <ul>
+              <li>
+                Production GenAI platform engineer with full-stack expertise delivering LLMOps/MLOps
+                systems on Microsoft Azure
+              </li>
+              <li>
+                Expert in Azure OpenAI, RAG pipelines, Semantic Kernel, and agentic AI architectures
+                with proven impact at Microsoft Azure Core
+              </li>
+              <li>
+                Strategic leader transforming technical vision into tactical initiatives across
+                global teams and Fortune 500 partners
+              </li>
+              <li>
+                DevOps/SRE practitioner embedding CI/CD, observability, and reliability practices
+                that minimize risk while maximizing performance
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Core Competencies Section -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header">
+            <div class="sidebar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="#f0b429"><path d="M360-120v-200q-62-5-121.5-14T120-360l20-80q83 23 168 31.5t172 8.5q86 0 171-8.5T820-440l20 80q-60 17-119.5 26T600-320v200H360Zm120-320q-34 0-57-23t-23-57q0-33 23-56.5t57-23.5q33 0 56.5 23.5T560-520q0 34-23.5 57T480-440ZM180-560q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T240-620q0 26-17.5 43T180-560Zm600 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T840-620q0 26-17.5 43T780-560ZM290-710q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T350-770q0 26-17.5 43T290-710Zm380 0q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T730-770q0 26-17.5 43T670-710Zm-190-50q-26 0-43-17t-17-43q0-25 17-42.5t43-17.5q25 0 42.5 17.5T540-820q0 26-17.5 43T480-760Z"/></svg>
+            </div>
+            <h2 class="sidebar-section-title">Core Competencies</h2>
+          </div>
+          <div class="sidebar-content">
+            <ul>
+              <li>GenAI/LLM Platform Engineering</li>
+              <li>Azure OpenAI & RAG Systems</li>
+              <li>LLMOps/MLOps Pipelines</li>
+              <li>Semantic Kernel & LangChain</li>
+              <li>Python & C#/.NET Development</li>
+              <li>React & TypeScript</li>
+              <li>Azure Cloud Architecture</li>
+              <li>Kubernetes & Container Orchestration</li>
+              <li>DevOps & CI/CD</li>
+              <li>SRE & Observability</li>
+              <li>Strategic Transformation Lead</li>
+              <li>Program Development & Execution</li>
+              <li>Team Building & Technical Coaching</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header">
+            <div class="sidebar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18" fill="#f0b429"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg>
+            </div>
+            <h2 class="sidebar-section-title">Education</h2>
+          </div>
+          <div class="sidebar-content">
+            <strong style="color: #f0b429">Wesley College</strong><br />
+            Melbourne, Australia<br />
+            1992 - 1994
+          </div>
         </div>
       </div>
 
-      <!-- Professional Summary -->
-      <section>
-        <h2>Professional Summary</h2>
-        <div class="summary">
-          <p>
-            I build production GenAI platforms on Microsoft Azure with DevOps leadership from the
-            ground up. Recently focused on LLM platform engineering at Microsoft Azure Core,
-            delivering AI systems with full LLMOps/MLOps rigor—CI/CD, evaluation pipelines,
-            guardrails, observability, and cost/latency governance.
-          </p>
-          <p>
-            Engineered platforms applying Azure OpenAI + agentic retrieval to analyze Microsoft
-            product codebases, automatically surfacing security, performance, and best-practice
-            risks. Designed token-aware batching, caching, and aggregation strategies for processing
-            thousands of lines of code cost-effectively.
-          </p>
-        </div>
-      </section>
-
-      <!-- Core Skills -->
-      <section>
-        <h2>Core Technical Stack</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <div class="skill-category-title">AI/ML & GenAI</div>
-            <div class="skill-list">
-              Azure OpenAI, RAG (vector/hybrid), Semantic Kernel, LangChain, Azure AI Search, Token
-              Optimization, Structured Outputs, Liquid Templates, MLflow, Databricks
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Page One Content -->
+        <div class="page-one-content">
+          <!-- Header -->
+          <div class="main-header">
+          <div class="name-section">
+            <div>
+              <h1 class="name">Simon Lamb</h1>
+              <div class="job-title-main">
+                Principal AI/Software Engineer | GenAI/RAG, LLMOps, SRE
+              </div>
+            </div>
+            <div class="contact-info-top">
+              <div>Melbourne, Australia</div>
+              <div><a href="mailto:me@simonlamb.codes" class="email-link">me@simonlamb.codes</a></div>
+              <div>linkedin.com/in/slamb2k</div>
+              <div>github.com/slamb2k</div>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Cloud & Infrastructure</div>
-            <div class="skill-list">
-              Azure (AKS, App Services, Front Door), Bicep/Terraform, GitOps (Flux/Argo),
-              Docker/Kubernetes, Azure Policy, Managed Identity
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="17" viewBox="0 -960 960 960" width="17" fill="#f0b429"><path d="M160-200v-440 440-15 15Zm0 80q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v171q-18-13-38-22.5T800-508v-132H160v440h283q3 21 9 41t15 39H160Zm240-600h160v-80H400v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40Zm20-208v-112h-40v128l86 86 28-28-74-74Z"/></svg>
+            </div>
+            <h2 class="section-title">Professional Experience</h2>
+          </div>
+
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Jul 2024 - Jul 2025</div>
+              <div class="experience-title">Senior Software Engineer</div>
+              <div class="experience-company">Microsoft Engineering - Azure Core</div>
+            </div>
+            <div class="experience-description">
+              <ul>
+                <li>
+                  Built production LLM-driven governance platform using Semantic Kernel in C# with
+                  Azure OpenAI to analyze millions of lines of internal Microsoft product code,
+                  automatically surfacing security vulnerabilities, performance bottlenecks, and
+                  best-practice violations before deployment
+                </li>
+                <li>
+                  Architected agentic RAG pipeline with Azure AI Search (vector + hybrid search),
+                  implementing sub-query decomposition, parallel execution, re-ranking, and
+                  structured outputs with citations for grounding
+                </li>
+                <li>
+                  Developed enterprise-scale Azure DevOps extensions using React with TypeScript
+                  leveraging the Azure DevOps Extension SDK for Build, PR, and Dashboard
+                  integration, serving thousands of developers across Microsoft
+                </li>
+                <li>
+                  Engineered deterministic output system using OpenAI Structured Outputs and Liquid
+                  templating with JSON Schema validation, eliminating hallucination in governance
+                  reports
+                </li>
+              </ul>
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">RAG/Vector Search</span>
+              <span class="tech-tag">LLMOps/MLOps</span>
+              <span class="tech-tag">Semantic Kernel</span>
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-category-title">DevOps & SRE</div>
-            <div class="skill-list">
-              CI/CD, GitHub Actions, Azure DevOps, SLO/SLI Monitoring, Error Budgets, Blue/Green
-              Deployments, Observability (Grafana/Prometheus)
+
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Apr 2024 - Jul 2024</div>
+              <div class="experience-title">Senior Software Engineer</div>
+              <div class="experience-company">Microsoft Engineering - Microsoft Cloud</div>
+            </div>
+            <div class="experience-description">
+              <ul>
+                <li>
+                  Architected full-stack solution accelerator framework for Microsoft Fabric
+                  Industry Solutions using React with TypeScript frontend and ASP.NET Core backend
+                  microservices, delivering domain-specific data pipeline accelerators
+                </li>
+                <li>
+                  Implemented domain-driven design patterns with CQRS and Event Sourcing for data
+                  pipeline orchestration, enabling enterprise customers to reduce time-to-value from
+                  months to weeks
+                </li>
+                <li>
+                  Built observability stack with Application Insights custom metrics and distributed
+                  tracing with correlation IDs across service boundaries
+                </li>
+              </ul>
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">.NET</span>
+              <span class="tech-tag">Microsoft Fabric</span>
+              <span class="tech-tag">Azure DevOps</span>
             </div>
           </div>
-          <div class="skill-category">
-            <div class="skill-category-title">Languages & Frameworks</div>
-            <div class="skill-list">Python, C#/.NET, TypeScript, React, SQL, PowerShell, Bash</div>
-          </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Experience -->
-      <section>
-        <h2>Professional Experience</h2>
+        <!-- Page Two Content - Full Width -->
+        <div class="page-two-content">
+          <!-- Professional Experience (Continued) -->
+          <div class="section">
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Jul 2019 - Apr 2024</div>
+              <div class="experience-title">Cloud Solution Architect</div>
+              <div class="experience-company">Microsoft - Global Partner Solutions</div>
+            </div>
+            <div class="experience-description">
+              <ul>
+                <li>
+                  Partnered with enterprises and ISVs including ANZ, Telstra, NSW Health, CBA,
+                  Deloitte, EY, KPMG, Accenture, PwC to modernize workloads onto Azure and
+                  accelerate GenAI adoption using Databricks, MLflow, and Semantic Kernel
+                </li>
+                <li>
+                  Led DevOps OpenHack programs globally in Melbourne, Sydney (during Satya Nadella's
+                  ANZ visit), Canberra, Las Vegas (Inspire/Ready), and Seattle (TechReady),
+                  achieving ~95% participant satisfaction scores
+                </li>
+                <li>
+                  Embedded DevOps and DevSecOps best practices at scale, establishing CI/CD
+                  pipelines, IaC standards, and SRE practices that improved deployment frequency and
+                  reduced MTTR
+                </li>
+              </ul>
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">Azure OpenAI</span>
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">MLflow</span>
+              <span class="tech-tag">Semantic Kernel</span>
+              <span class="tech-tag">AKS</span>
+              <span class="tech-tag">Bicep/Terraform</span>
+            </div>
+          </div>
 
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Senior Software Engineer</div>
-            <div class="job-period">Jul 2024 - Jul 2025</div>
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Jun 2019 - Sep 2021</div>
+              <div class="experience-title">DevOps OpenHack Tech Lead (Part-time)</div>
+              <div class="experience-company">Microsoft</div>
+            </div>
+            <div class="experience-description">
+              Led global DevOps OpenHacks in Melbourne, Sydney (Satya Nadella's ANZ visit),
+              Canberra, Las Vegas (Inspire/Ready), and Seattle (TechReady). Directed coaching teams
+              of 10+ engineers, mentoring hundreds of attendees from partners including ANZ,
+              Deloitte, EY, KPMG, Accenture, PwC. Achieved ~95% satisfaction scores.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">CI/CD</span>
+              <span class="tech-tag">IaC</span>
+              <span class="tech-tag">SRE</span>
+              <span class="tech-tag">GitHub Actions</span>
+              <span class="tech-tag">Azure DevOps</span>
+            </div>
           </div>
-          <div class="company">Microsoft Engineering - Azure Core</div>
-          <div class="job-description">
-            <ul>
-              <li>
-                Engineered LLM-driven governance platform using Semantic Kernel in C# analyzing
-                internal Microsoft product codebases to surface security, performance, and
-                best-practice risks before rollout, reducing deployment incidents
-              </li>
-              <li>
-                Developed Azure DevOps extensions using React with TypeScript and the Azure DevOps
-                Extension SDK to display governance outputs at massive scale across Microsoft's
-                global build platform
-              </li>
-              <li>
-                Innovated structured outputs layer with OpenAI Structured Outputs and Liquid
-                templates, guaranteeing hallucination-free reports with 100% UX alignment
-              </li>
-              <li>
-                Optimized large code context analysis (millions of lines) through token-aware
-                batching, caching, and intelligent consolidation strategies
-              </li>
-              <li>
-                Embedded comprehensive LLMOps pipeline with Azure Evaluation SDK enabling safe
-                prompt iteration across multiple developers
-              </li>
-            </ul>
-          </div>
-          <div class="technologies">
-            <span class="tech-tag">Azure OpenAI</span>
-            <span class="tech-tag">RAG/Vector Search</span>
-            <span class="tech-tag">LLMOps</span>
-            <span class="tech-tag">Structured Outputs</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">C#</span>
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">Azure DevOps Extensions</span>
-          </div>
-        </div>
 
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Senior Software Engineer</div>
-            <div class="job-period">Apr 2024 - Jul 2024</div>
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Feb 2017 - Jul 2019</div>
+              <div class="experience-title">Technical Evangelist</div>
+              <div class="experience-company">Microsoft - Developer Experience</div>
+            </div>
+            <div class="experience-description">
+              Evangelized Microsoft development technologies through technical content, conference
+              presentations, and architectural guidance. Recognized as primary DevOps SME,
+              supporting enterprise customers in transformation journeys.
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#</span>
+              <span class="tech-tag">ASP.NET</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Azure</span>
+              <span class="tech-tag">DevOps</span>
+            </div>
           </div>
-          <div class="company">Microsoft Engineering - Microsoft Cloud</div>
-          <div class="job-description">
-            <ul>
-              <li>
-                Built comprehensive framework optimizing onboarding of Industry Solutions within the
-                Microsoft Fabric portal, providing packaged resources for retail, manufacturing, and
-                healthcare verticals
-              </li>
-              <li>
-                Developed solution accelerators using React with TypeScript leveraging ASP.NET Core
-                APIs, integrating directly with Microsoft Fabric backend
-              </li>
-              <li>
-                Engineered following Microsoft's strict Engineering System guidelines for scale,
-                performance, security, and best practices
-              </li>
-            </ul>
-          </div>
-          <div class="technologies">
-            <span class="tech-tag">React</span>
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">.NET</span>
-            <span class="tech-tag">Microsoft Fabric</span>
-            <span class="tech-tag">Azure DevOps</span>
-          </div>
-        </div>
 
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Cloud Solution Architect</div>
-            <div class="job-period">Jul 2019 - Apr 2024</div>
-          </div>
-          <div class="company">Microsoft - Global Partner Solutions</div>
-          <div class="job-description">
-            <ul>
-              <li>
-                Partnered with enterprises and ISVs to modernize workloads on Azure, accelerating
-                GenAI adoption through workshops and proof-of-concepts, reducing
-                prototype-to-production from months to weeks
-              </li>
-              <li>
-                Delivered hands-on enablement for Databricks, MLflow, and Semantic Kernel
-                implementations
-              </li>
-              <li>
-                Strengthened partner delivery quality by embedding DevOps/DevSecOps practices at
-                scale
-              </li>
-              <li>
-                Influenced engineering teams through architectural workshops and design reviews
-              </li>
-            </ul>
-          </div>
-          <div class="technologies">
-            <span class="tech-tag">Azure OpenAI</span>
-            <span class="tech-tag">Databricks</span>
-            <span class="tech-tag">MLflow</span>
-            <span class="tech-tag">AKS</span>
-            <span class="tech-tag">Bicep/Terraform</span>
-            <span class="tech-tag">GitOps</span>
-          </div>
-        </div>
-
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">DevOps OpenHack Tech Lead (Part-time)</div>
-            <div class="job-period">Jun 2019 - Sep 2021</div>
-          </div>
-          <div class="company">Microsoft</div>
-          <div class="job-description">
-            Led global DevOps OpenHacks in Melbourne, Sydney (Satya Nadella's ANZ visit), Canberra,
-            Las Vegas (Inspire/Ready), and Seattle (TechReady). Directed coaching teams of 10+
-            engineers, mentoring hundreds of attendees from partners including ANZ, Deloitte, EY,
-            KPMG, Accenture, PwC. Achieved ~95% satisfaction scores.
+          <div class="experience-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="experience-header">
+              <div class="experience-period">Jun 2004 - Feb 2017</div>
+              <div class="experience-title">Tech Architect Lead / DevOps Lead</div>
+              <div class="experience-company">Fred IT Group</div>
+            </div>
+            <div class="experience-description">
+              <ul>
+                <li>
+                  Led team of 6 engineers architecting regulated healthcare platforms for pharmacy
+                  dispensing serving major Australian pharmacy chains including Chemist Warehouse,
+                  Terry White Chemmart
+                </li>
+                <li>
+                  Built mission-critical applications with 99.9% uptime SLO serving thousands of
+                  pharmacy locations processing millions of prescriptions annually
+                </li>
+                <li>
+                  Implemented comprehensive SRE practices including SLO/SLI monitoring, error
+                  budgets, and incident response playbooks
+                </li>
+              </ul>
+            </div>
+            <div class="technologies">
+              <span class="tech-tag">C#/.NET</span>
+              <span class="tech-tag">SQL Server</span>
+              <span class="tech-tag">Dynamics AX</span>
+              <span class="tech-tag">Azure DevOps</span>
+              <span class="tech-tag">IaC</span>
+              <span class="tech-tag">SRE</span>
+            </div>
           </div>
         </div>
 
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Technical Evangelist</div>
-            <div class="job-period">Feb 2017 - Jul 2019</div>
+        <!-- Key Projects -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" height="17" viewBox="0 -960 960 960" width="17" fill="#f0b429"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+            </div>
+            <h2 class="section-title">Key Projects</h2>
           </div>
-          <div class="company">Microsoft - Developer Experience</div>
-          <div class="job-description">
-            Evangelized Microsoft development technologies through technical content, conference
-            presentations, and architectural guidance. Recognized as primary DevOps SME, supporting
-            enterprise customers in transformation journeys.
+
+          <div class="project-item">
+            <div class="project-title">LLM-Driven Governance Platform - Microsoft Engineering</div>
+            <div class="project-description">
+              Architected production-scale AI governance platform using Semantic Kernel in C# with
+              Azure OpenAI models and Azure AI Search (vector + hybrid) for analyzing internal
+              Microsoft product codebases. Implemented sub query decomposition, agentic parallel
+              execution, and structured output responses with citations.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">
+              Azure DevOps Governance Extensions - Microsoft Engineering
+            </div>
+            <div class="project-description">
+              Built enterprise-scale Azure DevOps extensions using React with TypeScript, leveraging
+              the Azure DevOps Extension SDK for Build, PR, and Dashboard integration. Architected
+              using Flux pattern with Redux Toolkit for predictable state management.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">
+              Microsoft Fabric Industry Solutions - Microsoft Engineering
+            </div>
+            <div class="project-description">
+              Architected full-stack solution accelerator framework using React + TypeScript
+              frontend with ASP.NET Core backend microservices. Implemented domain-driven design
+              patterns with CQRS and Event Sourcing for data pipeline orchestration.
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title">Regulated Healthcare Platform - Fred IT Group</div>
+            <div class="project-description">
+              Led team of 6 engineers to architect pharmacy dispensing platform with clinical-grade
+              reliability. Implemented SRE practices (SLO/SLI monitoring, error budgets), blue/green
+              deployments, and PBS compliance pipelines.
+            </div>
           </div>
         </div>
-
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Tech Architect Lead / DevOps Lead</div>
-            <div class="job-period">Jun 2004 - Feb 2017</div>
-          </div>
-          <div class="company">Fred IT Group</div>
-          <div class="job-description">
-            <ul>
-              <li>
-                Led team of 6 engineers delivering pharmacy dispensing platform for major pharmacy
-                groups
-              </li>
-              <li>
-                Built on .NET, SQL Server, Dynamics AX optimized for clinical-grade reliability
-              </li>
-              <li>
-                Implemented SRE practices (SLO/SLI monitoring, error budgets) and blue/green
-                deployments
-              </li>
-              <li>
-                Modernized DevOps with Azure DevOps + IaC, implementing PBS compliance pipelines
-              </li>
-            </ul>
-          </div>
-          <div class="technologies">
-            <span class="tech-tag">C#/.NET</span>
-            <span class="tech-tag">SQL Server</span>
-            <span class="tech-tag">Dynamics AX</span>
-            <span class="tech-tag">Azure DevOps</span>
-            <span class="tech-tag">IaC</span>
-            <span class="tech-tag">SRE</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Key Projects -->
-      <section>
-        <h2>Key Projects</h2>
-
-        <div class="project-item">
-          <div class="project-header">LLM-Driven Governance Platform - Microsoft Engineering</div>
-          <div class="project-description">
-            Architected production-scale AI governance platform using Semantic Kernel in C# with
-            Azure OpenAI models and Azure AI Search (vector + hybrid) for analyzing internal
-            Microsoft product codebases. Implemented sub query decomposition, agentic parallel
-            execution, and structured output responses with citations. Designed token-aware batching
-            enabling processing of millions of lines of code in smart batches. Engineered output
-            system using OpenAI Structured Outputs and Liquid templates to eliminate hallucination
-            in governance reports.
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            Azure DevOps Governance Extensions - Microsoft Engineering
-          </div>
-          <div class="project-description">
-            Built enterprise-scale Azure DevOps extensions using React with TypeScript, leveraging
-            the Azure DevOps Extension SDK for Build, PR, and Dashboard integration. Architected
-            using Flux pattern with Redux Toolkit for predictable state management. Built real-time
-            data synchronization using SignalR WebSocket connections. Optimized bundle size through
-            code-splitting, tree-shaking, and dynamic imports. Built via Azure DevOps Pipelines
-            executing extensive testing and code coverage targets.
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">
-            Microsoft Fabric Industry Solutions - Microsoft Engineering
-          </div>
-          <div class="project-description">
-            Architected full-stack solution accelerator framework for Industry Solutions using React
-            + TypeScript frontend with ASP.NET Core backend microservices. Implemented domain-driven
-            design patterns with CQRS and Event Sourcing for data pipeline orchestration across
-            retail, manufacturing, and healthcare verticals. Built React component library using
-            Compound Component pattern. Integrated with Microsoft Fabric REST APIs implementing
-            circuit breaker pattern. Built observability stack with Application Insights and
-            distributed tracing.
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">DevOps OpenHack Program Leadership</div>
-          <div class="project-description">
-            Led Microsoft's global DevOps OpenHack program across 5+ cities including events during
-            Satya Nadella's ANZ visit. Mentored 100s of engineers from major partners, achieving
-            95%+ satisfaction scores.
-          </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-header">Regulated Healthcare Platform - Fred IT Group</div>
-          <div class="project-description">
-            Led team of 6 engineers to architect pharmacy dispensing platform with clinical-grade
-            reliability. Implemented SRE practices (SLO/SLI monitoring, error budgets), blue/green
-            deployments, and PBS compliance pipelines serving major pharmacy chains.
-          </div>
-        </div>
-      </section>
-
-      <!-- Education & Certifications -->
-      <section>
-        <h2>Education</h2>
-        <div class="experience-item">
-          <div class="job-header">
-            <div class="job-title">Wesley College, Melbourne</div>
-            <div class="job-period">1992 - 1994</div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
