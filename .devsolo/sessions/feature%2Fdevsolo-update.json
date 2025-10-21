@@ -28,9 +28,13 @@
     "startedAt": "2025-10-21T08:03:18.628Z",
     "context": {
       "description": "DevSolo update"
+    },
+    "pr": {
+      "number": 53,
+      "url": "https://github.com/slamb2k/slamb2k.github.io/pull/53"
     }
   },
   "createdAt": "2025-10-21T08:03:18.628Z",
-  "updatedAt": "2025-10-21T08:07:36.985Z",
+  "updatedAt": "2025-10-21T08:08:02.766Z",
   "expiresAt": "2025-11-20T08:03:18.628Z"
 }
