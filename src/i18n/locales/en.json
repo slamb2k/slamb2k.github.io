@@ -92,9 +92,9 @@
         "title": "Internal AI Code Scanning Platform",
         "description": "Built a mandatory code analysis platform for Microsoft that automatically scanned commits and PRs for security vulnerabilities, performance issues, best practice violations, and maintainability risks. Integrated static analysis tools like CodeQL with advanced RAG pipelines to process millions of lines of code. Developed extensive prompt engineering solutions and generative UI components to produce consistent insights and reports. Implemented robust prompt evaluation pipelines to detect performance drift and utilized structured outputs with Liquid templates to ensure deterministic, reliable analysis results across the entire Microsoft codebase."
       },
-      "microsoft-fabric-data-solutions": {
-        "title": "Microsoft Fabric Data Solutions",
-        "description": "Extended the Microsoft Fabric web interface to provide accelerators and solution templates offering structured foundations for different business domains and industries, including industry-specific schemas, data pipelines, transformation logic, and semantic models."
+      "microsoft-fabric-industry-solutions": {
+        "title": "Microsoft Fabric Industry Solutions",
+        "description": "As part of the Microsoft Cloud for Industry team, worked closely with the Microsoft Fabric team to build a comprehensive framework optimizing the onboarding of Industry Solutions (https://learn.microsoft.com/en-us/industry/). Developed a fully integrated solution within the Fabric portal that provides packaged sets of resources tailored for specific verticals including retail, manufacturing, and healthcare. The solution offers industry-specific schemas, data pipelines, transformation logic, and semantic models as ready-to-deploy accelerators. Engineered following Microsoft's strict Engineering System guidelines for scale, performance, security, and best practices, ensuring enterprise-grade reliability and seamless integration with the broader Microsoft Fabric ecosystem. Built with React, TypeScript, C#, and .NET, the framework streamlined complex industry-specific data workflows into turnkey solutions deployable across global organizations."
       },
       "azure-deployment-accelerator-tui": {
         "title": "Azure Deployment Accelerator TUI",
@@ -167,6 +167,7 @@
     "close": "Close",
     "downloadResume": "Download Resume",
     "featured": "Featured",
+    "highlight": "Highlight",
     "loading": "Loading...",
     "failedToLoad": "Failed to load",
     "months": {
@@ -275,6 +276,7 @@
     "Multi-Chunk Evaluation": "Multi-Chunk Evaluation",
     "Human-in-the-Loop Gates": "Human-in-the-Loop Gates",
     "Cost/Latency Optimization": "Cost/Latency Optimization",
-    "Security Risk Analysis": "Security Risk Analysis"
+    "Security Risk Analysis": "Security Risk Analysis",
+    "Security Best Practices": "Security Best Practices"
   }
 }

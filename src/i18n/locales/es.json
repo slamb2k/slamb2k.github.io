@@ -92,9 +92,9 @@
         "title": "Plataforma Interna de Escaneo de Código con IA",
         "description": "Construí una plataforma de análisis de código obligatoria para Microsoft que escaneaba automáticamente commits y PRs en busca de vulnerabilidades de seguridad, problemas de rendimiento, violaciones de mejores prácticas y riesgos de mantenibilidad. Integré herramientas de análisis estático como CodeQL con pipelines RAG avanzados para procesar millones de líneas de código."
       },
-      "microsoft-fabric-data-solutions": {
-        "title": "Soluciones de Datos Microsoft Fabric",
-        "description": "Extendí la interfaz web de Microsoft Fabric para proporcionar aceleradores y plantillas de soluciones que ofrecen bases estructuradas para diferentes dominios comerciales e industrias, incluidos esquemas específicos de la industria, pipelines de datos, lógica de transformación y modelos semánticos."
+      "microsoft-fabric-industry-solutions": {
+        "title": "Soluciones Industriales Microsoft Fabric",
+        "description": "Como parte del equipo Microsoft Cloud for Industry, trabajé estrechamente con el equipo de Microsoft Fabric para construir un marco integral que optimiza la incorporación de Soluciones Industriales (https://learn.microsoft.com/es-es/industry/). Desarrollé una solución completamente integrada dentro del portal de Fabric que proporciona conjuntos empaquetados de recursos adaptados para sectores verticales específicos, incluyendo comercio minorista, manufactura y salud. La solución ofrece esquemas específicos de la industria, pipelines de datos, lógica de transformación y modelos semánticos como aceleradores listos para implementar. Diseñada siguiendo las estrictas directrices del Sistema de Ingeniería de Microsoft para escala, rendimiento, seguridad y mejores prácticas, garantizando confiabilidad de nivel empresarial e integración perfecta con el ecosistema más amplio de Microsoft Fabric. Construida con React, TypeScript, C# y .NET, el marco simplificó flujos de trabajo de datos complejos específicos de la industria en soluciones llave en mano desplegables en organizaciones globales."
       },
       "azure-deployment-accelerator-tui": {
         "title": "Acelerador de Implementación Azure TUI",
@@ -167,6 +167,7 @@
     "close": "Cerrar",
     "downloadResume": "Descargar Currículum",
     "featured": "Destacado",
+    "highlight": "Destacado Principal",
     "loading": "Cargando...",
     "failedToLoad": "Error al cargar",
     "months": {
@@ -275,6 +276,7 @@
     "Multi-Chunk Evaluation": "Evaluación de Múltiples Fragmentos",
     "Human-in-the-Loop Gates": "Compuertas Humano en el Bucle",
     "Cost/Latency Optimization": "Optimización de Costo/Latencia",
-    "Security Risk Analysis": "Análisis de Riesgos de Seguridad"
+    "Security Risk Analysis": "Análisis de Riesgos de Seguridad",
+    "Security Best Practices": "Mejores Prácticas de Seguridad"
   }
 }

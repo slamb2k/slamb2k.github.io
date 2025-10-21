@@ -31,6 +31,7 @@ export interface Project {
   link?: string;
   github?: string;
   featured?: boolean; // Spans multiple columns in grid
+  highlight?: boolean; // Spans all columns with enhanced visual styling
   // description moved to i18n translations
 }
 
@@ -229,9 +230,23 @@ export const portfolioData: PortfolioData = {
       ],
     },
     {
-      id: 'microsoft-fabric-data-solutions',
-      title: 'Microsoft Fabric Data Solutions',
-      technologies: ['C#', 'React', 'TypeScript', 'Azure DevOps', 'Azure Artifacts'],
+      id: 'microsoft-fabric-industry-solutions',
+      title: 'Microsoft Fabric Industry Solutions',
+      featured: true,
+      highlight: true,
+      technologies: [
+        'C#',
+        'React',
+        'TypeScript',
+        '.NET',
+        'Microsoft Fabric',
+        'Industry Solutions',
+        'Azure DevOps',
+        'Azure Artifacts',
+        'Scale Engineering',
+        'Performance Optimization',
+        'Security Best Practices',
+      ],
       link: 'https://fabric.microsoft.com',
     },
     {

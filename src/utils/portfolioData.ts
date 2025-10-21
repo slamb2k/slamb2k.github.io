@@ -28,6 +28,7 @@ export interface ProjectWithTranslation extends Omit<Project, 'title' | 'descrip
   description: string; // Translated description
   technologies: string[];
   featured?: boolean;
+  highlight?: boolean;
   github?: string;
   demo?: string;
   image?: string; // Optional image property for components that need it
@@ -58,6 +59,7 @@ export function getProjectsWithTranslations(t: TFunction): ProjectWithTranslatio
     description: t(`projects.items.${project.id}.description`),
     technologies: project.technologies,
     featured: project.featured,
+    highlight: project.highlight,
     github: project.github,
     link: project.link,
   }));

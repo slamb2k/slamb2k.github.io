@@ -18,25 +18,38 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
       transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
       whileHover={{ scale: 1.02 }}
       className={`group relative p-6 rounded-lg border transition-all duration-300 ${
-        project.featured
-          ? 'border-sky-500/30 hover:border-sky-400/50 bg-sky-950/10 hover:bg-sky-900/20 shadow-lg shadow-sky-500/10'
-          : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
+        project.highlight
+          ? 'border-amber-500/40 hover:border-amber-400/60 bg-gradient-to-br from-amber-950/20 via-sky-950/10 to-amber-950/20 hover:from-amber-900/30 hover:via-sky-900/20 hover:to-amber-900/30 shadow-xl shadow-amber-500/20'
+          : project.featured
+            ? 'border-sky-500/30 hover:border-sky-400/50 bg-sky-950/10 hover:bg-sky-900/20 shadow-lg shadow-sky-500/10'
+            : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
       }`}
     >
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3
             className={`font-semibold group-hover:text-sky-400 transition-colors ${
-              project.featured ? 'text-lg text-slate-100' : 'text-slate-100'
+              project.highlight
+                ? 'text-xl text-slate-100'
+                : project.featured
+                  ? 'text-lg text-slate-100'
+                  : 'text-slate-100'
             }`}
           >
             {project.title}
           </h3>
-          {project.featured && (
-            <span className="inline-block mt-1 px-2 py-0.5 text-xs bg-sky-500/10 text-sky-400 rounded border border-sky-500/20">
-              {t('common.featured')}
-            </span>
-          )}
+          <div className="flex gap-2 mt-1">
+            {project.highlight && (
+              <span className="inline-block px-2 py-0.5 text-xs bg-amber-500/10 text-amber-400 rounded border border-amber-500/30 font-semibold">
+                {t('common.highlight')}
+              </span>
+            )}
+            {project.featured && (
+              <span className="inline-block px-2 py-0.5 text-xs bg-sky-500/10 text-sky-400 rounded border border-sky-500/20">
+                {t('common.featured')}
+              </span>
+            )}
+          </div>
         </div>
         <div className="flex space-x-2">
           {project.github && (
@@ -118,7 +131,16 @@ const ProjectsPage: React.FC = () => {
         {/* Project grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <div key={project.id} className={project.featured ? 'md:col-span-2 lg:col-span-2' : ''}>
+            <div
+              key={project.id}
+              className={
+                project.highlight
+                  ? 'md:col-span-2 lg:col-span-3'
+                  : project.featured
+                    ? 'md:col-span-2 lg:col-span-2'
+                    : ''
+              }
+            >
               <ProjectCard project={project} index={index} t={t} />
             </div>
           ))}
