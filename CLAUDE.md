@@ -151,6 +151,7 @@ This section is automatically managed by devsolo. Last updated: 2025-09-25T18:39
 When working with devsolo workflows, **ALWAYS use slash commands** instead of calling MCP tools directly:
 
 ✅ **CORRECT**: Use `SlashCommand` tool
+
 - `/devsolo:launch` - Start new feature workflow
 - `/devsolo:commit` - Commit changes
 - `/devsolo:ship` - Push, create PR, and merge
@@ -163,12 +164,14 @@ When working with devsolo workflows, **ALWAYS use slash commands** instead of ca
 
 **Why slash commands?**
 Slash commands provide essential context that MCP tools need:
+
 - Load configuration (autoMode, verboseMode) from .devsolo/config.yaml
 - Provide commit message guidance and PR description templates
 - Set up proper workflow context and instructions
 - Ensure consistent behavior across operations
 
 **Exception**: Read-only query tools can be called directly:
+
 - `devsolo_info` - Show current workflow information
 - `devsolo_sessions` - List workflow sessions
 
@@ -189,9 +192,11 @@ if (fs.existsSync('.devsolo/sessions')) {
     const sessionPath = `.devsolo/sessions/${file}`;
     const session = JSON.parse(fs.readFileSync(sessionPath, 'utf-8'));
 
-    if (session.branchName === currentBranch &&
-        session.currentState !== 'COMPLETE' &&
-        session.currentState !== 'ABORTED') {
+    if (
+      session.branchName === currentBranch &&
+      session.currentState !== 'COMPLETE' &&
+      session.currentState !== 'ABORTED'
+    ) {
       // devsolo is active on this branch - MUST use MCP tools
       return 'use-devsolo-mcp';
     }
@@ -204,6 +209,7 @@ return 'use-standard-git';
 ### ⛔ When devsolo Session is Active
 
 If an active session exists for the current branch, **NEVER** use these commands:
+
 - `git commit` → Use `/devsolo:commit` instead
 - `git push` → Use `/devsolo:ship` instead
 - `gh pr create` → Use `/devsolo:ship` instead
@@ -213,6 +219,7 @@ If an active session exists for the current branch, **NEVER** use these commands
 ### ✅ When No Session Exists
 
 If no active session exists for the current branch:
+
 - Safe to use standard git commands
 - Can optionally start devsolo workflow with `/devsolo:launch`
 - Direct git operations won't conflict with devsolo
@@ -220,6 +227,7 @@ If no active session exists for the current branch:
 ### Why This Enforcement?
 
 devsolo maintains a state machine tracking:
+
 - Linear history enforcement
 - Automatic rebasing and conflict resolution
 - PR readiness validation
@@ -279,6 +287,7 @@ For dated snapshots: `repomix-2025-10-09.md`, `export-2025-01-15.md`
 The `/devsolo:docs` slash command has two modes:
 
 **AUDIT MODE** (no arguments): `/devsolo:docs`
+
 - Scans all documentation for naming and placement issues
 - Checks for missing README.md entries
 - Identifies documents that should be archived
@@ -287,6 +296,7 @@ The `/devsolo:docs` slash command has two modes:
 - Reports all findings and actions
 
 **CREATE MODE** (with content): `/devsolo:docs <name> <content>`
+
 - Analyzes your content to determine correct placement
 - Applies naming conventions automatically
 - Updates relevant README.md files
@@ -296,7 +306,9 @@ The `/devsolo:docs` slash command has two modes:
 ### Maintaining READMEs
 
 When adding significant documentation:
+
 1. Create the document in the appropriate folder
 2. Update that folder's README.md with an entry
 3. Link related documents for cross-references
+
 - If we know the MCP server is running old compiled code, and we should use a devsolo feature, first rebuild the code and then allow the user to restart Claude Code.
