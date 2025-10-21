@@ -279,12 +279,41 @@ jobs:
           echo "deployment_url=$(cat deployment-url.txt)" >> $GITHUB_OUTPUT
         id: deploy
 
-      - name: Note about cache
+      - name: Purge Cloudflare cache
         if: success()
         run: |
-          echo "✅ Deployment successful"
-          echo "📝 Note: PDF cache headers are set to 1 hour (3600s)"
-          echo "🔄 New PDF will be available within 1 hour on custom domain"
+          echo "🧹 Purging Cloudflare cache..."
+
+          # Get Cloudflare Zone ID (you'll need to set CLOUDFLARE_ZONE_ID secret)
+          ZONE_ID="${{ secrets.CLOUDFLARE_ZONE_ID }}"
+
+          if [ -z "$ZONE_ID" ]; then
+            echo "⚠️  CLOUDFLARE_ZONE_ID not set - skipping cache purge"
+            echo "To enable cache purging, add CLOUDFLARE_ZONE_ID and CLOUDFLARE_API_TOKEN to GitHub secrets"
+            exit 0
+          fi
+
+          # Purge specific files (recommended - faster and more precise)
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{
+              "files": [
+                "https://simonlamb.codes/Simon%20Lamb%20-%20Professional%20Resume.pdf",
+                "https://www.simonlamb.codes/Simon%20Lamb%20-%20Professional%20Resume.pdf"
+              ]
+            }' \
+            --fail-with-body || {
+              echo "⚠️  Failed to purge specific files, trying full cache purge..."
+              # Fallback to purge everything (use with caution)
+              curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+                -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+                -H "Content-Type: application/json" \
+                --data '{"purge_everything": true}' \
+                --fail-with-body
+            }
+
+          echo "✅ Cloudflare cache purged successfully"
 
       - name: Comment deployment URL on commit
         if: success()
@@ -299,7 +328,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `✅ Successfully deployed to Vercel!\n\n🔗 **Production URL:** ${deploymentUrl}\n📦 **Commit:** ${commitSha}\n⏱️ **Cache:** Updates available within 1 hour`
+              body: `✅ Successfully deployed to Vercel!\n\n🔗 **Production URL:** ${deploymentUrl}\n📦 **Commit:** ${commitSha}\n🧹 **Cache:** Cloudflare cache purged`
             });
 
   deploy-vercel-preview:
