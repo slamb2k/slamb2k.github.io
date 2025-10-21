@@ -99,7 +99,6 @@ export const portfolioData: PortfolioData = {
         'Python',
         'React',
         'TypeScript',
-        'Azure DevOps Extensions',
         'Azure DevOps Extension SDK',
         'REST APIs',
         'Liquid Templates',
@@ -233,7 +232,6 @@ export const portfolioData: PortfolioData = {
       technologies: [
         'React',
         'TypeScript',
-        'Azure DevOps Extensions',
         'Azure DevOps Extension SDK',
         'REST APIs',
         'Liquid Templates',
