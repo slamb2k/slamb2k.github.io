@@ -1,0 +1,46 @@
+version: 1.0.0
+scope: project
+initialized: true
+components:
+  mpcServer: true
+  statusLines: true
+  gitHooks: true
+  gitTemplates: true
+  utilityScripts: true
+preferences:
+  defaultBranchPrefix: feature/
+  autoCleanup: true
+  confirmBeforePush: true
+  colorOutput: true
+  autoMode: false
+  logLevel: warn
+  commitTemplate:
+    body: |-
+      {{description}}
+
+      Changes:
+      {{files}}
+
+      {{stats}}
+    footer: 💥 SHIPPED BY [DEV SOLO](https://github.com/slamb2k/devsolo)
+  prTemplate:
+    body: |-
+      ## Summary
+      {{description}}
+
+      ## Changes
+      {{commits}}
+    footer: >-
+      <br/>
+
+      <pre>
+
+      ········◢█████◣
+        ······◢████████◣
+         ... ◢███████████████████◣    DELIVERED BY <a href="https://github.com/slamb2k/devsolo">DEV SOLO</a>
+         ... ◥███████████████████◤       "Turn the ship around..."
+        ······◥████████◤
+      ········◥█████◤
+
+      </pre>
+installPath: .devsolo
