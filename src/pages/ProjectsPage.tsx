@@ -21,15 +21,19 @@ const ProjectCard: React.FC<{ project: ProjectWithTranslation; index: number; t:
         project.highlight
           ? 'border-amber-500/40 hover:border-amber-400/60 bg-gradient-to-br from-amber-950/20 via-sky-950/10 to-amber-950/20 hover:from-amber-900/30 hover:via-sky-900/20 hover:to-amber-900/30 shadow-xl shadow-amber-500/20'
           : project.featured
-          ? 'border-sky-500/30 hover:border-sky-400/50 bg-sky-950/10 hover:bg-sky-900/20 shadow-lg shadow-sky-500/10'
-          : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
+            ? 'border-sky-500/30 hover:border-sky-400/50 bg-sky-950/10 hover:bg-sky-900/20 shadow-lg shadow-sky-500/10'
+            : 'border-slate-800 hover:border-slate-700 hover:bg-slate-800/50'
       }`}
     >
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3
             className={`font-semibold group-hover:text-sky-400 transition-colors ${
-              project.highlight ? 'text-xl text-slate-100' : project.featured ? 'text-lg text-slate-100' : 'text-slate-100'
+              project.highlight
+                ? 'text-xl text-slate-100'
+                : project.featured
+                  ? 'text-lg text-slate-100'
+                  : 'text-slate-100'
             }`}
           >
             {project.title}
@@ -133,8 +137,8 @@ const ProjectsPage: React.FC = () => {
                 project.highlight
                   ? 'md:col-span-2 lg:col-span-3'
                   : project.featured
-                  ? 'md:col-span-2 lg:col-span-2'
-                  : ''
+                    ? 'md:col-span-2 lg:col-span-2'
+                    : ''
               }
             >
               <ProjectCard project={project} index={index} t={t} />
