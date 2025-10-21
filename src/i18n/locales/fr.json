@@ -92,9 +92,9 @@
         "title": "Plateforme Interne d'Analyse de Code par IA",
         "description": "J'ai construit une plateforme d'analyse de code obligatoire pour Microsoft qui analysait automatiquement les commits et les PR pour détecter les vulnérabilités de sécurité, les problèmes de performance, les violations des meilleures pratiques et les risques de maintenabilité. J'ai intégré des outils d'analyse statique comme CodeQL avec des pipelines RAG avancés pour traiter des millions de lignes de code."
       },
-      "microsoft-fabric-data-solutions": {
-        "title": "Solutions de Données Microsoft Fabric",
-        "description": "Extension de l'interface web Microsoft Fabric pour fournir des accélérateurs et des modèles de solutions offrant des bases structurées pour différents domaines d'affaires et industries, y compris des schémas spécifiques à l'industrie, des pipelines de données, une logique de transformation et des modèles sémantiques."
+      "microsoft-fabric-industry-solutions": {
+        "title": "Solutions Industrielles Microsoft Fabric",
+        "description": "En tant que membre de l'équipe Microsoft Cloud for Industry, j'ai travaillé en étroite collaboration avec l'équipe Microsoft Fabric pour construire un cadre complet optimisant l'intégration des Solutions Industrielles (https://learn.microsoft.com/fr-fr/industry/). J'ai développé une solution entièrement intégrée dans le portail Fabric qui fournit des ensembles de ressources packagées adaptées à des secteurs verticaux spécifiques, notamment la vente au détail, la fabrication et la santé. La solution offre des schémas spécifiques à l'industrie, des pipelines de données, une logique de transformation et des modèles sémantiques en tant qu'accélérateurs prêts à déployer. Conçue en suivant les directives strictes du système d'ingénierie de Microsoft pour l'échelle, la performance, la sécurité et les meilleures pratiques, garantissant une fiabilité de niveau entreprise et une intégration transparente avec l'écosystème Microsoft Fabric plus large. Construite avec React, TypeScript, C# et .NET, le cadre a rationalisé les flux de travail de données complexes spécifiques à l'industrie en solutions clés en main déployables dans les organisations mondiales."
       },
       "azure-deployment-accelerator-tui": {
         "title": "Accélérateur de Déploiement Azure TUI",
@@ -167,6 +167,7 @@
     "close": "Fermer",
     "downloadResume": "Télécharger le CV",
     "featured": "En vedette",
+    "highlight": "Point fort",
     "loading": "Chargement...",
     "failedToLoad": "Échec du chargement",
     "months": {
@@ -275,6 +276,7 @@
     "Multi-Chunk Evaluation": "Évaluation Multi-Chunks",
     "Human-in-the-Loop Gates": "Portes Humain-dans-la-Boucle",
     "Cost/Latency Optimization": "Optimisation Coût/Latence",
-    "Security Risk Analysis": "Analyse des Risques de Sécurité"
+    "Security Risk Analysis": "Analyse des Risques de Sécurité",
+    "Security Best Practices": "Meilleures Pratiques de Sécurité"
   }
 }
