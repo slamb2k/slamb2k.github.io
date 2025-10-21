@@ -47,9 +47,8 @@ const ExperienceCard: React.FC<{
           className={`text-slate-400 mt-2 leading-relaxed ${
             job.featured ? 'text-sm lg:text-base' : 'text-sm'
           }`}
-        >
-          {job.description}
-        </p>
+          dangerouslySetInnerHTML={{ __html: job.description }}
+        />
         <div className="flex flex-wrap gap-2 mt-4">
           {job.technologies.map((tech: string) => (
             <span
