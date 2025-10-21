@@ -1,0 +1,44 @@
+#!/bin/bash
+# devsolo pre-push hook
+# Validates branch state and runs tests before pushing
+
+# Check for active devsolo session on current branch
+CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "")
+SESSION_ID=""
+if [ -d ".devsolo/sessions" ] && [ -n "$CURRENT_BRANCH" ]; then
+  for session_file in .devsolo/sessions/*.json; do
+    [ -f "$session_file" ] || continue
+    BRANCH_NAME=$(jq -r '.branchName // empty' "$session_file" 2>/dev/null)
+    if [ "$BRANCH_NAME" == "$CURRENT_BRANCH" ]; then
+      SESSION_ID=$(basename "$session_file" .json)
+      SESSION_STATE=$(jq -r '.currentState' "$session_file" 2>/dev/null)
+      if [ "$SESSION_STATE" != "COMPLETE" ] && [ "$SESSION_STATE" != "ABORTED" ]; then
+        echo "❌ devsolo session active on this branch!"
+        echo "📝 Use '/devsolo:ship' to push changes"
+        echo "   Or complete the workflow with '/devsolo:ship'"
+        exit 1
+      fi
+      break
+    fi
+  done
+fi
+
+branch=$(git branch --show-current)
+
+if [[ "$branch" == "main" || "$branch" == "master" ]]; then
+  echo "❌ Direct pushes to $branch are not allowed!"
+  exit 1
+fi
+
+# Run tests before pushing
+echo "🧪 Running tests..."
+if npm test > /dev/null 2>&1; then
+  echo "✅ All tests passed"
+else
+  echo "❌ Tests failed!"
+  echo "Run 'npm test' to see failures"
+  exit 1
+fi
+
+echo "✅ Push validation passed"
+exit 0

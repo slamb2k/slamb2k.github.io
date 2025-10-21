@@ -140,49 +140,86 @@ This project follows strict TDD principles from `.cursorrules`:
 - Ensure keyboard navigation functionality
 - Include accessibility tests using axe-core
 
-<!-- BEGIN HAN-SOLO MANAGED SECTION - DO NOT EDIT -->
+<!-- BEGIN DEVSOLO MANAGED SECTION - DO NOT EDIT -->
 
-## 🚀 han-solo Git Workflow Management
+## 🚀 devsolo Git Workflow Management
 
-This section is automatically managed by han-solo. Last updated: 2025-09-27T14:45:00.527Z
+This section is automatically managed by devsolo. Last updated: 2025-09-25T18:39:38.122Z
+
+### IMPORTANT: Always Use Slash Commands for devsolo Operations
+
+When working with devsolo workflows, **ALWAYS use slash commands** instead of calling MCP tools directly:
+
+✅ **CORRECT**: Use `SlashCommand` tool
+- `/devsolo:launch` - Start new feature workflow
+- `/devsolo:commit` - Commit changes
+- `/devsolo:ship` - Push, create PR, and merge
+- `/devsolo:hotfix` - Create emergency hotfix
+- `/devsolo:swap` - Switch between workflow sessions
+- `/devsolo:abort` - Abort current workflow
+- `/devsolo:cleanup` - Clean up expired sessions
+
+❌ **INCORRECT**: Direct MCP tool calls (e.g., `mcp__devsolo__devsolo_launch`)
+
+**Why slash commands?**
+Slash commands provide essential context that MCP tools need:
+- Load configuration (autoMode, verboseMode) from .devsolo/config.yaml
+- Provide commit message guidance and PR description templates
+- Set up proper workflow context and instructions
+- Ensure consistent behavior across operations
+
+**Exception**: Read-only query tools can be called directly:
+- `devsolo_info` - Show current workflow information
+- `devsolo_sessions` - List workflow sessions
 
 ### Workflow Detection
 
-Before performing git operations, check for active han-solo session:
+Before performing git operations, check for active devsolo session on current branch:
 
 ```javascript
-// Check if han-solo is managing current work
-if (fs.existsSync('.hansolo/session.json')) {
-  // han-solo is active - MUST use MCP tools
-  return 'use-hansolo-mcp';
-} else {
-  // No active session - can use standard git
-  return 'use-standard-git';
+// Check if devsolo is managing current branch
+const currentBranch = execSync('git branch --show-current').toString().trim();
+
+// Scan session files to find one matching current branch
+if (fs.existsSync('.devsolo/sessions')) {
+  const files = fs.readdirSync('.devsolo/sessions');
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+
+    const sessionPath = `.devsolo/sessions/${file}`;
+    const session = JSON.parse(fs.readFileSync(sessionPath, 'utf-8'));
+
+    if (session.branchName === currentBranch &&
+        session.currentState !== 'COMPLETE' &&
+        session.currentState !== 'ABORTED') {
+      // devsolo is active on this branch - MUST use MCP tools
+      return 'use-devsolo-mcp';
+    }
+  }
 }
+// No active session on current branch - can use standard git
+return 'use-standard-git';
 ```
 
-### ⛔ When han-solo Session is Active
+### ⛔ When devsolo Session is Active
 
-If `.hansolo/session.json` exists, **NEVER** use these commands:
-
-- `git commit` → Use `/hansolo:ship` instead
-- `git push` → Use `/hansolo:ship --push` instead
-- `gh pr create` → Use `/hansolo:ship --create-pr` instead
-- `git checkout -b` → Use `/hansolo:launch` instead
-- `git rebase` → han-solo handles this automatically
+If an active session exists for the current branch, **NEVER** use these commands:
+- `git commit` → Use `/devsolo:commit` instead
+- `git push` → Use `/devsolo:ship` instead
+- `gh pr create` → Use `/devsolo:ship` instead
+- `git checkout -b` → Use `/devsolo:launch` instead
+- `git rebase` → devsolo handles this automatically
 
 ### ✅ When No Session Exists
 
-If no `.hansolo/session.json` file:
-
+If no active session exists for the current branch:
 - Safe to use standard git commands
-- Can optionally start han-solo workflow with `/hansolo:launch`
-- Direct git operations won't conflict with han-solo
+- Can optionally start devsolo workflow with `/devsolo:launch`
+- Direct git operations won't conflict with devsolo
 
 ### Why This Enforcement?
 
-han-solo maintains a state machine tracking:
-
+devsolo maintains a state machine tracking:
 - Linear history enforcement
 - Automatic rebasing and conflict resolution
 - PR readiness validation
@@ -192,8 +229,74 @@ Direct git operations bypass this state tracking and will cause workflow corrupt
 
 ### Team Collaboration
 
-- **With han-solo**: Follow session-based rules above
-- **Without han-solo**: Use standard git workflow
+- **With devsolo**: Follow session-based rules above
+- **Without devsolo**: Use standard git workflow
 - **Mixed teams**: Both can work simultaneously using session detection
 
-<!-- END HAN-SOLO MANAGED SECTION -->
+<!-- END DEVSOLO MANAGED SECTION -->
+
+## 📚 Documentation Guidelines
+
+When creating or updating documentation, follow the structure defined in `docs/README.md`.
+
+### Folder Structure
+
+- **`docs/guides/`** - User-facing how-to documentation (installation, quickstart, usage, troubleshooting, integrations)
+- **`docs/reference/`** - External references and AI context (cached external docs, repomix snapshots)
+- **`docs/dev/system/`** - Internal system documentation (source of truth for generating user docs)
+- **`docs/dev/plans/`** - Implementation plans, task lists, roadmaps
+- **`docs/dev/reports/`** - Bug reports, reviews, implementation summaries
+- **`docs/dev/learnings/`** - Reusable patterns, strategies, best practices
+- **`docs/specs/`** - Product specifications and design philosophy
+- **`docs/archive/`** - Superseded or historical documentation
+
+### Naming Conventions
+
+Always use **lowercase-with-hyphens.md** format:
+
+```
+✅ CORRECT: quickstart.md, mcp-integration.md, feature-plan.md
+❌ INCORRECT: QuickStart.md, mcp_integration.md, Feature Plan.md
+```
+
+For dated snapshots: `repomix-2025-10-09.md`, `export-2025-01-15.md`
+
+### Placement Rules
+
+**Before creating documentation**, read `docs/README.md` for the complete decision tree. Quick guide:
+
+- **User guides** (how-to for end users) → `docs/guides/`
+- **External references** (cached external docs, repomix snapshots) → `docs/reference/`
+- **Internal system docs** (APIs, commands, config schema) → `docs/dev/system/`
+- **Implementation plans** → `docs/dev/plans/`
+- **Bug reports, reviews** → `docs/dev/reports/`
+- **Patterns, learnings** → `docs/dev/learnings/`
+- **Product specs** → `docs/specs/`
+- **Completed/superseded docs** → `docs/archive/`
+
+### Using the /devsolo:docs Command
+
+The `/devsolo:docs` slash command has two modes:
+
+**AUDIT MODE** (no arguments): `/devsolo:docs`
+- Scans all documentation for naming and placement issues
+- Checks for missing README.md entries
+- Identifies documents that should be archived
+- Offers to fix issues automatically
+- Updates all README.md files
+- Reports all findings and actions
+
+**CREATE MODE** (with content): `/devsolo:docs <name> <content>`
+- Analyzes your content to determine correct placement
+- Applies naming conventions automatically
+- Updates relevant README.md files
+- Archives superseded documents
+- Reports all actions taken
+
+### Maintaining READMEs
+
+When adding significant documentation:
+1. Create the document in the appropriate folder
+2. Update that folder's README.md with an entry
+3. Link related documents for cross-references
+- If we know the MCP server is running old compiled code, and we should use a devsolo feature, first rebuild the code and then allow the user to restart Claude Code.

@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, ImgHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import CodeBlock from './CodeBlock';
+import Gist from './Gist';
 
 interface CodeProps extends HTMLAttributes<HTMLElement> {
   className?: string;
@@ -124,6 +125,7 @@ const MDXComponents = {
       {children}
     </em>
   ),
+  Gist,
 };
 
 export default MDXComponents;

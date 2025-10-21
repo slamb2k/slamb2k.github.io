@@ -1,0 +1,55 @@
+#!/bin/bash
+# devsolo pre-commit hook
+# Enforces workflow and runs quality checks
+
+# Check for active devsolo session on current branch
+CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "")
+SESSION_ID=""
+if [ -d ".devsolo/sessions" ] && [ -n "$CURRENT_BRANCH" ]; then
+  for session_file in .devsolo/sessions/*.json; do
+    [ -f "$session_file" ] || continue
+    BRANCH_NAME=$(jq -r '.branchName // empty' "$session_file" 2>/dev/null)
+    if [ "$BRANCH_NAME" == "$CURRENT_BRANCH" ]; then
+      SESSION_ID=$(basename "$session_file" .json)
+      SESSION_STATE=$(jq -r '.currentState' "$session_file" 2>/dev/null)
+      if [ "$SESSION_STATE" != "COMPLETE" ] && [ "$SESSION_STATE" != "ABORTED" ]; then
+        echo "❌ devsolo session active on this branch!"
+        echo "📝 Use '/devsolo:commit' to commit changes"
+        echo "   Or use '/devsolo:abort' to exit the workflow"
+        exit 1
+      fi
+      break
+    fi
+  done
+fi
+
+# Prevent direct commits to main/master branches
+branch=$(git branch --show-current)
+if [[ "$branch" == "main" || "$branch" == "master" ]]; then
+  echo "❌ Direct commits to $branch are not allowed!"
+  echo "Use '/devsolo:launch' to create a feature branch"
+  exit 1
+fi
+
+# Run linting (fail on errors only, not warnings)
+echo "🔍 Running linter..."
+lint_output=$(npm run lint 2>&1)
+if echo "$lint_output" | grep -qE "✖ [0-9]+ problems \([1-9][0-9]* error"; then
+  echo "❌ Lint check failed with errors!"
+  echo "Run 'npm run lint' to see errors"
+  exit 1
+else
+  echo "✅ Lint check passed"
+fi
+
+# Run type checking
+echo "🔍 Running type check..."
+if npm run build > /dev/null 2>&1; then
+  echo "✅ Type check passed"
+else
+  echo "❌ Type check failed!"
+  echo "Run 'npm run build' to see errors"
+  exit 1
+fi
+
+exit 0
