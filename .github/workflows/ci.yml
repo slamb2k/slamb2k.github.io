@@ -279,19 +279,12 @@ jobs:
           echo "deployment_url=$(cat deployment-url.txt)" >> $GITHUB_OUTPUT
         id: deploy
 
-      - name: Purge PDF cache
+      - name: Note about cache
         if: success()
         run: |
-          echo "Purging PDF cache from Vercel CDN..."
-          curl -X POST "https://api.vercel.com/v1/purge?slug=slamb2k-github-io" \
-            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "paths": [
-                "/Simon Lamb - Professional Resume.pdf"
-              ]
-            }'
-          echo "Cache purge completed"
+          echo "✅ Deployment successful"
+          echo "📝 Note: PDF cache headers are set to 1 hour (3600s)"
+          echo "🔄 New PDF will be available within 1 hour on custom domain"
 
       - name: Comment deployment URL on commit
         if: success()
@@ -306,7 +299,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: context.sha,
-              body: `✅ Successfully deployed to Vercel!\n\n🔗 **Production URL:** ${deploymentUrl}\n📦 **Commit:** ${commitSha}\n🧹 **Cache:** PDF cache purged`
+              body: `✅ Successfully deployed to Vercel!\n\n🔗 **Production URL:** ${deploymentUrl}\n📦 **Commit:** ${commitSha}\n⏱️ **Cache:** Updates available within 1 hour`
             });
 
   deploy-vercel-preview:
