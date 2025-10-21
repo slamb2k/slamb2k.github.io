@@ -300,9 +300,16 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: 'about-me',
-      title: 'About.me Portfolio',
+      title: 'simonlamb.codes - Blog and Bio',
       technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
       github: 'https://github.com/slamb2k/about.me',
+    },
+    {
+      id: 'devsolo',
+      title: 'devsolo - Linear History Plugin and MCP',
+      featured: true,
+      technologies: ['Claude Code', 'MCP', 'TypeScript', 'Git Automation', 'GitHub API'],
+      github: 'https://github.com/slamb2k/devsolo',
     },
     {
       id: 'glam-mcp',
