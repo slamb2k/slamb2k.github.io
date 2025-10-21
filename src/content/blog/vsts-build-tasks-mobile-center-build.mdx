@@ -48,8 +48,19 @@ Looking into the waiting for completion code we use promises to delay for a wait
 
 Once we're complete we simply download the build output and save it to the working directory:
 
-<Gist url="https://gist.github.com/slamb2k/28f1b8ff910ea9051f5d541199e86d62" /> This does everything I want to do in order to retrieve the build output but next I wanted to put together some continuous integration for the actual build task and get some unit testing / code coverage in place. Enter VSTS. ![Vsts Build Tasks Mobile Center Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196866-4.jpg) My goal was to configure a build pipeline to show code coverage and support my lofty goal for 100% coverage. In order to do that I used instanbul as discussed in Donovan Brown's post and was able to execute that locally. That produces a beautiful html based report to show coverage. ![Vsts Build Tasks Mobile Center Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196897-5.jpg)
-![Vsts Build Tasks Mobile Center Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196922-6.jpg) I also wanted to see the coverage in the VSTS build pipeline so I put another script in the package.json to allow the production of a Cobertura formatted coverage results that VSTS understands.
+<Gist url="https://gist.github.com/slamb2k/28f1b8ff910ea9051f5d541199e86d62" /> This does everything
+I want to do in order to retrieve the build output but next I wanted to put together some continuous
+integration for the actual build task and get some unit testing / code coverage in place. Enter
+VSTS. ![Vsts Build Tasks Mobile Center
+Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196866-4.jpg) My goal was to
+configure a build pipeline to show code coverage and support my lofty goal for 100% coverage. In
+order to do that I used instanbul as discussed in Donovan Brown's post and was able to execute that
+locally. That produces a beautiful html based report to show coverage. ![Vsts Build Tasks Mobile
+Center Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196897-5.jpg) ![Vsts Build
+Tasks Mobile Center Build](/images/blog/vsts-build-tasks-mobile-center-build-1758985196922-6.jpg) I
+also wanted to see the coverage in the VSTS build pipeline so I put another script in the
+package.json to allow the production of a Cobertura formatted coverage results that VSTS
+understands.
 
 <Gist url="https://gist.github.com/slamb2k/2af2bca340c431a4c7b0919b009d68f1" />
 

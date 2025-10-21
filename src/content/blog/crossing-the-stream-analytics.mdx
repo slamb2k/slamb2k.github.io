@@ -42,4 +42,10 @@ Luckily I found this great [TechNet](https://social.technet.microsoft.com/wiki/c
 The Logic App then looked like this: ![Crossing The Stream Analytics](/images/blog/crossing-the-stream-analytics-1758985195264-7.png) Note that we had to wrap the content in another JSON element as the Azure Function expects valid JSON to be passed to it. We could then finally insert the data into the table in our Azure SQL database.
 ![Crossing The Stream Analytics](/images/blog/crossing-the-stream-analytics-1758985195288-8.png) Unfortunately, the **_AVG_** value from our stream analytics output isn't available in the designer so we have to go to the code view and update the HappinessScore by adding the _**"@\{body('CleanGarbage').avg\}"**_ function explicitly. It will then reflect in the designer view:
 
-<Gist url="https://gist.github.com/slamb2k/d7f4b0085c67e273c3077741d57cf500" /> With the data in the database we could then spin up our Power BI Embedded dashboard and view the Happiness trend over time. ![Crossing The Stream Analytics](/images/blog/crossing-the-stream-analytics-1758985195313-9.png) While the scenario being discussed here was specific I hope that helps some other people out there when they want to process the same kind of information as I did. If I make just a few other people's life easier it would have been worth it...
+<Gist url="https://gist.github.com/slamb2k/d7f4b0085c67e273c3077741d57cf500" /> With the data in the
+database we could then spin up our Power BI Embedded dashboard and view the Happiness trend over
+time. ![Crossing The Stream
+Analytics](/images/blog/crossing-the-stream-analytics-1758985195313-9.png) While the scenario being
+discussed here was specific I hope that helps some other people out there when they want to process
+the same kind of information as I did. If I make just a few other people's life easier it would have
+been worth it...
